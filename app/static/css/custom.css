@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'Six Caps';
+    src: url('../fonts/SixCaps-Regular.ttf'),
+}
+
+
+
+#header {
+    position: absolute;
+    width: 100%;
+    top: calc(100% - 65px);
+    left: 0;
+}
+
+#header .header-btn-collapse-nav {
+    margin-top: 4px;
+}
+
+#header .container {
+    width: 100%;
+}
+
+#header .header-body {
+    background: transparent;
+    border-top: 0;
+    border-bottom: 0;
+    min-height: 0;
+}
+
+#header .header-container {
+    min-height: 60px;
+}
+
+#header .header-nav {
+    padding: 0;
+}
+
+#header .header-nav-main:before {
+    content: none;
+}
+
+#header .header-nav-main nav > ul > li > a {
+    position: relative;
+    background: transparent !important;
+    font-size: 13.6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: #FFF !important;
+    transition: ease color 300ms;
+}
+
+@media (min-width: 992px) and (max-width: 1060px) {
+    #header .header-nav-main nav > ul > li > a {
+        padding: 27px 7px;
+    }
+}
+
+@media (min-width: 1061px) and (max-width: 1199px) {
+    #header .header-nav-main nav > ul > li > a {
+        padding: 27px 10px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #header .header-nav-main nav > ul > li > a {
+        padding: 27px 16px;
+    }
+}
+
+#header .header-nav-main nav > ul > li > a.active:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom: 3px solid #333333;
+    width: 100%;
+    color: #FFF;
+}
+
+@media (max-width: 991px) {
+    #header .header-nav-main nav > ul > li > a.active:before {
+        bottom: 0;
+        border-width: 2px;
+    }
+}
+
+#header .header-nav-main nav > ul li {
+    border-bottom: 0;
+}
+
+html.sticky-header-active #header .header-body {
+    background: linear-gradient(to right, #ed9030, #e98135 10%, #e27336 20%, #c64d40 30%, #a42a44 40%, #5f003f 50%, 
+        #52003b 60%, #360031 70%, #29002b 80%, #200021 90%, #200021);
+    border-bottom-color: #333940;
+    transition: ease color 300ms;
+}
+
+@media (max-width: 991px) {
+    html:not(.sticky-header-active) #header .header-body {
+        background: linear-gradient(to right, #ed9030, #e98135 10%, #e27336 20%, #c64d40 30%, #a42a44 40%, #5f003f 50%, 
+                #52003b 60%, #360031 70%, #29002b 80%, #200021 90%, #200021);
+        border-bottom-color: #ca3352;
+        border-bottom-width: 1px;
+        transition: ease color 300ms;
+    }
+}
+
+@media (min-width: 992px) {
+    #header .header-nav-main nav > ul > li > a {
+        height: 100%;
+    }
+    #header .header-nav-main nav > ul > li > a.active {
+        color: #fff;
+    }
+    #header .header-nav-main nav > ul > li:hover > a, #header .header-nav-main nav > ul > li.open > a {
+        color: #fff;
+    }
+}
+
+
+.slogan {
+    text-transform: uppercase;
+    font-family: 'Six Caps';
+    letter-spacing: 1px;
+}
+
+.invert{
+    color: #febc6d;
+}
