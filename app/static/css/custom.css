@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Six Caps';
-    src: url('../fonts/SixCaps-Regular.ttf'),
+    src: url('../fonts/SixCaps-Regular.ttf') format('truetype');
 }
 
 
