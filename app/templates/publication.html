@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Publication{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark">Publication</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Register</li>
+                    <li class="active">Publication</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container pt-2 pb-4">
+    <div class="row py-5 my-5">
+        <div class="col-md-6 mb-5 mb-md-0">
+            <p>All research papers will be single-blinded peer-reviewed and published in the conference proceedings, regardless the presentation form (full oral presentation or short oral presentation + poster). </p>
+            <p>Some papers with high-quality will be selected for submitting an extended version on Special Issues indexed journals such as Journal of Building Performance Simulation, Sustainable Cities and Society, Applied Energy and Building Simulation.</p>
+            <p>Any updates about our current plan will be released through newsletter.</p>
+        </div>
+
+        <div class="col-md-6 text-center text-md-start">
+            <div class="owl-carousel owl-theme nav-style-1 nav-center-images-only stage-margin mb-0" data-plugin-options="{'responsive': {'576': {'items': 1}, '768': {'items': 1}, '992': {'items': 2}, '1200': {'items': 2}}, 'margin': 25, 'loop': false, 'nav': true, 'dots': false, 'stagePadding': 40}">
+                <div>
+                    <img class="img-fluid rounded-0 mb-3" src="static/img/publication-bps.jpg" alt="Journal of Building Performance Simulation" />
+                    <h3 class="font-weight-semibold text-color-dark text-4 mb-0">Journal of Building Performance Simulation</h3>
+                    <p class="text-2 mb-0">Taylor & Francis &copy IF 2.97</p>
+                </div>
+                <div>
+                    <img class="img-fluid rounded-0 mb-3" src="static/img/publication-ae.jpg" alt="Applied Energy" />
+                    <h3 class="font-weight-semibold text-color-dark text-4 mb-0">Applied Energy</h3>
+                    <p class="text-2 mb-0">Elsevier &copy IF 9.746</p>
+                </div>
+                <div>
+                    <img class="img-fluid rounded-0 mb-3" src="static/img/publication-scc.jpg" alt="Sustainable Cities and Society" />
+                    <h3 class="font-weight-semibold text-color-dark text-4 mb-0">Sustainable Cities and Society</h3>
+                    <p class="text-2 mb-0">Elsevier &copy IF 5.268</p>
+                </div>
+                <div>
+                    <img class="img-fluid rounded-0 mb-3" src="static/img/publication-bs.jpg" alt="Building Simulation" />
+                    <h3 class="font-weight-semibold text-color-dark text-4 mb-0">Building Simulation</h3>
+                    <p class="text-2 mb-0">Springer &copy IF 3.68</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

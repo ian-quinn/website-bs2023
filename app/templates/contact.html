@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark"><strong>Contact</strong> / FAQ</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">About</li>
+                    <li class="active">Contact</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-4">
+
+    <div class="row">
+        <p class="text-4">Please check the following frequently asked questions for quick answers. If you have any doubts, please contact us without hesitation. We will replay to you as soon as possible.</p>
+
+        <div class="toggle toggle-primary m-0" data-plugin-toggle>
+            <section class="toggle">
+                <a class="toggle-title">What is the quarantine policy in Shanghai?</a>
+                <div class="toggle-content">
+                    <p>The policy depends on the domestic COVID-19 situation, but with the increasing vaccination rate and the decreasing toxicity, it is optimistic to have a face-to-face conference at the minimum quarantine cost. Currently, any passengers to China will be required to present a negative result of antigen, on top of green health codebefore check-in or boarding. Shanghai is still under the 14+7 mode that mandates a 14-day hotel quarantine, and a further 7-day health monitoring period (when people can go out but are required to avoid social gatherings and to report their health conditions regularly by WeChat). This is the worst situation. The BS2023 is highly possible to host offline, in light of many on-goning international conferences in China. Please follow the <a href="http://www.china-embassy.org/eng/lsfw/sjc1/zytz_120351/202203/t20220307_10648507.htm">PRC Embassy website</a> for the updated policy, or check the special column <a href="#">COVID-19</a> for our backup plans.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">How can I contribute to the student competition?</a>
+                <div class="toggle-content">
+                    <p>It could be in many forms. (1) Now the competition is still open for innovative projects envolving simulation techniques and cooperations. We are looking for a traditional building performance simulation topic, or a project on big data modeling. There may be a Hackathon as well for developers in the industry. (2) Tutors at university are welcome to enroll the competition into their curriculums. (3) The competition has warmup workshops at the start, which will recruit students without a group to get a better enrollment. Check this page for our detailed plan: <a href="#">Student Competition</a>.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">...</a>
+            </section>
+        </div>
+    </div>
+</div>
+
+<hr class="solid my-3">
+
+<div class="container">
+    <div class="row py-4">
+        <div class="col-lg-6">
+            <h4 class="mt-2 mb-1">Contact</h4>
+            <ul class="list list-icons list-icons-style-2 mt-2">
+                <li><i class="fas fa-map-marker-alt"></i>1239 Siping Road, Shanghai, China</li>
+                <li><i class="fas fa-envelope"></i>
+                    <a href="mailto:info@bs2023.org">info@bs2023.org</a> (general information)<br>
+                    <a href="mailto:sponsor@bs2023.org">sponsor@bs2023.org</a> (sponsorship affairs)<br>
+                    <a href="mailto:student@bs2023.org">student@bs2023.org</a> (student competition)
+                </li>
+                <li><i class="fab fa-facebook-f"></i><a href="#">@</a>bs2023</li>
+                <li><i class="fab fa-twitter"></i><a href="#">@</a>bs2023shanghai</li>
+                <li><i class="fab fa-linkedin-in"></i><a href="#">@</a>bs2023</li>
+                <li><i class="fab fa-weixin"></i><a href="#">@</a>gh_eeb4730efef9</li>
+            </ul>
+            <h4 class="mt-4 mb-2">Working hours</h4>
+            <p class="mb-0 text-3">9am-12am GMT+8, Monday-Friday in preparation phrase till Septemper 1st, 2022. If you have problem in contact with us, please leave a message and check the subscription box for our monthly newsletter!😀</p>
+
+        </div>
+        <div class="col-lg-6">
+            <h4 class="mt-2 mb-1">Leave a message</h4>
+            <form class="contact-form" action="" method="POST">
+                <div class="contact-form-success alert alert-success d-none mt-1">
+                    <strong>Success!</strong> Your message has been sent to us.
+                </div>
+                <div class="contact-form-error alert alert-danger d-none mt-1">
+                    <strong>Error!</strong> There was an error sending your message.
+                    <span class="mail-error-message text-1 d-block"></span>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label class="form-label mb-1 text-2">First Name</label>
+                        <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control text-3 h-auto py-2" name="name" required>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label class="form-label mb-1 text-2">Last Address</label>
+                        <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control text-3 h-auto py-2" name="email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="form-label mb-1 text-2">Email</label>
+                        <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="form-control text-3 h-auto py-2" name="subject" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label class="form-label mb-1 text-2">Message</label>
+                        <textarea maxlength="5000" data-msg-required="Please enter your message." rows="7" class="form-control text-3 h-auto py-2" name="message" required></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-4">
+                        <input type="submit" value="Send Message" class="btn btn-primary btn-modern btn-sm" data-loading-text="Loading...">
+                    </div>
+                    <div class="form-group col-8">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" name="agree" id="tabContent9Checkbox">
+                            <label class="form-check-label" for="tabContent9Checkbox">
+                                Subscribe to the BS2023 mailing list!
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1885,7 +1885,7 @@ html .btn-with-arrow.btn-primary.btn-outline {
 }
 
 html .btn-with-arrow.btn-primary.btn-outline:hover span {
-	background-color: #0099e6 !important;
+	background-color: #ed4a67 !important;
 	box-shadow: none;
 }
 
@@ -6574,8 +6574,8 @@ html .call-to-action.call-to-action-light p {
 
 section.timeline .timeline-box.left:before,
 section.timeline .timeline-box.right:before {
-	background: #CA3352;
-	box-shadow: 0 0 0 3px #FFF, 0 0 0 6px #CA3352;
+	background: #c1c1c1;
+	box-shadow: 0 0 0 3px #FFF, 0 0 0 6px #c1c1c1;
 }
 
 ul.history li .featured-box .box-content {

@@ -20,67 +20,81 @@ from app import app, db
 @app.route('/')
 @app.route('/index')
 def index():
-    papers = Paper.query.filter_by(category = 1).order_by(Paper.date.desc()).limit(5).all()
-    newss = News.query.order_by(News.date.desc()).limit(5).all()
-    return render_template('index.html', title='Home', papers=papers, newss=newss)
-# @login_required
+    return render_template('index.html')
 
-def get_locale():
-    if current_user.is_authenticated and current_user.locale is not None:
-        return current_user.locale
+# Submit region
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html')
 
-    locale = request.cookies.get('locale')
-    if locale is not None:
-        return locale
-    return request.accept_languages.best_match(current_app.config['LOCALES'])
+@app.route('/submit')
+def submit():
+    return render_template('submit.html')
 
+@app.route('/publication')
+def publication():
+    return render_template('publication.html')
 
-@app.route('/set_locale/<locale>')
-def set_locale(locale):
-    if locale not in current_app.config['LOCALES']:
-        return jsonify(message='Invalid locale.'), 404
-    response = make_response(redirect(request.referrer))
-    if current_user.is_authenticated:
-        current_user.locale = locale
-        db.session.commit()
-    else:
-        response.set_cookie('locale', locale, max_age= 60*60*24*30)
-    return response
+# Program region
+@app.route('/theme')
+def theme():
+    return render_template('theme.html')
 
+# Event region
+@app.route('/awards')
+def awards():
+    return render_template('awards.html')
 
-@app.route('/download')
-def bookshelf():
-    #list = os.listdir(app.config['BOOKSHELF_PATH'])
-    files = File.query.all()
-    document = File.query.filter_by(category=1).order_by(File.name.desc()).all()
-    package = File.query.filter_by(category=2).order_by(File.name.desc()).all()
-    video = File.query.filter_by(category=3).order_by(File.name.desc()).all()
-    miscs = File.query.filter_by(category=0).order_by(File.name.desc()).all()
-    return render_template('bookshelf.html', files=files, document=document, package=package, video=video, miscs=miscs)
+# Sponsor region
+@app.route('/sponsors')
+def sponsors():
+    return render_template('sponsors.html')
 
+@app.route('/contribute')
+def contribute():
+    return render_template('contribute.html')
 
-@app.route('/download/<int:file_id>/delete', methods=['POST'])
-def delete_file(file_id):
-    file = File.query.get_or_404(file_id)
-    file_path = os.path.join(app.config['BOOKSHELF_PATH'], file.link)
-    if os.path.exists(file_path):
-        os.remove(file_path)
-    db.session.delete(file)
-    db.session.commit()
-    flash('File deleted.', 'danger')
-    return redirect(url_for('bookshelf'))
+# About region
+@app.route('/ibpsa')
+def ibpsa():
+    return render_template('ibpsa.html')
 
+@app.route('/committee')
+def committee():
+    return render_template('committee.html')
 
-@app.route('/download/<int:file_id>/download', methods=['GET', 'POST'])
-def download(file_id):
-    file = File.query.get_or_404(file_id)
-    uploads = os.path.join(current_app.root_path, app.config['BOOKSHELF_PATH'])
-    return send_from_directory(directory=uploads, filename=file.link, as_attachment=True, attachment_filename="%s" % file.name)
+@app.route('/newsletter')
+def newsletter():
+    return render_template('newsletter.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 
-@app.route('/download/<int:file_id>/block', methods=['GET', 'POST'])
-def block(file_id):
-    file = File.query.get_or_404(file_id)
-    file.islocked = not file.islocked
-    db.session.commit()
-    return redirect(url_for('bookshelf'))
+
+# @app.route('/download/<int:file_id>/delete', methods=['POST'])
+# def delete_file(file_id):
+#     file = File.query.get_or_404(file_id)
+#     file_path = os.path.join(app.config['BOOKSHELF_PATH'], file.link)
+#     if os.path.exists(file_path):
+#         os.remove(file_path)
+#     db.session.delete(file)
+#     db.session.commit()
+#     flash('File deleted.', 'danger')
+#     return redirect(url_for('bookshelf'))
+
+
+# @app.route('/download/<int:file_id>/download', methods=['GET', 'POST'])
+# def download(file_id):
+#     file = File.query.get_or_404(file_id)
+#     uploads = os.path.join(current_app.root_path, app.config['BOOKSHELF_PATH'])
+#     return send_from_directory(directory=uploads, filename=file.link, as_attachment=True, attachment_filename="%s" % file.name)
+
+
+# @app.route('/download/<int:file_id>/block', methods=['GET', 'POST'])
+# def block(file_id):
+#     file = File.query.get_or_404(file_id)
+#     file.islocked = not file.islocked
+#     db.session.commit()
+#     return redirect(url_for('bookshelf'))

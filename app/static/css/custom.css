@@ -129,3 +129,28 @@ html.sticky-header-active #header .header-body {
 .invert{
     color: #febc6d;
 }
+
+.committee-list td {
+    padding-left: 20px;
+}
+.committee-list tr {
+    border-left: 2px solid #eee;
+}
+
+/* ###########################   People style   ########################## */
+/* ####################################################################### */
+
+.img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* base.html refinement */
+.img-box img {
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%
+}

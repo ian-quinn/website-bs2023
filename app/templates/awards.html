@@ -1,0 +1,293 @@
+{% extends 'base.html' %}
+{% block title %}Awards{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark">Awards</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Events</li>
+                    <li class="active">Awards</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container pt-2 pb-4">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-lg-3 col-md-4 img-box" style="max-height: 300px;">
+                        <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid rounded-start" alt="nominee">
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title">🎖️ Distinguished Achievement Award</h4>
+                            <h5 class="card-subtitle mb-2 text-muted">Nominations awaiting</h5>
+                            <p class="card-text">This award, formerly named the IBPSA Award for Distinguished Service to Building Simulation, recognizes an individual who has a distinguished record of contributions to the field of building performance simulation, over a long period.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-lg-3 col-md-4 img-box" style="max-height: 300px;">
+                        <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid rounded-start" alt="nominee">
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title">🎖️ Outstanding Young Contributor Award</h4>
+                            <h5 class="card-subtitle mb-2 text-muted">Nominations awaiting</h5>
+                            <p class="card-text">This award recognizes an individual at the beginning of their career who has demonstrated potential for significant contributions to the field of building performance simulation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-lg-3 col-md-4 img-box" style="max-height: 300px;">
+                        <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid rounded-start" alt="nominee">
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title">🎖️ Innovative Application Award</h4>
+                            <h5 class="card-subtitle mb-2 text-muted">Nominations awaiting</h5>
+                            <p class="card-text">This award, formerly named the IBPSA Award for Distinguished Practice, recognizes an individual, recognizes an individual, group or firm, who has made a significant contribution to the effective application and/or advancement of building performance simulation in practice.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="mt-5">Students</h2>
+            <p>BS 2023 will continue to award students with excellent work in building simulation. Nominations still awaiting for the Travel Award, please check the official <a href="http://www.ibpsa.org/?page_id=62#student">website</a> of IBPSA for further information. The details of the student modeling competition and the best paper award will come soon.</p>
+
+            <div class="card-group">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Travel Award</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Competition Winner</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Best Paper</h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <h2 class="mt-5">IBPSA-Fellow</h2>
+            <p>The grade of IBPSA fellow is awarded to members who have attained distinction in the field of building performance simulation (or in the allied arts or sciences), by either the teaching of major courses in said arts and sciences, or by way of research, simulation code development, original work, or the application of building simulation on projects of a significant scope. The individual must have been active in the field for at least ten years.</p>
+            <p>Check <a href="http://www.ibpsa.org/?page_id=310">here</a> for the nominations of the upcoming biennial awarding.</p>
+
+            <div class="row portfolio-list mt-4 pt-2">
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Nominee</span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Nominee</span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Nominee</span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Nominee</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Nominee</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Nominee</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Nominee</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Nominee</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Nominee</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Nominee</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Nominee</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.jpg') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Nominee</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

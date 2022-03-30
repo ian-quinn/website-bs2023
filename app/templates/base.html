@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+
+        <title>BS2023 - {% block title %}{% endblock %}</title>
+
+        <meta name="keywords" content="BS2023, IBPSA, Building simulation, Shanghai, China, Paper, Abstract, International conference, Tongji University" />
+        <meta name="description" content="The 18th building simulation conference and exibition">
+        <meta name="author" content="IBPSA-China">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+        <!-- Web Fonts  -->
+        <link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CShadows+Into+Light&display=swap" rel="stylesheet" type="text/css">
+
+        <!-- Vendor CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='vendor/owl.carousel/assets/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='vendor/owl.carousel/assets/owl.theme.default.min.css') }}">
+
+        <!-- Theme CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/theme-elements.css') }}">
+
+        <!-- Skin CSS -->
+        <link id="skinCSS" rel="stylesheet" href="{{ url_for('static', filename='css/skin-default.css') }}">
+
+        <!-- Theme Custom CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+        <!-- Current Page CSS -->
+        {% block styles %}{% endblock %}}
+
+        <!-- Head Libs -->
+        <script src="{{ url_for('static', filename='vendor/modernizr/modernizr.min.js') }}"></script>
+    </head>
+
+    <body data-plugin-page-transition>
+        <div class="body">
+            <header id="header">
+                <div class="header-body border-top-0 box-shadow-none">
+                    <div class="header-container header-container-md container">
+                        <div class="header-row">
+                            <div class="header-column">
+                                <div class="header-row">
+                                    <div class="header-logo">
+                                        <a href="index.html"><img alt="BS2023" width="100" height="40" data-sticky-width="82" data-sticky-height="40" data-sticky-top="0" src="{{ url_for('static', filename='img/title.svg') }}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-column justify-content-end">
+                                <div class="header-row">
+                                    <div class="header-nav header-nav-line header-nav-bottom-line header-nav-bottom-line-no-transform header-nav-bottom-line-active-text-dark header-nav-bottom-line-effect-1 order-2 order-lg-1">
+                                        <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders 
+                                        header-nav-main-effect-2 header-nav-main-sub-effect-1" style="margin-right: -13px;">
+                                            <nav class="collapse">
+                                                <ul class="nav nav-pills" id="mainNav">
+                                                    <li><a class="dropdown-item dropdown-toggle" href="{{ url_for('index') }}">Home</a></li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle" href="#">Register</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="{{ url_for('timeline') }}">Timeline</a></li>
+                                                            <li><a class="dropdown-item" href="{{ url_for('submit') }}">Submit <strong>Abstract</strong></a></li>
+                                                            <li><a class="dropdown-item">Register (WIP)</a></li>
+                                                            <li><a class="dropdown-item" href="{{ url_for('publication') }}">Publication</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle" href="#">Program</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="{{ url_for('theme') }}">Themes</a></li>
+                                                            <li><a class="dropdown-item">Keynotes (WIP)</a></li>
+                                                            <li><a class="dropdown-item">Program Book (WIP)</a></li>
+                                                            <li><a class="dropdown-item">Exibition (WIP)</a></li>
+                                                            <li><a class="dropdown-item">Workshops (WIP)</a></li>
+                                                            <li><a class="dropdown-item">Technical Tours (WIP)</a></li>
+                                                            <li><a class="dropdown-item">Student Competition (WIP)</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle" href="#">Events</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item">Reception (WIP)</a></li>
+                                                            <li><a class="dropdown-item" href="{{ url_for('awards') }}">Awards</a></li>
+                                                            <li><a class="dropdown-item">River Cruise (WIP)</a></li>
+                                                            <li><a class="dropdown-item">Student Events (WIP)</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle" href="#">Guide</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item">Meet Shanghai! (WIP)</a></li>
+                                                            <li><a class="dropdown-item">Venues (WIP)</a></li>
+                                                            <li><a class="dropdown-item">Accomodation (WIP)</a></li>
+                                                            <li><a class="dropdown-item">Traveling (WIP)</a></li>
+                                                            <li><a class="dropdown-item">VISA Requirements (WIP)</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a class="dropdown-item dropdown-toggle">COVID-19</a></li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle" href="#">Sponsor</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="{{ url_for('sponsors') }}">Our Sponsors</a></li>
+                                                            <li><a class="dropdown-item" href="{{ url_for('contribute') }}">Become a Sponsor</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle" href="#">About</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="{{ url_for('ibpsa') }}">IBPSA</a></li>
+                                                            <li><a class="dropdown-item" href="{{ url_for('committee') }}">Committe</a></li>
+                                                            <li><a class="dropdown-item" href="{{ url_for('newsletter') }}">Newsletter</a></li>
+                                                            <li><a class="dropdown-item" href="{{ url_for('contact') }}">Contact / FAQ</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                        <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
+                                            <i class="fas fa-bars"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div role="main" class="main">
+
+            {% block content %}{% endblock %} 
+
+            <footer id="footer">
+                <div class="footer-copyright">
+                    <div class="container">
+                        <div class="row py-4">
+                            <div class="col-lg-1 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0">
+                                <a href="index.html" class="pe-0 pe-lg-3">
+                                    <img alt="IBPSA" src="{{ url_for('static', filename='img/ibpsa-white.svg') }}" height="64">
+                                </a>
+                            </div>
+                            <div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
+                                <p><strong>IBPSA-China</strong> © Copyright 2022. All Rights Reserved.</p>
+                            </div>
+                            <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
+                                <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=Pxd2LtGqqHYSwt0iew9iZ7KUk4p5ZQtTZ3LS4tKvgGHivu1OwNQWctrbE0xJ"></script></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Vendor -->
+        <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/jquery.validation/jquery.validate.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/jquery.gmap/jquery.gmap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+
+        <!-- Theme Base, Components and Settings -->
+        <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+
+        <!-- Theme Custom -->
+        <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+        <!-- Theme Initialization Files -->
+        <script src="{{ url_for('static', filename='js/theme.init.js') }}"></script>
+
+        <!-- Page Custom Scripts -->
+        {% block scripts %}{% endblock %}
+
+    </body>
+</html>
