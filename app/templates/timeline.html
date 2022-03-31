@@ -10,8 +10,8 @@
             </div>
             <div class="col-md-4 order-1 order-md-2 align-self-center">
                 <ul class="breadcrumb d-block text-md-end">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Register</li>
+                    <li>Home</li>
+                    <li>Register</li>
                     <li class="active">Timeline</li>
                 </ul>
             </div>
@@ -51,7 +51,7 @@
                         <article class="timeline-box left active">
                             <div class="timeline-box-arrow"></div>
                             <div class="p-2">
-                                <h2 class="font-weight-semibold text-5 mb-0"><a href="newsletter0422.html">📑 Newsletter April</a></h2>
+                                <h2 class="font-weight-semibold text-5 mb-0"><a href="{{ url_for('newsletter', news_id=202204) }}">📑 Newsletter April</a></h2>
                             </div>
                         </article>
 
@@ -82,7 +82,7 @@
                             <div class="p-2">
                                 <div>
                                     <h2 class="font-weight-semibold text-5 text-muted line-height-4 mt-2 mb-2">Call for Abstract!</h2>
-                                    <span class="text-muted">The submit <a href="submit.html">page</a> has the detailed guidance on conference system, templates and theme topics. Please give brief introductions of your work so we may have a better arrangement with the review and tracks.</span>
+                                    <span class="text-muted">The submit <a href="{{ url_for('submit') }}">page</a> has the detailed guidance on conference system, templates and theme topics. Please give brief introductions of your work so we may have a better arrangement with the review and tracks.</span>
                                 </div>
                             </div>
                         </article>

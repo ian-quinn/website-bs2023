@@ -63,9 +63,13 @@ def ibpsa():
 def committee():
     return render_template('committee.html')
 
-@app.route('/newsletter')
-def newsletter():
-    return render_template('newsletter.html')
+@app.route('/newsletter/<int:news_id>')
+def newsletter(news_id):
+    news_date = datetime.strptime(str(news_id), '%Y%m')
+    return render_template(
+        str(news_id) + '.html', 
+        month=datetime.strftime(news_date, '%B'), 
+        year=datetime.strftime(news_date, '%Y'))
 
 @app.route('/contact')
 def contact():
