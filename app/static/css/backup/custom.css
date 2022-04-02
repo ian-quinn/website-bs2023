@@ -79,6 +79,12 @@
     color: #FFF;
 }
 
+@media (max-width: 991px) {
+    #header .header-nav-main nav > ul > li > a.active:before {
+        bottom: 0;
+        border-width: 2px;
+    }
+}
 
 #header .header-nav-main nav > ul li {
     border-bottom: 0;
@@ -98,18 +104,7 @@ html.sticky-header-active #header .header-body {
         border-bottom-color: #ca3352;
         border-bottom-width: 1px;
         transition: ease color 300ms;
-        position: fixed;
-        top: 0;
     }
-
-    #header .header-nav-main nav > ul > li > a.active:before {
-        bottom: 0;
-        border-width: 2px;
-    }
-
-    #header .header-index .header-body {
-    background: transparent;
-}
 }
 
 @media (min-width: 992px) {
@@ -190,7 +185,7 @@ html.sticky-header-active #header .header-body {
     background: #fff;
     color: #fff;
     transition: all 0.3s;
-    overflow: hidden;
+    overflow-y: scroll;
 }
 
 #sidebar.active {
@@ -203,7 +198,7 @@ html.sticky-header-active #header .header-body {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.7);
-    z-index: 9;
+    z-index: 998;
     opacity: 0;
     transition: all 0.5s ease-in-out;
 }
@@ -213,14 +208,13 @@ html.sticky-header-active #header .header-body {
 }
 
 #sidebar ul li {
-    padding: 5px;
-    padding-left: 15px;
-    font-size: 13px;
+    padding: 7px;
+    padding-left: 20px;
+    font-size: 0.9em;
     display: block;
 }
 
 #sidebar button {
-    padding: 10px 15px;
     background: none;
 }
 
@@ -268,8 +262,8 @@ a[data-toggle="collapse"] {
 }
 
 .sidebar-menu .accordion-item .accordion-header .accordion-button {
-    padding: 10px 15px;
-    font-size: 14px;
+    padding: 13px 20px;
+    font-size: 1 em;
     font-weight: 500;
 }
 

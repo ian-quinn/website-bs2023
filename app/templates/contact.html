@@ -68,46 +68,71 @@
             <p class="mb-0 text-3">9am-12am GMT+8, Monday-Friday in preparation phrase till Septemper 1st, 2022. If you have problem in contact with us, please leave a message and check the subscription box for our monthly newsletter!😀</p>
 
         </div>
-        <div class="col-lg-6">
+        <div id="messageBox" class="col-lg-6">
             <h4 class="mt-2 mb-1">Leave a message</h4>
-            <form class="contact-form" action="" method="POST">
-                <div class="contact-form-success alert alert-success d-none mt-1">
-                    <strong>Success!</strong> Your message has been sent to us.
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+            <div>
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
                 </div>
-                <div class="contact-form-error alert alert-danger d-none mt-1">
-                    <strong>Error!</strong> There was an error sending your message.
-                    <span class="mail-error-message text-1 d-block"></span>
-                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+            <form class="contact-form" action="{{ url_for('contact') }}" method="POST">
+                {{ form.hidden_tag() }}
 
                 <div class="row">
                     <div class="form-group col-lg-6">
                         <label class="form-label mb-1 text-2">First Name</label>
-                        <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control text-3 h-auto py-2" name="name" required>
+                        {{ form.firstname(type="text", maxlength="100", class="form-control text-3 h-auto py-2") }}
+                        <!-- <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control text-3 h-auto py-2" name="name" required> -->
+                        {% for error in form.firstname.errors %}
+                        <small class="error-bullet">{{ error }}</small>
+                        {% endfor %}
                     </div>
                     <div class="form-group col-lg-6">
-                        <label class="form-label mb-1 text-2">Last Address</label>
-                        <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control text-3 h-auto py-2" name="email" required>
+                        <label class="form-label mb-1 text-2">Last Name</label>
+                        {{ form.lastname(type="text", maxlength="100", class="form-control text-3 h-auto py-2") }}
+                        <!-- <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control text-3 h-auto py-2" name="email" required> -->
+                        {% for error in form.lastname.errors %}
+                        <small class="error-bullet">{{ error }}</small>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col">
                         <label class="form-label mb-1 text-2">Email</label>
-                        <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="form-control text-3 h-auto py-2" name="subject" required>
+                        {{ form.email(type="text", maxlength="100", class="form-control text-3 h-auto py-2") }}
+                        <!-- <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="form-control text-3 h-auto py-2" name="subject" required> -->
+                        {% for error in form.email.errors %}
+                        <small class="error-bullet">{{ error }}</small>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col">
                         <label class="form-label mb-1 text-2">Message</label>
-                        <textarea maxlength="5000" data-msg-required="Please enter your message." rows="7" class="form-control text-3 h-auto py-2" name="message" required></textarea>
+                        {{ form.message(type="text", maxlength="5000", class="form-control text-3 h-auto py-2", rows="7") }}
+                        <!-- <textarea maxlength="5000" data-msg-required="Please enter your message." rows="7" class="form-control text-3 h-auto py-2" name="message" required></textarea> -->
+                        {% for error in form.message.errors %}
+                        <small class="error-bullet">{{ error }}</small>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-4">
-                        <input type="submit" value="Send Message" class="btn btn-primary btn-modern btn-sm" data-loading-text="Loading...">
+                        {{ form.submit(type="submit", value="Send Message", class="btn btn-primary btn-modern btn-sm") }}
+                        <!-- <input type="submit" value="Send Message" class="btn btn-primary btn-modern btn-sm" data-loading-text="Loading..."> -->
                     </div>
                     <div class="form-group col-8">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" name="agree" id="tabContent9Checkbox">
+                            {{ form.is_optin(class="form-check-input", type="checkbox") }}
+                            <!-- <input class="form-check-input" type="checkbox" value="" name="agree" id="tabContent9Checkbox"> -->
                             <label class="form-check-label" for="tabContent9Checkbox">
                                 Subscribe to the BS2023 mailing list!
                             </label>
@@ -118,4 +143,8 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='vendor/jquery.gmap/jquery.gmap.min.js') }}"></script>
 {% endblock %}

@@ -13,14 +13,26 @@ from werkzeug.utils import secure_filename
 from babel import Locale
 
 from app import app, db
-#from app.models import User, Paper, Post, Comment, News, File, Project, History, Category, Photo
-#from app.forms import LoginForm, RegistrationForm, EditProfileForm
+from app.models import Message
+from app.forms import MessageForm, EnrollForm
 
 
 @app.route('/')
-@app.route('/index')
+@app.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    form = EnrollForm()
+    if form.validate_on_submit():
+        message = Message(
+            firstname='', 
+            lastname='', 
+            email=form.email.data, 
+            message='', 
+            is_optin=True)
+        db.session.add(message)
+        db.session.commit()
+        flash('We have received your subscription! Thanks for your support!', 'success')
+        return redirect(url_for('index', _anchor='footer'))
+    return render_template('index.html', form=form)
 
 # Submit region
 @app.route('/timeline')
@@ -71,9 +83,21 @@ def newsletter(news_id):
         month=datetime.strftime(news_date, '%B'), 
         year=datetime.strftime(news_date, '%Y'))
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html')
+    form = MessageForm()
+    if form.validate_on_submit():
+        message = Message(
+            firstname=form.firstname.data, 
+            lastname=form.lastname.data, 
+            email=form.email.data, 
+            message=form.message.data, 
+            is_optin=form.is_optin.data)
+        db.session.add(message)
+        db.session.commit()
+        flash('Thanks! We have received your message!', 'success')
+        return redirect(url_for('contact', _anchor="messageBox"))
+    return render_template('contact.html', form=form)
 
 
 

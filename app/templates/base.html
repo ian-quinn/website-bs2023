@@ -38,10 +38,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
 
         <!-- Current Page CSS -->
-        {% block styles %}{% endblock %}}
-
-        <!-- Head Libs -->
-        <script src="{{ url_for('static', filename='vendor/modernizr/modernizr.min.js') }}"></script>
+        {% block styles %}{% endblock %}
 
         <!-- Torrent Monitor -->
         <script>
@@ -56,126 +53,256 @@
     </head>
 
     <body data-plugin-page-transition>
-        <div class="body">
-            <header id="header">
-                <div class="header-body border-top-0 box-shadow-none">
-                    <div class="header-container header-container-md container">
-                        <div class="header-row">
-                            <div class="header-column">
-                                <div class="header-row">
-                                    <div class="header-logo">
-                                        <img alt="BS2023" width="100" height="40" data-sticky-width="82" data-sticky-height="40" data-sticky-top="0" src="{{ url_for('static', filename='img/title.svg') }}">
-                                    </div>
-                                </div>
+
+        <div class="overlay"></div>
+
+        <div class="wrapper">
+            <div id="sidebar" class="d-flex align-items-start flex-column">
+
+                <div style="height:70px;">
+                </div>
+
+                <div class="accordion accordion-flush sidebar-menu row" id="nav-sidebar">
+                    <div class="accordion-item">
+                        <span class="accordion-header"><button class="accordion-button collapsed" type="button" onclick="location.href='{{ url_for('index') }}'">HOME</button></span>
+                    </div>
+                    <div class="accordion-item">
+                        <span class="accordion-header" id="menu-signup-head">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menu-signup" aria-expanded="false" aria-controls="menu-signup">
+                            SIGN-UP
+                            </button>
+                        </span>
+                        <div id="menu-signup" class="accordion-collapse collapse" aria-labelledby="menu-signup-head" data-bs-parent="#nav-sidebar">
+                            <div class="accordion-body">
+                                <ul class="list-unstyled">
+                                    <a href="{{ url_for('timeline') }}"><li class="accessible">Timeline</li></a>
+                                    <a href="{{ url_for('submit') }}"><li class="accessible">Submit <strong>Abstract</strong></li></a>
+                                    <li>Register (WIP)</li>
+                                    <a href="{{ url_for('publication') }}"><li class="accessible">Publication</li></a>
+                                </ul>
                             </div>
-                            <div class="header-column justify-content-end">
-                                <div class="header-row">
-                                    <div class="header-nav header-nav-line header-nav-bottom-line header-nav-bottom-line-no-transform header-nav-bottom-line-active-text-dark header-nav-bottom-line-effect-1 order-2 order-lg-1">
-                                        <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders 
-                                        header-nav-main-effect-2 header-nav-main-sub-effect-1" style="margin-right: -13px;">
-                                            <nav class="collapse">
-                                                <ul class="nav nav-pills" id="mainNav">
-                                                    <li><a class="dropdown-item dropdown-toggle" href="{{ url_for('index') }}">Home</a></li>
-                                                    <li class="dropdown">
-                                                        <a class="dropdown-item dropdown-toggle" href="#">Register</a>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="{{ url_for('timeline') }}">Timeline</a></li>
-                                                            <li><a class="dropdown-item" href="{{ url_for('submit') }}">Submit <strong>Abstract</strong></a></li>
-                                                            <li><a class="dropdown-item">Register (WIP)</a></li>
-                                                            <li><a class="dropdown-item" href="{{ url_for('publication') }}">Publication</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a class="dropdown-item dropdown-toggle" href="#">Program</a>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="{{ url_for('theme') }}">Themes</a></li>
-                                                            <li><a class="dropdown-item">Keynotes (WIP)</a></li>
-                                                            <li><a class="dropdown-item">Program Book (WIP)</a></li>
-                                                            <li><a class="dropdown-item">Exibition (WIP)</a></li>
-                                                            <li><a class="dropdown-item">Workshops (WIP)</a></li>
-                                                            <li><a class="dropdown-item">Technical Tours (WIP)</a></li>
-                                                            <li><a class="dropdown-item">Student Competition (WIP)</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a class="dropdown-item dropdown-toggle" href="#">Events</a>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item">Reception (WIP)</a></li>
-                                                            <li><a class="dropdown-item" href="{{ url_for('awards') }}">Awards</a></li>
-                                                            <li><a class="dropdown-item">River Cruise (WIP)</a></li>
-                                                            <li><a class="dropdown-item">Student Events (WIP)</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a class="dropdown-item dropdown-toggle" href="#">Guide</a>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item">Meet Shanghai! (WIP)</a></li>
-                                                            <li><a class="dropdown-item">Venues (WIP)</a></li>
-                                                            <li><a class="dropdown-item">Accomodation (WIP)</a></li>
-                                                            <li><a class="dropdown-item">Traveling (WIP)</a></li>
-                                                            <li><a class="dropdown-item">VISA Requirements (WIP)</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a class="dropdown-item dropdown-toggle">COVID-19</a></li>
-                                                    <li class="dropdown">
-                                                        <a class="dropdown-item dropdown-toggle" href="#">Sponsor</a>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="{{ url_for('sponsors') }}">Our Sponsors</a></li>
-                                                            <li><a class="dropdown-item" href="{{ url_for('contribute') }}">Become a Sponsor</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a class="dropdown-item dropdown-toggle" href="#">About</a>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="{{ url_for('ibpsa') }}">IBPSA</a></li>
-                                                            <li><a class="dropdown-item" href="{{ url_for('committee') }}">Committe</a></li>
-                                                            <li><a class="dropdown-item" href="{{ url_for('newsletter', news_id=202204) }}">Newsletter</a></li>
-                                                            <li><a class="dropdown-item" href="{{ url_for('contact') }}">Contact / FAQ</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </nav>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <span class="accordion-header" id="menu-program-head">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#menu-program" aria-expanded="false" aria-controls="menu-program">
+                            PROGRAM
+                            </button>
+                        </span>
+                        <div id="menu-program" class="accordion-collapse collapse" aria-labelledby="menu-program-head" data-bs-parent="#nav-sidebar">
+                            <div class="accordion-body">
+                                <ul class="list-unstyled">
+                                    <a href="{{ url_for('theme') }}"><li class="accessible">Themes</li></a>
+                                    <li>Keynotes (WIP)</li>
+                                    <li>Program Book (WIP)</li>
+                                    <li>Exibition (WIP)</li>
+                                    <li>Workshops (WIP)</li>
+                                    <li>Technical Tours (WIP)</li>
+                                    <li>Student Competition (WIP)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <span class="accordion-header" id="menu-events-head">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menu-events" aria-expanded="false" aria-controls="menu-events">
+                            EVENTS
+                            </button>
+                        </span>
+                        <div id="menu-events" class="accordion-collapse collapse" aria-labelledby="menu-events-head" data-bs-parent="#nav-sidebar">
+                            <div class="accordion-body">
+                                <ul class="list-unstyled">
+                                    <li>Reception (WIP)</li>
+                                    <a href="{{ url_for('awards') }}"><li class="accessible">Awards</li></a>
+                                    <li>River Cruise (WIP)</li>
+                                    <li>Exibition (WIP)</li>
+                                    <li>Student Events (WIP)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <span class="accordion-header" id="menu-guide-head">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menu-guide" aria-expanded="false" aria-controls="menu-guide">
+                            GUIDE
+                            </button>
+                        </span>
+                        <div id="menu-guide" class="accordion-collapse collapse" aria-labelledby="menu-guide-head" data-bs-parent="#nav-sidebar">
+                            <div class="accordion-body">
+                                <ul class="list-unstyled">
+                                    <li><a>Meet Shanghai! (WIP)</a></li>
+                                    <li><a>Venues (WIP)</a></li>
+                                    <li><a>Accomodation (WIP)</a></li>
+                                    <li><a>Traveling (WIP)</a></li>
+                                    <li><a>VISA Requirements (WIP)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <span class="accordion-header"><button class="accordion-button collapsed" type="button" onclick="location.href='#'">COVID-19</button></span>
+                    </div>
+                    <div class="accordion-item">
+                        <span class="accordion-header" id="menu-sponsor-head">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menu-sponsor" aria-expanded="false" aria-controls="menu-sponsor">
+                            SPONSOR
+                            </button>
+                        </span>
+                        <div id="menu-sponsor" class="accordion-collapse collapse" aria-labelledby="menu-sponsor-head" data-bs-parent="#nav-sidebar">
+                            <div class="accordion-body">
+                                <ul class="list-unstyled">
+                                    <a href="{{ url_for('sponsors') }}"><li class="accessible">Our Sponsors</li></a>
+                                    <a href="{{ url_for('contribute') }}"><li class="accessible">Become a Sponsor</li></a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <span class="accordion-header" id="menu-about-head">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menu-about" aria-expanded="false" aria-controls="menu-about">
+                            ABOUT
+                            </button>
+                        </span>
+                        <div id="menu-about" class="accordion-collapse collapse" aria-labelledby="menu-about-head" data-bs-parent="#nav-sidebar">
+                            <div class="accordion-body">
+                                <ul class="list-unstyled">
+                                    <a href="{{ url_for('ibpsa') }}"><li class="accessible">IBPSA</li></a>
+                                    <a href="{{ url_for('committee') }}"><li class="accessible">Committee</li></a>
+                                    <a href="{{ url_for('newsletter', news_id=202204) }}"><li class="accessible">Newsletter</li></a>
+                                    <a href="{{ url_for('contact') }}"><li class="accessible">Contact / FAQ</li></a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="body">
+                <header id="header">
+                    <div class="header-body border-top-0 box-shadow-none">
+                        <div class="header-container header-container-md container">
+                            <div class="header-row">
+                                <div class="header-column">
+                                    <div class="header-row">
+                                        <div class="header-logo">
+                                            <img alt="BS2023" width="100" height="40" data-sticky-width="82" data-sticky-height="40" data-sticky-top="0" src="{{ url_for('static', filename='img/title.svg') }}">
                                         </div>
-                                        <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
-                                            <i class="fas fa-bars"></i>
-                                        </button>
+                                    </div>
+                                </div>
+                                <div class="header-column justify-content-end">
+                                    <div class="header-row">
+                                        <div class="header-nav header-nav-line header-nav-bottom-line header-nav-bottom-line-no-transform header-nav-bottom-line-active-text-light header-nav-bottom-line-effect-1 order-2 order-lg-1">
+                                            <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders 
+                                            header-nav-main-effect-2 header-nav-main-sub-effect-1">
+                                                <nav class="collapse">
+                                                    <ul class="nav nav-pills" id="mainNav">
+                                                        <li><a class="dropdown-item dropdown-toggle" href="{{ url_for('index') }}">Home</a></li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item dropdown-toggle" href="#">Sign-up</a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="{{ url_for('timeline') }}">Timeline</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('submit') }}">Submit <strong>Abstract</strong></a></li>
+                                                                <li><a class="dropdown-item">Register (WIP)</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('publication') }}">Publication</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item dropdown-toggle" href="#">Program</a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="{{ url_for('theme') }}">Themes</a></li>
+                                                                <li><a class="dropdown-item">Keynotes (WIP)</a></li>
+                                                                <li><a class="dropdown-item">Program Book (WIP)</a></li>
+                                                                <li><a class="dropdown-item">Exibition (WIP)</a></li>
+                                                                <li><a class="dropdown-item">Workshops (WIP)</a></li>
+                                                                <li><a class="dropdown-item">Technical Tours (WIP)</a></li>
+                                                                <li><a class="dropdown-item">Student Competition (WIP)</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item dropdown-toggle" href="#">Events</a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item">Reception (WIP)</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('awards') }}">Awards</a></li>
+                                                                <li><a class="dropdown-item">River Cruise (WIP)</a></li>
+                                                                <li><a class="dropdown-item">Student Events (WIP)</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item dropdown-toggle" href="#">Guide</a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item">Meet Shanghai! (WIP)</a></li>
+                                                                <li><a class="dropdown-item">Venues (WIP)</a></li>
+                                                                <li><a class="dropdown-item">Accomodation (WIP)</a></li>
+                                                                <li><a class="dropdown-item">Traveling (WIP)</a></li>
+                                                                <li><a class="dropdown-item">VISA Requirements (WIP)</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a class="dropdown-item dropdown-toggle">COVID-19</a></li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item dropdown-toggle" href="#">Sponsor</a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="{{ url_for('sponsors') }}">Our Sponsors</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('contribute') }}">Become a Sponsor</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a class="dropdown-item dropdown-toggle" href="#">About</a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="{{ url_for('ibpsa') }}">IBPSA</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('committee') }}">Committee</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('newsletter', news_id=202204) }}">Newsletter</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('contact') }}">Contact / FAQ</a></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                            <!-- <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
+                                                <i class="fas fa-bars"></i>
+                                            </button> -->
+                                            <button id="sidebarCollapse" class="btn header-btn-collapse-nav" onclick="toggleSidebar()">
+                                                <i class="fa fa-bars"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </header>
+                </header>
 
-            <div role="main" class="main">
+                <div role="main" class="main">
 
-            {% block content %}{% endblock %} 
+                {% block content %}{% endblock %} 
 
-            <footer id="footer">
-                <div class="footer-copyright">
-                    <div class="container">
-                        <div class="row py-4">
-                            <div class="col-lg-1 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0">
-                                <img alt="IBPSA" src="{{ url_for('static', filename='img/ibpsa-white.svg') }}" height="64">
-                            </div>
-                            <div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
-                                <p><strong>IBPSA-China</strong> © Copyright 2022. All Rights Reserved.</p>
-                            </div>
-                            <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
-                                <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=Pxd2LtGqqHYSwt0iew9iZ7KUk4p5ZQtTZ3LS4tKvgGHivu1OwNQWctrbE0xJ"></script></span>
+                <footer id="footer">
+                    <div class="footer-copyright">
+                        <div class="container">
+                            <div class="row py-4">
+                                <div class="col-lg-1 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0">
+                                    <img alt="IBPSA" src="{{ url_for('static', filename='img/ibpsa-white.svg') }}" height="64">
+                                </div>
+                                <div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
+                                    <p><strong>IBPSA-China</strong> © Copyright 2022. All Rights Reserved.</p>
+                                </div>
+                                <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
+                                    <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=Pxd2LtGqqHYSwt0iew9iZ7KUk4p5ZQtTZ3LS4tKvgGHivu1OwNQWctrbE0xJ"></script></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+
+            </div>
         </div>
+
+        
 
         <!-- Vendor -->
         <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
         <script src="{{ url_for('static', filename='vendor/jquery.easing/jquery.easing.min.js') }}"></script>
         <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ url_for('static', filename='vendor/jquery.validation/jquery.validate.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='vendor/jquery.gmap/jquery.gmap.min.js') }}"></script>
         <script src="{{ url_for('static', filename='vendor/owl.carousel/owl.carousel.min.js') }}"></script>
 
         <!-- Theme Base, Components and Settings -->
@@ -186,6 +313,28 @@
 
         <!-- Theme Initialization Files -->
         <script src="{{ url_for('static', filename='js/theme.init.js') }}"></script>
+
+        <!-- bootstrap sidebar settings -->
+        <script type="text/javascript">
+        function toggleSidebar() {
+            $('#sidebar').toggleClass('active');
+            $('.overlay').toggleClass('active');
+        }
+
+        $(document).ready(function () {
+            $('.overlay').on('click', function () {
+                // hide sidebar
+                $('#sidebar').removeClass('active');
+                // hide overlay
+                $('.overlay').removeClass('active');
+            });
+        });
+        </script>
+
+        <!-- fade out flashing messages  -->
+        <script type="text/javascript">
+            $('.alert').delay(3000).slideUp(300);
+        </script>
 
         <!-- Page Custom Scripts -->
         {% block scripts %}{% endblock %}

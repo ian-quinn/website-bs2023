@@ -1,18 +1,27 @@
 from flask_wtf import FlaskForm
 from datetime import datetime
 from flask import request
-from wtforms.validators import DataRequired
-
+from wtforms import StringField, TextAreaField, BooleanField, SubmitField
+from wtforms.validators import DataRequired, Email, ValidationError, Length
+from app.models import Message
 
 ######################################################################################
 #------------------------------search engine forms -----------------------------------
 
-class SearchForm(FlaskForm):
-	q = StringField('Searchingngngn', validators=[DataRequired()])
+class MessageForm(FlaskForm):
+	firstname = StringField('First Name', validators=[DataRequired(message="Mandatory input"), 
+		Length(1, 32, message="Length must be less than 32 characters")])
+	lastname = StringField('Last Name', validators=[DataRequired(message="Mandatory input"), 
+		Length(1, 32, message="Length must be less than 32 characters")])
+	email = StringField('Email', validators=[DataRequired(message="Mandatory input"), 
+		Email(message="Please check the format of your email")])
+	message = TextAreaField('Message', validators=[DataRequired(message="Mandatory input"), 
+		Length(1, 5000, message="Must be within 5000 characters")])
+	is_optin = BooleanField('Opt-in', default=True)
+	submit = SubmitField('Submit')
 
-	def __init__(self, *args, **kwargs):
-		if 'formdata' not in kwargs:
-			kwargs['formdata'] = request.args
-		if 'csrf_enabled' not in kwargs:
-			kwargs['csrf_enabled'] = False
-		super(SearchForm, self).__init__(*args, **kwargs)
+class EnrollForm(FlaskForm):
+	email = StringField('Email', validators=[DataRequired(message="Mandatory input"), 
+		Email(message="Please check the format of your email")])
+	is_optin = BooleanField('Opt-in', default=True)
+	submit = SubmitField('GO!')

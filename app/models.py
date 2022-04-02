@@ -5,20 +5,12 @@ from datetime import datetime
 
 
 ############# bookshelf supporting  ########################
-class File(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    name = db.Column(db.String(64))
-    size = db.Column(db.String(64))
-    bookend = db.Column(db.String(8))
-    category = db.Column(db.Integer)
-    link = db.Column(db.String(64))
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
-    islocked = db.Column(db.Boolean, default=False)
-
-############# album supporting  ########################
-class Photo(db.Model):
+class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
-    link = db.Column(db.String(64))
-    size = db.Column(db.String(16))
+    firstname = db.Column(db.String(32))
+    lastname = db.Column(db.String(32))
+    email = db.Column(db.String(64))
+    message = db.Column(db.String(8))
+    is_optin = db.Column(db.Boolean, default=False)
+    
