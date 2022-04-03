@@ -4,7 +4,6 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
-from flask_babel import Babel
 from flask_mail import Mail
 
 import os, sys
@@ -27,15 +26,8 @@ app.config.update(dict(
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db, compare_type=True)
-
-babel = Babel(app)
 mail = Mail(app)
 csrf = CSRFProtect(app)
-
-# @babel.localeselector
-# def get_locale():
-# 	if current_user.is_authenticated and current_user.locale is not None:
-# 		return current_user.locale
 
 # 	locale = request.cookies.get('locale')
 # 	if locale is not None:

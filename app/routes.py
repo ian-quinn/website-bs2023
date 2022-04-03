@@ -6,11 +6,8 @@ from flask import flash
 from flask import render_template, send_from_directory, current_app
 from flask import redirect, url_for, request, make_response, jsonify
 from flask import get_flashed_messages, g
-from flask_babel import gettext as _
-from flask_babel import lazy_gettext as _l
 from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
-from babel import Locale
 
 from app import app, db
 from app.models import Message
