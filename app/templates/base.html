@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <!-- Basic -->
         <meta charset="utf-8">
@@ -19,7 +19,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 
         <!-- Web Fonts  -->
-        <link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CShadows+Into+Light&display=swap" rel="stylesheet" type="text/css">
+        <link id="googleFonts" href="{{ url_for('static', filename='vendor/bootstrap/css/font.css') }}" rel="stylesheet" type="text/css">
 
         <!-- Vendor CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
@@ -308,7 +308,7 @@
         <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
 
         <!-- Theme Custom -->
-        <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+        <!-- <script src="{{ url_for('static', filename='js/custom.js') }}"></script> -->
 
         <!-- Theme Initialization Files -->
         <script src="{{ url_for('static', filename='js/theme.init.js') }}"></script>
