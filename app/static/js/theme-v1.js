@@ -259,579 +259,578 @@ Written by: 	Okler Themes - (http://www.okler.net)
 Theme Version:	8.0.0
 */
 
-(function($) {
-	$.extend({
+(function($) { $.extend({
 
-		browserSelector: function() {
+	browserSelector: function() {
 
-			// jQuery.browser.mobile (http://detectmobilebrowser.com/)
-			(function(a){(jQuery.browser=jQuery.browser||{}).mobile=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))})(navigator.userAgent||navigator.vendor||window.opera);
+		// jQuery.browser.mobile (http://detectmobilebrowser.com/)
+		(function(a){(jQuery.browser=jQuery.browser||{}).mobile=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))})(navigator.userAgent||navigator.vendor||window.opera);
 
-			// Touch
-			var hasTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+		// Touch
+		var hasTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 
-			var u = navigator.userAgent,
-				ua = u.toLowerCase(),
-				is = function (t) {
-					return ua.indexOf(t) > -1;
-				},
-				g = 'gecko',
-				w = 'webkit',
-				s = 'safari',
-				o = 'opera',
-				h = document.documentElement,
-				b = [(!(/opera|webtv/i.test(ua)) && /msie\s(\d)/.test(ua)) ? ('ie ie' + parseFloat(navigator.appVersion.split("MSIE")[1])) : is('firefox/2') ? g + ' ff2' : is('firefox/3.5') ? g + ' ff3 ff3_5' : is('firefox/3') ? g + ' ff3' : is('gecko/') ? g : is('opera') ? o + (/version\/(\d+)/.test(ua) ? ' ' + o + RegExp.jQuery1 : (/opera(\s|\/)(\d+)/.test(ua) ? ' ' + o + RegExp.jQuery2 : '')) : is('konqueror') ? 'konqueror' : is('chrome') ? w + ' chrome' : is('iron') ? w + ' iron' : is('applewebkit/') ? w + ' ' + s + (/version\/(\d+)/.test(ua) ? ' ' + s + RegExp.jQuery1 : '') : is('mozilla/') ? g : '', is('j2me') ? 'mobile' : is('iphone') ? 'iphone' : is('ipod') ? 'ipod' : is('mac') ? 'mac' : is('darwin') ? 'mac' : is('webtv') ? 'webtv' : is('win') ? 'win' : is('freebsd') ? 'freebsd' : (is('x11') || is('linux')) ? 'linux' : '', 'js'];
+		var u = navigator.userAgent,
+			ua = u.toLowerCase(),
+			is = function (t) {
+				return ua.indexOf(t) > -1;
+			},
+			g = 'gecko',
+			w = 'webkit',
+			s = 'safari',
+			o = 'opera',
+			h = document.documentElement,
+			b = [(!(/opera|webtv/i.test(ua)) && /msie\s(\d)/.test(ua)) ? ('ie ie' + parseFloat(navigator.appVersion.split("MSIE")[1])) : is('firefox/2') ? g + ' ff2' : is('firefox/3.5') ? g + ' ff3 ff3_5' : is('firefox/3') ? g + ' ff3' : is('gecko/') ? g : is('opera') ? o + (/version\/(\d+)/.test(ua) ? ' ' + o + RegExp.jQuery1 : (/opera(\s|\/)(\d+)/.test(ua) ? ' ' + o + RegExp.jQuery2 : '')) : is('konqueror') ? 'konqueror' : is('chrome') ? w + ' chrome' : is('iron') ? w + ' iron' : is('applewebkit/') ? w + ' ' + s + (/version\/(\d+)/.test(ua) ? ' ' + s + RegExp.jQuery1 : '') : is('mozilla/') ? g : '', is('j2me') ? 'mobile' : is('iphone') ? 'iphone' : is('ipod') ? 'ipod' : is('mac') ? 'mac' : is('darwin') ? 'mac' : is('webtv') ? 'webtv' : is('win') ? 'win' : is('freebsd') ? 'freebsd' : (is('x11') || is('linux')) ? 'linux' : '', 'js'];
 
-			c = b.join(' ');
+		c = b.join(' ');
 
-			if ($.browser.mobile) {
-				c += ' mobile';
+		if ($.browser.mobile) {
+			c += ' mobile';
+		}
+
+		if (hasTouch) {
+			c += ' touch';
+		}
+
+		h.className += ' ' + c;
+
+		// Edge Detect
+		var isEdge = /Edge/.test(navigator.userAgent);
+
+		if(isEdge) {
+			$('html').removeClass('chrome').addClass('edge');
+		}
+
+		// IE11 Detect
+		var isIE11 = !(window.ActiveXObject) && "ActiveXObject" in window;
+
+		if (isIE11) {
+			$('html').removeClass('gecko').addClass('ie ie11');
+			return;
+		}
+
+		// Dark and Boxed Compatibility
+		if($('body').hasClass('dark')) {
+			$('html').addClass('dark');
+		}
+
+		if($('body').hasClass('boxed')) {
+			$('html').addClass('boxed');
+		}
+
+	}
+
+});
+
+$.browserSelector();
+
+/*
+Global Variable For Screen Size
+*/
+theme.globalWindowWidth = $(window).width();
+var globalWindowWidth = $(window).width();
+window.onresize = function() {
+	theme.globalWindowWidth = $(window).width();
+}
+
+/*
+Browser Workarounds
+*/
+if (/iPad|iPhone|iPod/.test(navigator.platform)) {
+
+	// iPad/Iphone/iPod Hover Workaround
+	$(document).ready(function($) {
+		$('.thumb-info').attr('onclick', 'return true');
+	});
+}
+
+/*
+Tabs
+*/
+if( $('a[data-bs-toggle="tab"]').length ) {
+	$('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+		var $tabPane = $($(e.target).attr('href'));
+
+		// Carousel Refresh
+		if($tabPane.length) {
+			$tabPane.find('.owl-carousel').trigger('refresh.owl.carousel');
+		}
+
+		// Change Active Class
+		$(this).parents('.nav-tabs').find('.active').removeClass('active');
+		$(this).addClass('active').parent().addClass('active');
+	});	
+
+	if( window.location.hash ) {
+		$(window).on('load', function(){
+			if( window.location.hash !== '*' && $( window.location.hash ).get(0) ) {
+				new bootstrap.Tab( $('a.nav-link[href="'+ window.location.hash +'"]:not([data-hash])')[0] ).show();
 			}
+		});
+	}
+}
 
-			if (hasTouch) {
-				c += ' touch';
-			}
+/*
+On Load Scroll
+*/
+if( !$('html').hasClass('disable-onload-scroll') && window.location.hash && !['#*'].includes( window.location.hash ) ) {
 
-			h.className += ' ' + c;
+	window.scrollTo(0, 0);
 
-			// Edge Detect
-			var isEdge = /Edge/.test(navigator.userAgent);
+	$(window).on('load', function() {
+		setTimeout(function() {
 
-			if(isEdge) {
-				$('html').removeClass('chrome').addClass('edge');
-			}
+			var target = window.location.hash,
+				offset = ( $(window).width() < 768 ) ? 180 : 90;
 
-			// IE11 Detect
-			var isIE11 = !(window.ActiveXObject) && "ActiveXObject" in window;
-
-			if (isIE11) {
-				$('html').removeClass('gecko').addClass('ie ie11');
+			if (!$(target).length) {
 				return;
 			}
 
-			// Dark and Boxed Compatibility
-			if($('body').hasClass('dark')) {
-				$('html').addClass('dark');
+			if ( $("a[href$='" + window.location.hash + "']").is('[data-hash-offset]') ) {
+				offset = parseInt( $("a[href$='" + window.location.hash + "']").first().attr('data-hash-offset') );
+			} else if ( $("html").is('[data-hash-offset]') ) {
+				offset = parseInt( $("html").attr('data-hash-offset') );
 			}
 
-			if($('body').hasClass('boxed')) {
-				$('html').addClass('boxed');
+			if (isNaN(offset)) {
+				offset = 0;
 			}
 
-		}
+			$('body').addClass('scrolling');
 
-	});
-
-	$.browserSelector();
-
-	/*
-	Global Variable For Screen Size
-	*/
-	theme.globalWindowWidth = $(window).width();
-	var globalWindowWidth = $(window).width();
-	window.onresize = function() {
-		theme.globalWindowWidth = $(window).width();
-	}
-
-	/*
-	Browser Workarounds
-	*/
-	if (/iPad|iPhone|iPod/.test(navigator.platform)) {
-
-		// iPad/Iphone/iPod Hover Workaround
-		$(document).ready(function($) {
-			$('.thumb-info').attr('onclick', 'return true');
-		});
-	}
-
-	/*
-	Tabs
-	*/
-	if( $('a[data-bs-toggle="tab"]').length ) {
-		$('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
-			var $tabPane = $($(e.target).attr('href'));
-
-			// Carousel Refresh
-			if($tabPane.length) {
-				$tabPane.find('.owl-carousel').trigger('refresh.owl.carousel');
-			}
-
-			// Change Active Class
-			$(this).parents('.nav-tabs').find('.active').removeClass('active');
-			$(this).addClass('active').parent().addClass('active');
-		});	
-
-		if( window.location.hash ) {
-			$(window).on('load', function(){
-				if( window.location.hash !== '*' && $( window.location.hash ).get(0) ) {
-					new bootstrap.Tab( $('a.nav-link[href="'+ window.location.hash +'"]:not([data-hash])')[0] ).show();
-				}
+			$('html, body').animate({
+				scrollTop: $(target).offset().top - offset
+			}, 600, 'easeOutQuad', function() {
+				$('body').removeClass('scrolling');
 			});
-		}
-	}
 
-	/*
-	On Load Scroll
-	*/
-	if( !$('html').hasClass('disable-onload-scroll') && window.location.hash && !['#*'].includes( window.location.hash ) ) {
-
-		window.scrollTo(0, 0);
-
-		$(window).on('load', function() {
-			setTimeout(function() {
-
-				var target = window.location.hash,
-					offset = ( $(window).width() < 768 ) ? 180 : 90;
-
-				if (!$(target).length) {
-					return;
-				}
-
-				if ( $("a[href$='" + window.location.hash + "']").is('[data-hash-offset]') ) {
-					offset = parseInt( $("a[href$='" + window.location.hash + "']").first().attr('data-hash-offset') );
-				} else if ( $("html").is('[data-hash-offset]') ) {
-					offset = parseInt( $("html").attr('data-hash-offset') );
-				}
-
-				if (isNaN(offset)) {
-					offset = 0;
-				}
-
-				$('body').addClass('scrolling');
-
-				$('html, body').animate({
-					scrollTop: $(target).offset().top - offset
-				}, 600, 'easeOutQuad', function() {
-					$('body').removeClass('scrolling');
-				});
-
-			}, 1);
-		});
-	}
-
-	/*
-	* Text Rotator
-	*/
-	$.fn.extend({
-		textRotator: function(options) {
-
-			var defaults = {
-				fadeSpeed: 500,
-				pauseSpeed: 100,
-				child: null
-			};
-
-			var options = $.extend(defaults, options);
-
-			return this.each(function() {
-				var o = options;
-				var obj = $(this);
-				var items = $(obj.children(), obj);
-				items.each(function() {
-					$(this).hide();
-				})
-				if (!o.child) {
-					var next = $(obj).children(':first');
-				} else {
-					var next = o.child;
-				}
-				$(next).fadeIn(o.fadeSpeed, function() {
-					$(next).delay(o.pauseSpeed).fadeOut(o.fadeSpeed, function() {
-						var next = $(this).next();
-						if (next.length == 0) {
-							next = $(obj).children(':first');
-						}
-						$(obj).textRotator({
-							child: next,
-							fadeSpeed: o.fadeSpeed,
-							pauseSpeed: o.pauseSpeed
-						});
-					})
-				});
-			});
-		}
+		}, 1);
 	});
+}
 
-	/*
-	* Notice Top bar
-	*/
-	var $noticeTopBar = {
-		$wrapper: $('.notice-top-bar'),
-		$closeBtn: $('.notice-top-bar-close'),
-		$header: $('#header'),
-		$body: $('.body'),
-		init: function() {
-			var self = this;
+/*
+* Text Rotator
+*/
+$.fn.extend({
+	textRotator: function(options) {
 
-			if( !$.cookie('portoNoticeTopBarClose') ) {
-				self
-					.build()
-					.events();
+		var defaults = {
+			fadeSpeed: 500,
+			pauseSpeed: 100,
+			child: null
+		};
+
+		var options = $.extend(defaults, options);
+
+		return this.each(function() {
+			var o = options;
+			var obj = $(this);
+			var items = $(obj.children(), obj);
+			items.each(function() {
+				$(this).hide();
+			})
+			if (!o.child) {
+				var next = $(obj).children(':first');
 			} else {
-				self.$wrapper.parent().prepend( '<!-- Notice Top Bar removed by cookie -->' );
-				self.$wrapper.remove();
+				var next = o.child;
 			}
-
-			return this;
-		},
-		build: function(){
-			var self = this;
-
-			$(window).on('load', function(){
-				setTimeout(function(){
-					self.$body.css({
-						'margin-top': self.$wrapper.outerHeight(),
-						'transition': 'ease margin 300ms'
-					});
-
-					$('#noticeTopBarContent').textRotator({
-						fadeSpeed: 500,
-						pauseSpeed: 5000
-					});
-
-					if( ['absolute', 'fixed'].includes( self.$header.css('position') ) ) {
-						self.$header.css({
-							'top': self.$wrapper.outerHeight(),
-							'transition': 'ease top 300ms'
-						});
+			$(next).fadeIn(o.fadeSpeed, function() {
+				$(next).delay(o.pauseSpeed).fadeOut(o.fadeSpeed, function() {
+					var next = $(this).next();
+					if (next.length == 0) {
+						next = $(obj).children(':first');
 					}
-
-					$(window).trigger('notice.top.bar.opened');
-
-				}, 1000);
+					$(obj).textRotator({
+						child: next,
+						fadeSpeed: o.fadeSpeed,
+						pauseSpeed: o.pauseSpeed
+					});
+				})
 			});
+		});
+	}
+});
 
-			return this;
-		},
-		events: function() {
-			var self = this;
+/*
+* Notice Top bar
+*/
+var $noticeTopBar = {
+	$wrapper: $('.notice-top-bar'),
+	$closeBtn: $('.notice-top-bar-close'),
+	$header: $('#header'),
+	$body: $('.body'),
+	init: function() {
+		var self = this;
 
-			self.$closeBtn.on('click', function(e){
-				e.preventDefault();
+		if( !$.cookie('portoNoticeTopBarClose') ) {
+			self
+				.build()
+				.events();
+		} else {
+			self.$wrapper.parent().prepend( '<!-- Notice Top Bar removed by cookie -->' );
+			self.$wrapper.remove();
+		}
 
-				self.$body.animate({
-					'margin-top': 0,
-				}, 300, function(){
-					self.$wrapper.remove();
-					self.saveCookie();
+		return this;
+	},
+	build: function(){
+		var self = this;
+
+		$(window).on('load', function(){
+			setTimeout(function(){
+				self.$body.css({
+					'margin-top': self.$wrapper.outerHeight(),
+					'transition': 'ease margin 300ms'
+				});
+
+				$('#noticeTopBarContent').textRotator({
+					fadeSpeed: 500,
+					pauseSpeed: 5000
 				});
 
 				if( ['absolute', 'fixed'].includes( self.$header.css('position') ) ) {
-					self.$header.animate({
-						top: 0
-					}, 300);
-				}
-
-				// When header has shrink effect
-				if( self.$header.hasClass('header-effect-shrink') ) {
-					self.$header.find('.header-body').animate({
-						top: 0
-					}, 300);
-				}
-
-				$(window).trigger('notice.top.bar.closed');
-			});
-
-			return this;
-		},
-		checkCookie: function(){
-			var self = this;
-
-			if( $.cookie('portoNoticeTopBarClose') ) {
-				return true;
-			} else {
-				return false;
-			}
-
-			return this;
-		},
-		saveCookie: function() {
-			var self = this;
-
-			$.cookie('portoNoticeTopBarClose', true);
-
-			return this;
-		}
-	}
-
-	if( $('.notice-top-bar').length ) {
-		$noticeTopBar.init();
-	}
-
-	/*
-	* Image Hotspots
-	*/
-	if( $('.image-hotspot').length ) {
-		$('.image-hotspot')
-			.append('<span class="ring"></span>')
-			.append('<span class="circle"></span>');
-	}
-
-	/*
-	* Page Transition
-	*/
-	if( $('body[data-plugin-page-transition]').length ) {
-		
-		var link_click = false;
-
-		$(document).on('click', 'a', function(e){
-			link_click = $(this);
-		});
-
-		$(window).on("beforeunload", function(e) {
-			if( typeof link_click === 'object' ) {
-				var href = link_click.attr('href');
-
-				if( href.indexOf('mailto:') != 0 && href.indexOf('tel:') != 0 && !link_click.data('rm-from-transition') ) {
-					$('body').addClass('page-transition-active');
-				}
-			}
-		});
-
-		$(window).on("pageshow", function(e){
-			if( e.persisted ) {
-				if( $('html').hasClass('safari') ) {
-					window.location.reload();
-				}
-				
-		        $('body').removeClass('page-transition-active');
-		    }
-		});
-	}
-
-	/*
-	* Thumb Info Floating Caption
-	*/
-	if( $('.thumb-info-floating-caption').length ) {
-
-		$('.thumb-info-floating-caption').on('mouseenter', function(){
-			if( !$('.thumb-info-floating-caption-title').length ) {
-				$('.body').append( '<div class="thumb-info-floating-caption-title">'+ $(this).data('title') +'</div>' );
-
-				if( $(this).data('type') ) {
-					$('.thumb-info-floating-caption-title')
-						.append( '<div class="thumb-info-floating-caption-type">'+ $(this).data('type') +'</div>' )
-						.css({
-							'padding-bottom' : 22
-						});
-				}
-
-				if( $(this).hasClass('thumb-info-floating-caption-clean') ) {
-					$('.thumb-info-floating-caption-title').addClass('bg-transparent');
-				}
-			}
-		}).on('mouseout', function(){
-			$('.thumb-info-floating-caption-title').remove();
-		});
-
-		$(document).on('mousemove', function(e){
-			$('.thumb-info-floating-caption-title').css({
-				position: 'fixed',
-				left: e.clientX - 20,
-				top: e.clientY + 20
-			});
-		});
-
-	}
-
-	/*
-	* Toggle Text Click
-	*/
-	$('[data-toggle-text-click]').on('click', function () {
-		$(this).text(function(i, text){
-			return text === $(this).attr('data-toggle-text-click') ? $(this).attr('data-toggle-text-click-alt') : $(this).attr('data-toggle-text-click');
-		});
-	});
-
-	/*
-	* Shape Divider Aspect Ratio
-	*/
-	if( $('.shape-divider').length ) {
-		aspectRatioSVG();
-		$(window).on('resize', function(){
-			aspectRatioSVG();
-		});
-	}
-
-	/*
-	* Shape Divider Animated
-	*/
-	if( $('.shape-divider-horizontal-animation').length ) {
-		theme.fn.intObs('.shape-divider-horizontal-animation', function(){
-			for( var i = 0; i <= 1; i++ ) {
-				var svgClone = $(this).find('svg:nth-child(1)').clone();
-
-				$(this).append( svgClone )
-			}
-
-			$(this).addClass('start');
-		}, {});
-	}
-
-	/*
-	* Toggle Class
-	*/
-	$('[data-porto-toggle-class]').on('click', function (e) {
-		e.preventDefault();
-
-		$(this).toggleClass( $(this).data('porto-toggle-class') );
-	});
-
-	/*
-	* Dynamic Height
-	*/
-	var $window = $(window);
-	$window.on('resize dynamic.height.resize', function(){
-		$('[data-dynamic-height]').each(function(){
-			var $this = $(this),
-				values = JSON.parse($this.data('dynamic-height').replace(/'/g,'"').replace(';',''))
-
-			// XS
-			if( $window.width() < 576 ) {
-				$this.height( values[4] );
-			}
-
-			// SM
-			if( $window.width() > 575 && $window.width() < 768 ) {
-				$this.height( values[3] );
-			}
-
-			// MD
-			if( $window.width() > 767 && $window.width() < 992 ) {
-				$this.height( values[2] );
-			}
-
-			// LG
-			if( $window.width() > 991 && $window.width() < 1200 ) {
-				$this.height( values[1] );
-			}
-
-			// XS
-			if( $window.width() > 1199 ) {
-				$this.height( values[0] );
-			}
-		});
-	});
-
-	// Mobile First Load
-	if( $window.width() < 992 ) {
-		$window.trigger('dynamic.height.resize');
-	}
-
-	/* Video - Trigger Play */
-	if( $('[data-trigger-play-video]').length ) {
-		theme.fn.execOnceTroughEvent( '[data-trigger-play-video]', 'mouseover.trigger.play.video', function(){
-			var $video = $( $(this).data('trigger-play-video') );
-
-			$(this).on('click', function(e){
-				e.preventDefault();
-
-				if( $(this).data('trigger-play-video-remove') == 'yes' ) {
-					$(this).animate({
-						opacity: 0
-					}, 300, function(){
-						$video[0].play();
-
-						$(this).remove();
+					self.$header.css({
+						'top': self.$wrapper.outerHeight(),
+						'transition': 'ease top 300ms'
 					});
-				} else {
-					setTimeout(function(){
-						$video[0].play();
-					},300);
 				}
-			});
+
+				$(window).trigger('notice.top.bar.opened');
+
+			}, 1000);
 		});
-	}
 
-	/* Video - Custom Auto Play */
-	if( $('video[data-auto-play]').length ) {
-		$(window).on('load', function(){
-			$('video[data-auto-play]').each(function(){
-				var $video = $(this);
+		return this;
+	},
+	events: function() {
+		var self = this;
 
-				setTimeout(function(){
-					if( $( '#' + $video.attr('id') ).length ) {
-						if( $( '[data-trigger-play-video="#' + $video.attr('id') + '"]' ).data('trigger-play-video-remove') == 'yes' ) {
-							$( '[data-trigger-play-video="#' + $video.attr('id') + '"]' ).animate({
-								opacity: 0
-							}, 300, function(){
-								$video[0].play();
-
-								$( '[data-trigger-play-video="#' + $video.attr('id') + '"]' ).remove();
-							});
-						} else {
-							setTimeout(function(){
-								$video[0].play();
-							},300);
-						}
-					}
-				}, 100);
-
-			});
-		});
-	}
-
-	/*
-	* Remove min height after the load of page
-	*/
-	if( $('[data-remove-min-height]').length ) {
-		$(window).on('load', function(){
-			$('[data-remove-min-height]').each(function(){
-				$(this).css({
-					'min-height': 0
-				});
-			});
-		});
-	}
-
-	/*
-	* Style Switcher Open Loader Button
-	*/
-	if( $('.style-switcher-open-loader').length ) {
-
-		$('.style-switcher-open-loader').on('click', function(e){
+		self.$closeBtn.on('click', function(e){
 			e.preventDefault();
 
-			var $this = $(this);
+			self.$body.animate({
+				'margin-top': 0,
+			}, 300, function(){
+				self.$wrapper.remove();
+				self.saveCookie();
+			});
 
-			// Add Spinner to icon
-			$this.addClass('style-switcher-open-loader-loading');
+			if( ['absolute', 'fixed'].includes( self.$header.css('position') ) ) {
+				self.$header.animate({
+					top: 0
+				}, 300);
+			}
 
-			var	basePath = $(this).data('base-path'),
-				skinSrc = $(this).data('skin-src');
+			// When header has shrink effect
+			if( self.$header.hasClass('header-effect-shrink') ) {
+				self.$header.find('.header-body').animate({
+					top: 0
+				}, 300);
+			}
 
-			var script1 = document.createElement("script");
-		  	script1.src = basePath + "master/style-switcher/style.switcher.localstorage.js";
-
-		  	var script2 = document.createElement("script");
-		  	script2.src = basePath + "master/style-switcher/style.switcher.js";
-		  	script2.id = "styleSwitcherScript";
-		  	script2.setAttribute('data-base-path', basePath);
-		  	script2.setAttribute('data-skin-src', skinSrc);
-
-		  	script2.onload = function() {
-		  		setTimeout(function(){
-		  			// Trigger a click to open the style switcher sidebar
-			  		function checkIfReady() {
-					    if( !$('.style-switcher-open').length ) {
-					       window.setTimeout(checkIfReady, 100);
-					    } else {
-					      $('.style-switcher-open').trigger('click');
-					    }
-					}
-					checkIfReady();
-
-		  		}, 500);
-		  	}
-
-		  	document.body.appendChild(script1);
-		  	document.body.appendChild(script2);	
-
+			$(window).trigger('notice.top.bar.closed');
 		});
 
-	}
+		return this;
+	},
+	checkCookie: function(){
+		var self = this;
 
-	})(jQuery);
+		if( $.cookie('portoNoticeTopBarClose') ) {
+			return true;
+		} else {
+			return false;
+		}
+
+		return this;
+	},
+	saveCookie: function() {
+		var self = this;
+
+		$.cookie('portoNoticeTopBarClose', true);
+
+		return this;
+	}
+}
+
+if( $('.notice-top-bar').length ) {
+	$noticeTopBar.init();
+}
+
+/*
+* Image Hotspots
+*/
+if( $('.image-hotspot').length ) {
+	$('.image-hotspot')
+		.append('<span class="ring"></span>')
+		.append('<span class="circle"></span>');
+}
+
+/*
+* Page Transition
+*/
+if( $('body[data-plugin-page-transition]').length ) {
+	
+	var link_click = false;
+
+	$(document).on('click', 'a', function(e){
+		link_click = $(this);
+	});
+
+	$(window).on("beforeunload", function(e) {
+		if( typeof link_click === 'object' ) {
+			var href = link_click.attr('href');
+
+			if( href.indexOf('mailto:') != 0 && href.indexOf('tel:') != 0 && !link_click.data('rm-from-transition') ) {
+				$('body').addClass('page-transition-active');
+			}
+		}
+	});
+
+	$(window).on("pageshow", function(e){
+		if( e.persisted ) {
+			if( $('html').hasClass('safari') ) {
+				window.location.reload();
+			}
+			
+	        $('body').removeClass('page-transition-active');
+	    }
+	});
+}
+
+/*
+* Thumb Info Floating Caption
+*/
+if( $('.thumb-info-floating-caption').length ) {
+
+	$('.thumb-info-floating-caption').on('mouseenter', function(){
+		if( !$('.thumb-info-floating-caption-title').length ) {
+			$('.body').append( '<div class="thumb-info-floating-caption-title">'+ $(this).data('title') +'</div>' );
+
+			if( $(this).data('type') ) {
+				$('.thumb-info-floating-caption-title')
+					.append( '<div class="thumb-info-floating-caption-type">'+ $(this).data('type') +'</div>' )
+					.css({
+						'padding-bottom' : 22
+					});
+			}
+
+			if( $(this).hasClass('thumb-info-floating-caption-clean') ) {
+				$('.thumb-info-floating-caption-title').addClass('bg-transparent');
+			}
+		}
+	}).on('mouseout', function(){
+		$('.thumb-info-floating-caption-title').remove();
+	});
+
+	$(document).on('mousemove', function(e){
+		$('.thumb-info-floating-caption-title').css({
+			position: 'fixed',
+			left: e.clientX - 20,
+			top: e.clientY + 20
+		});
+	});
+
+}
+
+/*
+* Toggle Text Click
+*/
+$('[data-toggle-text-click]').on('click', function () {
+	$(this).text(function(i, text){
+		return text === $(this).attr('data-toggle-text-click') ? $(this).attr('data-toggle-text-click-alt') : $(this).attr('data-toggle-text-click');
+	});
+});
+
+/*
+* Shape Divider Aspect Ratio
+*/
+if( $('.shape-divider').length ) {
+	aspectRatioSVG();
+	$(window).on('resize', function(){
+		aspectRatioSVG();
+	});
+}
+
+/*
+* Shape Divider Animated
+*/
+if( $('.shape-divider-horizontal-animation').length ) {
+	theme.fn.intObs('.shape-divider-horizontal-animation', function(){
+		for( var i = 0; i <= 1; i++ ) {
+			var svgClone = $(this).find('svg:nth-child(1)').clone();
+
+			$(this).append( svgClone )
+		}
+
+		$(this).addClass('start');
+	}, {});
+}
+
+/*
+* Toggle Class
+*/
+$('[data-porto-toggle-class]').on('click', function (e) {
+	e.preventDefault();
+
+	$(this).toggleClass( $(this).data('porto-toggle-class') );
+});
+
+/*
+* Dynamic Height
+*/
+var $window = $(window);
+$window.on('resize dynamic.height.resize', function(){
+	$('[data-dynamic-height]').each(function(){
+		var $this = $(this),
+			values = JSON.parse($this.data('dynamic-height').replace(/'/g,'"').replace(';',''))
+
+		// XS
+		if( $window.width() < 576 ) {
+			$this.height( values[4] );
+		}
+
+		// SM
+		if( $window.width() > 575 && $window.width() < 768 ) {
+			$this.height( values[3] );
+		}
+
+		// MD
+		if( $window.width() > 767 && $window.width() < 992 ) {
+			$this.height( values[2] );
+		}
+
+		// LG
+		if( $window.width() > 991 && $window.width() < 1200 ) {
+			$this.height( values[1] );
+		}
+
+		// XS
+		if( $window.width() > 1199 ) {
+			$this.height( values[0] );
+		}
+	});
+});
+
+// Mobile First Load
+if( $window.width() < 992 ) {
+	$window.trigger('dynamic.height.resize');
+}
+
+/* Video - Trigger Play */
+if( $('[data-trigger-play-video]').length ) {
+	theme.fn.execOnceTroughEvent( '[data-trigger-play-video]', 'mouseover.trigger.play.video', function(){
+		var $video = $( $(this).data('trigger-play-video') );
+
+		$(this).on('click', function(e){
+			e.preventDefault();
+
+			if( $(this).data('trigger-play-video-remove') == 'yes' ) {
+				$(this).animate({
+					opacity: 0
+				}, 300, function(){
+					$video[0].play();
+
+					$(this).remove();
+				});
+			} else {
+				setTimeout(function(){
+					$video[0].play();
+				},300);
+			}
+		});
+	});
+}
+
+/* Video - Custom Auto Play */
+if( $('video[data-auto-play]').length ) {
+	$(window).on('load', function(){
+		$('video[data-auto-play]').each(function(){
+			var $video = $(this);
+
+			setTimeout(function(){
+				if( $( '#' + $video.attr('id') ).length ) {
+					if( $( '[data-trigger-play-video="#' + $video.attr('id') + '"]' ).data('trigger-play-video-remove') == 'yes' ) {
+						$( '[data-trigger-play-video="#' + $video.attr('id') + '"]' ).animate({
+							opacity: 0
+						}, 300, function(){
+							$video[0].play();
+
+							$( '[data-trigger-play-video="#' + $video.attr('id') + '"]' ).remove();
+						});
+					} else {
+						setTimeout(function(){
+							$video[0].play();
+						},300);
+					}
+				}
+			}, 100);
+
+		});
+	});
+}
+
+/*
+* Remove min height after the load of page
+*/
+if( $('[data-remove-min-height]').length ) {
+	$(window).on('load', function(){
+		$('[data-remove-min-height]').each(function(){
+			$(this).css({
+				'min-height': 0
+			});
+		});
+	});
+}
+
+/*
+* Style Switcher Open Loader Button
+*/
+if( $('.style-switcher-open-loader').length ) {
+
+	$('.style-switcher-open-loader').on('click', function(e){
+		e.preventDefault();
+
+		var $this = $(this);
+
+		// Add Spinner to icon
+		$this.addClass('style-switcher-open-loader-loading');
+
+		var	basePath = $(this).data('base-path'),
+			skinSrc = $(this).data('skin-src');
+
+		var script1 = document.createElement("script");
+	  	script1.src = basePath + "master/style-switcher/style.switcher.localstorage.js";
+
+	  	var script2 = document.createElement("script");
+	  	script2.src = basePath + "master/style-switcher/style.switcher.js";
+	  	script2.id = "styleSwitcherScript";
+	  	script2.setAttribute('data-base-path', basePath);
+	  	script2.setAttribute('data-skin-src', skinSrc);
+
+	  	script2.onload = function() {
+	  		setTimeout(function(){
+	  			// Trigger a click to open the style switcher sidebar
+		  		function checkIfReady() {
+				    if( !$('.style-switcher-open').length ) {
+				       window.setTimeout(checkIfReady, 100);
+				    } else {
+				      $('.style-switcher-open').trigger('click');
+				    }
+				}
+				checkIfReady();
+
+	  		}, 500);
+	  	}
+
+	  	document.body.appendChild(script1);
+	  	document.body.appendChild(script2);	
+
+	});
+
+}
+
+})(jQuery);
 
 /*
 * Scroll and Focus
@@ -1494,236 +1493,6 @@ document.addEventListener('lazybeforeunveil', function(e){
 
 });
 
-
-/*! waitForImages jQuery Plugin - v2.4.0 - 2018-02-13
-* https://github.com/alexanderdickson/waitForImages
-* Copyright (c) 2018 Alex Dickson; Licensed MIT */
-;(function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(['jquery'], factory);
-    } else if (typeof exports === 'object') {
-        // CommonJS / nodejs module
-        module.exports = factory(require('jquery'));
-    } else {
-        // Browser globals
-        factory(jQuery);
-    }
-}(function ($) {
-    // Namespace all events.
-    var eventNamespace = 'waitForImages';
-
-    // Is srcset supported by this browser?
-    var hasSrcset = (function(img) {
-        return img.srcset && img.sizes;
-    })(new Image());
-
-    // CSS properties which contain references to images.
-    $.waitForImages = {
-        hasImageProperties: [
-            'backgroundImage',
-            'listStyleImage',
-            'borderImage',
-            'borderCornerImage',
-            'cursor'
-        ],
-        hasImageAttributes: ['srcset']
-    };
-
-    // Custom selector to find all `img` elements with a valid `src` attribute.
-    $.expr.pseudos['has-src'] = function (obj) {
-        // Ensure we are dealing with an `img` element with a valid
-        // `src` attribute.
-        return $(obj).is('img[src][src!=""]');
-    };
-
-    // Custom selector to find images which are not already cached by the
-    // browser.
-    $.expr.pseudos.uncached = function (obj) {
-        // Ensure we are dealing with an `img` element with a valid
-        // `src` attribute.
-        if (!$(obj).is(':has-src')) {
-            return false;
-        }
-
-        return !obj.complete;
-    };
-
-    $.fn.waitForImages = function () {
-
-        var allImgsLength = 0;
-        var allImgsLoaded = 0;
-        var deferred = $.Deferred();
-        var originalCollection = this;
-        var allImgs = [];
-
-        // CSS properties which may contain an image.
-        var hasImgProperties = $.waitForImages.hasImageProperties || [];
-        // Element attributes which may contain an image.
-        var hasImageAttributes = $.waitForImages.hasImageAttributes || [];
-        // To match `url()` references.
-        // Spec: http://www.w3.org/TR/CSS2/syndata.html#value-def-uri
-        var matchUrl = /url\(\s*(['"]?)(.*?)\1\s*\)/g;
-
-        var finishedCallback;
-        var eachCallback;
-        var waitForAll;
-
-        // Handle options object (if passed).
-        if ($.isPlainObject(arguments[0])) {
-
-            waitForAll = arguments[0].waitForAll;
-            eachCallback = arguments[0].each;
-            finishedCallback = arguments[0].finished;
-
-        } else {
-
-            // Handle if using deferred object and only one param was passed in.
-            if (arguments.length === 1 && $.type(arguments[0]) === 'boolean') {
-                waitForAll = arguments[0];
-            } else {
-                finishedCallback = arguments[0];
-                eachCallback = arguments[1];
-                waitForAll = arguments[2];
-            }
-
-        }
-
-        // Handle missing callbacks.
-        finishedCallback = finishedCallback || $.noop;
-        eachCallback = eachCallback || $.noop;
-
-        // Convert waitForAll to Boolean.
-        waitForAll = !! waitForAll;
-
-        // Ensure callbacks are functions.
-        if (!$.isFunction(finishedCallback) || !$.isFunction(eachCallback)) {
-            throw new TypeError('An invalid callback was supplied.');
-        }
-
-        this.each(function () {
-            // Build a list of all imgs, dependent on what images will
-            // be considered.
-            var obj = $(this);
-
-            if (waitForAll) {
-
-                // Get all elements (including the original), as any one of
-                // them could have a background image.
-                obj.find('*').addBack().each(function () {
-                    var element = $(this);
-
-                    // If an `img` element, add it. But keep iterating in
-                    // case it has a background image too.
-                    if (element.is('img:has-src') &&
-                        !element.is('[srcset]')) {
-                        allImgs.push({
-                            src: element.attr('src'),
-                            element: element[0]
-                        });
-                    }
-
-                    $.each(hasImgProperties, function (i, property) {
-                        var propertyValue = element.css(property);
-                        var match;
-
-                        // If it doesn't contain this property, skip.
-                        if (!propertyValue) {
-                            return true;
-                        }
-
-                        // Get all url() of this element.
-                        while (match = matchUrl.exec(propertyValue)) {
-                            allImgs.push({
-                                src: match[2],
-                                element: element[0]
-                            });
-                        }
-                    });
-
-                    $.each(hasImageAttributes, function (i, attribute) {
-                        var attributeValue = element.attr(attribute);
-                        var attributeValues;
-
-                        // If it doesn't contain this property, skip.
-                        if (!attributeValue) {
-                            return true;
-                        }
-
-                        allImgs.push({
-                            src: element.attr('src'),
-                            srcset: element.attr('srcset'),
-                            element: element[0]
-                        });
-                    });
-                });
-            } else {
-                // For images only, the task is simpler.
-                obj.find('img:has-src')
-                    .each(function () {
-                    allImgs.push({
-                        src: this.src,
-                        element: this
-                    });
-                });
-            }
-        });
-
-        allImgsLength = allImgs.length;
-        allImgsLoaded = 0;
-
-        // If no images found, don't bother.
-        if (allImgsLength === 0) {
-            finishedCallback.call(originalCollection);
-            deferred.resolveWith(originalCollection);
-        }
-
-        // Now that we've found all imgs in all elements in this,
-        // load them and attach callbacks.
-        $.each(allImgs, function (i, img) {
-
-            var image = new Image();
-            var events =
-              'load.' + eventNamespace + ' error.' + eventNamespace;
-
-            // Handle the image loading and error with the same callback.
-            $(image).one(events, function me (event) {
-                // If an error occurred with loading the image, set the
-                // third argument accordingly.
-                var eachArguments = [
-                    allImgsLoaded,
-                    allImgsLength,
-                    event.type == 'load'
-                ];
-                allImgsLoaded++;
-
-                eachCallback.apply(img.element, eachArguments);
-                deferred.notifyWith(img.element, eachArguments);
-
-                // Unbind the event listeners. I use this in addition to
-                // `one` as one of those events won't be called (either
-                // 'load' or 'error' will be called).
-                $(this).off(events, me);
-
-                if (allImgsLoaded == allImgsLength) {
-                    finishedCallback.call(originalCollection[0]);
-                    deferred.resolveWith(originalCollection[0]);
-                    return false;
-                }
-
-            });
-
-            if (hasSrcset && img.srcset) {
-                image.srcset = img.srcset;
-                image.sizes = img.sizes;
-            }
-            image.src = img.src;
-        });
-
-        return deferred.promise();
-
-    };
-}));
 
 
 /* jQuery-FontSpy.js v3.0.0
@@ -2400,93 +2169,6 @@ Issues: http://github.com/ariona/hover3d/issues
 }(jQuery));
 
 
-/*
-jQuery Hover3d
-*/
-(function($) {
-	if ($.isFunction($.fn['hover3d']) && $('.hover-effect-3d').length) {
-
-		theme.fn.execOnceTroughEvent( '.hover-effect-3d', 'mouseover.trigger.hover3d', function(){
-			$(this).each(function() {
-				var $this = $(this);
-
-				$this.hover3d({
-					selector: ".thumb-info"
-				});
-			});
-		});
-
-
-	}
-}).apply(this, [jQuery]);
-
-/*
-* Title Border
-*/
-if($('[data-title-border]').length) {
-
-	var $pageHeaderTitleBorder = $('<span class="page-header-title-border"></span>'),
-		$pageHeaderTitle = $('[data-title-border]'),
-		$window = $(window);
-
-	$pageHeaderTitle.before($pageHeaderTitleBorder);
-
-	var setPageHeaderTitleBorderWidth = function() {
-		$pageHeaderTitleBorder.width($pageHeaderTitle.width());
-	}
-
-	$window.afterResize(function(){
-		setPageHeaderTitleBorderWidth();
-	});
-
-	setPageHeaderTitleBorderWidth();
-
-	$pageHeaderTitleBorder.addClass('visible');
-}
-
-/*
-* Footer Reveal
-*/
-(function($) {
-	var $footerReveal = {
-		$wrapper: $('.footer-reveal'),
-		init: function() {
-			var self = this;
-
-			self.build();
-			self.events();
-		},
-		build: function() {
-			var self = this, 
-				footer_height = self.$wrapper.outerHeight(true),
-				window_height = ( $(window).height() - $('.header-body').height() );
-
-			if( footer_height > window_height ) {
-				$('#footer').removeClass('footer-reveal');
-				$('body').css('margin-bottom', 0);
-			} else {
-				$('#footer').addClass('footer-reveal');
-				$('body').css('margin-bottom', footer_height);
-			}
-
-		},
-		events: function() {
-			var self = this,
-				$window = $(window);
-
-			$window.on('load', function(){
-				$window.afterResize(function(){
-					self.build();
-				});
-			});
-		}
-	}
-
-	if( $('.footer-reveal').length ) {
-		$footerReveal.init();
-	}
-})(jQuery);
-
 /* Re-Init Plugin */
 if( $('[data-reinit-plugin]').length ) {
 	$('[data-reinit-plugin]').on('click', function(e) {
@@ -2504,43 +2186,6 @@ if( $('[data-reinit-plugin]').length ) {
 		}, 1000);
 
 	});
-}
-
-/* Simple Copy To Clipboard */
-if( $('[data-copy-to-clipboard]').length ) {
-	theme.fn.intObs( '[data-copy-to-clipboard]', function(){
-		var $this = $(this);
-
-		$this.wrap( '<div class="copy-to-clipboard-wrapper position-relative"></div>' );
-
-		var $copyButton = $('<a href="#" class="btn btn-primary btn-px-2 py-1 text-0 position-absolute top-8 right-8">COPY</a>');
-		$this.parent().prepend( $copyButton );
-
-		$copyButton.on('click', function(e){
-			e.preventDefault();
-
-			var $btn       = $(this),
-				$temp = $('<textarea class="d-block opacity-0" style="height: 0;">');
-
-			$btn.parent().append( $temp );
-
-			$temp.val( $this.text() );
-				
-			$temp[0].select();
-			$temp[0].setSelectionRange(0, 99999);
-
-			document.execCommand("copy");
-
-			$btn.addClass('copied');
-			setTimeout(function(){
-				$btn.removeClass('copied');
-			}, 1000);
-
-			$temp.remove();
-		});
-	}, {
-		rootMargin: '0px 0px 0px 0px'
-	} );
 }
 
 
@@ -3407,1543 +3052,6 @@ if( $('[data-copy-to-clipboard]').length ) {
 
 }).apply(this, [window.theme, jQuery]);
 
-// Chart Circular
-(function(theme, $) {
-
-	theme = theme || {};
-
-	var instanceName = '__chartCircular';
-
-	var PluginChartCircular = function($el, opts) {
-		return this.initialize($el, opts);
-	};
-
-	PluginChartCircular.defaults = {
-		accX: 0,
-		accY: -150,
-		delay: 1,
-		barColor: '#0088CC',
-		trackColor: '#f2f2f2',
-		scaleColor: false,
-		scaleLength: 5,
-		lineCap: 'round',
-		lineWidth: 13,
-		size: 175,
-		rotate: 0,
-		animate: ({
-			duration: 2500,
-			enabled: true
-		})
-	};
-
-	PluginChartCircular.prototype = {
-		initialize: function($el, opts) {
-			if ($el.data(instanceName)) {
-				return this;
-			}
-
-			this.$el = $el;
-
-			this
-				.setData()
-				.setOptions(opts)
-				.build();
-
-			return this;
-		},
-
-		setData: function() {
-			this.$el.data(instanceName, this);
-
-			return this;
-		},
-
-		setOptions: function(opts) {
-			this.options = $.extend(true, {}, PluginChartCircular.defaults, opts, {
-				wrapper: this.$el
-			});
-
-			return this;
-		},
-
-		build: function() {
-			if (!($.isFunction($.fn.easyPieChart))) {
-				return this;
-			}
-
-			var self = this,
-				$el = this.options.wrapper,
-				value = ($el.attr('data-percent') ? $el.attr('data-percent') : 0),
-				percentEl = $el.find('.percent');
-
-			$.extend(true, self.options, {
-				onStep: function(from, to, currentValue) {
-					percentEl.html(parseInt(currentValue));
-				}
-			});
-
-			$el.attr('data-percent', 0);
-
-			$el.easyPieChart(self.options);
-
-			setTimeout(function() {
-
-				$el.data('easyPieChart').update(value);
-				$el.attr('data-percent', value);
-
-			}, self.options.delay);
-
-			return this;
-		}
-	};
-
-	// expose to scope
-	$.extend(theme, {
-		PluginChartCircular: PluginChartCircular
-	});
-
-	// jquery plugin
-	$.fn.themePluginChartCircular = function(opts) {
-		return this.map(function() {
-			var $this = $(this);
-
-			if ($this.data(instanceName)) {
-				return $this.data(instanceName);
-			} else {
-				return new PluginChartCircular($this, opts);
-			}
-
-		});
-	}
-
-}).apply(this, [window.theme, jQuery]);
-
-// Countdown
-(function(theme, $) {
-
-	theme = theme || {};
-
-	var instanceName = '__countdown';
-
-	var PluginCountdown = function($el, opts) {
-		return this.initialize($el, opts);
-	};
-
-	PluginCountdown.defaults = {
-		date: '2030/06/10 12:00:00',
-		textDay: 'DAY',
-		textHour: 'HRS',
-		textMin: 'MIN',
-		textSec: 'SEC',
-		uppercase: true,
-		numberClass: '',
-		wrapperClass: '',
-		insertHTMLbefore: '',
-		insertHTMLafter: ''
-	};
-
-	PluginCountdown.prototype = {
-		initialize: function($el, opts) {
-			if ($el.data(instanceName)) {
-				return this;
-			}
-
-			this.$el = $el;
-
-			this
-				.setData()
-				.setOptions(opts)
-				.build();
-
-			return this;
-		},
-
-		setData: function() {
-			this.$el.data(instanceName, this);
-
-			return this;
-		},
-
-		setOptions: function(opts) {
-			this.options = $.extend(true, {}, PluginCountdown.defaults, opts, {
-				wrapper: this.$el
-			});
-
-			return this;
-		},
-
-		build: function() {
-			if (!($.isFunction($.fn.countTo))) {
-				return this;
-			}
-
-			var self = this,
-				$el = this.options.wrapper,
-				numberClass = ( self.options.numberClass ) ? ' ' + self.options.numberClass : '',
-				wrapperClass = ( self.options.wrapperClass ) ? ' ' + self.options.wrapperClass : '';
-
-			if( self.options.uppercase ) {
-				$el.countdown(self.options.date).on('update.countdown', function(event) {
-					var $this = $(this).html(event.strftime(self.options.insertHTMLbefore
-						+ '<span class="days'+ wrapperClass +'"><span class="'+ numberClass +'">%D</span> '+ self.options.textDay +'<div class="d-inline text-uppercase">%!d</div></span> '
-						+ '<span class="hours'+ wrapperClass +'"><span class="'+ numberClass +'">%H</span> '+ self.options.textHour +'</span> '
-						+ '<span class="minutes'+ wrapperClass +'"><span class="'+ numberClass +'">%M</span> '+ self.options.textMin +'</span> '
-						+ '<span class="seconds'+ wrapperClass +'"><span class="'+ numberClass +'">%S</span> '+ self.options.textSec +'</span> '
-						+ self.options.insertHTMLafter
-					));
-				});
-			} else {
-				$el.countdown(self.options.date).on('update.countdown', function(event) {
-					var $this = $(this).html(event.strftime(self.options.insertHTMLbefore
-						+ '<span class="days'+ wrapperClass +'"><span class="'+ numberClass +'">%D</span> '+ self.options.textDay +'%!d</span> '
-						+ '<span class="hours'+ wrapperClass +'"><span class="'+ numberClass +'">%H</span> '+ self.options.textHour +'</span> '
-						+ '<span class="minutes'+ wrapperClass +'"><span class="'+ numberClass +'">%M</span> '+ self.options.textMin +'</span> '
-						+ '<span class="seconds'+ wrapperClass +'"><span class="'+ numberClass +'">%S</span> '+ self.options.textSec +'</span> '
-						+ self.options.insertHTMLafter
-					));
-				});
-			}
-
-			return this;
-		}
-	};
-
-	// expose to scope
-	$.extend(theme, {
-		PluginCountdown: PluginCountdown
-	});
-
-	// jquery plugin
-	$.fn.themePluginCountdown = function(opts) {
-		return this.map(function() {
-			var $this = $(this);
-
-			if ($this.data(instanceName)) {
-				return $this.data(instanceName);
-			} else {
-				return new PluginCountdown($this, opts);
-			}
-
-		});
-	}
-
-}).apply(this, [window.theme, jQuery]);
-
-// Counter
-(function(theme, $) {
-
-	theme = theme || {};
-
-	var instanceName = '__counter';
-
-	var PluginCounter = function($el, opts) {
-		return this.initialize($el, opts);
-	};
-
-	PluginCounter.defaulst = {
-		accX: 0,
-		accY: 0,
-		appendWrapper: false,
-		prependWrapper: false,
-		speed: 3000,
-		refreshInterval: 100,
-		decimals: 0,
-		onUpdate: null,
-		onComplete: null
-	}
-
-	PluginCounter.prototype = {
-		initialize: function($el, opts) {
-			if ($el.data(instanceName)) {
-				return this;
-			}
-
-			this.$el = $el;
-
-			this
-				.setData()
-				.setOptions(opts)
-				.build();
-
-			return this;
-		},
-
-		setData: function() {
-			this.$el.data(instanceName, this);
-
-			return this;
-		},
-
-		setOptions: function(opts) {
-			this.options = $.extend(true, {}, PluginCounter.defaults, opts, {
-				wrapper: this.$el
-			});
-
-			return this;
-		},
-
-		build: function() {
-			if (!($.isFunction($.fn.countTo))) {
-				return this;
-			}
-
-			var self = this,
-				$el = this.options.wrapper;
-
-			$.extend(self.options, {
-				onComplete: function() {
-					
-					if ($el.data('append')) {
-						if( self.options.appendWrapper ) {
-							var appendWrapper = $( self.options.appendWrapper );
-
-							appendWrapper.append( $el.data('append') );
-
-							$el.html( $el.html() + appendWrapper[0].outerHTML );
-						} else {
-							$el.html($el.html() + $el.data('append'));
-						}
-					}
-
-					if ($el.data('prepend')) {
-						if( self.options.prependWrapper ) {
-							var prependWrapper = $( self.options.prependWrapper );
-
-							prependWrapper.append( $el.data('prepend') );
-
-							$el.html( $el.html() + prependWrapper[0].outerHTML );
-						} else {
-							$el.html($el.data('prepend') + $el.html());
-						}
-					}
-				}
-			});
-
-			$el.countTo(self.options);
-
-			return this;
-		}
-	};
-
-	// expose to scope
-	$.extend(theme, {
-		PluginCounter: PluginCounter
-	});
-
-	// jquery plugin
-	$.fn.themePluginCounter = function(opts) {
-		return this.map(function() {
-			var $this = $(this);
-
-			if ($this.data(instanceName)) {
-				return $this.data(instanceName);
-			} else {
-				return new PluginCounter($this, opts);
-			}
-
-		});
-	}
-
-}).apply(this, [window.theme, jQuery]);
-
-
-
-// Icon
-(function(theme, $) {
-
-	'use strict';
-
-	theme = theme || {};
-
-	var instanceName = '__icon';
-
-	var PluginIcon = function($el, opts) {
-		return this.initialize($el, opts);
-	};
-
-	PluginIcon.defaults = {
-		color: '#2388ED',
-		animated: false,
-		delay: 300,
-		onlySVG: false,
-		removeClassAfterInit: false,
-		fadeIn: true,
-		accY: 0
-	};
-
-	PluginIcon.prototype = {
-		initialize: function($el, opts) {
-			if ($el.data(instanceName)) {
-				return this;
-			}
-
-			this.$el = $el;
-
-			this
-				.setData()
-				.setOptions(opts)
-				.build();
-
-			return this;
-		},
-
-		setData: function() {
-			this.$el.data(instanceName, this);
-
-			return this;
-		},
-
-		setOptions: function(opts) {
-			this.options = $.extend(true, {}, PluginIcon.defaults, opts, {
-				wrapper: this.$el
-			});
-
-			return this;
-		},
-
-		build: function() {
-			var self  	 = this,
-				$el   	 = this.options.wrapper,
-				color 	 = self.options.color,
-				elTopDistance = $el.offset().top,
-				windowTopDistance = $(window).scrollTop(),
-				duration = ( self.options.animated && !self.options.strokeBased ) ? 200 : 100;
-
-			// Check origin
-			if( window.location.protocol === 'file:' ) {
-				$el.css({
-					opacity: 1,
-					width: $el.attr('width')
-				});
-
-				if( self.options.extraClass ) {
-					$el.addClass( self.options.extraClass );
-				}
-
-				if( self.options.extraClass.indexOf('-color-light') > 0 ) {
-					$el.css({
-						filter: 'invert(1)'
-					});
-				}
-
-				$(window).trigger('icon.rendered');
-				return;
-			}
-
-			// Duration
-			if( self.options.duration ) {
-				duration = self.options.duration;
-			}
-
-			// SVG Content
-			var SVGContent = $.get({
-				url: $el.attr('src'), 
-				success: function(data, status, xhr){
-					var iconWrapper = self.options.fadeIn ? $('<div class="animated-icon animated fadeIn">'+ xhr.responseText +'</div>') : $('<div class="animated-icon animated">'+ xhr.responseText +'</div>'),
-						uniqid = 'icon_' + Math.floor(Math.random() * 26) + Date.now();
-
-					// Add ID
-					iconWrapper.find('svg').attr('id', uniqid);
-
-					// Identify with filename
-					iconWrapper.find('svg').attr('data-filename', $el.attr('src').split(/(\\|\/)/g).pop());
-
-					if( $el.attr('width') ) {
-						iconWrapper.find('svg')
-							.attr('width', $el.attr('width'))
-							.attr('height', $el.attr('width'));						
-					}
-
-					if( $el.attr('height') ) {
-						iconWrapper.find('svg')
-							.attr('height', $el.attr('height'));	
-					}
-
-					if( self.options.svgViewBox ) {
-						iconWrapper.find('svg')
-							.attr('viewBox', self.options.svgViewBox);
-					}
-
-					$el.replaceWith(iconWrapper);
-
-					if( self.options.extraClass ) {
-						iconWrapper.addClass( self.options.extraClass );
-					}
-
-					if( self.options.removeClassAfterInit ) {
-						iconWrapper.removeClass(self.options.removeClassAfterInit);
-					}
-
-					if( self.options.onlySVG ) {
-						$(window).trigger('icon.rendered');
-						return this;
-					}
-
-					$el = iconWrapper;
-
-					var icon = new Vivus(uniqid, {start: 'manual', type: 'sync', selfDestroy: true, duration: duration, onReady: function(obj){
-						var styleElement = document.createElementNS("http://www.w3.org/2000/svg", "style"),
-							animateStyle = '';
-
-						// SVG Fill Based
-						if( self.options.animated && !self.options.strokeBased || !self.options.animated && color && !self.options.strokeBased ) {
-							animateStyle = 'stroke-width: 0.1px; fill-opacity: 0; transition: ease fill-opacity 300ms;';
-							
-							// Set Style on SVG inside object
-							styleElement.textContent = '#' + uniqid + ' path, #' + uniqid + ' line, #' + uniqid + ' rect, #' + uniqid + ' circle, #' + uniqid + ' polyline { fill: '+ color +'; stroke: '+ color +'; '+ animateStyle + (self.options.svgStyle ? self.options.svgStyle : "") + ' } .finished path { fill-opacity: 1; }';
-							obj.el.appendChild(styleElement);
-						}
-
-						// SVG Stroke Based
-						if( self.options.animated && self.options.strokeBased || !self.options.animated && color && self.options.strokeBased ) {
-
-							// Set Style on SVG inside object
-							styleElement.textContent = '#' + uniqid + ' path, #' + uniqid + ' line, #' + uniqid + ' rect, #' + uniqid + ' circle, #' + uniqid + ' polyline { stroke: '+ color +'; ' + (self.options.svgStyle ? self.options.svgStyle : "") + '}';
-							obj.el.appendChild(styleElement);
-						}
-
-						$.event.trigger('theme.plugin.icon.svg.ready');
-					}});
-
-					// Isn't animated
-					if( !self.options.animated ) {
-						setTimeout(function(){
-							icon.finish();
-						}, 10);
-						$el.css({ opacity: 1 });
-					}
-
-					// Animated
-					if( self.options.animated && $(window).width() > 767 ) {
-						
-						// First Load
-						if( $el.visible( true ) ) {
-							self.startIconAnimation( icon, $el );
-						} else if( elTopDistance < windowTopDistance ) {
-							self.startIconAnimation( icon, $el );
-						}
-
-						// On Scroll
-						$(window).on('scroll', function(){
-							if( $el.visible( true ) ) {
-								self.startIconAnimation( icon, $el );
-							}
-						});
-
-					} else {
-						
-						$el.css({ opacity: 1 });
-						icon.finish();
-						
-						$(window).on('theme.plugin.icon.svg.ready', function(){
-							setTimeout(function(){
-								icon.el.setAttribute('class', 'finished');
-								icon.finish();
-							}, 300);
-						});
-						
-					}
-
-					$(window).trigger('icon.rendered');
-				}
-			});
-
-			return this;
-		},
-
-		startIconAnimation: function(icon, $el) {
-			var self = this;
-
-			// Animate for better performance
-			$({to:0}).animate({to:1}, ((self.options.strokeBased) ? self.options.delay : self.options.delay + 300 ), function() {
-				$el.css({ opacity: 1 });
-			});
-
-			$({to:0}).animate({to:1}, self.options.delay, function() {
-				icon.play(1);
-
-				setTimeout(function(){
-					icon.el.setAttribute('class', 'finished');
-				}, icon.duration * 5 );
-			});
-		}
-	};
-
-	// expose to scope
-	$.extend(theme, {
-		PluginIcon: PluginIcon
-	});
-
-	// jquery plugin
-	$.fn.themePluginIcon = function(opts) {
-		return this.map(function() {
-			var $this = $(this);
-
-			if ($this.data(instanceName)) {
-				return $this.data(instanceName);
-			} else {
-				return new PluginIcon($this, opts);
-			}
-
-		});
-	};
-
-}).apply(this, [window.theme, jQuery]);
-
-
-// Match Height
-(function(theme, $) {
-
-	theme = theme || {};
-
-	var instanceName = '__matchHeight';
-
-	var PluginMatchHeight = function($el, opts) {
-		return this.initialize($el, opts);
-	};
-
-	PluginMatchHeight.defaults = {
-		byRow: true,
-		property: 'height',
-		target: null,
-		remove: false
-	};
-
-	PluginMatchHeight.prototype = {
-		initialize: function($el, opts) {
-			if ($el.data(instanceName)) {
-				return this;
-			}
-
-			this.$el = $el;
-
-			this
-				.setData()
-				.setOptions(opts)
-				.build();
-
-			return this;
-		},
-
-		setData: function() {
-			this.$el.data(instanceName, this);
-
-			return this;
-		},
-
-		setOptions: function(opts) {
-			this.options = $.extend(true, {}, PluginMatchHeight.defaults, opts, {
-				wrapper: this.$el
-			});
-
-			return this;
-		},
-
-		build: function() {
-			if (!($.isFunction($.fn.matchHeight))) {
-				return this;
-			}
-
-			var self = this;
-
-			self.options.wrapper.matchHeight(self.options);
-
-			return this;
-		}
-
-	};
-
-	// expose to scope
-	$.extend(theme, {
-		PluginMatchHeight: PluginMatchHeight
-	});
-
-	// jquery plugin
-	$.fn.themePluginMatchHeight = function(opts) {
-		return this.map(function() {
-			var $this = $(this);
-
-			if ($this.data(instanceName)) {
-				return $this.data(instanceName);
-			} else {
-				return new PluginMatchHeight($this, opts);
-			}
-
-		});
-	}
-
-}).apply(this, [window.theme, jQuery]);
-
-// Parallax
-(function(theme, $) {
-
-	theme = theme || {};
-
-	var instanceName = '__parallax';
-
-	var PluginParallax = function($el, opts) {
-		return this.initialize($el, opts);
-	};
-
-	PluginParallax.defaults = {
-		speed: 1.5,
-		horizontalPosition: '50%',
-		offset: 0,
-		parallaxDirection: 'top',
-		parallaxHeight: '180%',
-		scrollableParallax: false,
-		scrollableParallaxMinWidth: 991,
-		startOffset: 7,
-		transitionDuration: '200ms',
-		cssProperty: 'width',
-		cssValueStart: 40,
-		cssValueEnd: 100,
-		cssValueUnit: 'vw',
-		mouseParallax: false
-	};
-
-	PluginParallax.prototype = {
-		initialize: function($el, opts) {
-			if ($el.data(instanceName)) {
-				return this;
-			}
-
-			this.$el = $el;
-
-			this
-				.setData()
-				.setOptions(opts)
-				.build();
-
-			return this;
-		},
-
-		setData: function() {
-			this.$el.data(instanceName, this);
-
-			return this;
-		},
-
-		setOptions: function(opts) {
-			this.options = $.extend(true, {}, PluginParallax.defaults, opts, {
-				wrapper: this.$el
-			});
-
-			return this;
-		},
-
-		build: function() {
-			var self = this,
-				$window = $(window),
-				offset,
-				yPos,
-				bgpos,
-				background,
-				rotateY;
-
-			// Mouse Parallax
-			if( self.options.mouseParallax ) {
-
-				$window.mousemove(function(e) {
-
-					$('.parallax-mouse-object', self.options.wrapper).each(function() {
-
-				        var moving_value = $( this ).attr('data-value');
-				        var x = (e.clientX * moving_value) / 250;
-				        var y = (e.clientY * moving_value) / 250;
-
-				        $( this ).css('transform', 'translateX(' + x + 'px) translateY(' + y + 'px)');
-				    });
-
-				});
-
-				return this;
-
-			}
-
-			// Scrollable
-			if( self.options.scrollableParallax && $(window).width() > self.options.scrollableParallaxMinWidth ) {
-				var $scrollableWrapper = self.options.wrapper.find('.scrollable-parallax-wrapper');
-
-				if( $scrollableWrapper.get(0) ) {
-
-					var progress 	 = ( $(window).scrollTop() > ( self.options.wrapper.offset().top + $(window).outerHeight() ) ) ? self.options.cssValueEnd : self.options.cssValueStart,
-						cssValueUnit = self.options.cssValueUnit ? self.options.cssValueUnit : '';
-
-					$scrollableWrapper.css({
-						'background-image' : 'url(' + self.options.wrapper.data('image-src') + ')',
-						'background-size' : 'cover',
-						'background-position' : 'center',
-						'background-attachment' : 'fixed',
-						'transition' : 'ease '+ self.options.cssProperty +' '+ self.options.transitionDuration,
-						'width' : progress + '%'
-					});
-
-					$(window).on('scroll', function(e){
-						if( self.options.wrapper.visible( true ) ) {
-							var $window = $(window),
-								scrollTop = $window.scrollTop(),
-						    	elementOffset = self.options.wrapper.offset().top,
-						     	currentElementOffset = (elementOffset - scrollTop);
-
-						   	var scrollPercent = Math.abs( +( currentElementOffset - $window.height() ) / (self.options.startOffset ? self.options.startOffset : 7) );
-						 	
-						 	// Increment progress value according scroll position
-						 	if( scrollPercent <= self.options.cssValueEnd && progress <= self.options.cssValueEnd ) {
-						 		progress = self.options.cssValueStart + scrollPercent;
-						 	}
-
-						 	// Adjust CSS end value
-						 	if( progress > self.options.cssValueEnd ) {
-						 		progress = self.options.cssValueEnd;
-						 	}
-
-						 	// Adjust CSS start value
-						 	if( progress < self.options.cssValueStart ) {
-						 		progress = self.options.cssValueStart;
-						 	}
-
-						 	var styles = {}
-						 	styles[self.options.cssProperty] = progress + cssValueUnit;
-
-							$scrollableWrapper.css(styles);
-						}
-					});
-
-				}
-
-				return;
-			}
-
-			// Create Parallax Element
-			if( self.options.fadeIn ) {
-				background = $('<div class="parallax-background fadeIn animated"></div>');
-			} else {
-				background = $('<div class="parallax-background"></div>');
-			}
-
-			// Set Style for Parallax Element
-			background.css({
-				'background-image' : 'url(' + self.options.wrapper.data('image-src') + ')',
-				'background-size' : 'cover',
-				'position' : 'absolute',
-				'top' : 0,
-				'left' : 0,
-				'width' : '100%',
-				'height' : self.options.parallaxHeight
-			});
-
-			// Add Parallax Element on DOM
-			self.options.wrapper.prepend(background);
-
-			// Set Overlfow Hidden and Position Relative to Parallax Wrapper
-			self.options.wrapper.css({
-				'position' : 'relative',
-				'overflow' : 'hidden'
-			});
-
-			// Parallax Effect on Scroll & Resize
-			var parallaxEffectOnScrolResize = function() {
-				$window.on('scroll resize', function() {
-					offset  = self.options.wrapper.offset();
-					yPos    = -($window.scrollTop() - (offset.top - 100)) / ((self.options.speed + 2 ));
-					plxPos  = (yPos < 0) ? Math.abs(yPos) : -Math.abs(yPos);
-					rotateY = ( $('html[dir="rtl"]').get(0) ) ? ' rotateY(180deg)' : ''; // RTL
-
-					if( self.options.parallaxDirection == 'bottom' ) {
-						self.options.offset = 250;
-					}
-
-					var y = ( (plxPos - 50) + (self.options.offset) );
-					if( self.options.parallaxDirection == 'bottom' ) {
-						y = ( y < 0 ) ? Math.abs( y ) : -Math.abs( y );
-					}
-
-					background.css({
-						'transform' : 'translate3d(0, '+ y +'px, 0)' + rotateY,
-						'background-position-x' : self.options.horizontalPosition
-					});
-				});
-
-				$window.trigger('scroll');
-			}
-
-			if (!$.browser.mobile) {
-				parallaxEffectOnScrolResize();
-			} else {
-				if( self.options.enableOnMobile == true ) {
-					parallaxEffectOnScrolResize();
-				} else {
-					self.options.wrapper.addClass('parallax-disabled');
-				}
-			}
-
-			return this;
-		}
-	};
-
-	// expose to scope
-	$.extend(theme, {
-		PluginParallax: PluginParallax
-	});
-
-	// jquery plugin
-	$.fn.themePluginParallax = function(opts) {
-		return this.map(function() {
-			var $this = $(this);
-
-			if ($this.data(instanceName)) {
-				return $this.data(instanceName);
-			} else {
-				return new PluginParallax($this, opts);
-			}
-
-		});
-	}
-
-}).apply(this, [window.theme, jQuery]);
-
-
-// Revolution Slider
-(function(theme, $) {
-
-	theme = theme || {};
-
-	var instanceName = '__revolution';
-
-	var PluginRevolutionSlider = function($el, opts) {
-		return this.initialize($el, opts);
-	};
-
-	PluginRevolutionSlider.defaults = {
-		sliderType: 'standard',
-		sliderLayout: 'fullwidth',
-		delay: 9000,
-		gridwidth: 1170,
-		gridheight: 500,
-		spinner: 'spinner3',
-		disableProgressBar: 'on',
-		parallax: {
-			type: 'off',
-			bgparallax: 'off'
-		},
-		navigation: {
-			keyboardNavigation: 'off',
-			keyboard_direction: 'horizontal',
-			mouseScrollNavigation: 'off',
-			onHoverStop: 'off',
-			touch: {
-				touchenabled: 'on',
-				swipe_threshold: 75,
-				swipe_min_touches: 1,
-				swipe_direction: 'horizontal',
-				drag_block_vertical: false
-			},
-			arrows: {
-				enable: true,
-				hide_onmobile: false,
-				hide_under: 0,
-				hide_onleave: true,
-				hide_delay: 200,
-				hide_delay_mobile: 1200,
-				left: {
-					h_align: 'left',
-					v_align: 'center',
-					h_offset: 30,
-					v_offset: 0
-				},
-				right: {
-					h_align: 'right',
-					v_align: 'center',
-					h_offset: 30,
-					v_offset: 0
-				}
-			}
-		},
-
-		/* ADDONS */
-	    addOnTypewriter: {
-			enable: false
-		},
-		addOnWhiteboard: {
-			enable: false,
-
-		},
-	    whiteboard: {
-	        movehand: {
-	            src: '../vendor/rs-plugin/revolution-addons/whiteboard/assets/images/hand_point_right.png',
-	            width: 400,
-	            height: 1000,
-	            handtype: 'right',
-	            transform: {
-	                transformX: 50,
-	                transformY: 50
-	            },
-	            jittering: {
-	                distance: '80',
-	                distance_horizontal: '100',
-	                repeat: '5',
-	                offset: '10',
-	                offset_horizontal: '0'
-	            },
-	            rotation: {
-	                angle: '10',
-	                repeat: '3'
-	            }
-	        },
-	        writehand: {
-	            src: '../vendor/rs-plugin/revolution-addons/whiteboard/assets/images/write_right_angle.png',
-	            width: 572,
-	            height: 691,
-	            handtype: 'right',
-	            transform: {
-	                transformX: 50,
-	                transformY: 50
-	            },
-	            jittering: {
-	                distance: '80',
-	                distance_horizontal: '100',
-	                repeat: '5',
-	                offset: '10',
-	                offset_horizontal: '0'
-	            },
-	            rotation:{
-	                angle: '10',
-	                repeat: '3'
-	            }
-	        }
-	    },
-	    addOnParticles: {
-	    	enable: false
-	    },
-	    particles: {
-			startSlide: "first", 
-			endSlide: "last", 
-			zIndex: "1",
-			particles: {
-				number: {value: 80}, color: {value: "#ffffff"},
-				shape: {
-					type: "circle", stroke: {width: 0, color: "#ffffff", opacity: 1},
-					image: {src: ""}
-				},
-				opacity: {value: 0.5, random: true, min: 0.25, anim: {enable: false, speed: 3, opacity_min: 0, sync: false}},
-				size: {value: 2, random: false, min: 30, anim: {enable: false, speed: 40, size_min: 1, sync: false}},
-				line_linked: {enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1},
-				move: {enable: true, speed: 6, direction: "none", random: true, min_speed: 6, straight: false, out_mode: "out"}
-			},
-			interactivity: {
-				events: {onhover: {enable: false, mode: "repulse"}, onclick: {enable: false, mode: "repulse"}},
-				modes: {grab: {distance: 400, line_linked: {opacity: 0.5}}, bubble: {distance: 400, size: 40, opacity: 0.4}, repulse: {distance: 200}}
-			}
-		},
-		addOnCountdown: {
-			enable: false,
-			targetdate: new Date().getTime() + 864000000, // http://www.freeformatter.com/epoch-timestamp-to-date-converter.html
-			slidechanges: [{days: 0, hours: 0, minutes: 0, seconds: 0, slide: 2}]
-		},
-		addOnSlicey: {
-			enable: false
-		},
-		addOnFilmstrip: {
-			enable: false
-		},
-		addOnBeforeAfter : {
-			enable: false,
-			options: {
-				cursor: "move",
-			    carousel: false,
-			    arrowStyles: {
-			        leftIcon: "fa-icon-caret-left",
-			        rightIcon: "fa-icon-caret-right",
-			        topIcon: "fa-icon-caret-up",
-			        bottomIcon: "fa-icon-caret-down",
-			        size: "35",
-			        color: "#ffffff",
-			        spacing: "10",
-			        bgColor: "transparent",
-			        padding: "0",
-			        borderRadius: "0"
-			    },
-			    dividerStyles: {
-			        width: "1",
-			        color: "rgba(255, 255, 255, 0.5)"
-			    }
-			}
-		},
-		addOnPanorama: {
-			enable: false
-		},
-		addOnRevealer: {
-			enable: false,
-		},
-		revealer: {
-			direction: "open_horizontal",
-			color: "#ffffff",
-			duration: "1500",
-			delay: "0",
-			easing: "Power2.easeInOut",
-			overlay_enabled: true,
-			overlay_color: "#000000",
-			overlay_duration: "1500",
-			overlay_delay: "0",
-			overlay_easing: "Power2.easeInOut",
-			spinner: "1",
-			spinnerColor: "#006dd2",
-			spinnerHtml: "<div class='rsaddon-revealer-spinner rsaddon-revealer-spinner-1'><div class='rsaddon-revealer-1'><span style='background: {{color}}'><\/span><span style='background: {{color}}'><\/span><span style='background: {{color}}'><\/span><span style='background: {{color}}'><\/span><span style='background: {{color}}'><\/span><span style='background: {{color}}'><\/span><span style='background: {{color}}'><\/span><span style='background: {{color}}'><\/span><span style='background: {{color}}'><\/span><span style='background: {{color}}'><\/span><\/div><\/div \/>"
-		},
-		addOnDuotone: {
-			enable: false
-		},
-		addOnBubblemorph: {
-			enable: false
-		},
-		addOnDistortion: {
-			enable: false
-		}
-		
-	};
-
-	PluginRevolutionSlider.prototype = {
-		initialize: function($el, opts) {
-			if ($el.data(instanceName)) {
-				return this;
-			}
-
-			this.$el = $el;
-
-			this
-				.setData()
-				.setOptions(opts)
-				.build()
-				.events();
-
-			return this;
-		},
-
-		setData: function() {
-			this.$el.data(instanceName, this);
-
-			return this;
-		},
-
-		setOptions: function(opts) {
-			this.options = $.extend(true, {}, PluginRevolutionSlider.defaults, opts, {
-				wrapper: this.$el
-			});
-
-			return this;
-		},
-
-		build: function() {
-			if (!($.isFunction($.fn.revolution))) {
-				return this;
-			}
-
-			// Single Slider Class
-			if(this.options.wrapper.find('> ul > li').length == 1) {
-				this.options.wrapper.addClass('slider-single-slide');
-
-				// Remove Bullets
-				// this.options.navigation.bullets.enable = false;
-				$.extend(this.options.navigation, {
-					bullets: {
-						enable: false
-					}
-				});
-
-			}
-
-			// Full Screen Class
-			if(this.options.sliderLayout == 'fullscreen') {
-				this.options.wrapper.closest('.slider-container').addClass('fullscreen-slider');
-			}
-			
-			// Initialize Revolution Slider
-			this.options.wrapper.revolution(this.options);
-
-			// Addon Init - Typewriter
-			if(this.options.addOnTypewriter.enable) {
-				RsTypewriterAddOn($, this.options.wrapper);
-			}
-
-			// Addon Init - Whiteboard
-			if(this.options.addOnWhiteboard.enable) {
-				this.options.wrapper.rsWhiteBoard();
-			}
-
-			// Addon Init - Particles
-			if(this.options.addOnParticles.enable) {
-				RsParticlesAddOn(this.options.wrapper);
-			}
-
-			// Addon Init - Countdown
-			if(this.options.addOnCountdown.enable) {
-				tp_countdown(this.options.wrapper, this.options.addOnCountdown.targetdate, this.options.addOnCountdown.slidechanges);
-			}
-
-			// Addon Init - Slicey
-			if(this.options.addOnSlicey.enable) {
-				this.options.wrapper.revSliderSlicey();
-			}
-
-			// Addon Init - Filmstrip
-			if(this.options.addOnFilmstrip.enable) {
-				RsFilmstripAddOn($, this.options.wrapper, '../vendor/rs-plugin/revolution-addons/filmstrip/', false);
-			}
-
-			// Addon Init - Before After
-			if(this.options.addOnBeforeAfter.enable) {
-				RevSliderBeforeAfter($, this.options.wrapper, this.options.addOnBeforeAfter.options);
-			}
-
-			// Addon Init - Panorama
-			if(this.options.addOnPanorama.enable) {
-				RsAddonPanorama($, this.options.wrapper);
-			}
-
-			// Addon Init - Revealer
-			if(this.options.addOnRevealer.enable) {
-				RsRevealerAddOn($, this.options.wrapper, this.options.revealer.spinnerHtml);
-			}
-
-			// Addon Init - Duotone
-			if(this.options.addOnDuotone.enable) {
-				RsAddonDuotone($, this.options.wrapper, true, "cubic-bezier(0.645, 0.045, 0.355, 1.000)", "1000");
-			}
-
-			// Addon Init - Bubblemorph
-			if(this.options.addOnBubblemorph.enable) {
-				BubbleMorphAddOn($, this.options.wrapper, false);
-			}
-
-			// Addon Init - Distortion
-			if(this.options.addOnDistortion.enable) {
-				RsLiquideffectAddOn($, this.options.wrapper);
-			}
-
-			return this;
-		},
-
-		events: function() {
-
-			return this;
-		}
-	};
-
-	// expose to scope
-	$.extend(theme, {
-		PluginRevolutionSlider: PluginRevolutionSlider
-	});
-
-	// jquery plugin
-	$.fn.themePluginRevolutionSlider = function(opts) {
-		return this.map(function() {
-			var $this = $(this);
-
-			if ($this.data(instanceName)) {
-				return $this.data(instanceName);
-			} else {
-				return new PluginRevolutionSlider($this, opts);
-			}
-
-		});
-	}
-
-}).apply(this, [window.theme, jQuery]);
-
-// Scroll Spy
-(function(theme, $) {
-
-	theme = theme || {};
-
-	var instanceName = '__scrollSpy';
-
-	var PluginScrollSpy = function($el, opts) {
-		return this.initialize($el, opts);
-	};
-
-	PluginScrollSpy.defaults = {
-		target: '#header',
-		debugMode: false
-	};
-
-	PluginScrollSpy.prototype = {
-		initialize: function($el, opts) {
-
-			if( document.querySelector( opts.target ) == null ) {
-				return false;
-			}
-
-			this.$el = $el;
-
-			this
-				.setData()
-				.setOptions(opts);
-
-			if( this.options.debugMode ) {
-				this.debugMode();
-			} 
-			
-			this.build();
-
-			return this;
-		},
-
-		setData: function() {
-			this.$el.data(instanceName, this);
-
-			return this;
-		},
-
-		setOptions: function(opts) {
-			this.options = $.extend(true, {}, PluginScrollSpy.defaults, opts, {
-				wrapper: this.$el
-			});
-
-			return this;
-		},
-
-		build: function() {
-            var self = this,
-                target = document.querySelector( self.options.target ) != null ? document.querySelector( self.options.target ) : false,
-                navItems = target == '#header' || target == '.wrapper-spy' ? target.querySelectorAll('.header-nav .nav > li a') : target.querySelectorAll('.nav > li a');
-
-			// Get all section ID's
-			var sectionIDs = Object.keys(navItems).map(function(key, index) {
-				return navItems[key].hash;
-			});
-
-			// Remove empty values from sectionIDs array
-			sectionIDs = sectionIDs.filter(function(value){
-				return value != ''; 
-			});
-
-			// Store in a global variable
-			self.sectionIDs = sectionIDs;
-
-			for( var i = 0; i < sectionIDs.length; i++ ) {
-
-				// Default Root Margin
-				var rootMargin = '-20% 0px -80% 0px';
-				
-				// Spy Offset
-				if( $( sectionIDs[i] ).data('spy-offset') ) {
-					var rootMarginOffset = $( sectionIDs[i] ).data('spy-offset'),
-						isNegativeOffset = parseInt( rootMarginOffset ) < 0 ? true : false;
-
-					// Mount a new rootMargin based on offset value
-					rootMargin = rootMargin.split(' ').map(function(element, index){
-						if( element.indexOf('%') > 0 ) {
-							var valueToInt = parseInt( element.replace('%','') ),
-								newValue = 0;
-
-							switch ( index ) {
-								case 0:
-									if( isNegativeOffset ) {
-										newValue = valueToInt - rootMarginOffset;
-									} else {
-										newValue = Math.abs(valueToInt) + rootMarginOffset;
-									}
-									break;
-
-								case 2:
-									if( isNegativeOffset ) {
-										newValue = valueToInt + rootMarginOffset;
-									} else {
-										newValue = Math.abs(valueToInt) - rootMarginOffset;
-									}
-									break;
-							
-							}
-
-							if( isNegativeOffset ) {
-								newValue = newValue + '%';
-							} else {
-								newValue = '-' + newValue + '%';
-							}
-
-							return newValue;
-						} else {
-							return element;
-						}
-					}).join(' ');
-				}
-
-				var selector = sectionIDs[i],
-					callback = function() {
-						var $section = $(this);
-
-						if( target == '#header' || target == '.wrapper-spy' ) {
-							$('#header .header-nav .nav > li a').removeClass('active');
-							$('#header .header-nav .nav > li a[href="#'+ $section[0].id +'"]').addClass('active');
-						} else {
-							$( target ).find('.nav > li a').removeClass('active');
-							$( target ).find('.nav > li a[href="#'+ $section[0].id +'"]').addClass('active');
-						}
-						
-					}
-
-				this.scrollSpyIntObs( selector, callback, { 
-					rootMargin: rootMargin,
-					threshold: 0
-				}, true, i, true);
-
-            }
-
-            return this;
-
-		},
-
-		scrollSpyIntObs: function(selector, functionName, intObsOptions, alwaysObserve, index, firstLoad) {
-			var self = this;
-
-			var $el = document.querySelectorAll( selector );
-			var intersectionObserverOptions = {
-				rootMargin: '0px 0px 200px 0px'
-			}
-
-			if( Object.keys(intObsOptions).length ) {
-				intersectionObserverOptions = $.extend(intersectionObserverOptions, intObsOptions);
-			}
-
-			var observer = new IntersectionObserver(function(entries) {
-
-				for(var i=0; i < entries.length; i++) {
-					var entry = entries[i];
-
-					if (entry.intersectionRatio > 0 ) {
-						if( typeof functionName === 'string' ) {
-							var func = Function( 'return ' + functionName )();
-						} else {
-							var callback = functionName;
-
-							callback.call( $(entry.target) );
-						}
-
-						// Unobserve
-						if( !alwaysObserve ) {
-							observer.unobserve(entry.target);   
-						}
-
-					} else {
-						if( firstLoad == false ) {
-							if( index == self.sectionIDs.length - 1 ) {
-								$('#header .header-nav .nav > li a').removeClass('active');
-								$('#header .header-nav .nav > li a[href="#'+ entry.target.id +'"]').parent().prev().find('a').addClass('active');
-							}
-						}
-						firstLoad = false;
-
-					}
-				}
-			}, intersectionObserverOptions);
-			
-			$( $el ).each(function(){
-				observer.observe( $(this)[0] );
-			});
-
-			return this;
-		},
-
-		debugMode: function() {
-			function wrapCallback(cb) {
-				return (...args) => wrapper(cb, ...args)
-			}
-
-			function addFlashingRect(bounds, style = {}, entry) {
-				const { width, left, height, top } = bounds
-				const div = document.createElement("div")
-				div.style.position = "fixed"
-				div.style.width = width + "px"
-				div.style.left = left + "px"
-				div.style.top = top + "px"
-				div.style.height = height + "px"
-				div.style.pointerEvents = "none"
-				div.style.transition = "opacity 2s ease-in"
-				div.style.zIndex = 9999999999;
-				Object.assign(div.style, style)
-				requestAnimationFrame(() =>
-					requestAnimationFrame(() => {
-					div.style.opacity = 0
-				})
-				)
-				div.addEventListener("transitionend", () => {
-					document.body.removeChild(div)
-				})
-				
-				document.body.appendChild(div)
-
-				if( entry ) {
-					var newdiv = document.createElement("div");
-					
-					newdiv.style.backgroundColor = '#000';
-					newdiv.style.color = '#FFF';
-					newdiv.style.paddingTop = '10px';
-					newdiv.style.paddingRight = '10px';
-					newdiv.style.paddingLeft = '10px';
-					newdiv.style.paddingBottom = '10px';
-					newdiv.innerHTML = entry.target.id;
-					div.appendChild( newdiv );
-				}
-				
-				return div
-			}
-
-			const iodOptions = {
-				rootColor: "#9428AB",
-				enterColor: "#B35C00",
-				exitColor: "#035570",
-				interColor: "#9CAF00BB",
-			}
-
-			function showEntry(entry) {
-				addFlashingRect(entry.rootBounds, {
-					border: `${Math.min(10, entry.rootBounds.height / 2)}px solid ${
-					iodOptions.rootColor
-					}`,
-					overflow: "hidden",
-					boxSizing: "border-box",
-				}, entry);
-			}
-
-			function wrapper(cb, entries, observer) {
-				entries.forEach(showEntry)
-				return cb(entries, observer)
-			}
-
-			if (typeof window != "undefined") {
-				window.IntersectionObserver = class extends IntersectionObserver {
-					constructor(cb, o) {
-						super(wrapCallback(cb), o)
-					}
-				}
-			}
-
-			return this;
-		}
-	};
-
-	// expose to scope
-	$.extend(theme, {
-		PluginScrollSpy: PluginScrollSpy
-	});
-
-	// jquery plugin
-	$.fn.themePluginScrollSpy = function(opts) {
-		return this.map(function() {
-			var $this = $(this);
-
-			if ($this.data(instanceName)) {
-				return $this.data(instanceName);
-			} else {
-				return new PluginScrollSpy($this, opts);
-			}
-
-		});
-	}
-
-}).apply(this, [window.theme, jQuery]);
-
 // Scroll to Top
 (function(theme, $) {
 
@@ -5061,120 +3169,6 @@ if( $('[data-copy-to-clipboard]').length ) {
 
 		}
 
-	});
-
-}).apply(this, [window.theme, jQuery]);
-
-// Scrollable
-(function(theme, $) {
-
-	theme = theme || {};
-
-	var instanceName = '__scrollable';
-
-	var PluginScrollable = function($el, opts) {
-		return this.initialize($el, opts);
-	};
-
-	PluginScrollable.updateModals = function() {
-		PluginScrollable.updateBootstrapModal();
-	};
-
-	PluginScrollable.updateBootstrapModal = function() {
-		var updateBoostrapModal;
-
-		updateBoostrapModal = typeof $.fn.modal !== 'undefined';
-		updateBoostrapModal = updateBoostrapModal && typeof $.fn.modal.Constructor !== 'undefined';
-		updateBoostrapModal = updateBoostrapModal && typeof $.fn.modal.Constructor.prototype !== 'undefined';
-		updateBoostrapModal = updateBoostrapModal && typeof $.fn.modal.Constructor.prototype.enforceFocus !== 'undefined';
-
-		if ( !updateBoostrapModal ) {
-			return false;
-		}
-
-		var originalFocus = $.fn.modal.Constructor.prototype.enforceFocus;
-		$.fn.modal.Constructor.prototype.enforceFocus = function() {
-			originalFocus.apply( this );
-
-			var $scrollable = this.$element.find('.scrollable');
-			if ( $scrollable ) {
-				if ( $.isFunction($.fn['themePluginScrollable'])  ) {
-					$scrollable.themePluginScrollable();
-				}
-
-				if ( $.isFunction($.fn['nanoScroller']) ) {
-					$scrollable.nanoScroller();
-				}
-			}
-		};
-	};
-
-	PluginScrollable.defaults = {
-		contentClass: 'scrollable-content',
-		paneClass: 'scrollable-pane',
-		sliderClass: 'scrollable-slider',
-		alwaysVisible: true,
-		preventPageScrolling: true
-	};
-
-	PluginScrollable.prototype = {
-		initialize: function($el, opts) {
-			if ( $el.data( instanceName ) ) {
-				return this;
-			}
-
-			this.$el = $el;
-
-			this
-				.setData()
-				.setOptions(opts)
-				.build();
-
-			return this;
-		},
-
-		setData: function() {
-			this.$el.data(instanceName, this);
-
-			return this;
-		},
-
-		setOptions: function(opts) {
-			this.options = $.extend(true, {}, PluginScrollable.defaults, opts, {
-				wrapper: this.$el
-			});
-
-			return this;
-		},
-
-		build: function() {
-			this.options.wrapper.nanoScroller(this.options);
-
-			return this;
-		}
-	};
-
-	// expose to scope
-	$.extend(theme, {
-		PluginScrollable: PluginScrollable
-	});
-
-	// jquery plugin
-	$.fn.themePluginScrollable = function(opts) {
-		return this.each(function() {
-			var $this = $(this);
-
-			if ($this.data(instanceName)) {
-				return $this.data(instanceName);
-			} else {
-				return new PluginScrollable($this, opts);
-			}
-
-		});
-	};
-
-	$(function() {
-		PluginScrollable.updateModals();
 	});
 
 }).apply(this, [window.theme, jQuery]);
