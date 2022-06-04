@@ -6183,8 +6183,8 @@ section.timeline .timeline-box.left {
 }
 
 section.timeline .timeline-box.left:before {
-	background: none repeat scroll 0 0 #CA3352;
-	box-shadow: 0 0 0 3px #FFF, 0 0 0 6px #CA3352;
+	background: none repeat scroll 0 0 #c2c2c2;
+	box-shadow: 0 0 0 3px #FFF, 0 0 0 6px #c2c2c2;
 	border-radius: 50%;
 	content: "";
 	display: block;
@@ -6217,6 +6217,10 @@ section.timeline .timeline-calendar.left {
 	clear: both;
 }
 
+section.timeline .timeline-calendar.right {
+	padding-left: 58px;
+}
+
 section.timeline .timeline-box.left .timeline-box-arrow {
 	transform: rotate(45deg);
 	content: '';
@@ -6240,9 +6244,9 @@ section.timeline .timeline-box.right {
 }
 
 section.timeline .timeline-box.right:before {
-	background: none repeat scroll 0 0 #E5E5E5;
+	background: none repeat scroll 0 0 #c2c2c2;
 	border-radius: 50%;
-	box-shadow: 0 0 0 3px #FFF, 0 0 0 6px #E5E5E5;
+	box-shadow: 0 0 0 3px #FFF, 0 0 0 6px #c2c2c2;
 	content: "";
 	display: block;
 	height: 7px;
@@ -6263,7 +6267,7 @@ section.timeline .timeline-box.right .timeline-box-arrow {
 	transform: rotate(45deg);
 	content: '';
 	display: block;
-	background: #FFF;time
+	background: #FFF;
 	border-left: 1px solid #E5E5E5;
 	border-bottom: 1px solid #E5E5E5;
 	float: left;
