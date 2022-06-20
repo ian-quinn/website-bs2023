@@ -269,3 +269,22 @@ a[data-toggle="collapse"] {
 .sidebar-menu .accordion-item .accordion-collapse .accordion-body {
     padding: 0px;
 }
+
+.topic-list {
+    margin-bottom: 10px;
+}
+
+.topic-list h4 {
+    line-height: initial;
+    height: 40px;
+}
+
+.topic-list ul li {
+    display: list-item;
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+.topic-list-card ul {
+    padding-bottom: 0px !important;
+}
