@@ -62,7 +62,12 @@
                 <li><i class="fab fa-facebook-f"></i><a href="https://www.facebook.com/Building-Simulation-2023-104965802024385" target="_blank">@bs2023</a></li>
                 <li><i class="fab fa-twitter"></i><a href="https://twitter.com/BS2023Shanghai" target="_blank">@BS2023Shanghai</a></li>
                 <li><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/company/77680241/" target="_blank">@bs2023</a></li>
-                <li><i class="fab fa-weixin"></i><a href="">@IBPSA_CHINA</a></li>
+                <li><i class="fab fa-weixin"></i><a href="" id="button" aria-describedby="tooltip">@IBPSA_CHINA</a>
+                    <div id="tooltip" role="tooltip">
+                        <img src="static/img/code.jpg" style="width: 100px;">
+                        <div id="arrow" data-popper-arrow></div>
+                    </div>
+                </li>
             </ul>
             <h4 class="mt-4 mb-2">Working hours</h4>
             <p class="mb-0 text-3">9am-12am GMT+8, Monday-Friday in preparation phrase till September 1st, 2022. If you have problem in contact with us, please leave a message and check the subscription box for our monthly newsletter!😀</p>
@@ -147,4 +152,62 @@
 
 {% block scripts %}
 <!-- <script src="{{ url_for('static', filename='vendor/jquery.gmap/jquery.gmap.min.js') }}"></script> -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script>
+  const button = document.querySelector('#button');
+  const tooltip = document.querySelector('#tooltip');
+
+  const popperInstance = Popper.createPopper(button, tooltip, {
+    modifiers: [
+      {
+        name: 'offset',
+        options: {
+          offset: [0, 8],
+        },
+      },
+    ],
+  });
+
+  function show() {
+    // Make the tooltip visible
+    tooltip.setAttribute('data-show', '');
+
+    // Enable the event listeners
+    popperInstance.setOptions((options) => ({
+      ...options,
+      modifiers: [
+        ...options.modifiers,
+        { name: 'eventListeners', enabled: true },
+      ],
+    }));
+
+    // Update its position
+    popperInstance.update();
+  }
+
+  function hide() {
+    // Hide the tooltip
+    tooltip.removeAttribute('data-show');
+
+    // Disable the event listeners
+    popperInstance.setOptions((options) => ({
+      ...options,
+      modifiers: [
+        ...options.modifiers,
+        { name: 'eventListeners', enabled: false },
+      ],
+    }));
+  }
+
+  const showEvents = ['mouseenter', 'focus'];
+  const hideEvents = ['mouseleave', 'blur'];
+
+  showEvents.forEach((event) => {
+    button.addEventListener(event, show);
+  });
+
+  hideEvents.forEach((event) => {
+    button.addEventListener(event, hide);
+  });
+</script>
 {% endblock %}
