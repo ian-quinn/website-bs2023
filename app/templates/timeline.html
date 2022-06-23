@@ -6,7 +6,7 @@
     <div class="container" style="margin-top: 60px;">
         <div class="row">
             <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                <h1 class="text-dark">Timeline & news</h1>
+                <h1 class="text-dark">Timeline</h1>
             </div>
             <div class="col-md-4 order-1 order-md-2 align-self-center">
                 <ul class="breadcrumb d-block text-md-end">
@@ -51,19 +51,19 @@
                             </div>
                         </article>
 
-                        <div class="timeline-current">
-                            <span>TODAY</span>
-                        </div>
 
-
-                        <article class="timeline-box left active">
+                        <article class="timeline-box left">
                             <div class="timeline-box-arrow"></div>
                             <div class="p-2">
-                                <h2 class="font-weight-semibold text-5 text-muted mb-0"><a href="">Newsletter June</a></h2>
+                                <h2 class="font-weight-semibold text-5 text-muted mb-0">Newsletter June</h2>
                             </div>
                         </article>
-                        
-                        <article class="timeline-calendar left">
+
+                        <div class="timeline-current" id="now">
+                            <span>NOW</span>
+                        </div>
+
+                        <article class="timeline-calendar left active">
                             <div class="p-2">
                                 <div class="post-meta text-end">
                                     <span><i class="far fa-calendar-alt"></i> June 23, 2022 </span><br>
@@ -71,12 +71,12 @@
                             </div>
                         </article>
 
-                        <article class="timeline-box right post post-medium">
+                        <article class="timeline-box right post post-medium active">
                             <div class="timeline-box-arrow"></div>
                             <div class="p-2">
                                 <div>
-                                    <h2 class="font-weight-semibold text-5 text-muted line-height-4 mt-2 mb-2">Call for abstract!</h2>
-                                    <span class="text-muted">The submission <a href="{{ url_for('submit') }}">page</a> has a detailed guidance on the conference system, templates and topics. Please submit a brief introduction of your work so we may have a better arrangement with the reviews and sessions.</span>
+                                    <h2 class="font-weight-semibold text-5 text-muted line-height-4 mt-2 mb-2"><a href="{{ url_for ('newsletter', news_id=202206) }}">Call for abstracts!</a></h2>
+                                    <span class="text-muted">Proceed to "Submit Abstract" for a detailed guidance on the conference system and topics. Please submit a brief introduction of your work so we may have a better arrangement with the reviews and sessions.</span>
                                 </div>
                             </div>
                         </article>
