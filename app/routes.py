@@ -10,7 +10,7 @@ from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 
 from app import app, db
-from app.models import Message
+from app.models import Message, File
 from app.forms import MessageForm, EnrollForm
 
 
@@ -97,29 +97,8 @@ def contact():
     return render_template('contact.html', form=form)
 
 
-
-# @app.route('/download/<int:file_id>/delete', methods=['POST'])
-# def delete_file(file_id):
-#     file = File.query.get_or_404(file_id)
-#     file_path = os.path.join(app.config['BOOKSHELF_PATH'], file.link)
-#     if os.path.exists(file_path):
-#         os.remove(file_path)
-#     db.session.delete(file)
-#     db.session.commit()
-#     flash('File deleted.', 'danger')
-#     return redirect(url_for('bookshelf'))
-
-
-# @app.route('/download/<int:file_id>/download', methods=['GET', 'POST'])
-# def download(file_id):
-#     file = File.query.get_or_404(file_id)
-#     uploads = os.path.join(current_app.root_path, app.config['BOOKSHELF_PATH'])
-#     return send_from_directory(directory=uploads, filename=file.link, as_attachment=True, attachment_filename="%s" % file.name)
-
-
-# @app.route('/download/<int:file_id>/block', methods=['GET', 'POST'])
-# def block(file_id):
-#     file = File.query.get_or_404(file_id)
-#     file.islocked = not file.islocked
-#     db.session.commit()
-#     return redirect(url_for('bookshelf'))
+@app.route('/download/<int:file_id>', methods=['GET', 'POST'])
+def download(file_id):
+    file = File.query.get_or_404(file_id)
+    path = os.path.join(current_app.root_path, app.config['FILE_PATH'])
+    return send_from_directory(path, file.link, as_attachment=True, attachment_filename="%s" % file.name)

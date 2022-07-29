@@ -14,3 +14,7 @@ class Message(db.Model):
     message = db.Column(db.String(8))
     is_optin = db.Column(db.Boolean, default=False)
     
+class File(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(32))
+    link = db.Column(db.String(32))
