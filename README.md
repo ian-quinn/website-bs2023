@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/user/b04d35f7-79c6-4b67-9dd8-73bd60f22c2f/project/014e5d44-6447-447b-a840-532c1566a863.svg)](https://wakatime.com/badge/user/b04d35f7-79c6-4b67-9dd8-73bd60f22c2f/project/014e5d44-6447-447b-a840-532c1566a863)
+
 Backup repository for the bs2023 website. Just recreate it in case that I am out of town.
 
 ```bash
