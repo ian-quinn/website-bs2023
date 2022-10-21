@@ -31,10 +31,12 @@
                     <div class="card-body">
                         <h4 class="card-title mb-1 text-4 font-weight-bold" style="color: #700f24;">Research paper</h4>
                         <p class="card-text">The high quality research work is always the focus of our conference. We use the double-blind peer review. All papers accepted and presented will be published in the Conference Proceedings, which are indexed by Scopes and open-accessed on IBPSA website. Top-ranked ones (regardless of the presentation type) will be awarded and proposed to top journals for further <a href="{{ url_for('publication') }}">publication</a>. Please refer to the templates when submitting your full-paper, after the abstract is accepted. </p>
+                        <!--
                         <div class="d-grid">
                             <a href="{{ url_for('download', file_id=231, next=request.full_path) }}" class="btn btn-outline btn-quaternary btn-effect-4 mb-2 disabled">Manuscript template Word <span><i class="fas fa-arrow-down ms-1"></i></span></a>
                             <a href="{{ url_for('download', file_id=232, next=request.full_path) }}" class="btn btn-outline btn-quaternary mb-2 disabled">Manuscript template LaTeX <span><i class="fas fa-arrow-down ms-1"></i></span></a>
                         </div>
+                    -->
                     </div>
                 </div>
             </div>
@@ -43,9 +45,11 @@
                     <div class="card-body">
                         <h4 class="card-title mb-1 text-4 font-weight-bold" style="color: #0f4070;">Project report</h4>
                         <p class="card-text">The project report is case-focused, best demonstrating an effective application of the building simulation. It could be the report of real-world projects, the work collection of student workshops, or the simulation with actual performance data. On the acceptance of your abstract, you only need to submit an extended abstract, following the template below. We are expecting 1~2 sessions for this kind of contribution.</p>
+                        <!--
                         <div class="d-grid">
                             <a href="#" class="btn btn-outline btn-quaternary mb-2 disabled">Report template Word <span><i class="fas fa-arrow-down ms-1"></i></span></a>
                         </div>
+                        -->
                     </div>
                 </div>
             </div>
@@ -54,9 +58,11 @@
                     <div class="card-body">
                         <h4 class="card-title mb-1 text-4 font-weight-bold" style="color: #084708;">Workshop</h4>
                         <p class="card-text">Workshops are open for the promotion and education of simulation techniques, in forms of software demo, vendor-sponsored training, panel discussion or student projects. Submissions will be evaluated on a first-come-first-served basis, provided that there is a clear link with building simulation. You need to submit a detailed workshop proposal after the abstract is accepted. All workshops are self-financed (either paid by the workshop organizer or by a participation fee).</p>
+                        <!--
                         <div class="d-grid">
                             <a href="#" class="btn btn-outline btn-quaternary mb-2 disabled">Proposal template Word <span><i class="fas fa-arrow-down ms-1"></i></span></a>
                         </div>
+                        -->
                     </div>
                 </div>
             </div>
@@ -136,9 +142,9 @@
         <ul>
             <li> One of the <a href="#topic">topics</a> listed above must be designated for each abstract.</li>
             <li><strong>English</strong> only. Max <strong>800</strong> words. 3-5 key words. Max <strong>3</strong> abstracts for each presenter.</li>
-            <li>You don't need to upload file for abstract submission.</li>
-            <li>By submitting an abstract the author(s) agree with the <a href="#policy">policies</a>.</li>
-            <li>The abstract submission deadline is <strong>October 29, 2022</strong>, midnight GMT+8.</li>
+            <li>You don't need a template or other files uploaded for your abstract.</li>
+            <li>By submitting an abstract the author(s) agree with the following policies.</li>
+            <li>The abstract submission deadline is <strong>October 29, 2022</strong>, 24:00 GMT+8.</li>
         </ul>
         <p>If you find any difficulties using the conference system, you may refer to this <a href="{{ url_for('guide_author') }}" target="_blank">user guide</a> or <a href="{{ url_for('contact') }}" target="_blank">contact</a> us.</p>
         <div class="row">
