@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+
+        <title>404 - BS2023</title>
+
+        <meta name="keywords" content="BS2023, IBPSA, Building simulation, Shanghai, China, Paper, Abstract, Conference, Tongji University" />
+        <meta name="description" content="The 18th International Conference and Exhibition, Building Simulation 2023" />
+        <meta name="author" content="IBPSA-China" />
+
+        <!-- Web Fonts  -->
+        <link id="googleFonts" href="{{ url_for('static', filename='css/font.css') }}" rel="stylesheet" type="text/css">
+
+        <!-- Theme CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/theme-v1.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/theme-elements-v1.css') }}">
+
+        <!-- Skin CSS -->
+        <link id="skinCSS" rel="stylesheet" href="{{ url_for('static', filename='css/skin-default-v1.css') }}">
+    </head>
+
+    <body>
+        <div style="height: 800px; line-height: 800px; text-align: center;">
+            <div style="display: inline-block; vertical-align: middle;">
+                <p style="font-size: 150px; font-weight: 500; line-height: 150px;">:( 404 &nbsp</p>
+                <p>Sorry, the page is missing</br>
+                <a href="{{ url_for('index') }}">Back to homepage</a></p>
+            </div>
+        </div>
+
+    </body>
+</html>
