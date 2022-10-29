@@ -88,6 +88,10 @@ def newsletter(news_id):
         month=datetime.strftime(news_date, '%B'), 
         year=datetime.strftime(news_date, '%Y'))
 
+@app.route('/newsletter/20221029')
+def notification():
+    return render_template('20221029.html')
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = MessageForm()
