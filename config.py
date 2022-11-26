@@ -11,8 +11,8 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     IMG_PATH = os.path.join(basedir,'app/static/img')
-    # ALBUM_PATH = os.path.join(basedir,'app/static/album')
     FILE_PATH = os.path.join(basedir, 'app/downloads')
+    UPLOAD_PATH = os.path.join(basedir, 'app/uploads')
     
     LOCALES = ['en', 'zh']
     BABEL_DEFAULT_LOCALE = LOCALES[1]

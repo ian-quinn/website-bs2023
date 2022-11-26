@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Submission guide{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark"><strong>ConfTool</strong> guide for session-chairs</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>ConfTool</li>
+                    <li class="active">Review</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container pt-2 pb-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <p><strong>Greetings!</strong> All committee members will be invited to the ConfTool system and assigned with corresponding authorities. Click to manage the review task in your sessions: <a href="https://www.conftool.pro/bs2023/" garget="_blank">www.conftool.pro/bs2023</a></p>
+            <p style="margin-top:50px;"></p>
+            <p>Each session chair will be assigned with one (or more) specific track(s). The session chair has the authority to manage all submissions and reviews within his track. You may click "Manage Submissions and Reviews" to refer to the list of submitted contributions, and assign them to the experts for review manually, or set them as conflict.</br>
+            Please note that: 1. If the reviewer listed has some conflicts with the author (belong to same organization for example), it will be marked red under Matching topics; 2. If the reviewer has specialties in line with the contribution, it will be highlighted with green.</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reviewer-9.jpg') }}" alt="Dashboard">
+            <p></p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reviewer-10.jpg') }}" alt="Filter">
+            <p></p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reviewer-11.jpg') }}" alt="Assign reviewers">
+            <p></p>
+            <p>At the end of the review process, the session chair has the authority to decide the acceptance status of each reviewed contributions. The overall evaluations of the reviewers (on scale of 0 to 100) will be listed in ascending order.</br>
+            During conference program scheduling period, the session chair is obliged to decide the presentation type/time and the specific session of the accepted contribution.</br>
+            Please note that no automatic mails are sent to authors when you change the status or assign a session. The notification will be sent by ConfTool administrator through bulk emails.</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reviewer-12.jpg') }}" alt="Dashboard">
+            <p></p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reviewer-13.jpg') }}" alt="Final decision">
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

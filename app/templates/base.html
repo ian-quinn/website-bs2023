@@ -168,6 +168,7 @@
                                 <ul class="list-unstyled">
                                     <a href="{{ url_for('ibpsa') }}"><li class="accessible">IBPSA</li></a>
                                     <a href="{{ url_for('committee') }}"><li class="accessible">Committee</li></a>
+                                    <a href="{{ url_for('reviewer') }}"><li class="accessible">Reviewers</li></a>
                                     <a href="{{ url_for('newsletter', news_id=202204) }}"><li class="accessible">Newsletter</li></a>
                                     <a href="{{ url_for('contact') }}"><li class="accessible">Contact / FAQ</li></a>
                                 </ul>
@@ -250,6 +251,7 @@
                                                             <ul class="dropdown-menu">
                                                                 <li><a class="dropdown-item" href="{{ url_for('ibpsa') }}">IBPSA</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('committee') }}">Committee</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('reviewer') }}">Reviewers</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('newsletter', news_id=202204) }}">Newsletter</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('contact') }}">Contact / FAQ</a></li>
                                                             </ul>
@@ -332,11 +334,11 @@
         </script>
 
         <!-- fade out flashing messages  -->
-        <!--
+        
         <script type="text/javascript">
-            $('.alert').delay(3000).slideUp(300);
+            $('.alert').delay(5000).slideUp(500);
         </script>
-    -->
+    
 
         <!-- Page Custom Scripts -->
         {% block scripts %}{% endblock %}

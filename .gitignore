@@ -1,6 +1,6 @@
 /__pycache__/
 /app/__pycache__/
 /venv/
-/app/test/
+/app/uploads/
 /migrations/
 app.db

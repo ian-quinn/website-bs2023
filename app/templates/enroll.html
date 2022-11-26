@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% block title %}IBPSA{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark">Call for <strong>Reviewers</strong>!</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>About</li>
+                    <li class="active">Reviewer</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+<div class="container pt-2 pb-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <p>BS2023 uses a <strong>double-blinded</strong> peer review process to ensure a high-quality academic discussion. Reviewers are expected to provide reviews in a timely, collegial, and constructive manner, to BS2023 chairs/editors about the merits of submissions in terms of quality and contribution to the field of building simulation. </p>
+            <p>BS2023 is looking for researchers interested in helping on our <strong>Advisory Board</strong>, with the review process on abstract/paper/report. Your ability to be objective, fair, and insightful in the evaluation of manuscripts is most in-demand to shape BS2023 in its best form. We need your help to get more papers out of the field to share good practices and ideas.</p>
+            <p>If you are interested, please read through the following terms and fill in the application form below. You will then be added to our <strong>reviewer database</strong>, and we will respond to your inquiry shortly. You do not have to register again if you have notified us of your interest, either by email or by IBPSA survey.</p>
+
+            <hr class="solid my-5">
+
+            <div class="text-center">
+                <h4>APPLICATION FORM</h4>
+            </div>
+            <p>I am pleased to join the Building Simulation 2023 team of reviewers. I attest that I will respect the following conditions:</p>
+            <ul class="list list-borders list-icons list-primary">
+                <li><i class="far fa-circle"></i>I should not accept to review a manuscript if there exists a personal or financial conflict of interest, or I feel unable to give an impartial and objective review free from professional or personal bias.</li>
+                <li><i class="far fa-circle"></i>If there is a potential conflict of interest, I have to contact the session-chair/secretariat for their decision on whether it is appropriate to review the manuscript.</li>
+                <li><i class="far fa-circle"></i>If encountered with unforeseen circumstances that forbid me to complete the review within the allotted time, I must contact the session-chair/secretariat immediately so that rearrangements can be made in a timely fashion.</li>
+                <li><i class="far fa-circle"></i>I agree to share my personal information ONLY within the review process of BS2023. I understand that the organizing committee will not share the reviewer database with any third-party.</li>
+            </ul>
+
+            <div class="card my-5" style="background-color: #f9f9f9" id="registerBox">
+                <div class="card-body">
+                    {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                    <div>
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            </button>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    <form class="contact-form" action="{{ url_for('reviewer') }}" method="POST" enctype="multipart/form-data">
+                        <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
+                        {{ form.hidden_tag() }}
+
+                        <div class="row">
+                            <div class="form-group col-md-2">
+                                <label class="form-label mb-1 text-2">Title<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.title(class="form-select form-control h-auto") }}
+                                {% for error in form.title.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-5">
+                                <label class="form-label mb-1 text-2">First & Middle Name<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.firstname(class="form-control text-3 h-auto") }}
+                                {% for error in form.firstname.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-5">
+                                <label class="form-label mb-1 text-2">Last Name<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.lastname(class="form-control text-3 h-auto") }}
+                                {% for error in form.lastname.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label mb-1 text-2">Email<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.email(class="form-control text-3 h-auto") }}
+                                {% for error in form.email.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="form-label mb-1 text-2">Confirm Email<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.email_repeat(class="form-control text-3 h-auto") }}
+                                {% for error in form.email_repeat.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label mb-1 text-2">Organization<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.organization(class="form-control text-3 h-auto", 
+                                    placeholder="Your institution, e.g., Tongji Univeristy") }}
+                                {% for error in form.organization.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label mb-1 text-2">ORCID</label>
+                                {{ form.orcid(class="form-control text-3 h-auto", 
+                                    placeholder="16-digit identifier, e.g., 0000-0002-1694-233X") }}
+                                {% for error in form.orcid.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label mb-1 text-2">Bio statement & remarks</label>
+                                {{ form.bio(type="text", maxlength="5000", class="form-control text-3 h-auto", rows="4", 
+                                    placeholder="A brief introduction, e.g., previous review experience, academic title, department and rank...") }}
+                                {% for error in form.bio.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-0">
+                                <label class="form-label mb-1 text-2">Upload CV (< 2MB)</label>
+                                <div class="input-group">
+                                    <label class="btn btn-outline-danger">Browse
+                                        {{ form.file(type="file", hidden="", id="customInput", class="custom-file-input", aria_describedby="customInput") }}
+                                    </label>
+                                    <label class="form-control custom-file-label" id="inputLabel" for="customInput" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">No PDF selected</label>
+                                </div>
+
+                                {% for error in form.file.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                <label class="form-label mb-1 text-2"><span style="color: #cd563e;">✱</span> Denotes required field</label>
+                                {{ form.submit(type="submit", value="Register as reviewer for BS2023", class="btn btn-outline-danger w-100") }}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="solid my-5">
+
+            <p>Kind reminders if this is your first time reviewing with ConfTool</br>
+            You may refer to this video about <a href="https://www.youtube.com/watch?v=jMMez2lpJiE" target="_blank">How to Review a Building Simulation Paper</a>
+            </br>
+            ConfTool guide for <a href="{{ url_for('guide_reviewer') }}" target="_blank">reviewers</a>.</br>
+            ConfTool guide for <a href="{{ url_for('guide_sessionchair') }}" target="_blank">session-chairs</a>.</p>
+
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.querySelector('.custom-file-input').addEventListener('change', function (e) {
+    var name = document.getElementById("customInput").files[0].name;
+    var label = document.getElementById("inputLabel");
+    label.innerText = name
+  })
+</script>
+{% endblock %}

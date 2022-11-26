@@ -10,8 +10,8 @@ from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 
 from app import app, db
-from app.models import Message, File
-from app.forms import MessageForm, EnrollForm
+from app.models import Message, File, Reviewer
+from app.forms import MessageForm, EnrollForm, ReviewerForm
 
 
 @app.route('/')
@@ -47,6 +47,10 @@ def guide_author():
 @app.route('/guide/reviewer')
 def guide_reviewer():
     return render_template('guide_reviewer.html')
+
+@app.route('/guide/sessionchair')
+def guide_sessionchair():
+    return render_template('guide_sessionchair.html')
 
 @app.route('/publication')
 def publication():
@@ -107,6 +111,39 @@ def contact():
         flash('Thanks! We have received your message!', 'success')
         return redirect(url_for('contact', _anchor="messageBox"))
     return render_template('contact.html', form=form)
+
+@app.route('/reviewer', methods=['GET', 'POST'])
+def reviewer():
+    form = ReviewerForm()
+    if form.validate_on_submit():
+        firstname = form.firstname.data
+        lastname = form.lastname.data
+        print("I came here once", file=sys.stderr)
+        if form.file.data:
+            f = form.file.data
+            filename = firstname.lower() + "_" + lastname.lower() + '_' + datetime.now().strftime('%m%d%H%M') + '.pdf'
+            print(filename, file=sys.stderr)
+            if os.path.splitext(f.filename)[1] != '.pdf':
+                flash('Only support PDF', 'danger')
+                return redirect(url_for('reviewer'))
+            f.save(os.path.join(app.config['UPLOAD_PATH'], filename))
+        else:
+            filename = 'null'
+        reviewer = Reviewer(
+            title=form.title.data, 
+            firstname=firstname,
+            lastname=lastname, 
+            email=form.email.data, 
+            organization=form.organization.data, 
+            orcid=form.orcid.data, 
+            bio=form.bio.data, 
+            filename=filename, 
+            signed=True)
+        db.session.add(reviewer)
+        db.session.commit()
+        flash('Thanks for your contribution to BS2023!', 'warning')
+        return redirect(url_for('reviewer', _anchor="registerBox"))
+    return render_template('enroll.html', form=form)
 
 
 @app.route('/download/<int:file_id>', methods=['GET', 'POST'])

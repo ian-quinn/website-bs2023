@@ -18,3 +18,16 @@ class File(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(32))
     link = db.Column(db.String(32))
+
+class Reviewer(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    title = db.Column(db.Integer)
+    firstname = db.Column(db.String(32))
+    lastname = db.Column(db.String(32))
+    organization = db.Column(db.String(256))
+    email = db.Column(db.String(128))
+    orcid = db.Column(db.String(32))
+    bio = db.Column(db.Text)
+    filename = db.Column(db.String(64))
+    signed = db.Column(db.Boolean, default=True)
