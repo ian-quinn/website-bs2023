@@ -118,11 +118,9 @@ def reviewer():
     if form.validate_on_submit():
         firstname = form.firstname.data
         lastname = form.lastname.data
-        print("I came here once", file=sys.stderr)
         if form.file.data:
             f = form.file.data
             filename = firstname.lower() + "_" + lastname.lower() + '_' + datetime.now().strftime('%m%d%H%M') + '.pdf'
-            print(filename, file=sys.stderr)
             if os.path.splitext(f.filename)[1] != '.pdf':
                 flash('Only support PDF', 'danger')
                 return redirect(url_for('reviewer'))

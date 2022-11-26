@@ -1,6 +1,6 @@
 /__pycache__/
 /app/__pycache__/
 /venv/
-/app/uploads/
+/app/uploads/*.pdf
 /migrations/
 app.db
