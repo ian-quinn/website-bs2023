@@ -97,7 +97,7 @@ def notification():
     return render_template('20221029.html')
 
 @app.route('/newsletter/20221128')
-def notification():
+def notification1():
     return render_template('20221128.html')
 
 @app.route('/contact', methods=['GET', 'POST'])
