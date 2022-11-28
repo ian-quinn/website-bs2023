@@ -86,19 +86,20 @@ def committee():
 
 @app.route('/newsletter/<int:news_id>')
 def newsletter(news_id):
-    news_date = datetime.strptime(str(news_id), '%Y%m')
+    news_date = datetime.strptime(str(news_id), '%Y%m%d')
     return render_template(
         str(news_id) + '.html', 
+        day=datetime.strftime(news_date, '%d'),
         month=datetime.strftime(news_date, '%B'), 
         year=datetime.strftime(news_date, '%Y'))
 
-@app.route('/newsletter/20221029')
-def notification():
-    return render_template('20221029.html')
+@app.route('/newsletter/202209')
+def email_detour_1():
+    return redirect(url_for('newsletter', news_id=20221004))
 
-@app.route('/newsletter/20221128')
-def notification1():
-    return render_template('20221128.html')
+@app.route('/newsletter/202210')
+def email_detour_2():
+    return redirect(url_for('newsletter', news_id=20221026))
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
