@@ -139,7 +139,7 @@ def reviewer():
             signed=True)
         db.session.add(reviewer)
         db.session.commit()
-        flash('Thanks for your contribution to BS2023!', 'warning')
+        flash('You have registered to the reviewer database. Thanks!', 'warning')
         return redirect(url_for('reviewer', _anchor="registerBox"))
     return render_template('enroll.html', form=form)
 

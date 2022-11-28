@@ -27,6 +27,17 @@ $ systemctl start supervisord
 $ systemctl start nginx
 ```
 
+Debug 
+```bash
+# keep nginx listening to the 8000 port
+$ systemctl stop supervisord
+$ cd /home/biscuit
+$ source venv/bin/activate
+# use the same command in supervisor settings .ini
+$ gunicorn -b localhost:8000 -w 4 oven:app
+# then play with bs2023.org and keep an eye on prompt
+```
+
 
 requirements.txt
 ```
