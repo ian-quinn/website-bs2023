@@ -85,5 +85,6 @@ class ReviewerForm(FlaskForm):
 			else:
 				return str(result)
 		code = orcid.data
-		if get_check_num(code) != code[-1]:
-			raise ValidationError('Your ORCID may not be valid')
+		if code != ""
+			if get_check_num(code) != code[-1]:
+				raise ValidationError('Your ORCID may not be valid')
