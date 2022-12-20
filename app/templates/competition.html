@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% block title %}Competition{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark"><strong>Student</strong> Modeling Competition</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>Program</li>
+                    <li class="active">Student Competition</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container pt-2 pb-4">
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="feature-box feature-box-style-2">
+                    <div>
+                        <img src="{{ url_for('static', filename='img/icon-team.svg') }}" alt="" style="width: 45px;"/>
+                    </div>
+                    <div class="feature-box-info">
+                        <p>Create your team in <strong>1-4</strong> members<br/>
+                        PhD/MSc/BSc students or equivalent</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="feature-box feature-box-style-2">
+                    <div>
+                        <img src="{{ url_for('static', filename='img/icon-prize.svg') }}" alt="" style="width: 45px;" />
+                    </div>
+                    <div class="feature-box-info">
+                        <p><strong>2</strong> teams enter the competition final<br/>
+                        $2000 travel reimbursement + freepass</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="feature-box feature-box-style-2">
+                    <div>
+                        <img src="{{ url_for('static', filename='img/icon-doc.svg') }}" alt="" style="width: 45px;"/>
+                    </div>
+                    <div class="feature-box-info">
+                        <p>Submit your net-zero carbon strategies<br/>
+                        in reports no more than <strong>20</strong> pages</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7 mt-5">
+            <p class="text-4 font-weight-semibold">AIMS</p>
+
+            <p>As part of the BS2023, IBPSA is organizing a student modelling competition. The aim is to facilitate wider participation in the conference and to provide a competitive forum for student members of the building simulation community. It is expected that several tutors of relevant courses in universities around the world will use this competition as part of their teaching material.</p>
+            <p>This year's competition program aims to <strong>design and optimize a nearly net zero carbon emission building</strong> by computer simulation. Participating teams are encouraged to use active measures (such as photovoltaic, battery storage, charging pile or ice storage) and passive measures (such as fluctuating room temperature, thermal storage in walls, controllable lighting and other demand side management) for carbon reduction in the operation phase.</p>
+        </div>
+
+        <div class="col-lg-5 mb-4 mb-lg-0">
+            <div style="position:relative;">
+                <div style="float:inline-end; position: absolute; bottom: 0px; right: 0px; z-index: 10; padding-bottom: 44px; padding-right: 18px;">
+                    <a href="http://www.google.com/maps/place/31.284,121.217" target="_blank" title="Google Map" style="font-size: 22px;"><i class="fa fa-street-view"></i></a>
+                </div>
+                <img src="{{ url_for('static', filename='img/sitemap.jpg') }}" class="img-fluid" alt="Site">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 order-2 order-lg-1">
+            <div id="video-compare-container">
+                <video poster="{{ url_for('static', filename='img/section.jpg') }}">
+                </video>
+                <div id="video-clipper">
+                    <video poster="{{ url_for('static', filename='img/isoview.jpg') }}">
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 pt-lg-3 ps-lg-5 order-1 order-lg-2">
+            <p class="text-4 font-weight-semibold">ASSETS</p>
+            <p>The building for analysis is the <strong>Student Activity Center</strong> of Tongji University, located in Jiading Campus, Shanghai. It synthesizes multiple functional spaces within a promenade circulation. Experimenting with the idea of thermaldynamic architecture, it also provides an opportunity for natural ventilation by linking different prototype units. Precast concrete offers fast, low-carbon yet high-quality construction. To simplify the problem, only the tower part is considered.</p>
+            <ul>
+                <li>Detailed floorplans are available in the DWG file attached, which must be followed exactly and rooms may not be rearranged</li>
+                <li>Typical year weather data is provided in the ZIP file</li>
+                <li>Dynamic carbon emission factor can be found in the competition brief</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-lg-8 pt-lg-3 pe-lg-5">
+            <p class="text-4 font-weight-semibold">ENROLLMENT</p>
+
+            <p>There can be individual or group (<4 members) submissions. Entrants are expected to notify their interest before February 1<sup>st</sup>, 2023, by email to <a href="mailto:student@bs2023.org">student@bs2023.org</a>. All entrants must be enrolled as students (PhD, MSc, BSc or equivalent) at the time of submission. Entrants must attache the following documents as a proof of their 'student' status:</p>
+            <ul>
+                <li>A bonafide letter on the university/institute letterhead from the supervisor or faculty-in-charge</li>
+                <li>Photocopy of the student ID provided by the university/institute</li>
+            </ul>
+
+            <p>Two finalists will be invited to present their work at BS2023. Each team will be awarded a <strong>reimbursement</strong> up to $2000 for travel expenses, and conference registration <strong>waivers</strong> for all team members. Based on the conference presentation and the poster, an overall winner will be selected and announced at the conference.</p>
+        </div>
+
+        <div class="col-lg-4 pt-lg-3">
+            <p class="text-4 font-weight-semibold">KEY DATES</span></p>
+            <ul class="list list-icons list-primary list-side-borders">
+                <li><i class="far fa-check-circle"></i>December 15, 2022. Competition announced</a></li>
+                <li><i class="far fa-circle"></i>February 1, 2023. Application deadline</a></li>
+                <li><i class="far fa-circle"></i>May 15, 2023. Submission deadline</a></li>
+                <li><i class="far fa-circle"></i>June 1, 2023. Online defense (tentative)</a></li>
+                <li><i class="far fa-circle"></i>June 15, 2023. Two finalists informed</a></li>
+                <li><i class="far fa-circle"></i>September 5, 2023. Presentation & award</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-lg-8 pt-3 pe-lg-5 order-2 order-lg-1">
+            <p class="text-4 font-weight-semibold">TEAM & SHARE!</p>
+            <p>Teamwork is always encouraged. You may post/find a team recruitment on our MIRO board. It would be a great place for information exchange, idea-sharing and brainstorm. We are all here!</p>
+            <p>If you have any questions, feel free to contact us at <a href="mailto:student@bs2023.org">student@bs2023.org</a>.</p>
+        </div>
+        <div class="col-lg-4 pt-3 order-1 order-lg-2">
+            <p class="text-4 font-weight-semibold">CACHE</p>
+            <ul class="list list-icons list-primary list-side-borders">
+                <li><i class="fas fa-file-pdf"></i><a href="{{ url_for('download', file_id=311, next=request.full_path) }}">Competition_brief.pdf</a></li>
+                <li><i class="fas fa-file-signature"></i><a href="{{ url_for('download', file_id=312, next=request.full_path) }}">Building_floorplan.dwg (AC2018)</a></li>
+                <li><i class="fas fa-file-archive"></i><a href="{{ url_for('download', file_id=313, next=request.full_path) }}">CHN_SH_Shanghai.583620_CSWD.zip</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <iframe height="500" src="https://miro.com/app/live-embed/uXjVP4tgXl0=/?moveToViewport=-3332,-1398,5855,3045&embedId=961431067430" frameborder="0" scrolling="no" allowfullscreen></iframe>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    function trackLocation(e) {
+      var rect = videoContainer.getBoundingClientRect(),
+          position = ((e.pageX - rect.left) / videoContainer.offsetWidth)*100;
+      if (position <= 100) { 
+        videoClipper.style.width = position+"%";
+        clippedVideo.style.width = ((100/position)*100)+"%";
+        clippedVideo.style.zIndex = 3;
+      }
+    }
+    var videoContainer = document.getElementById("video-compare-container"),
+    videoClipper = document.getElementById("video-clipper"),
+    clippedVideo = videoClipper.getElementsByTagName("video")[0];
+    videoContainer.addEventListener( "mousemove", trackLocation, false); 
+    videoContainer.addEventListener("touchstart",trackLocation,false);
+    videoContainer.addEventListener("touchmove",trackLocation,false);
+</script>
+{% endblock %}

@@ -66,6 +66,15 @@ def theme():
 def awards():
     return render_template('awards.html')
 
+@app.route('/covid')
+def covid():
+    return render_template('covid.html')
+
+@app.route('/competition')
+def competition():
+    return render_template('competition.html')
+
+
 # Sponsor region
 @app.route('/sponsors')
 def sponsors():
