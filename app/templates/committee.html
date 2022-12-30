@@ -125,26 +125,26 @@
 
         <div class="col-lg-5">
             <div class="row">
-                <div class="col-md-4 order-md-2 mb-4 mb-lg-0">
+                <div class="col-4 order-md-2 mb-4 mb-lg-0">
                     <div class="mb-3">
                         <img src="static/img/boronglin.webp" class="img-fluid" alt="Borong Lin">
                     </div>
                 </div>
 
-                <div class="col-md-8 order-2">
+                <div class="col-8 order-2">
                     <h4 class="text-color-dark font-weight-semibold">Borong Lin</h4>
                     <p>Chair<br>
                     Tsinghua University, China</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 order-md-2 mb-4 mb-lg-0">
+                <div class="col-4 order-md-2 mb-4 mb-lg-0">
                     <div class="mb-3">
                         <img src="static/img/jungao.webp" class="img-fluid" alt="Jun Gao">
                     </div>
                 </div>
 
-                <div class="col-md-8 order-2">
+                <div class="col-8 order-2">
                     <h4 class="text-color-dark font-weight-semibold">Jun Gao</h4>
                     <p>Co-Chair<br>
                     Tongji University, China</p>
@@ -355,12 +355,18 @@
                     <td>Prof. Xingxing Zhang</td>
                     <td>Dalarna University, Sweden</td>
                 </tr>
-
-
             </table>
         </div>
-
     </div>
+
+    <div class="row">
+        <div class="col">
+            <hr class="solid my-5">
+        </div>
+    </div>
+
+    <p class="text-color-dark text-5"><strong>Reviewer board</strong> 🎓 (updating)</p>
+    <p>We thank all reviewers contributing to this event! </p>
 
     <div class="row">
         <div class="col">
@@ -372,7 +378,69 @@
 
     <div class="row mt-4 pt-2">
 
-        <div class="col-lg-5">
+        <div class="row mt-4 pt-2">
+            <div class="col-6 col-sm-3 col-md-3 col-lg-2" style="text-align: center;">
+                <div class="mb-3 ps-lg-3 pe-lg-3">
+                    <img src="{{ url_for('static', filename='img/fuxiao.webp') }}" class="img-fluid" alt="Fu Xiao">
+                </div>
+                <div>
+                    <h5 class="text-color-dark font-weight-semibold">Fu Xiao<br/><span style="color: #a8a8a8;">Publication</span></h5>
+                    <p style="line-height: 1.2em;">The Hong Kong Polytechnic University</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-3 col-md-3 col-lg-2" style="text-align: center;">
+                <div class="mb-3 ps-lg-3 pe-lg-3">
+                    <img src="{{ url_for('static', filename='img/yanpingyuan.webp') }}" class="img-fluid" alt="Yanping Yuan">
+                </div>
+                <div>
+                    <h5 class="text-color-dark font-weight-semibold">Yanping Yuan<<br/><span style="color: #a8a8a8;">Social Activity</span></h5>
+                    <p style="line-height: 1.2em;">Southwest Jiaotong University</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-3 col-md-3 col-lg-2" style="text-align: center;">
+                <div class="mb-3 ps-lg-3 pe-lg-3">
+                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid" alt="Naiping Gao">
+                </div>
+                <div>
+                    <h5 class="text-color-dark font-weight-semibold">Naiping Gao<br/><span style="color: #a8a8a8;">Publicity</span></h5>
+                    <p style="line-height: 1.2em;">Tongji University</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-3 col-md-3 col-lg-2" style="text-align: center;">
+                <div class="mb-3 ps-lg-3 pe-lg-3">
+                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid" alt="Peng Xu">
+                </div>
+                <div>
+                    <h5 class="text-color-dark font-weight-semibold">Peng Xu<br/><span style="color: #a8a8a8;">Logistics</span></h5>
+                    <p style="line-height: 1.2em;">Tongji University</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-3 col-md-3 col-lg-2" style="text-align: center;">
+                <div class="mb-3 ps-lg-3 pe-lg-3">
+                    <img src="{{ url_for('static', filename='img/xiangzhou.webp') }}" class="img-fluid" alt="Xiang Zhou">
+                </div>
+                <div>
+                    <h5 class="text-color-dark font-weight-semibold">Xiang Zhou<br/><span style="color: #a8a8a8;">Program</span></h5>
+                    <p style="line-height: 1.2em;">Tongji University</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-3 col-md-3 col-lg-2" style="text-align: center;">
+                <div class="mb-3 ps-lg-3 pe-lg-3">
+                    <img src="{{ url_for('static', filename='img/xinzhou.webp') }}" class="img-fluid" alt="Xin Zhou">
+                </div>
+                <div>
+                    <h5 class="text-color-dark font-weight-semibold">Xin Zhou<br/><span style="color: #a8a8a8;">Competition</span></h5>
+                    <p style="line-height: 1.2em;">Southeast University</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-lg-5">
             <div class="row">
                 <div class="col-md-4 order-md-2 mb-4 mb-lg-0">
                     <div class="mb-3">
@@ -421,17 +489,8 @@
                 </tr>
 
             </table>
-        </div>
+        </div> -->
     </div>
-
-    <div class="row">
-        <div class="col">
-            <hr class="solid my-5">
-        </div>
-    </div>
-
-    <p class="text-color-dark text-5"><strong>Advisory board</strong> 🎓 (updating)</p>
-    <p>We thank all reviewers contributing to this event! </p>
 
     <div class="row">
         <div class="col">
