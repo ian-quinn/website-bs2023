@@ -40,9 +40,9 @@
                         <h4 class="card-title mb-1 text-4 font-weight-bold" style="color: #700f24;">Research paper</h4>
                         <p class="card-text">The high quality research work is always the focus of our conference. We use the double-blind peer review. All papers accepted and presented will be published in the Conference Proceedings, which are indexed by EI and open-accessed on IBPSA website. Top-ranked ones (regardless of the presentation type) will be awarded and proposed to top journals for further <a href="{{ url_for('publication') }}">publication</a>.</p>
                         <div class="d-grid">
-                            <a href="{{ url_for('download', file_id=231, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary btn-effect-4 mb-2">Manuscript template Word <span><i class="fas fa-arrow-down ms-1"></i></span></a>
+                            <a href="{{ url_for('download', file_id=231, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary btn-effect-4 mb-2">Paper template Word <span><i class="fas fa-arrow-down ms-1"></i></span></a>
                             
-                            <a href="{{ url_for('download', file_id=232, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Manuscript template LaTeX <span><i class="fas fa-arrow-down ms-1"></i></span></a>
+                            <a href="{{ url_for('download', file_id=232, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Paper template LaTeX <span><i class="fas fa-arrow-down ms-1"></i></span></a>
                         
                         </div>
                     </div>
@@ -54,7 +54,9 @@
                         <h4 class="card-title mb-1 text-4 font-weight-bold" style="color: #0f4070;">Project report</h4>
                         <p class="card-text">The project report is case-focused, best demonstrating an effective application of the building simulation. It could be the report of real-world projects, the work collection of student workshops, or the simulation with actual performance data. On the acceptance of your abstract, you only need to submit an extended abstract. We are expecting 1~2 sessions for this kind of contribution.</p>
                         <div class="d-grid">
-                            <a href="#" class="btn btn-outline btn-quaternary mb-2 disabled">Template coming soon...</a>
+                            <a href="{{ url_for('download', file_id=221, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary btn-effect-4 mb-2">Report template Word <span><i class="fas fa-arrow-down ms-1"></i></span></a>
+                            
+                            <a href="{{ url_for('download', file_id=222, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Report template LaTeX <span><i class="fas fa-arrow-down ms-1"></i></span></a>
                         </div>
                     </div>
                 </div>
