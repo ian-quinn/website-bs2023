@@ -58,7 +58,7 @@
         </div>
 
         <div class="col-lg-7 mt-5">
-            <p class="text-4 font-weight-semibold">OBJECTIVE</p>
+            <p class="text-4 font-weight-semibold" style="color:#000000">OBJECTIVE</p>
 
             <p>As part of the BS2023, IBPSA is organizing a student modelling competition. The aim is to facilitate wider participation in the conference and to provide a competitive forum for student members of the building simulation community. It is expected that this competition shall be embedded with the curriculum as part of the teaching material.</p>
             <p>This year's competition program aims to <strong>design and optimize a nearly net zero carbon emission building</strong> by computer simulation. Participating teams are encouraged to use active measures (such as photovoltaic, battery storage, charging pile or ice storage) and passive measures (such as fluctuating room temperature, thermal storage in walls, controllable lighting and other demand side management) for carbon reduction in the operation phase.</p>
@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="col-lg-6 pt-lg-3 ps-lg-5 order-1 order-lg-2">
-            <p class="text-4 font-weight-semibold">ASSETS</p>
+            <p class="text-4 font-weight-semibold" style="color:#000000">ASSETS</p>
             <p>The building for analysis is the <strong>Student Activity Center</strong> of Tongji University, located in Jiading Campus, Shanghai. It synthesizes multiple functional spaces within a promenade circulation. Experimenting with the idea of thermaldynamic architecture, it also provides an opportunity for natural ventilation by linking different prototype units. Precast concrete offers fast, low-carbon yet high-quality construction. To simplify the problem, only the tower part is considered.</p>
             <ul>
                 <li>Detailed floorplans are available in the DWG file attached, which must be followed exactly and rooms may not be rearranged</li>
@@ -98,7 +98,7 @@
 
     <div class="row mt-3">
         <div class="col-lg-8 pt-lg-3 pe-lg-5">
-            <p class="text-4 font-weight-semibold">ENROLLMENT & PRIZES</p>
+            <p class="text-4 font-weight-semibold" style="color:#000000">ENROLLMENT & PRIZES</p>
 
             <p>There can be individual or group (<4 members) submissions. Entrants are expected to notify their interest before February 1<sup>st</sup>, 2023, by email to student@bs2023.org. All entrants must be enrolled as students (PhD, MSc, BSc or equivalent) at the time of submission. Entrants must attache the following documents as a proof of their 'student' status:</p>
             <ul>
@@ -110,10 +110,10 @@
         </div>
 
         <div class="col-lg-4 pt-lg-3">
-            <p class="text-4 font-weight-semibold">TIMELINE</span></p>
+            <p class="text-4 font-weight-semibold" style="color:#000000">TIMELINE</span></p>
             <ul class="list list-icons list-primary list-side-borders">
                 <li><i class="far fa-check-circle"></i>December 20, 2022. Competition announced</a></li>
-                <li><i class="far fa-circle"></i>February <del>1</del> <strong>15</strong>, 2023. Application deadline</a></li>
+                <li><i class="far fa-check-circle"></i>February 15, 2023. Application deadline</a></li>
                 <li><i class="far fa-circle"></i>May 15, 2023. Submission deadline</a></li>
                 <li><i class="far fa-circle"></i>June 15, 2023. Two finalists informed</a></li>
                 <li><i class="far fa-circle"></i>September 5, 2023. Presentation & announcement of winner</a></li>
@@ -123,22 +123,121 @@
 
     <div class="row mt-3">
         <div class="col-lg-8 pt-3 pe-lg-5 order-2 order-lg-1">
-            <p class="text-4 font-weight-semibold">TEAM & SHARE!</p>
+            <p class="text-4 font-weight-semibold" style="color:#000000">TEAM & SHARE!</p>
             <p>Teamwork is always encouraged. You may post/find a team recruitment on <a href="https://miro.com/welcomeonboard/aHJGZmRXSWZlQXpRV3FWbldGSURvSDNZSUtmdWQ3V2E1NG9jS0V2eVpKYnE1ZDBKMldJamNmcVpWMTVDc0ZhdHwzNDU4NzY0NTQxNTMwNTY0MTM2fDI=?share_link_id=78115729058" target="_blank">miro</a> (← click this invitation link and get started). We are all here sharing ideas and exchanging information.</p>
             <p>If you have any questions, feel free to contact us at <a href="mailto:student@bs2023.org">student@bs2023.org</a>.</p>
         </div>
         <div class="col-lg-4 pt-3 order-1 order-lg-2">
-            <p class="text-4 font-weight-semibold">DOWNLOADS</p>
+            <p class="text-4 font-weight-semibold" style="color:#000000">DOWNLOADS</p>
             <ul class="list list-icons list-primary list-side-borders">
-                <li><i class="fas fa-file-pdf"></i><a href="{{ url_for('download', file_id=311, next=request.full_path) }}" target="_blank">Competition_brief.pdf</a></li>
-                <li><i class="fas fa-file-signature"></i><a href="{{ url_for('download', file_id=312, next=request.full_path) }}" target="_blank">Building_floorplan.dwg (AC2018)</a></li>
+                <li><i class="fas fa-file-pdf"></i><a href="{{ url_for('download', file_id=311, next=request.full_path) }}" target="_blank">Competition brief.pdf</a></li>
+                <li><i class="fas fa-file-signature"></i><a href="{{ url_for('download', file_id=312, next=request.full_path) }}" target="_blank">Building floorplan.dwg (AC2018)</a></li>
                 <li><i class="fas fa-file-archive"></i><a href="{{ url_for('download', file_id=313, next=request.full_path) }}" target="_blank">CHN_SH_Shanghai.583620_CSWD.zip</a></li>
+                <li><i class="fas fa-file-pdf"></i>Appendix A <a href="{{ url_for('download', file_id=314, next=request.full_path) }}" target="_blank">Energy codes in China.pdf</a></li>
+                <li><i class="fas fa-file-pdf"></i>Appendix B <a href="{{ url_for('download', file_id=315, next=request.full_path) }}" target="_blank">Webinar slides.pdf</a></li>
             </ul>
         </div>
     </div>
 
     <div class="row mt-3">
         <iframe height="500" src="https://miro.com/app/live-embed/uXjVP4tgXl0=/?moveToViewport=-3332,-1398,5855,3045&embedId=961431067430" frameborder="0" scrolling="no" allowfullscreen></iframe>
+    </div>
+
+    <div class="row mt-5">
+        <p class="text-4 font-weight-semibold" style="color:#000000">Q&A</p>
+        <p>Additional information from <a href="https://www.youtube.com/watch?app=desktop&v=3iux3jYrahE&feature=youtu.be&cbrd=1" target="_blank">IBPSA Education Webinar</a> on February 9th, 2023.</p>
+
+        <div class="toggle toggle-primary toggle-simple m-0" data-plugin-toggle>
+            <section class="toggle">
+                <a class="toggle-title">According to previous competitions, how much time did different teams have to put in to their submissions?</a>
+                <div class="toggle-content">
+                    <p>It is a considerable amount of time that is needed to tackle every challenge, which is why we encourage particular universities and lecturers to make the brief part of their modules. Since the students have to do the assignment anyway participating in a course, they can use that to submit documentation to the modeling competition.<br/>Should this not be the case, this needs to be done in your private and leisure time, which is still possible, because a lot of information was provided to you such as the climate constraints and conditions around. (Please refer to webinar recording on <a href="https://www.youtube.com/watch?app=desktop&v=3iux3jYrahE&feature=youtu.be&cbrd=1" target="_blank">Youtube</a> or <a href="https://ucl.zoom.us/rec/play/6IFxQIrRmvTtopQvQJ0stU9aDzqr_pfYMsMyj_pD-RDyue3kwC3uQR1dmVYVNwEpYuJ7j1_Ai__gNoE.csJR1fpBUM1Wiq24" target="_blank">ZOOM</a>). This is very valuable information that will save you already a considerable amount of time when you start working on that document. <br/>To emphasize, this is a group challenge, so we invite groups of people to participate. You can find teams inter-disciplinarily within different universities and countries. We encourage such submission as a team, where shared work always decreases the workload.<br/>We also limit application documents to 20 pages in order not to encourage people to write a lot because this is not a writing assignment. The limitations that the students are aware of what they did and the assumptions that they made would be very important to us when judging those submissions.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">Is it just the report that submitted or students are expected to submit the models that assessed.</a>
+                <div class="toggle-content">
+                    <p>We only look at the reports, not the models. Should there be any queries, however, we will take the liberty to approach the group in hindsight and request the models. But the challenge is for the students to put all the necessary information in the document they submit. Should there be any additional information, such as tables of values, etc., is allowed to use an appendix added at the very end. Please don't rely on this because, in the first step, we will just look at the 20 pages, so try to put the core information in that.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">How can we access the webinar slides?</a>
+                <div class="toggle-content">
+                    <p>You may download the slides <a href="{{ url_for('download', file_id=315, next=request.full_path) }}" target="_blank">here</a>.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">Is there anything about material of the building?</a>
+                <div class="toggle-content">
+                    <p>There are some materials recommended in the briefing document, only for reference. Students may consider replacing such materials to meet the requirements mentioned in the briefing document.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">Can we see the list of participants in this competition?</a>
+                <div class="toggle-content">
+                    <p>We won't be able to share the list of the participants. We encourage people to step forward as teams already. It is not how it works, to look for members in the participant list. You have to find team members prior and submit as a group. The deadline (February 15th) is for you to show your intent to contribute to the competition (not the deadline for your report). That is important for us to get an overall idea of how many people will participate.<br/>We can't publish the list. What we will publish in the end, however, are the two finalist teams that will present their work at BS2023. Other than that, we will keep the information confidential of those who have applied.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">What are the official building, ventilation and energy codes used in the context of Shanghai? From where can they be referred (in English)?</a>
+                <div class="toggle-content">
+                    <p>To avoid bias in translation, we have put the requirements of the local code in the briefing document. Those not listed are for your own decision. For example, for the ventilation rate you mentioned, we have put the ACH (air change per hour) in the document for your reference.<br/>The energy code in China is quite different from other countries, so we only provide some basic requirements in the document. We have added some references in the website in the document named “information expansion about energy codes in China”. If there are any further demand about the code or other issues, please feel free to post them on the MIRO board. We will work with you and give you feedback on that platform.<br/>This is one of the challenges of every competition because we encourage you to familiarize yourself with different climate conditions, building regulations, constraints about materials, and everything, which is why we pose the building usually in the hosting country. Information about this will be published on the website. Please look at this before you start modeling.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">Should everyone in the team enroll or one can enroll for the rest?</a>
+                <div class="toggle-content">
+                    <p>We usually expect the teams to let us know all the participants' names because what we require from all of you is a certificate that you are still enrolled at a university, whether that is a Bachelor, MSc, or Ph.D. This is indented for students, not for practitioners.<br/>If there is a situation where you find out that you have submitted just a team of three, and you would like to add the fourth member on hindsight who has been very influential to this, surely we can talk about this. It is always good for you to collaborate with more people than fewer.<br/>But again, we will require proof of enrollment at a university for every team member.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">Are there any defined specifications (not given in brief) for taking a base case for analysis, to compare our simulations (with that base case)?</a>
+                <div class="toggle-content">
+                    <p>We will not provide a base case for this year's competition. You may refer to the requirements of the local design codes and standards, which are quite applicable to the current climate and building function, with recommendations about the optimization. Please refer to the document named “information expansion about energy codes in China” which can be downloaded from our website.<br/>We had base cases in the past where we sort of provided more data and information on base or equivalent cases or even monitor data and then asked students to change the building based on the baseline. It is not the challenge this year. If you are uncertain about the performance of the building, look at equivalent data, and try to find references to that, but do not worry about a base case for analysis in this case.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">What is the type application used for this work group (teams, web, etc.)? Is it possible to integrate?</a>
+                <div class="toggle-content">
+                    <p>The competition challenge is quite comprehensive, encompassing architecture, mechanical systems, etc., so it is up to the participants to choose the most suitable way for their teamwork and integration.<br/>For this year’s competition, <a href="https://miro.com/app/board/uXjVP4tgXl0=/" target="_blank">MIRO</a> is used to encourage students to exchange ideas and collaborate. This is one example of a workspace where people can create a profile, work together, ask and answer questions.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">In addition to this competition, is it possible to use this BS2023 test case to test a new building simulation program, developed in the framework of a doctoral thesis, which will be the subject of a scientific article.</a>
+                <div class="toggle-content">
+                    <p>From the perspective of IBPSA, if you use the case you must cite IBPSA and the modeling brief within your thesis, applications, or any publications because this brief is developed as part of the conference with IBPSA on the conference host. So, you will have to reference that document.<br/>In addition, from the perspective of architectural designers, if you use the case within your thesis, applications, or any publications, you must include the following acknowledgments and cite at least one of the following references.</p>
+                    <p>Acknowledgement<br/>Thanks to ATELIER L+, Tongji Architectural Design (Group) Co. for providing design materials for this study.</p>
+                    <o>Reference<ul>
+                    <li>Linxue Li, FengHuan Hong. Energy simulation and integration at the early stage of  architectural design. Journal of Asian Architecture and Building Engineering, 2019/12.</li>
+                    <li>Linxue Li. Thermodynamic architectural prototype: Formal principles of environmental mediation (in Chinese). Time+Architecture,2018, 161(03):36-41.</li>
+                    <li>Linxue Li, Miaomiao Hou. Instrumentality, ontology, and system: Design practice based on the frontier research of architectural thermal environment (in Chinese). Time+Architecture, 2022(04):36-41.</li></p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">Do we need to take into consideration the RH levels of occupied hours apart from Dry Bulb Temp?</a>
+                <div class="toggle-content">
+                    <p>The RH level of occupied hours is not mandatory for your simulation. However, you should inform yourself what is necessary for the type of simulation that you have to conduct, and dry bulb temperature is, most of the time, not sufficient on its own.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">Can we use BIM models to model this interesting case?</a>
+                <div class="toggle-content">
+                    <p>Surely you can incorporate BIM in your simulation workflow. However, the building model will not be delivered by the host in any form of BIM.</p>
+                </div>
+            </section>
+
+        </div>
     </div>
 
 </div>
