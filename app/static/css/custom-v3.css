@@ -650,8 +650,7 @@ a[data-toggle="collapse"] {
 .table-program .tg-m3n4 {
     background-color: #e9f2f3;
     writing-mode: vertical-rl;
-    -webkit-text-orientation: revert;
-    text-orientation: revert;
+    transform:scale(-1);
 }
 .table-program .tg-6965{
     background-color:#fcecd9;
@@ -678,8 +677,7 @@ a[data-toggle="collapse"] {
 }
 .table-program .tg-c2ow {
     writing-mode: vertical-rl;
-    -webkit-text-orientation: revert;
-    text-orientation: revert;
+    transform:scale(-1);
     padding: 4px;
 }
 
@@ -690,7 +688,6 @@ a[data-toggle="collapse"] {
     }
     .table-program .tg-e1ow {
         writing-mode: vertical-rl;
-        -webkit-text-orientation: revert;
-        text-orientation: revert;
+        transform:scale(-1);
     }
 }
