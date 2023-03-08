@@ -40,6 +40,14 @@ def timeline():
 def submit():
     return render_template('submit.html')
 
+@app.route('/registration')
+def registration():
+    return render_template('registration.html')
+
+@app.route('/program')
+def program():
+    return render_template('program.html')
+
 @app.route('/guide/author')
 def guide_author():
     return render_template('guide_author.html')

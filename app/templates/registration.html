@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark">Registration</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>Sign-up</li>
+                    <li class="active">Registration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container pt-2 pb-4">
+    <section class="mb-5">
+        <h2>Types & Pricing</h2>
+        <p>Registration for BS2023 will soon open in early April. Here is the pricing table for your reference (in US dollars). Please note that the <strong>Early bird</strong> discount expires on <strong>June 30</strong>, 2023. Head to the <a href="https://www.conftool.pro/bs2023" target="_blank">ConfTool</a> system for your registration when the time comes.</p>
+        <div class="row my-5"  style="padding: 0px 12px;">
+            <div class="col-md-4 g-0">
+                <div class="card-reg card-reg-price card-reg-left">
+                    <table class="table-reg">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Delegate</th>
+                                <th>Student</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="active-row">
+                                <td class="has-details">Early Bird
+                                    <span class="details">expires on<br/>June 30</span>
+                                </td>
+                                <td>$ 900</td>
+                                <td>$ 550</td>
+                            </tr>
+                            <tr>
+                                <td>Standard</td>
+                                <td>$ 990</td>
+                                <td>$ 600</td>
+                            </tr>
+                            <tr>
+                                <td>On-site</td>
+                                <td>$ 1080</td>
+                                <td>$ 650</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-8 g-0">
+                <div class="card-reg card-reg-text card-reg-right">
+                    <h4>Physical Attendance</h4>
+                    <p>This type of registration allows you to participate in all public activities of BS2023, including plenary and parallel sessions, workshops and seminars, welcome reception and catering, technical tours, and social activities (see our tentative program <a href="{{ url_for('program') }}">here</a>). You can access online resources as well.</p>
+                    <div class="row card-reg-list">
+                        <div class="col-6">
+                            <ul class="list list-icons" style="line-height: 1.5em">
+                                <li><i class="far fa-check-circle"></i>All scientific sessions</li>
+                                <li><i class="far fa-check-circle"></i>Conference Guidebook&#174;</li>
+                                <li><i class="far fa-check-circle"></i>Technical tours</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list list-icons list-primary">
+                                <li><i class="far fa-check-circle"></i>Dining, catering</li>
+                                <li><i class="far fa-check-circle"></i>Live streaming</li>
+                                <li><i class="far fa-check-circle"></i>Certificate of attendance</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row card-reg-list">
+                        <div>
+                            <ul class="list list-icons list-primary">
+                                <li><i class="far fa-check-circle"></i>Online poster/replay repository</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-4" style="padding: 0px 12px;">
+            <div class="col-md-8 g-0">
+                <div class="card-reg card-reg-text card-reg-left">
+                    <h4>Virtual Attendance</h4>
+                    <p>The online attendees can only access to the live streaming of plenary and parallel sessions. No presentation is allowed with this type of registration.</p>
+                    <div class="row card-reg-list">
+                        <div class="col-6">
+                            <ul class="list list-icons" style="line-height: 1.5em">
+                                <li><i class="far fa-check-circle"></i>Live streaming</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list list-icons list-primary">
+                                <li><i class="far fa-times-circle"></i>Oral/poster presentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row card-reg-list">
+                        <div class="col-6">
+                            <ul class="list list-icons list-primary">
+                                <li><i class="far fa-check-circle"></i>Certificate of attendance</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list list-icons list-primary">
+                                <li><i class="far fa-check-circle"></i>Online poster/replay repository</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 g-0">
+                <div class="card-reg card-reg-price card-reg-right">
+                    <table class="table-reg">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Delegate</th>
+                                <th>Student</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="active-row">
+                                <td class="has-details">Early Bird
+                                    <span class="details">expires on<br/>June 30</span>
+                                </td>
+                                <td>$ 300</td>
+                                <td>$ 300</td>
+                            </tr>
+                            <tr>
+                                <td>Standard</td>
+                                <td>$ 350</td>
+                                <td>$ 350</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <p>Considering that China has lifted all travel restrictions since January 8, 2023, we are dedicated to a physical conference. Presentations must be done on-site and cannot be done online. Therefore, online participation <strong style="color: #ca3352">DOES NOT</strong> allow you to present your work (oral or poster) during the conference. We offer you live streaming for all the plenary and parallel sessions. The accepted papers from online attendees will be published in the conference proceedings.</p>
+    </section>
+
+    <section class="my-5">
+        <!-- <h2>Invitation letter</h2> -->
+    </section>
+
+</div>
+{% endblock %}

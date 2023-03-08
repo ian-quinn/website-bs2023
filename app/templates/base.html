@@ -78,7 +78,7 @@
                                 <ul class="list-unstyled">
                                     <a href="{{ url_for('timeline') }}"><li class="accessible">Timeline</li></a>
                                     <a href="{{ url_for('submit') }}"><li class="accessible">Submit <strong>Manuscript</strong></li></a>
-                                    <li>Register (WIP)</li>
+                                    <a href="{{ url_for('registration') }}"><li class="accessible">Registration</li></a>
                                     <a href="{{ url_for('publication') }}"><li class="accessible">Publication</li></a>
                                 </ul>
                             </div>
@@ -95,7 +95,7 @@
                                 <ul class="list-unstyled">
                                     <a href="{{ url_for('theme') }}"><li class="accessible">Themes</li></a>
                                     <li>Keynotes (WIP)</li>
-                                    <li>Program Book (WIP)</li>
+                                    <a href="{{ url_for('program') }}"><li>Program Book</li></a>
                                     <li>Exhibition (WIP)</li>
                                     <li>Workshops (WIP)</li>
                                     <li>Technical Tours (WIP)</li>
@@ -204,7 +204,7 @@
                                                             <ul class="dropdown-menu">
                                                                 <li><a class="dropdown-item" href="{{ url_for('timeline') }}">Timeline</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('submit') }}">Submit <strong>Manuscript</strong></a></li>
-                                                                <li><a class="dropdown-item">Register (WIP)</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('registration') }}">Registration</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('publication') }}">Publication</a></li>
                                                             </ul>
                                                         </li>
@@ -213,7 +213,7 @@
                                                             <ul class="dropdown-menu">
                                                                 <li><a class="dropdown-item" href="{{ url_for('theme') }}">Themes</a></li>
                                                                 <li><a class="dropdown-item">Keynotes (WIP)</a></li>
-                                                                <li><a class="dropdown-item">Program Book (WIP)</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('program') }}">Program Book</a></li>
                                                                 <li><a class="dropdown-item">Exhibition (WIP)</a></li>
                                                                 <li><a class="dropdown-item">Workshops (WIP)</a></li>
                                                                 <li><a class="dropdown-item">Technical Tours (WIP)</a></li>
