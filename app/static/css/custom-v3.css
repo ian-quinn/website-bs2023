@@ -614,7 +614,8 @@ a[data-toggle="collapse"] {
 /*program talbe*/
 
 .table-program {
-    border-collapse:collapse;border-spacing:0;
+    border-collapse:collapse;
+    border-spacing:0;
     text-align: center;
     line-height: 1.2em;
     width: 100%;
@@ -649,6 +650,7 @@ a[data-toggle="collapse"] {
 .table-program .tg-m3n4 {
     background-color: #e9f2f3;
     writing-mode: vertical-rl;
+    -webkit-text-orientation: revert;
     text-orientation: revert;
 }
 .table-program .tg-6965{
@@ -676,6 +678,7 @@ a[data-toggle="collapse"] {
 }
 .table-program .tg-c2ow {
     writing-mode: vertical-rl;
+    -webkit-text-orientation: revert;
     text-orientation: revert;
     padding: 4px;
 }
@@ -687,6 +690,7 @@ a[data-toggle="collapse"] {
     }
     .table-program .tg-e1ow {
         writing-mode: vertical-rl;
+        -webkit-text-orientation: revert;
         text-orientation: revert;
     }
 }
