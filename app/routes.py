@@ -110,6 +110,7 @@ def newsletter(news_id):
         month=datetime.strftime(news_date, '%B'), 
         year=datetime.strftime(news_date, '%Y'))
 
+# previous link fix
 @app.route('/newsletter/202209')
 def email_detour_1():
     return redirect(url_for('newsletter', news_id=20221004))
