@@ -129,12 +129,13 @@
         </div>
         <div class="col-lg-4 pt-3 order-1 order-lg-2">
             <p class="text-4 font-weight-semibold" style="color:#000000">DOWNLOADS</p>
-            <ul class="list list-icons list-primary list-side-borders">
-                <li><i class="fas fa-file-pdf"></i><a href="{{ url_for('download', file_id=311, next=request.full_path) }}" target="_blank">Competition brief.pdf</a></li>
-                <li><i class="fas fa-file-signature"></i><a href="{{ url_for('download', file_id=312, next=request.full_path) }}" target="_blank">Building floorplan.dwg (AC2018)</a></li>
+            <ul class="list list-icons list-primary list-side-borders" style="line-height: 1em;">
+                <li><i class="fas fa-file-pdf"></i><a href="{{ url_for('download', file_id=311, next=request.full_path) }}" target="_blank">Competition brief.pdf</a> (March 13)</li>
+                <li><i class="fas fa-file-signature"></i><a href="{{ url_for('download', file_id=312, next=request.full_path) }}" target="_blank">Building floorplan.dwg (AC2018)</a></li><!--<a href="{{ url_for('download', file_id=317, next=request.full_path) }}" target="_blank">.pdf</a>--></li>
                 <li><i class="fas fa-file-archive"></i><a href="{{ url_for('download', file_id=313, next=request.full_path) }}" target="_blank">CHN_SH_Shanghai.583620_CSWD.zip</a></li>
-                <li><i class="fas fa-file-pdf"></i>Appendix A <a href="{{ url_for('download', file_id=314, next=request.full_path) }}" target="_blank">Energy codes in China.pdf</a></li>
-                <li><i class="fas fa-file-pdf"></i>Appendix B <a href="{{ url_for('download', file_id=315, next=request.full_path) }}" target="_blank">Webinar slides.pdf</a></li>
+                <li><i class="fas fa-file-pdf"></i><a href="{{ url_for('download', file_id=314, next=request.full_path) }}" target="_blank">Energy codes in China.pdf</a></li>
+                <li><i class="fas fa-file-pdf"></i><a href="{{ url_for('download', file_id=315, next=request.full_path) }}" target="_blank">Webinar slides.pdf</a></li>
+                <li><i class="fas fa-file-pdf"></i><a href="{{ url_for('download', file_id=316, next=request.full_path) }}" target="_blank">Corrigendum.pdf</a> (March 13)</li>
             </ul>
         </div>
     </div>
@@ -236,6 +237,51 @@
                     <p>Surely you can incorporate BIM in your simulation workflow. However, the building model will not be delivered by the host in any form of BIM.</p>
                 </div>
             </section>
+
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <p>Frequently asked:</p>
+
+        <div class="toggle toggle-primary toggle-simple m-0" data-plugin-toggle>
+            <section class="toggle">
+                <a class="toggle-title">Can we regard the recommended materials (in Appendix-B of the briefing) as the baseline for simulation iteration? What are recommended materials based on, other than the Green Design Standard?</a>
+                <div class="toggle-content">
+                    <p>Your choice of the thermal performance of the building envelope should meet the constraints in the first table of Appendix B. The recommended materials provided in the second table of Appendix B are just for your consideration. You can choose other materials instead.<br/>
+                    Those recommended materials are extracted from the Public Building (DGJ 08-107-2015), as shown in Appendix B <i>Physical thermal data of building materials</i>, and Appendix C <i>Thermal transmittance of energy windows of Design Standard for energy efficiency</i>. Those are common building materials in China and are listed here as examples. You can get more information by browsing this standard.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title"> How accurately should we model stairs and staircases?</a>
+                <div class="toggle-content">
+                    <p>There are no specific calculation requirements for the stairs and staircases. The modeling should reflect their characteristics of heat transfer or energy consumption.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">Can we treat the podium as adjacent spaces conditioned?</a>
+                <div class="toggle-content">
+                    <p>Only the energy consumption and carbon emissions of the tower part are studied, with the podium part excluded. The circulation area of the podium and tower may serve as passive ventilation paths. Therefore, the podium spaces adjacent to the tower part should be treated as non-conditioned.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">The constraint on the conductivity in Appendix B is too high. Is it correct?</a>
+                <div class="toggle-content">
+                    <p>We are sorry for the typo in Appendix B. The conductivity constraints (W/m·K) should be the thermal transmittance coefficient constrains (W/m<sup>2</sup>·K). Relative documents have been updated. <a href="{{ url_for('download', file_id=316, next=request.full_path) }}" target="_blank">Corrigendum.pdf</a></p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">The diagrams on the webinar slides do not seem to match up with the AutoCAD file.</a>
+                <div class="toggle-content">
+                    <p>They are matched. The floor labeling starts from <b>1</b> in China (1, 2, 3...) while by European tradition it starts from <b>0</b> (ground floor, 1st floor, 2st floor, ..., top floor).</p>
+                </div>
+            </section>
+        </div>
+
 
         </div>
     </div>
