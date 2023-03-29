@@ -22,7 +22,7 @@
 <div class="container pt-2 pb-4">
     <div class="mb-5">
         <div class="alert alert-success alert-dismissible" role="message">
-            Full-text submission deadline postponed to March 27. </a>
+            Full-text submission deadline postponed to <del>March 27</del> April 3. </a>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
             </button>
         </div>
@@ -38,7 +38,7 @@
                 <div class="card ">
                     <div class="card-body">
                         <h4 class="card-title mb-1 text-4 font-weight-bold" style="color: #700f24;">Research paper</h4>
-                        <p class="card-text">The high quality research work is always the focus of our conference. We use the double-blind peer review. All papers accepted and presented will be published in the Conference Proceedings, which are indexed by EI and open-accessed on IBPSA website. Top-ranked ones (regardless of the presentation type) will be awarded and proposed to top journals for further <a href="{{ url_for('publication') }}">publication</a>.</p>
+                        <p class="card-text">The research paper is 8-page-long, aiming for the latest breakthroughs in the application of building simulations. All papers accepted and presented will be published in the Conference Proceedings, which are indexed by EI and open-accessed on IBPSA website.</p>
                         <div class="d-grid">
                             <a href="{{ url_for('download', file_id=231, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary btn-effect-4 mb-2">Paper template Word <span><i class="fas fa-arrow-down ms-1"></i></span></a>
                             
@@ -52,7 +52,7 @@
                 <div class="card ">
                     <div class="card-body">
                         <h4 class="card-title mb-1 text-4 font-weight-bold" style="color: #0f4070;">Project report</h4>
-                        <p class="card-text">The project report is case-focused, best demonstrating an effective application of the building simulation. It could be the report of real-world projects, the work collection of student workshops, or the simulation with actual performance data. On the acceptance of your abstract, you only need to submit an extended abstract. We are expecting 1~2 sessions for this kind of contribution.</p>
+                        <p class="card-text">The 4-page-long project report is case-focused, best demonstrating an effective application of the building simulation. This type of contribution only requires an extended abstract and will not be published in the conference proceedings. We are expecting 1~2 sessions for this kind of contribution.</p>
                         <div class="d-grid">
                             <a href="{{ url_for('download', file_id=221, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary btn-effect-4 mb-2">Report template Word <span><i class="fas fa-arrow-down ms-1"></i></span></a>
                             
@@ -65,7 +65,7 @@
                 <div class="card ">
                     <div class="card-body">
                         <h4 class="card-title mb-1 text-4 font-weight-bold" style="color: #084708;">Workshop</h4>
-                        <p class="card-text">Workshops are open for the promotion and education of simulation techniques, in forms of software demo, vendor-sponsored training, panel discussion or student projects. Submissions will be evaluated on a first-come-first-served basis, provided that there is a clear link with building simulation. You need to submit a detailed workshop proposal after the abstract is accepted. All workshops are self-financed.</p>
+                        <p class="card-text">Workshops are open for the promotion and education of simulation techniques, in forms of software demo, vendor-sponsored training, panel discussion or student projects. Submissions will be evaluated on a first-come-first-served basis, provided that there is a clear link with building simulation. All workshops are self-financed.</p>
                         <div class="d-grid">
                             <a href="#" class="btn btn-outline btn-quaternary mb-2 disabled">Template coming soon...</a>
                         </div>
@@ -77,16 +77,18 @@
 
     <section class="mt-5">
         <h2>Instructions</h2>
-        <p>BS2023 continues to use <strong>ConfTool</strong> for abstract submission. All authors with an accepted abstract are invited to upload their manuscript (paper, project report and workshop proposal) in the ConfTool system before <del>March 20</del> <b>March 27</b>. Please refer to the templates above. Each contribution will be evaluated through a double-blind peer review, scored and subsequently accepted for presentation. The scientific committee reserves the right to classify your work in terms of relevant track, contribution or presentation type.</p>
+        <p>BS2023 continues to use <strong>ConfTool</strong> for abstract submission. All authors with an accepted abstract are invited to upload their manuscript (paper, project report and workshop proposal) in the ConfTool system before <del>March 27</del> <b>April 3</b>. Please refer to the templates above. Each contribution will be evaluated through a double-blind peer review, scored and subsequently accepted for presentation. The scientific committee reserves the right to classify your work in terms of relevant track, contribution or presentation type.</p>
         <p>Check out the following bullets before you continue:</p>
         <ul>
+            <li>You need to make a new full-text submission in the ConfTool system other than the abstract.</li>
             <li>Please use the templates provided when preparing your manuscripts.</li>
+            <li>The manuscript of the research paper should be within 8 pages while the project report within 4 pages.</li>
             <li>A PDF version of your manuscript must be uploaded. (<10MB)</li>
             <li>An editable version of your manuscript must be uploaded. It depends on which template you are using (Word/LaTeX). The LaTeX files must be compilable and packed in a ZIP file. (<10MB)</li>
             <li>Please do not include names, affiliations and acknowledgements in your draft for review. </li>
-            <li>The submission deadline is <del>March 20</del> <strong>March 27, 2023</strong>. (Midnight CST)</li>
+            <li>The updated submission deadline is <del>March 27</del> <strong>April 3, 2023</strong>. (Midnight CST)</li>
         </ul>
-        <p>If you find any difficulties using the conference system, you may refer to this <a href="{{ url_for('guide_author') }}" target="_blank">user guide</a> or <a href="{{ url_for('contact') }}" target="_blank">contact</a> us.</p> 
+        <p>If you encounter any technical issues, please refer to this <a href="{{ url_for('guide_author') }}" target="_blank">user guide</a> or <a href="{{ url_for('contact') }}" target="_blank">contact</a> us.</p> 
         <p> </p>
         <div class="row">
             <div class="col-md-12">
