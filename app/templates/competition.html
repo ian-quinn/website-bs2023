@@ -136,7 +136,8 @@
             <p class="text-4 font-weight-semibold" style="color:#000000">DOWNLOADS</p>
             <ul class="list list-icons list-primary list-side-borders" style="line-height: 1em;">
                 <li><i class="fas fa-file-pdf"></i><a href="{{ url_for('download', file_id=311, next=request.full_path) }}" target="_blank">Competition brief.pdf</a> (March 29)</li>
-                <li><i class="fas fa-file-signature"></i><a href="{{ url_for('download', file_id=312, next=request.full_path) }}" target="_blank">Building floorplan.dwg (AC2018)</a></li><!--<a href="{{ url_for('download', file_id=317, next=request.full_path) }}" target="_blank">.pdf</a>--></li>
+                <li><i class="fas fa-file-signature"></i><a href="{{ url_for('download', file_id=312, next=request.full_path) }}" target="_blank">Floorplan.dwg (AutoCAD 2018)</a> <a href="{{ url_for('download', file_id=317, next=request.full_path) }}" target="_blank">.pdf</a></li>
+                <li><i class="fas fa-file-signature"></i><a href="{{ url_for('download', file_id=318, next=request.full_path) }}" target="_blank">Floorplan.dwg (AutoCAD 2000)</a> <a href="{{ url_for('download', file_id=319, next=request.full_path) }}" target="_blank">.pdf</a></li>
                 <li><i class="fas fa-file-archive"></i><a href="{{ url_for('download', file_id=313, next=request.full_path) }}" target="_blank">CHN_SH_Shanghai.583620_CSWD.zip</a></li>
                 <li><i class="fas fa-file-pdf"></i><a href="{{ url_for('download', file_id=314, next=request.full_path) }}" target="_blank">Energy codes in China.pdf</a></li>
                 <li><i class="fas fa-file-pdf"></i><a href="{{ url_for('download', file_id=315, next=request.full_path) }}" target="_blank">Webinar slides.pdf</a></li>
@@ -285,9 +286,13 @@
                     <p>They are matched. The floor labeling starts from <b>1</b> in China (1, 2, 3...) while by European tradition it starts from <b>0</b> (ground floor, 1st floor, 2st floor, ..., top floor).</p>
                 </div>
             </section>
-        </div>
 
-
+            <section class="toggle">
+                <a class="toggle-title">In the CAD file, the names or the labels of the rooms are not provided.</a>
+                <div class="toggle-content">
+                    <p>Please check this <a href="{{ url_for('download', file_id=319, next=request.full_path) }}" target="_blank">PDF</a> or an older version <a href="{{ url_for('download', file_id=318, next=request.full_path) }}" target="_blank">Floorplan.dwg (AutoCAD 2000)</a>.</p>
+                </div>
+            </section>
         </div>
     </div>
 
