@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Registration Guide{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark"><strong>ConfTool</strong> participate registration</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>ConfTool</li>
+                    <li class="active">Registration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container pt-2 pb-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <p>Please direct to the <strong>ConfTool</strong> system for your participant registration: <a href="https://www.conftool.pro/bs2023/" garget="_blank">www.conftool.pro/bs2023</a></p>
+
+            <p><strong style="color:black;">STEP-1</strong> Choose your registration type. A photocopy of the student ID or bonafide letter is required for the student ticket. If you need to register with accompanying persons, leave your request in the comment box on STEP-2.</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-1.png') }}" alt="Step 1">
+            <hr style="margin:30px;">
+
+            <p><strong style="color:black;">STEP-2</strong> Choose the conference programs you want to attend. Unless specified otherwise, the full-pass ticket includes all conference programs detailed <a href="{{ url_for('program') }}">here</a>.</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-2.png') }}" alt="Main Dashboard">
+            <hr style="margin:30px;">
+
+            <p><strong style="color:black;">STEP-3</strong> Specify your payment details. Generally, we accept <strong>bank transfers</strong> and credit card payments via <strong>PayPal</strong>. If not possible, we offer a payment proxy service that accepts payment via <strong>Alipay</strong> or bank transfer in mainland China.</p>
+            <p>ConfTool has PayPal API wired in so you will get your registration status updated upon a  successful payment via PayPal. For other methods, please allow us 7 days to process your payment then update your status in ConfTool.</p>
+            <p>Also on this page, comment with any requirements, for example, the detailed information you want to include in the invoice.</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-3.png') }}" alt="Your Submissions">
+            <hr style="margin:30px;">
+
+            <p><strong style="color:black;">STEP-4</strong> Review your payment details and the registration terms, then proceed to payment information.</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-4.png') }}" alt="Submission of a Contribution">
+            <hr style="margin:30px;">
+
+            <p><strong style="color:black;">STEP-5</strong> Fulfill your personal information (if you like).</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-5.png') }}" alt="Submission of a Contribution">
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

@@ -60,6 +60,10 @@ def guide_reviewer():
 def guide_sessionchair():
     return render_template('guide_sessionchair.html')
 
+@app.route('/guide/participant')
+def guide_participant():
+    return render_template('guide_participant.html')
+
 @app.route('/publication')
 def publication():
     return render_template('publication.html')
