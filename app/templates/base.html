@@ -94,7 +94,7 @@
                             <div class="accordion-body">
                                 <ul class="list-unstyled">
                                     <a href="{{ url_for('theme') }}"><li class="accessible">Themes</li></a>
-                                    <li>Keynotes (WIP)</li>
+                                    <a href="{{ url_for('keynote') }}"><li>Keynotes</li></a>
                                     <a href="{{ url_for('program') }}"><li>Program Book</li></a>
                                     <li>Exhibition (WIP)</li>
                                     <li>Workshops (WIP)</li>
@@ -212,7 +212,7 @@
                                                             <a class="dropdown-item dropdown-toggle" href="#">Program</a>
                                                             <ul class="dropdown-menu">
                                                                 <li><a class="dropdown-item" href="{{ url_for('theme') }}">Themes</a></li>
-                                                                <li><a class="dropdown-item">Keynotes (WIP)</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('keynote') }}">Keynotes</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('program') }}">Program Book</a></li>
                                                                 <li><a class="dropdown-item">Exhibition (WIP)</a></li>
                                                                 <li><a class="dropdown-item">Workshops (WIP)</a></li>

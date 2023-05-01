@@ -48,6 +48,10 @@ def registration():
 def program():
     return render_template('program.html')
 
+@app.route('/keynote')
+def keynote():
+    return render_template('keynote.html')
+
 @app.route('/guide/author')
 def guide_author():
     return render_template('guide_author.html')
