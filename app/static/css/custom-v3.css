@@ -694,3 +694,12 @@ a[data-toggle="collapse"] {
         text-orientation: revert;
     }
 }
+
+.paragraph-item li::marker {
+    /*content: counter(list-item) ">  "; /* Unicode character for bullet */
+    content: "•  ";
+    font-size: 1.2em;
+}
+.paragraph-item li {
+    margin-bottom: 10px;
+}

@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
 from flask_mail import Mail
+from flask_datepicker import datepicker
 
 import os, sys
 
@@ -28,6 +29,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db, compare_type=True)
 mail = Mail(app)
 csrf = CSRFProtect(app)
+datepicker = datepicker(app)
 
 # 	locale = request.cookies.get('locale')
 # 	if locale is not None:

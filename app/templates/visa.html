@@ -1,0 +1,288 @@
+{% extends 'base.html' %}
+{% block title %}COVID{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark"><strong>Visa</strong> Policy</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>Guide</li>
+                    <li class="active">Visa</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container pt-2 pb-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <h4>Visa Information</h4>
+            <small>Only reminders for your visa application. Please consult the embassy or visa center for details.</small>
+            <p></p>
+            <ul class="list-unstyled paragraph-item">
+                <li>Since March 15, 2023, China has resumed issuing all types of visas for foreigners. We recommend <strong>Tourist Visa</strong> (type <strong>L</strong>) for all registered participants, in which case the invitation letter is NOT needed. If you book a room on our website, you will get the hotel reservation document upon successful payment.</li>
+                <li>If you are going for another type of visa (type <strong>F</strong> for example) that requires an invitation letter, please fill out the form on this page and we will come back to you shortly.</li>
+                <li>Participants can apply for a visa at the Chinese embassy, consulates, or Visa Application Service Center in the region they live. Your passport must be valid for at least six months after the expiry date of your visa. All Visa applicants must submit the application documents in person and have their fingerprints collected. Please refer to the website of the fore-mentioned facilities for detailed requirements. <button type="button" id="visaJButton" onclick="displayJInfo()" style="text-decoration: underline; background: #ffffff; border: none;">visa L</button>/<button type="button" id="visaFButton" onclick="displayFInfo()" style="text-decoration: underline; background: #ffffff; border: none;">visa F</button></li>
+                <li id="visaJInfo" style="display: none;">
+                    <div style="border: 1px solid black; border-radius: 5px; padding: 10px;">
+                        L requires one of the below document:<br/>
+                        <ol>
+                            <li>Documents showing the itinerary including air ticket booking record (round trip) and proof of a hotel reservation, etc. or</li>
+                            <li>An Invitation Letter for Tourist issued by a relevant unit or individual in China. The Invitation Letter should contain:<br/>(1) Information of the applicant (incl. full name, gender, date of birth, passport number, etc.);<br/>(2) Details of the planned visit (incl. arrival and departure dates, place(s) to be visited, accommodation arrangements, etc.);<br/>(3) Information of the inviting party (incl. name of organization or person concerned, contact telephone number, address, official stamp of the organization, signature of the legal representative or individual, inscribed date)
+                            </li>
+                        </ol>
+                    </div>
+                </li>
+                <li id="visaFInfo" style="display: none;">
+                    <div style="border: 1px solid black; border-radius: 5px; padding: 10px;">
+                        F needs one of the photocopy of the following document:<br/>
+                        <ol>
+                            <li>Invitation letter issued by a partner in China. The invitation letter should contain:<br/>a) Information of the applicant (incl. full name, gender, date of birth, passport no. etc.);<br/>b) Details of the planned visit (incl. purpose of visit, arrival and departure dates, place(s) to be visited, relationship between the applicant and the inviting party, details of any financial support to be provided during the stay in China);<br/>c) Information of the inviting party (incl.name, contact telephone number, address, official stamp, signature of the legal representative or individual).</li>
+                            <li>Personnel engaged in geographic surveying and mapping activities in China: Invitation letter issued by Department of Science, Technology and Cooperation, State Administration of Surveying and Mapping.</li>
+                            <li>Exchange performers: the invitation letter issued by the organizer and the copy of the non-commercial approval of the cultural department for the performance.</li>
+                            <li>For experts staying in China less than 90 days: Invitation Letter for Foreign Experts to China issued by the competent authorities of foreign countries in cities divided into districts or above.</li>
+                            <li>Volunteers or volunteers staying in China less than 90 days: Invitation letter issued by the unit in China.</li>
+                        </ol>
+                    </div>
+                </li>
+                <li>Citizens of Singapore, Brunei, and Japan holding ordinary passports may enter China without a visa through the ports of entry open to foreigners provided that they come to China for tourism, family visit, business or transit, and intend to stay in China for no more than 15 days.</lip>
+                <li>It is recommended that you apply for a Chinese visa at least 1 month in advance.</li>
+            </ul>
+
+            <h4 class="pt-4">Invitation Letters</h4>
+            <p>If you are requesting time off, funding, or refurbishment from the department, or applying for other types of visa that need an invitation letter, we are more than willing to help. Please fill out the form below, and the conference secretary will contact you shortly. </p>
+            <ul class="list-unstyled paragraph-item">
+                <li>Your name must be listed exactly as it appears on your passport. Any differences between the name on your passport and the name on your invitation letter or other documentation could lead to a delay or denial of your visa.</li>
+                <li>The organizing committee reserves the right to request further information regarding the company or affiliation of the attendee to ensure the validity of requests.</li>
+                <li>To facilitate the process, we recommend that you send us a document proving that you make part of your institution, and a copy of your passport as well.</li>
+                <li>We recommend that you secure your travel visa before the full-repayable date.</li>
+                <li>The letter will be delivered in PDF to the email address provided. The organizing committee of BS2023 is not authorized to assist with your visa process and cannot change the decision of the Ministry of Foreign Affairs.</li>
+            </ul>
+
+            <div class="card my-5" style="background-color: #f9f9f9" id="requestBox">
+                <div class="card-body">
+                    {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                    <div>
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            </button>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    <form class="contact-form" action="{{ url_for('visa') }}" method="POST" enctype="multipart/form-data">
+                        <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
+                        {{ form.hidden_tag() }}
+
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label mb-1 text-2">Email of your ConfTool account<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.email(class="form-control text-3 h-auto") }}
+                                {% for error in form.email.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label class="form-label mb-1 text-2">Name<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.name(class="form-control text-3 h-auto") }}
+                                {% for error in form.name.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="form-label mb-1 text-2">Gender<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.gender(class="form-select form-control h-auto") }}
+                                {% for error in form.gender.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="form-label mb-1 text-2">Date of birth<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.date_birth(class="form-control text-3 h-auto datepicker") }}
+                                {% for error in form.date_birth.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label mb-1 text-2">Passport Number<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.passport_no(class="form-control text-3 h-auto") }}
+                                {% for error in form.passport_no.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="form-label mb-1 text-2">From what country is your passport issued?<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.passport_country(class="form-control text-3 h-auto") }}
+                                {% for error in form.passport_country.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label mb-1 text-2">Date of arrival<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.date_arrival(class="form-control text-3 h-auto datepicker") }}
+                                {% for error in form.date_arrival.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="form-label mb-1 text-2">Date of departure<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form.date_departure(class="form-control text-3 h-auto datepicker") }}
+                                {% for error in form.date_arrival.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label mb-1 text-2">Are you delegate for the conference or exhibition?</label>
+                                {{ form.delegate_type(class="form-select form-control h-auto") }}
+                                {% for error in form.delegate_type.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="form-label mb-1 text-2">Do you need the invitation for visa application?</label>
+                                {{ form.application_type(class="form-select form-control h-auto") }}
+                                {% for error in form.application_type.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label class="form-label mb-1 text-2">State your specific needs</label>
+                                {{ form.requirement(type="text", maxlength="500", class="form-control text-3 h-auto", rows="2") }}
+                                {% for error in form.requirement.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6 mb-0">
+                                <label class="form-label mb-1 text-2">Upload document (< 2MB)</label>
+                                <div class="input-group">
+                                    <label class="btn btn-outline-danger">Browse
+                                        {{ form.file(type="file", hidden="", id="customInput", class="custom-file-input", aria_describedby="customInput") }}
+                                    </label>
+                                    <label class="form-control custom-file-label" id="inputLabel" for="customInput" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">No PDF selected</label>
+                                </div>
+
+                                {% for error in form.file.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                <label class="form-label mb-1 text-2"><span style="color: #cd563e;">✱</span> Denotes required field</label>
+                                {{ form.submit(type="submit", value="Request an invitation letter", class="btn btn-outline-danger w-100") }}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <h4 class="pt-4">The end of China's zero-COVID policy</h4>
+
+            <p>China has lifted all restrictions for inbound travelers since January 8, 2023. <button type="button" id="showButton" onclick="displayMore()" style="color: #ca3352; text-decoration: underline; background: #ffffff; border: none;">See policy history</button>.</p>
+
+            <div id="moreInfo" style="display: none;">
+
+                <p>A physical conference values the most. Amid the virus policy shift, we have high hopes that all barriers, such as travel restrictions and forced quarantine, will be nullified when BS2023 comes. Cautious but determined, the world's eyes end to the COVID emergency in 2023 with everything gradually back on track. Various activities will roll out centering on a physical BS2023, and we send you a warm welcome to join this reunion, in Shanghai. However, in counter with any uncertainties, BS2023 continues to be a <strong>HYBRID</strong> event to your best ease.</p>
+
+                <p>Safety first. Despite the criticism and the economic impact, the dynamic zero-COVID policy successfully contained the spread of the novel coronavirus in the country. In the past three years, society paid a high cost in mass testing, vaccination, pandemic data system, and, most of all, the cooperation of the population. However, circumstances change. With the knowledge, treatment protocols, and medical resources prepared, it is time to adapt to the new reality. Exiting from zero-COVID, the policy will get loose very soon.</p>
+
+                <p><strong>March 15, 2023</strong> China resumes issuing all types of visas for foreigners, including the <strong style="color: #b73e42">tourism visa</strong>, port visa, and multiple visa-exemption policies</p>
+                <ul>
+                    <li>Valid multi-year multiple entry visas issued before March 28, 2020 by the Chinese visa authorities abroad shall resume function.</li>
+                    <li>Foreigners may apply for all types of visas (including those for tourism and medical treatment).</li>
+                    <li>Port visas shall once again be issued in line with the relevant laws and regulations.</li>
+                    <li>The visa-exemption policy for Hainan, visa-exemption cruise policy for Shanghai, visa-exemption policy for foreigners to visit Guangdong from Hong Kong and Macao, and visa-exemption policy for ASEAN tour groups to Guilin and Guangxi shall resume operation.</li>
+                </ul>
+
+                <p><strong>March 1, 2023</strong> Instead of polymerase chain reaction (PCR) tests, rapid antigen test (RAT, including RAT home testing kit) results will be accepted for air passengers flying directly to China. The new rule applies to travelers from Singapore, Malaysia, Thailand, the Philippines, Indonesia, Maldives, Sri Lanka, Cambodia, Laos, United Arab Emirates (UAE), Russia, Switzerland, Hungary, New Zealand, Egypt and South Africa.</p>
+
+                <p><strong>Jan 8, 2023</strong> New policies issued.</p>
+                <ul>
+                    <li><strong style="color: #b73e42">No testing and quarantine</strong> for inbound passengers.</li>
+                    <li>No other restrictions on condition that your health declarations are normal and there are no symptoms of the disease during a "routine health check" while clearing customs.</li>
+                    <li>Inbound passengers will still need a negative nucleic acid test 48 hours before departure and have to wear protective masks onboard flights.</li>
+                    <li>Visa for work, business, study and family reunions has been improved. Tourism visa will be adjusted very soon.</li>
+                    <li>Large international port cities, including Beijing, Shanghai and Guangzhou, are likely to be the first to resume outbound travel for tourism.</li>
+                </ul>
+
+                <p><strong>Dec 21, 2022</strong> Though not officially announced, Chengdu has implemented a pilot <strong>2+3</strong> hotel quarantine policy for inbound travelers.</p>
+
+                <p><strong>Dec 13, 2022</strong> Hong Kong lifts all COVID-19 curbs on inbound travelers. No 0+3 self-isolation requirement for inbound travelers. Everyone who tests negative for COVID-19 will be issued with a blue code in their vaccine pass which will give them free access to public places.</p>
+
+                <p><strong>Dec 12, 2022</strong> Travel Code will go offline officially on Dec 13. It will no longer be a restriction imposed on domestic travelers. </p>
+
+                <p><strong>Dec 7, 2022</strong> The Health Code and centralized quarantine are abandoned, along with new relaxed measures. </p>
+
+                <p><strong>Nov 11, 2022</strong> China further shortens mandatory hotel quarantine period for international arrivals (<strong>5+3</strong>), cancels the circuit breaker mechanism for inbound flights, and requires only one negative PCR test within 48 hours before boarding. </p>
+
+                <p><strong>Jun 28, 2022</strong> China further shortens mandatory hotel quarantine period for international arrivals (<strong>7+3</strong>), which means "7 days centralized (hotel) quarantine + 3 days home quarantine".</p>
+
+            </div>
+
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+    function displayMore() {
+        var x = document.getElementById("moreInfo");
+        var y = document.getElementById("showButton")
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.value = "Show less";
+        } else {
+            x.style.display = "none";
+            y.value = "Show more";
+        }
+    }
+    function displayJInfo() {
+        var x = document.getElementById("visaJInfo");
+        var y = document.getElementById("visaJButton")
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.value = "Show less";
+        } else {
+            x.style.display = "none";
+            y.value = "Show more";
+        }
+    }
+    function displayFInfo() {
+        var x = document.getElementById("visaFInfo");
+        var y = document.getElementById("visaFButton")
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.value = "Show less";
+        } else {
+            x.style.display = "none";
+            y.value = "Show more";
+        }
+    }
+</script>
+{% endblock %}

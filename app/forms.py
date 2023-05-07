@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from datetime import datetime
 from flask import request
 from flask_wtf.file import FileField, FileRequired, FileAllowed
-from wtforms import StringField, TextAreaField, BooleanField, SubmitField, SelectField, FileField
+from wtforms import StringField, TextAreaField, BooleanField, SubmitField, SelectField, FileField, DateField
 from wtforms.validators import DataRequired, Email, ValidationError, Length, EqualTo
 from app.models import Message, Reviewer
 
@@ -88,3 +88,44 @@ class ReviewerForm(FlaskForm):
 		if code != "":
 			if get_check_num(code) != code[-1]:
 				raise ValidationError('Your ORCID may not be valid')
+
+
+class InvitationForm(FlaskForm):
+	def FileSizeLimit(max_size_in_mb):
+	    max_bytes = max_size_in_mb*1024*1024
+	    def file_length_check(form, field):
+	        if len(field.data.read()) > max_bytes:
+	            raise ValidationError(f"File size must be less than {max_size_in_mb}MB")
+	        field.data.seek(0)
+	    return file_length_check
+
+	email = StringField('Email address of your ConfTool account', validators=[
+		DataRequired(message="This field is mandatory"), 
+		Email(message="Please check the format of your email")])
+
+	name = StringField('Name', validators=[
+		DataRequired(message="This field is mandatory"), 
+		Length(1, 32, message="Length must be less than 32 characters")])
+	gender = SelectField('Gender', choices=[(1,'Male'), (2,'Female')], default=1, coerce=int)
+	date_birth = DateField('Date of birth', format='%Y-%m-%d', validators=[DataRequired()])
+
+	passport_no = StringField('Passport No.', validators=[DataRequired(message="The passport number is mandatory")])
+	passport_country = StringField('Country of Issue', validators=[DataRequired(message="The passport number is mandatory")])
+	
+	date_arrival = DateField('Arrival date planned', format='%Y-%m-%d', validators=[DataRequired()])
+	date_departure = DateField('Departure date planned', format='%Y-%m-%d', validators=[DataRequired()])
+
+	delegate_type = SelectField('Academic/Exhibitor', choices=[(1,'Academic'), (2,'Exhibitor')], default=1, coerce=int)
+	application_type = SelectField('For visa application?', choices=[(1,'Yes'), (2,'No')], default=1, coerce=int)
+	requirement = TextAreaField('State your specific needs', validators=[Length(0, 1000)])
+
+	file = FileField('Choose PDF', validators=[
+		FileAllowed(['pdf', 'PDF'], message='Not quite the right format'), 
+		FileSizeLimit(max_size_in_mb=2)])
+
+	submit = SubmitField('Submit')
+
+	def validate_email(self, email):
+		reviewer = Reviewer.query.filter_by(email=email.data).first()
+		if reviewer is not None:
+			raise ValidationError('You have submitted the request.')

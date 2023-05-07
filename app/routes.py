@@ -10,8 +10,8 @@ from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 
 from app import app, db
-from app.models import Message, File, Reviewer
-from app.forms import MessageForm, EnrollForm, ReviewerForm
+from app.models import Message, File, Reviewer, Invitation
+from app.forms import MessageForm, EnrollForm, ReviewerForm, InvitationForm
 
 
 @app.route('/')
@@ -82,9 +82,38 @@ def theme():
 def awards():
     return render_template('awards.html')
 
-@app.route('/covid')
-def covid():
-    return render_template('covid.html')
+@app.route('/visa', methods=['GET', 'POST'])
+def visa():
+    form = InvitationForm()
+    if form.validate_on_submit():
+        if form.file.data:
+            f = form.file.data
+            filename = email.lower() + '_' + datetime.now().strftime('%m%d%H%M') + '.pdf'
+            if os.path.splitext(f.filename)[1] != '.pdf':
+                flash('Only support PDF', 'danger')
+                return redirect(url_for('reviewer'))
+            f.save(os.path.join(app.config['UPLOAD_PATH'], filename))
+        else:
+            filename = 'null'
+        invitation = Invitation(
+            email=form.email.data, 
+            name=form.name.data,
+            gender=form.gender.data,
+            date_birth=form.date_birth.data,
+            date_arrival=form.date_arrival.data,
+            date_departure=form.date_departure.data,
+            passport_no=form.passport_no.data,
+            passport_country=form.passport_country.data,
+            delegate_type=form.delegate_type.data,
+            application_type=form.application_type.data, 
+            requirement=form.requirement.data, 
+            filename=filename)
+        db.session.add(invitation)
+        db.session.commit()
+        flash('We will contact you shortly via email', 'warning')
+        return redirect(url_for('visa', _anchor="requestBox"))
+
+    return render_template('visa.html', form=form)
 
 @app.route('/competition')
 def competition():

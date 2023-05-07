@@ -5,3 +5,4 @@ Flask-WTF==1.0.1
 Flask-Mail==0.9.1
 python-dotenv==0.20.0
 email-validator==1.1.3
+Flask-datepicker==0.14
