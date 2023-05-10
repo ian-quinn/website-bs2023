@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}Venue{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark">Conference <strong>Venue</strong></h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>Guide</li>
+                    <li class="active">Venue</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container pt-2 pb-4">
+    <div class="image-hotspots img-hidden">
+        <img class="img-fluid" src="{{ url_for('static', filename='img/venue-map.webp') }}" alt=""/>
+        <a style="right: 9.6%; top: 22.4%;" class="image-hotspot image-hotspot-light" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-content="Lujiazui - National Financial Center" tabindex="0"><strong><i class="fa fa-thumbtack"></i></strong></a>
+        <a style="right: 18%; top: 18.9%;" class="image-hotspot image-hotspot-light" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-content="Nanjing Road & the Bund" tabindex="0"><strong><i class="fa fa-thumbtack"></i></strong></a>
+        <a style="right: 16.2%; top: 32.9%;" class="image-hotspot image-hotspot-light" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-content="Taoist Temple - old Shanghai" tabindex="0"><strong><i class="fa fa-thumbtack"></i></strong></a>
+        <a style="right: 33.7%; top: 35%;" class="image-hotspot image-hotspot-light" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-content="Jing'an Temple" tabindex="0"><strong><i class="fa fa-thumbtack"></i></strong></a>
+        <a style="right: 22.7%; top: 39.2%;" class="image-hotspot image-hotspot-light" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-content="Xintiandi - Shikumen style business district" tabindex="0"><strong><i class="fa fa-thumbtack"></i></strong></a>
+        <a style="right: 86.8%; top: 68.5%;" class="image-hotspot image-hotspot-light" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-content="National Convention & Exhibition Center" tabindex="0"><strong><i class="fa fa-thumbtack"></i></strong></a>
+    </div>
+    <div class="row py-4" style="position: relative">
+        <div class="col-lg-7 order-1 order-lg-2 mb-4 mb-lg-0">
+            <div class="image-venue">
+                <img class="img-fluid" src="{{ url_for('static', filename='img/venue-landscape.webp') }}" alt=""/>
+            </div>
+        </div>
+        <div class="col-lg-5 mb-lg-0 order-2 order-lg-1">
+            <h3 class="text-color-dark font-weight-bold text-transform-none line-height-2 text-10 mb-4">Radisson Blu<br/>Forest Manor Hotel</h3>
+            <p class="text-color-dark text-5">上海虹桥西郊庄园丽笙大酒店<a href="https://goo.gl/maps/soPZYJhFyDHtjKn27" target="_blank"><i class="fas fa-map-marked-alt" style="margin-left: 10px; color: #777777"></i></a></p>
+        </div>
+    </div>
+    <div class="py-5">
+        <div class="row">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <ul class="list-unstyled paragraph-item">
+                    <li>The venue locates in the hinterland of Hongqiao Business District, next to the National Exhibition and Convention Center (NECC) and sites three kilometers away from Hongqiao International Airport (SHA) and the high-speed railway terminal.</li>
+                    <li>The hotel features a spacious 900 m<sup>2</sup> Grand Ballroom with a 7 meter ceiling (ground floor), perfect for a plenary session and banquet. Parallel sessions and workshops will be held in 7 multi-functional rooms (underground and second floor)</li>
+                    <li>Dining options range from authentic Chinese cuisine to Far East Asian delicacies. With distinctive ingredients sourced globally, it is a dining experience even to the most discerning palate.</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-5 text-center text-md-start">
+                <div class="owl-carousel owl-theme nav-style-1 nav-center-images-only stage-margin mb-0" data-plugin-options="{'responsive': {'576': {'items': 1}, '768': {'items': 1}, '992': {'items': 1}, '1200': {'items': 1}}, 'margin': 25, 'loop': false, 'nav': true, 'dots': false, 'stagePadding': 40}">
+                    <div>
+                        <img class="img-fluid rounded-0" src="{{ url_for('static', filename='img/venue-1.webp') }}" alt="Grand Ballroom" />
+                        <p class="text-2">Grand Ballroom</p>
+                    </div>
+                    <div>
+                        <img class="img-fluid rounded-0" src="{{ url_for('static', filename='img/venue-2.webp') }}" alt="The Dome" />
+                        <p class="text-2">The Dome</p>
+                    </div>
+                    <div>
+                        <img class="img-fluid rounded-0" src="{{ url_for('static', filename='img/venue-4.webp') }}" alt="Boardroom" />
+                        <p class="text-2">Boardroom</p>
+                    </div>
+                    <div>
+                        <img class="img-fluid rounded-0" src="{{ url_for('static', filename='img/venue-3.webp') }}" alt="Meeting room" />
+                        <p class="text-2">Meeting room</p>
+                    </div>
+                    <div>
+                        <img class="img-fluid rounded-0" src="{{ url_for('static', filename='img/venue-5.webp') }}" alt="Meeting room" />
+                        <p class="text-2">Foyer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row py-4">
+        <h4>Floor plan</h4>
+        <div class="col-md-4 mb-4 mb-lg-0">
+            <img class="img-fluid" src="{{ url_for('static', filename='img/venue-floorplan-0.webp') }}" alt=""/>
+        </div>
+        <div class="col-md-4 mb-4 mb-lg-0">
+            <img class="img-fluid" src="{{ url_for('static', filename='img/venue-floorplan-1.webp') }}" alt=""/>
+        </div>
+        <div class="col-md-4 mb-4 mb-lg-0">
+            <img class="img-fluid" src="{{ url_for('static', filename='img/venue-floorplan-2.webp') }}" alt=""/>
+        </div>
+    </div>
+
+
+    <div class="py-4">
+        <h4>Accommodation</h4>
+        <p>We offer accommodations at the conference venue with preferential price. Please direct to <a href="{{ url_for('accommodation') }}" target="_bland">accommodation</a> page for your reservation!</p>
+    </div>
+    
+
+</div>
+{% endblock %}

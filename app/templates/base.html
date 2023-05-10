@@ -131,8 +131,8 @@
                             <div class="accordion-body">
                                 <ul class="list-unstyled">
                                     <li><a>Meet Shanghai! (WIP)</a></li>
-                                    <li><a>Venues (WIP)</a></li>
-                                    <li><a>Accommodation (WIP)</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('venue') }}">Venue</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('accommodation') }}">Accommodation</a></li>
                                     <li><a>Traveling (WIP)</a></li>
                                     <li><a class="dropdown-item" href="{{ url_for('visa') }}">VISA Policy</a></li>
                                 </ul>
@@ -229,8 +229,8 @@
                                                             <a class="dropdown-item dropdown-toggle" href="#">Guide</a>
                                                             <ul class="dropdown-menu">
                                                                 <li><a class="dropdown-item">Meet Shanghai! (WIP)</a></li>
-                                                                <li><a class="dropdown-item">Venues (WIP)</a></li>
-                                                                <li><a class="dropdown-item">Accommodation (WIP)</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('venue') }}">Venue</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('accommodation') }}">Accommodation</a></li>
                                                                 <li><a class="dropdown-item">Traveling (WIP)</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('visa') }}">VISA Policy</a></li>
                                                             </ul>

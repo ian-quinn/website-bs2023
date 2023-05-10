@@ -22,8 +22,7 @@
 <div class="container pt-2 pb-4">
     <section class="mb-5">
         <h2>Types & Pricing</h2>
-        <p>Registration for BS2023 will soon open in early April. Here is the pricing table for your reference (in US dollars). When it comes, please head to the <a href="https://www.conftool.pro/bs2023" target="_blank">ConfTool</a> system for your registration and enjoy the <strong>Early bird</strong> discount before <strong>June 30</strong>!<br/>
-        Please note that all tiers of registration cover the publication of <b>2</b> papers per presenting author. If you have more, an additional $300 will be charged per each as the publication fee.</p>
+        <p>BS2023 opens for registration now! Here is the pricing table for your reference (in USD and CNY).</p>
         <div class="row my-5"  style="padding: 0px 12px;">
             <div class="col-md-4 g-0">
                 <div class="card-reg card-reg-price card-reg-left">
@@ -33,6 +32,7 @@
                                 <th>#</th>
                                 <th>Delegate</th>
                                 <th>Student</th>
+                                <th>Companion*</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,18 +40,21 @@
                                 <td class="has-details">Early Bird
                                     <span class="details">expires on<br/>June 30</span>
                                 </td>
-                                <td>$ 900</td>
-                                <td>$ 550</td>
+                                <td>$ 900<br/><span style="font-weight: normal; color: #f9f9f9;">/¥ 5400</span></td>
+                                <td>$ 550<br/><span style="font-weight: normal; color: #f9f9f9;">/¥ 3300</td>
+                                <td>$ 450<br/><span style="font-weight: normal; color: #f9f9f9;">/¥ 2700</td>
                             </tr>
                             <tr>
                                 <td>Standard</td>
-                                <td>$ 990</td>
-                                <td>$ 600</td>
+                                <td>$ 990<br/><span style="color: #cccccc;">/¥ 5940</td>
+                                <td>$ 600<br/><span style="color: #cccccc;">/¥ 3600</td>
+                                <td>$ 500<br/><span style="color: #cccccc;">/¥ 3000</td>
                             </tr>
                             <tr>
                                 <td>On-site</td>
-                                <td>$ 1080</td>
-                                <td>$ 650</td>
+                                <td>$ 1080<br/><span style="color: #cccccc;">/¥ 6480</td>
+                                <td>$ 650<br/><span style="color: #cccccc;">/¥ 3900</td>
+                                <td>$ 550<br/><span style="color: #cccccc;">/¥ 3300</td>
                             </tr>
                         </tbody>
                     </table>
@@ -66,8 +69,8 @@
                         <div class="col-6">
                             <ul class="list list-icons" style="line-height: 1.5em">
                                 <li><i class="far fa-check-circle"></i>All scientific sessions</li>
-                                <li><i class="far fa-check-circle"></i>Conference Guidebook&#174;</li>
                                 <li><i class="far fa-check-circle"></i>Technical tours</li>
+                                <li><i class="far fa-check-circle"></i>Online poster/replay repository</li>
                             </ul>
                         </div>
                         <div class="col-6">
@@ -78,12 +81,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="row card-reg-list">
-                        <div>
-                            <ul class="list list-icons list-primary">
-                                <li><i class="far fa-check-circle"></i>Online poster/replay repository</li>
-                            </ul>
-                        </div>
+                    <div class="card-reg-note">
+                        * Companion refers to someone who is accompanying another person during BS2023, who may attend opening and closing ceremony, all dining and catering.</span>
                     </div>
                 </div>
             </div>
@@ -136,13 +135,13 @@
                                 <td class="has-details">Early Bird
                                     <span class="details">expires on<br/>June 30</span>
                                 </td>
-                                <td>$ 300</td>
-                                <td>$ 300</td>
+                                <td>$ 300<br/><span style="font-weight: normal; color: #f9f9f9;">/¥ 1800</td>
+                                <td>$ 300<br/><span style="font-weight: normal; color: #f9f9f9;">/¥ 1800</td>
                             </tr>
                             <tr>
                                 <td>Standard</td>
-                                <td>$ 350</td>
-                                <td>$ 350</td>
+                                <td>$ 350<br/><span style="color: #cccccc;">/¥ 2100</td>
+                                <td>$ 350<br/><span style="color: #cccccc;">/¥ 2100</td>
                             </tr>
                         </tbody>
                     </table>
@@ -158,9 +157,16 @@
 
     <section class="my-5">
         <h2>Register Now!</h2>
-        <p>Please go to ConfTool for your registration: <a href="https://www.conftool.pro/bs2023" target="_blank">https://www.conftool.pro/bs2023</a>. Here is one step-by-step guide if you find any difficulty: <a href="{{ url_for('guide_participant')}}" target="_blank">https://bs2023.org/guide/participant</a>.</p>
+        <p>Please head to the <a href="https://www.conftool.pro/bs2023" target="_blank">ConfTool</a> system for your registration and enjoy the Early bird discount before June 30!. Should you have any difficulties, here is the step-by-step <a href="{{ url_for('guide_participant')}}" target="_blank">instructions</a>.</p>
+        <h4>Payment methods accepted:</h4>
+        <ul class="list-unstyled payment-list">
+            <li><i class="fas fa-money-check-alt"></i> Bank transfer (USD)</li>
+            <li><i class="fab fa-cc-paypal"></i> PayPal (USD) with credit/debit cards</li>
+            <li><i class="fab fa-alipay"></i> Alipay (CNY)</li>
+            <li><i class="fas fa-money-check-alt"></i> Bank transfer (CNY) in mainland China</li>
+        </ul>
 
-        <p>Time span</p>
+        <h4>Time span</h4>
         <ul>
             <li>The participation fees are owed upon registration and are payable within <strong>7</strong> days.</li>
             <li>If you pay via Alipay or bank transfer, it takes up to <strong>7</strong> days to update your registration status.</li>
@@ -169,14 +175,16 @@
             <li>You get 80% back upon cancellation before <strong>August 25<sup>th</sup></strong>, 2023.</li>
             <li>You can change your registration type by contacting <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a> before <strong>August 25<sup>th</sup></strong>, 2023.</li>
             <li>The online registration closes on <strong>August 25<sup>th</sup></strong></li>
-            <li>The onsite registration opens on <strong>September <sup>3</sup></strong>, 2023, at the counter of the conference venue.</li>
+            <li>The onsite registration opens on <strong>September 3<sup>rd</sup></strong>, 2023, at the counter of the conference venue.</li>
         </ul>
 
-        <p>Notice</p>
+        <h4>Notice</h4>
         <ul>
             <li>The registration fee covers the publication of 2 research papers. If you have more,  an additional $300 will be charged per each.</li>
-            <li>The conference program comes in a bundle, and We do not have a policy for accompanying person or certain session registration. Contact <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a> for your specific needs.</li>
+            <li>All tiers of registration cover the publication of 2 papers per presenting author. If you have more, an additional $300 (¥1800) will be charged per each as the publication fee.
+            <li>The conference program comes in a bundle, and We do not have a registration type for certain conference sessions. Contact <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a> if you have specific needs.</li>
             <li>Participants have to register themselves with their ConfTool accounts. Currently, we do not have policies for group/team registration.</li>
+            <li>You may download the invoice in ConfTool after registration. 中国大陆发票将在会后统一开具，请在注册过程中备注您的具体开票需求</li>
         </ul>
     </section>
 

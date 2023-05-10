@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block title %}Accommodation Guide{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark"><strong>ConfTool</strong> accommodation fee</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>ConfTool</li>
+                    <li class="active">Accommodation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container pt-2 pb-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+            <div>
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+
+
+            <div class="py-4">
+                <div class="card" style="background-color: #f9f9f9">
+                    <div class="card-body">
+                        <form class="contact-form" action="{{ url_for('guide_accommodation') }}" method="POST" enctype="multipart/form-data">
+                            <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
+                            {{ form.hidden_tag() }}
+                            <!-- <div class="row">
+                                <label class="form-check-label">Forget your </label>
+                            </div> -->
+
+                            <div class="row" style="margin-bottom: -15px;">
+                                <div class="form-group col-md-6">
+                                    {{ form.email(class="form-control text-3 h-auto", placeholder="Your email for reservation") }}
+                                    {% for error in form.email.errors %}
+                                    <small style="color: #dc3545">{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    {{ form.submit(type="submit", value="Retrieve booking information", class="btn btn-outline-danger w-100") }}
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <p>You may pay the accommodation fee in two ways:</p>
+
+            <p><strong style="color:black;">OPTION-1</strong> Tick the accommodation fee in <strong>ConfTool</strong> (<a href="https://www.conftool.pro/bs2023/" garget="_blank">www.conftool.pro/bs2023</a>) during your registration, then complete the payment along with the registration fee. If you have already paid, please allow us 7 days to update your status.</p>
+
+            <img width="100%" src="{{ url_for('static', filename='img/guide/accommodation-1.png') }}" alt="Step 1">
+            <hr style="margin:30px;">
+
+            <p><strong style="color:black;">OPTION-2</strong> Transfer the total amount via bank/PayPal/AliPay</a>. You will receive reservation proof in 7 days after a successful transfer. You can also check your booking status by the retrieving form.</p>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>If you transfer the money in USD please use the following banking details, with your <strong>Email Address for booking</strong> as payment reference:</p>
+                            <ul class="list-unstyled">
+                                <li>Account Holder: DE HUA GmbH</li>
+                                <li>Bank: Deutsche Bank Hamburg</li>
+                                <li>SWIFT-BIC: DEUTDEDBHAM</li>
+                                <li>IBAN Code: DE48 2007 0024 0461 6975 00</li>
+                            </ul>
+                            <hr/>
+                            <p>Or, to the following account of PayPal:</p>
+                            <ul class="list-unstyled">
+                                <li>Account: getech1018@hotmail.com</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>If you transfer the money in CNY please use the following banking details, with your <strong>Email Address for booking</strong> as payment reference:</p>
+                            <ul class="list-unstyled">
+                                <li>Account Holder: 济碳（上海）科技有限公司</li>
+                                <li>Bank: 中国银行股份有限公司上海市大连路支行</li>
+                                <li>Account Number: 4494 8365 3772</li>
+                            </ul>
+                            <hr/>
+                            <p>Or, scan the QR code of AliPay:</p>
+                            <img class="img-fluid" src="https://bs2023.org/static/img/payment_qr.png" style="max-height: 200px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

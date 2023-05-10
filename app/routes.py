@@ -6,12 +6,13 @@ from flask import flash
 from flask import render_template, send_from_directory, current_app
 from flask import redirect, url_for, request, make_response, jsonify
 from flask import get_flashed_messages, g
+from flask import Markup
 from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 
 from app import app, db
-from app.models import Message, File, Reviewer, Invitation
-from app.forms import MessageForm, EnrollForm, ReviewerForm, InvitationForm
+from app.models import Message, File, Reviewer, Invitation, Accommodation
+from app.forms import MessageForm, EnrollForm, ReviewerForm, InvitationForm, AccommodationForm, RetrieveAccommodationForm
 
 
 @app.route('/')
@@ -68,6 +69,41 @@ def guide_sessionchair():
 def guide_participant():
     return render_template('guide_participant.html')
 
+# -------------------------------------------------------------#
+@app.route('/guide/accommodation', methods=['GET', 'POST'])
+def guide_accommodation():
+    form = RetrieveAccommodationForm()
+    if form.validate_on_submit():
+        email = form.email.data.lower()
+        reservations = Accommodation.query.filter_by(email = email).all()
+
+        msg = f'We cannot find the record. Please go to <a href="https://bs2023.org/accommodation">Accommodation</a> for your reservation.'
+
+        if len(reservations) > 0:
+            roomtype = "King"
+            if reservations[0].room_type == 2:
+                roomtype = "Twin"
+
+            delta = (reservations[0].date_checkout - reservations[0].date_checkin).total_seconds()
+            days = round(delta / 86400, 0)
+
+            msg = f'Here is your booking information: <br/>' + \
+                f'<strong>1</strong> Deluxe Room | Type: <strong>{roomtype}</strong> bed | <strong>{days:.0f}</strong> nights<br/>' + \
+                f'Check-in after: {datetime.strftime(reservations[0].date_checkin, "%Y-%m-%d")} 15:00. Check-out before {datetime.strftime(reservations[0].date_checkout, "%Y-%m-%d")} 12:00<br/>' + \
+                f'<div style="font-size: 11px; line-height:15px;">Radisson Blu Forest Manor Hotel, Shanghai Hongqiao<br/>' + \
+                f'<i class="far fa-map"></i> 839 Jin Feng Road, Shanghai, 201100, China. <i class="far fa-envelope"></i> secretariate@bs2023.org</div><br/>'
+
+            if reservations[0].is_paid:
+                msg = msg + f'We have received your full payment. Thanks for your booking!'
+            else:
+                msg = msg + f'Accommodation fee: <strong>USD {130 * days:.0f}</strong> (CNY {780 * days:.0f}).<br/>' + \
+                f'Room held for 7 days before a successful payment. Please pay the fee in ConfTool by following steps.'
+
+        wrapper_msg = Markup(msg)
+        flash(wrapper_msg, 'warning')
+        return redirect(url_for('guide_accommodation'))
+    return render_template('guide_accommodation.html', form=form)
+
 @app.route('/publication')
 def publication():
     return render_template('publication.html')
@@ -96,7 +132,7 @@ def visa():
         else:
             filename = 'null'
         invitation = Invitation(
-            email=form.email.data, 
+            email=form.email.data.lower(), 
             name=form.name.data,
             gender=form.gender.data,
             date_birth=form.date_birth.data,
@@ -119,6 +155,53 @@ def visa():
 def competition():
     return render_template('competition.html')
 
+@app.route('/venue')
+def venue():
+    return render_template('venue.html')
+
+@app.route('/accommodation', methods=['GET', 'POST'])
+def accommodation():
+    form = AccommodationForm()
+    if form.validate_on_submit():
+        checkin = form.date_checkin.data
+        checkout = form.date_checkout.data
+        accommodation = Accommodation(
+            email=form.email.data.lower(), 
+            country=form.country.data,
+            title=form.title.data, 
+            firstname=form.firstname.data,
+            lastname=form.lastname.data,
+            date_checkin=checkin,
+            date_checkout=checkout,
+            room_type=form.room_type.data,
+            guest_lastname = form.guest_lastname.data,
+            guest_firstname = form.guest_firstname.data,
+            is_visa = form.is_visa.data, 
+            requirement=form.requirement.data)
+        db.session.add(accommodation)
+        db.session.commit()
+
+        roomtype = "King"
+        if form.room_type.data == 2:
+            roomtype = "Twin"
+
+        delta = (checkout - checkin).total_seconds()
+        days = round(delta / 86400, 0)
+        successful_msg = f'Thanks for your reservation! Here is your booking information: <br/>' + \
+            f'<strong>1</strong> Deluxe Room | Type: <strong>{roomtype}</strong> bed | <strong>{days:.0f}</strong> nights<br/>' + \
+            f'Check-in after: {datetime.strftime(checkin, "%Y-%m-%d")} 15:00. Check-out before {datetime.strftime(checkout, "%Y-%m-%d")} 12:00<br/>' + \
+            f'<div style="font-size: 11px; line-height:15px;">Radisson Blu Forest Manor Hotel, Shanghai Hongqiao<br/>' + \
+            f'<i class="far fa-map"></i> 839 Jin Feng Road, Shanghai, 201100, China. <i class="far fa-envelope"></i> secretariate@bs2023.org</div><br/>' + \
+            f'Amount due: <strong>USD {130 * days:.0f}</strong> (CNY {780 * days:.0f}).<br/>' + \
+            f'Room held for 7 days before a successful payment. Please pay the fee as following steps.'
+
+        wrapper_msg = Markup(successful_msg)
+        flash(wrapper_msg, 'warning')
+        return redirect(url_for('guide_accommodation'))
+        
+    num_king = Accommodation.query.filter_by(room_type = 1).count()
+    num_twin = Accommodation.query.filter_by(room_type = 2).count()
+    return render_template('accommodation.html', form=form, num_king = 136 - num_king, num_twin = 136 - num_twin)
 
 # Sponsor region
 @app.route('/sponsors')

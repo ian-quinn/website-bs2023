@@ -2,9 +2,9 @@ from flask_wtf import FlaskForm
 from datetime import datetime
 from flask import request
 from flask_wtf.file import FileField, FileRequired, FileAllowed
-from wtforms import StringField, TextAreaField, BooleanField, SubmitField, SelectField, FileField, DateField
+from wtforms import StringField, TextAreaField, BooleanField, SubmitField, SelectField, FileField, DateField, RadioField
 from wtforms.validators import DataRequired, Email, ValidationError, Length, EqualTo
-from app.models import Message, Reviewer
+from app.models import Message, Reviewer, Invitation, Accommodation
 
 ######################################################################################
 #------------------------------search engine forms -----------------------------------
@@ -126,6 +126,46 @@ class InvitationForm(FlaskForm):
 	submit = SubmitField('Submit')
 
 	def validate_email(self, email):
-		reviewer = Reviewer.query.filter_by(email=email.data).first()
-		if reviewer is not None:
+		invitation = Invitation.query.filter_by(email=email.data).first()
+		if invitation is not None:
 			raise ValidationError('You have submitted the request.')
+
+class AccommodationForm(FlaskForm):
+	email = StringField('Email address of your ConfTool account', validators=[
+		DataRequired(message="This field is mandatory"), 
+		Email(message="Please check the format of your email")])
+
+	title = SelectField('Title', choices=[(1,'Mrs.'), (2,'Ms.'), (3,'Mr.'), (4,'Other')], default=4, coerce=int)
+	firstname = StringField('First & Middle Name', validators=[
+		DataRequired(message="This field is mandatory"), 
+		Length(1, 32, message="Length must be less than 32 characters")])
+	lastname = StringField('Last Name', validators=[
+		DataRequired(message="This field is mandatory"), 
+		Length(1, 32, message="Length must be less than 32 characters")])
+
+	country = StringField('Country of Issue', validators=[DataRequired(message="The passport number is mandatory")])
+	
+	date_checkin = DateField('Check-in date', format='%Y-%m-%d', validators=[DataRequired()])
+	date_checkout = DateField('Check-out date', format='%Y-%m-%d', validators=[DataRequired()])
+
+	room_type = RadioField('Room type', choices=[(1,'King'), (2,'Twin')], default=1, coerce=int)
+	guest_firstname = StringField('Guest firstname')
+	guest_lastname = StringField('Guest lastname')
+	is_visa = BooleanField('Do you need hotel reservation document for visa?', default=False)
+	requirement = TextAreaField('State your specific needs', validators=[Length(0, 200)])
+
+	submit = SubmitField('Submit')
+
+	def validate_email(self, email):
+		accommodation = Accommodation.query.filter_by(email=email.data).first()
+		if accommodation is not None:
+			raise ValidationError('You have received your booking request.')
+	def validate_date_checkout(self, date_checkout):
+		if date_checkout.data <= self.date_checkin.data:
+			raise ValidationError('Sorry, we do not have time travel service.')
+
+class RetrieveAccommodationForm(FlaskForm):
+	email = StringField('Email address of your ConfTool account', validators=[
+		DataRequired(message="This field is mandatory"), 
+		Email(message="Please check the format of your email")])
+	submit = SubmitField('Submit')

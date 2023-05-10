@@ -57,8 +57,9 @@
             </ul>
 
             <h4 class="pt-4">Invitation Letters</h4>
-            <p>If you are requesting time off, funding, or refurbishment from the department, or applying for other types of visa that need an invitation letter, we are more than willing to help. Please fill out the form below, and the conference secretary will contact you shortly. </p>
-            <ul class="list-unstyled paragraph-item">
+            <p>If you are requesting time off, funding, or refurbishment from the department, or applying for other types of visa that need an invitation letter, we are more than willing to help. Please contact <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a>.</p> <!--fill out the form below, and the conference secretary will contact you shortly. </p>-->
+
+            <!-- <ul class="list-unstyled paragraph-item">
                 <li>Your name must be listed exactly as it appears on your passport. Any differences between the name on your passport and the name on your invitation letter or other documentation could lead to a delay or denial of your visa.</li>
                 <li>The organizing committee reserves the right to request further information regarding the company or affiliation of the attendee to ensure the validity of requests.</li>
                 <li>To facilitate the process, we recommend that you send us a document proving that you make part of your institution, and a copy of your passport as well.</li>
@@ -82,7 +83,6 @@
                     {% endif %}
                     {% endwith %}
                     <form class="contact-form" action="{{ url_for('visa') }}" method="POST" enctype="multipart/form-data">
-                        <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
                         {{ form.hidden_tag() }}
 
                         <div class="row">
@@ -195,7 +195,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
 
 
             <h4 class="pt-4">The end of China's zero-COVID policy</h4>
