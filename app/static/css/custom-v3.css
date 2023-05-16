@@ -786,3 +786,211 @@ a[data-toggle="collapse"] {
     font-size: 20px;
     width: 30px;
 }
+
+.img-hotspot {
+    max-width: 100%;
+    position: relative;
+}
+
+
+.icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    border: 3px solid #fff;
+    background: #ca3352;
+    cursor: pointer;
+}
+
+.icon:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%) scale(1, 1);
+    pointer-events: none;
+    content: "";
+    display: block;
+    width: 26.4px;
+    height: 26.4px;
+    border-radius: 100%;
+    border: 1px solid #8e44ad;
+    transition: border-color 1s linear;
+    animation: icon-pulse 4s linear infinite;
+}
+
+@keyframes icon-pulse {
+    0%{
+        transform: translate(-50%, -50%) scale(1, 1);
+        opacity: 0;
+    }
+    20%{
+        transform: translate(-50%, -50%) scale(1.5, 1.5);
+        opacity: 0;
+    }
+    50%{
+        transform: translate(-50%, -50%) scale(2, 2);
+        opacity: 0;
+    }
+    100%{
+        transform: translate(-50%, -50%) scale(2, 2);
+        opacity: 0;
+    }
+}
+
+.item {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.tooltip {
+    position: absolute;
+    width: 12.5em;
+    height: 10.5em;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    line-height: 1em;
+    z-index: 99;
+    pointer-events: none;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: : opacity 0.1s linear;
+    text-align: center;
+}
+
+.tooltip img {
+    z-index: -1;
+}
+
+.item:hover .tooltip {
+    opacity: 1;
+}
+
+.tooltip h3{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.top .tooltip {
+    left: calc(50% - 6.5em);
+    bottom: 40px;
+}
+
+.top .tooltip:after {
+    color: #fff;
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    border-top: 10px solid;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    left: calc(50% - 10px);
+}
+
+.bottom .tooltip {
+    left: calc(50% - 6.5em);
+    top: 40px;
+}
+
+.bottom .tooltip:after {
+    color: #fff;
+    position: absolute;
+    content: "";
+    top: -10px;
+    border-bottom: 10px solid;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    left: calc(50% - 10px);
+}
+
+.left .tooltip {
+    bottom: calc(50% - 5em);
+    right: 40px;
+}
+
+.left .tooltip:after {
+    color: #fff;
+    position: absolute;
+    content: "";
+    right: -10px;
+    border-left: 10px solid;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    top: calc(50% - 10px);
+}
+
+.right .tooltip {
+    bottom: calc(50% - 5em);
+    left: 40px;
+}
+
+.right .tooltip:after {
+    color: #fff;
+    position: absolute;
+    content: "";
+    left: -10px;
+    border-right: 10px solid;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    top: calc(50% - 10px);
+}
+
+
+@media (min-width: 992px) {
+    .card-body .overlay-right {
+        padding: 10px 10px 10px 21px;
+        max-width: 40%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 99;
+        border-top-right-radius: 15px;
+        margin-bottom: 0px;
+    }
+    .card-body .overlay-left {
+        padding: 21px 21px 0px 0px;
+        max-width: 40%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 99;
+        border-bottom-left-radius: 15px;
+        margin-top: 0px;
+    }
+}
+
+.overlay-left {
+    margin-top: 16px;
+}
+
+.overlay-right {
+    margin-bottom: 16px;
+}
+
+
+
+.img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.img-box img {
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+@media (max-width: 992px) {
+    .img-box {
+      max-height: 200px;
+    }
+}

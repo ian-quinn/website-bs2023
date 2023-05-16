@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% block title %}Technical tours{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark">Technical <strong>Tours</strong></h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>Program</li>
+                    <li class="active">Technical Tours</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-4">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-lg-4 img-box">
+                <img src="{{ url_for('static', filename='img/shanghai_tower.webp') }}" class="rounded-start" alt="Shanghai Tower">
+            </div>
+            <div class="col-lg-8">
+                <div class="card-body">
+                    <h4 class="card-title mb-1 text-4 font-weight-bold">Shanghai Tower</h4>
+                    <p><i class="fas fa-ticket-alt"></i> TICKET $30<i class="fas fa-user-plus" style="margin-left:20px;"></i> GROUP SIZE 20<i class="fas fa-clock" style="margin-left:20px;"></i> 2 hours</p>
+                    <p class="card-text mb-2">Shanghai Tower stands in the heart of the Lujiazui Financial Zone in Shanghai’s Pudong New Area. The majestic high-rise boasts 127 floors above the ground and 5 floors below ground level. Of the 578,000 m<sup>2</sup> total construction space, 410,000 m<sup>2</sup> rise above the ground, with 168,000 m<sup>2</sup> built underground. Shanghai Tower is now the tallest building in China, and the second tallest in the world.</p>
+                    <ul class="mb-0">
+                        <li>Visit energy centers for high layers and low layers</li>
+                        <li>Take the world's fastest elevator and reach a height of 546 meters in 55 seconds</li>
+                        <li>Have a bird's eye view of the beautiful scenery of the city</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-5">
+        <div class="row g-0">
+            <div class="col-lg-8">
+                <div class="card-body">
+                    <h4 class="card-title mb-1 text-4 font-weight-bold">Disney Resort Energy Center</h4>
+                    <p><i class="fas fa-ticket-alt"></i> TICKET $20<i class="fas fa-user-plus" style="margin-left:20px;"></i> GROUP SIZE 20<i class="fas fa-clock" style="margin-left:20px;"></i> 2 hours</p>
+                    <p class="card-text mb-2">Shanghai Disney Resort is the largest Disney theme park in Asia, with the world's largest Disney castle, unique island themed park, and the longest Disney float parade route. Shanghai Disneyland Energy Center adopts distributed energy system, through the efficient cascade utilization of natural gas, this project not only meets all energy needs of Shanghai Disneyland Resort but also saves 21,883 tons of standard coal per year and reduces carbon dioxide emissions by 75,541 tons.</p>
+                    <ul class="mb-0">
+                        <li>Visit the first low-carbon distributed energy system adopted in Disneyland worldwide</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 img-box">
+                <img src="{{ url_for('static', filename='img/disney_resort.webp') }}" class="p-relative left-1 rounded-end" alt="Disney Energy Center">
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-5">
+        <div class="row g-0">
+            <div class="col-lg-4 img-box">
+                <img src="{{ url_for('static', filename='img/student_center.webp') }}" class="rounded-start" alt="Tongji Student Center">
+            </div>
+            <div class="col-lg-8">
+                <div class="card-body">
+                    <h4 class="card-title mb-1 text-4 font-weight-bold">Student Center of Tongji University</h4>
+                    <p><i class="fas fa-ticket-alt"></i> TICKET $15<i class="fas fa-user-plus" style="margin-left:20px;"></i> GROUP SIZE 50<i class="fas fa-clock" style="margin-left:20px;"></i> 2.5 hours</p>
+                    <p class="card-text mb-2">The Student Center of Tongji University is designed by renowned Chinese architect Prof. Linxue Li, and is the subject of the BS2023 Student Competition. The building takes the thermodynamic ecological strategy, focuses on efficient space utilization, and uses life cycle energy conservation technologies. It utilizes the windward effect of high-rise buildings to promote natural ventilation by guiding southeast winds through the building during summer and transition seasons.</p>
+                    <ul class="mb-0">
+                        <li>Discuss the design philosophies with the local design team</li>
+                        <li>Appreciate architectural design combining thermodynamics and building aesthetics</li>
+                        <li>Visit the beautiful campus of Tongji University</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-5">
+        <div class="row g-0">
+            <div class="card-body">
+                <div>
+
+                    <div class="overlay-right">
+                        <h4 class="card-title mb-1 text-4 font-weight-bold">Shanghai City Walk</h4>
+                        <p><i class="fas fa-ticket-alt"></i> TICKET $40<i class="fas fa-user-plus" style="margin-left:20px;"></i> GROUP SIZE 50<i class="fas fa-clock" style="margin-left:20px;"></i> 2 hours</p>
+                        <p class="card-text mb-2">In the past 200 years, Shanghai has experienced a booming development from a fishing village to the financial center of China. The colonial history left the city with copious architectural styles, making it a diverse yet contrasting architectural heritage. In Shanghai, there is a road called Shanxi North Road, which hides 21 historical relics and buildings in the length of 1000m. Although most buildings do not allow internal visits, the strong old-Shanghai atmosphere on the street is enough to make your city walk full of fun.</p>
+                    </div>
+
+                    <div class="img-hotspot">
+                        <img style="width: 100%" src="{{ url_for('static', filename='img/tour/shanxi_road.webp') }}" alt=""/>
+
+                        <div class="item left" style="top: 89.2%; left: 56.5%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Moller Villa
+                                <img src="{{ url_for('static', filename='img/tour/moller_villa.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item right" style="top: 68%; left: 58.4%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Toy's House
+                                <img src="{{ url_for('static', filename='img/tour/toy_house.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item right" style="top: 52.2%; left: 54.7%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Prada Rong Zhai
+                                <img src="{{ url_for('static', filename='img/tour/rong_zhai.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item bottom" style="top: 51.7%; left: 50.5%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Cosmopolitan Apartments
+                                <img src="{{ url_for('static', filename='img/tour/cosmpolitian_apartments.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item bottom" style="top: 50%; left: 51.5%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Ping'an Building
+                                <img src="{{ url_for('static', filename='img/tour/pingan_building.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item bottom" style="top: 36.7%; left: 47.5%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Shanghai University Relic
+                                <img src="{{ url_for('static', filename='img/tour/shanghai_university.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item right" style="top: 33%; left: 48%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Seymour House
+                                <img src="{{ url_for('static', filename='img/tour/seymour_house.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item left" style="top: 34%; left: 45.5%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Song's House
+                                <img src="{{ url_for('static', filename='img/tour/song_house.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item left" style="top: 31%; left: 45%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Grace Church
+                                <img src="{{ url_for('static', filename='img/tour/grace_church.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item right" style="top: 29%; left: 47%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Former Residence of Chongzhi Xu
+                                <img src="{{ url_for('static', filename='img/tour/residence_chongzhixu.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item left" style="top: 18.5%; left: 41%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Former Residence of HoTung
+                                <img src="{{ url_for('static', filename='img/tour/chongzhixu_residence.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item left" style="top: 15.5%; left: 41.5%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                No.3 Girl's Middle School
+                                <img src="{{ url_for('static', filename='img/tour/girl_school.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item right" style="top: 16.5%; left: 44%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Taiping Garden
+                                <img src="{{ url_for('static', filename='img/tour/taiping_garden.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item right" style="top: 10.5%; left: 43%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Ohel Rachel Synagogue
+                                <img src="{{ url_for('static', filename='img/tour/ohel_rachel_synagogue.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item left" style="top: 10.5%; left: 41%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Datong Lane
+                                <img src="{{ url_for('static', filename='img/tour/datong_lane.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="item left" style="top: 12.5%; left: 41.3%;">
+                            <div class="icon"></div>
+                            <div class="tooltip">
+                                Zizai Lane
+                                <img src="{{ url_for('static', filename='img/tour/zizai_lane.webp') }}" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overlay-left">
+                        <ul>
+                            <li>Appreciate architecture design of different styles</li>
+                            <li>An immersive experience of Shanghai history and lifestyle</li>
+                            <li>With professionals in historical building conservation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    function displayMore() {
+        var x = document.getElementById("moreMember");
+        var y = document.getElementById("showButton")
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.value = "Show less";
+        } else {
+            x.style.display = "none";
+            y.value = "Show more";
+        }
+    }
+</script>
+{% endblock %}

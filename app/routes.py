@@ -32,7 +32,7 @@ def index():
         return redirect(url_for('index', _anchor='footer'))
     return render_template('index.html', form=form)
 
-# Submit region
+# ------------------------------------------------------------- #
 @app.route('/timeline')
 def timeline():
     return render_template('timeline.html')
@@ -45,13 +45,9 @@ def submit():
 def registration():
     return render_template('registration.html')
 
-@app.route('/program')
-def program():
-    return render_template('program.html')
-
-@app.route('/keynote')
-def keynote():
-    return render_template('keynote.html')
+@app.route('/publication')
+def publication():
+    return render_template('publication.html')
 
 @app.route('/guide/author')
 def guide_author():
@@ -69,7 +65,6 @@ def guide_sessionchair():
 def guide_participant():
     return render_template('guide_participant.html')
 
-# -------------------------------------------------------------#
 @app.route('/guide/accommodation', methods=['GET', 'POST'])
 def guide_accommodation():
     form = RetrieveAccommodationForm()
@@ -104,56 +99,41 @@ def guide_accommodation():
         return redirect(url_for('guide_accommodation'))
     return render_template('guide_accommodation.html', form=form)
 
-@app.route('/publication')
-def publication():
-    return render_template('publication.html')
 
-# Program region
+# --------------------------- PROGRAM -------------------------- #
+
+
 @app.route('/theme')
 def theme():
     return render_template('theme.html')
 
-# Event region
-@app.route('/awards')
-def awards():
-    return render_template('awards.html')
+@app.route('/keynote')
+def keynote():
+    return render_template('keynote.html')
 
-@app.route('/visa', methods=['GET', 'POST'])
-def visa():
-    form = InvitationForm()
-    if form.validate_on_submit():
-        if form.file.data:
-            f = form.file.data
-            filename = email.lower() + '_' + datetime.now().strftime('%m%d%H%M') + '.pdf'
-            if os.path.splitext(f.filename)[1] != '.pdf':
-                flash('Only support PDF', 'danger')
-                return redirect(url_for('reviewer'))
-            f.save(os.path.join(app.config['UPLOAD_PATH'], filename))
-        else:
-            filename = 'null'
-        invitation = Invitation(
-            email=form.email.data.lower(), 
-            name=form.name.data,
-            gender=form.gender.data,
-            date_birth=form.date_birth.data,
-            date_arrival=form.date_arrival.data,
-            date_departure=form.date_departure.data,
-            passport_no=form.passport_no.data,
-            passport_country=form.passport_country.data,
-            delegate_type=form.delegate_type.data,
-            application_type=form.application_type.data, 
-            requirement=form.requirement.data, 
-            filename=filename)
-        db.session.add(invitation)
-        db.session.commit()
-        flash('We will contact you shortly via email', 'warning')
-        return redirect(url_for('visa', _anchor="requestBox"))
+@app.route('/program')
+def program():
+    return render_template('program.html')
 
-    return render_template('visa.html', form=form)
+@app.route('/techtours')
+def techtours():
+    return render_template('techtours.html')
 
 @app.route('/competition')
 def competition():
     return render_template('competition.html')
+
+
+# ------------------------- EVENTS ----------------------------- #
+
+
+@app.route('/awards')
+def awards():
+    return render_template('awards.html')
+
+
+# -------------------------- GUIDE ----------------------------- #
+
 
 @app.route('/venue')
 def venue():
@@ -203,6 +183,43 @@ def accommodation():
     num_twin = Accommodation.query.filter_by(room_type = 2).count()
     return render_template('accommodation.html', form=form, num_king = 136 - num_king, num_twin = 136 - num_twin)
 
+@app.route('/visa', methods=['GET', 'POST'])
+def visa():
+    form = InvitationForm()
+    if form.validate_on_submit():
+        if form.file.data:
+            f = form.file.data
+            filename = email.lower() + '_' + datetime.now().strftime('%m%d%H%M') + '.pdf'
+            if os.path.splitext(f.filename)[1] != '.pdf':
+                flash('Only support PDF', 'danger')
+                return redirect(url_for('reviewer'))
+            f.save(os.path.join(app.config['UPLOAD_PATH'], filename))
+        else:
+            filename = 'null'
+        invitation = Invitation(
+            email=form.email.data.lower(), 
+            name=form.name.data,
+            gender=form.gender.data,
+            date_birth=form.date_birth.data,
+            date_arrival=form.date_arrival.data,
+            date_departure=form.date_departure.data,
+            passport_no=form.passport_no.data,
+            passport_country=form.passport_country.data,
+            delegate_type=form.delegate_type.data,
+            application_type=form.application_type.data, 
+            requirement=form.requirement.data, 
+            filename=filename)
+        db.session.add(invitation)
+        db.session.commit()
+        flash('We will contact you shortly via email', 'warning')
+        return redirect(url_for('visa', _anchor="requestBox"))
+
+    return render_template('visa.html', form=form)
+
+
+# -------------------------- SPONSOR ----------------------------- #
+
+
 # Sponsor region
 @app.route('/sponsors')
 def sponsors():
@@ -212,7 +229,10 @@ def sponsors():
 def contribute():
     return render_template('contribute.html')
 
-# About region
+
+# -------------------------- ABOUT ----------------------------- #
+
+
 @app.route('/ibpsa')
 def ibpsa():
     return render_template('ibpsa.html')
@@ -292,6 +312,10 @@ def download(file_id):
     file = File.query.get_or_404(file_id)
     path = os.path.join(current_app.root_path, app.config['FILE_PATH'])
     return send_from_directory(path, file.link, as_attachment=True, attachment_filename="%s" % file.name)
+
+
+# -------------------------- ERROR ----------------------------- #
+
 
 @app.errorhandler(404)
 def page_not_found(e):
