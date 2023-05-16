@@ -1,3 +1,5 @@
+/* ###########################   header bar customization   ########################## */
+
 #header .header-btn-collapse-nav {
     margin-top: 4px;
 }
@@ -121,15 +123,9 @@ html.sticky-header-active #header .header-body {
     color: #febc6d;
 }
 
-.committee-list td {
-    padding-left: 20px;
-}
-.committee-list tr {
-    border-left: 2px solid #eee;
-}
 
-/* ###########################   People style   ########################## */
-/* ####################################################################### */
+/* ###########################  responsive image  ########################## */
+/* as an alternative for class img-fluid */
 
 .img-box {
   display: flex;
@@ -139,16 +135,20 @@ html.sticky-header-active #header .header-body {
   cursor: pointer;
 }
 
-/* base.html refinement */
 .img-box img {
   object-fit: cover;
   min-width: 100%;
   min-height: 100%
 }
 
+@media (max-width: 992px) {
+    .img-box {
+      max-height: 200px;
+    }
+}
 
+/* ----------------------------------------------------------------------- */
 /* ##########################   SIDEBAR STYLE   ########################## */
-/* ####################################################################### */
 
 .line {
     width: 100%;
@@ -332,7 +332,8 @@ a[data-toggle="collapse"] {
 }
 
 
-/* moment.js countdown */
+/* -------------------------------------------------------------------- */
+/* homepage moment.js countdown */
 
 .clock-day:before {
     content: var(--timer-day);
@@ -346,8 +347,6 @@ a[data-toggle="collapse"] {
 .clock-seconds:before {
     content: var(--timer-seconds);
 }
-
-
 
 @media (min-width: 992px) {
     .clock-container {
@@ -433,6 +432,7 @@ a[data-toggle="collapse"] {
     }
 }
 
+/* ------------------------------------------------------------------------ */
 /* image swatch mouse hovering effect */
 
 #video-compare-container {
@@ -458,7 +458,8 @@ a[data-toggle="collapse"] {
   height: 100%;
 }
 
-/* pricing table effect custom */
+/* ------------------------------------------------------------------------- */
+/* registration page - pricing table - effect custom */
 
 .card-reg {
     height: 100%;
@@ -593,6 +594,8 @@ a[data-toggle="collapse"] {
     margin-bottom: 5px;
 }
 
+
+/* hover to pop up earlybird expiration date */
 .has-details {
   position: relative;
 }
@@ -617,7 +620,20 @@ a[data-toggle="collapse"] {
 }
 
 
-/*program talbe*/
+/* align icon -  payment method list */
+.payment-list li {
+     padding-left: 20px;
+     padding-bottom: 10px;
+}
+
+.payment-list i {
+    font-size: 20px;
+    width: 30px;
+}
+
+
+/* ----------------------------------------------------------------------- */
+/* program page - conference schedule - program table */
 
 .table-program {
     border-collapse:collapse;
@@ -701,6 +717,9 @@ a[data-toggle="collapse"] {
     }
 }
 
+/* ----------------------------------------------------------------------- */
+/* custom list item bullet without indent - bullet outside the text box */ 
+
 .paragraph-item li::marker {
     /*content: counter(list-item) ">  "; /* Unicode character for bullet */
     content: "•  ";
@@ -710,13 +729,8 @@ a[data-toggle="collapse"] {
     margin-bottom: 10px;
 }
 
-@media (min-width: 992px) {
-    .image-venue {
-        margin-top: -150px;
-        margin-right: 50px;
-        text-align: right;
-    }
-}
+/* ----------------------------------------------------------------------- */
+/* accommodation page - custom hotel booking form - room type - button */
 
 .room-button label {
     height: 50px;
@@ -777,15 +791,9 @@ a[data-toggle="collapse"] {
     }
 }
 
-.payment-list li {
-     padding-left: 20px;
-     padding-bottom: 10px;
-}
 
-.payment-list i {
-    font-size: 20px;
-    width: 30px;
-}
+/* ----------------------------------------------------------------------- */
+/* image with hotspot - replacement for class image-hotspots by Porto */
 
 .img-hotspot {
     max-width: 100%;
@@ -940,6 +948,21 @@ a[data-toggle="collapse"] {
 }
 
 
+
+
+/* ------------------------  always keep this part at the bottom-------------------------- */
+/* specific element position adjustment */
+
+/* venue page - venue preview image position */
+@media (min-width: 992px) {
+    .image-venue {
+        margin-top: -150px;
+        margin-right: 50px;
+        text-align: right;
+    }
+}
+
+/* technical tour page - position of city walk map */
 @media (min-width: 992px) {
     .card-body .overlay-right {
         padding: 10px 10px 10px 21px;
@@ -971,26 +994,4 @@ a[data-toggle="collapse"] {
 
 .overlay-right {
     margin-bottom: 16px;
-}
-
-
-
-.img-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.img-box img {
-  object-fit: cover;
-  min-width: 100%;
-  min-height: 100%;
-}
-
-@media (max-width: 992px) {
-    .img-box {
-      max-height: 200px;
-    }
 }
