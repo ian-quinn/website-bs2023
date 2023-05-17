@@ -258,7 +258,7 @@
                                 {{ form.guest_lastname(class="form-control text-3 h-auto") }}
                                 {% for error in form.guest_lastname.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
-                                {% endfor %}
+                                {% endfor %} 
                             </div>
                         </div>
 
@@ -274,7 +274,7 @@
                         <div class="row">
                             <div class="form-group col">
                                 <label class="form-label mb-1 text-2">Booking notes</label>
-                                {{ form.requirement(type="text", maxlength="500", class="form-control text-3 h-auto", rows="2", placeholder="Please list any special requests (e.g., early check-in, room location, etc.). Requests are not guaranteed and are based on availability at check-in") }}
+                                {{ form.requirement(type="text", maxlength="500", class="form-control text-3 h-auto", rows="3", placeholder="Please list any special requests (e.g., early check-in, room location, etc.). Requests are not guaranteed and are based on availability at check-in. 或者在此列出您的增值税发票开具需求") }}
                                 {% for error in form.requirement.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
                                 {% endfor %}
