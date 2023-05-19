@@ -20,32 +20,131 @@
 </section>
 
 <div class="container pt-2 pb-4">
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-lg-8">
             <p>Please direct to the <strong>ConfTool</strong> system for your participant registration: <a href="https://www.conftool.pro/bs2023/" garget="_blank">www.conftool.pro/bs2023</a></p>
 
-            <p><strong style="color:black;">STEP-1</strong> Choose your registration type. A photocopy of the student ID or bonafide letter is required for the student ticket. If you need to register with accompanying persons, leave your request in the comment box on STEP-2.</p>
-            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-1.png') }}" alt="Step 1">
+            <h4 id="registration" class="pt-5">Registration process in general</h4>
+
+            <p><strong style="color:black;">STEP-1</strong> Choose your registration type from the following five:</p>
+            <ul>
+                <li>Regular - If you cannot fit in other four types, choose this one.</li>
+                <li>Member - If you have an invitation code for BS2023, tick this and enjoy a free pass.</li>
+                <li>Student - For all currently enrolled students, a photocopy of the student ID or bonafide letter is needed.</li>
+                <li>Online - If you plan to participate BS2023 virtually, choose this type.</li>
+                <li>Companion - This refers to someone accompanying another person during BS2023, who has access to the opening and closing ceremony, all dining and catering, but neither plenary or parallel sessions.</li>
+            </ul>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-1.png') }}" alt="Choose your registration type">
             <hr style="margin:30px;">
 
-            <p><strong style="color:black;">STEP-2</strong> Choose the conference programs you want to attend. Unless specified otherwise, the full-pass ticket includes all conference programs detailed <a href="{{ url_for('program') }}">here</a>.</p>
-            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-2.png') }}" alt="Main Dashboard">
+            <p><strong style="color:black;">STEP-2</strong> Choose the conference programs you want to attend. Unless specified otherwise, the full-pass ticket includes all conference programs detailed.</p>
+            <ul>
+                <li>Conference Program - This item is mandatory for registration. See the tentative program <a href="{{ url_for('program') }}">here</a>.</li>
+                <li>Extra Paper Publication - "Conference Program" item already includes the publication of two papers by the same presenting author. If you have more, you need to tick this item as an additional charge (total paper number - 2).</li>
+                <li>Accommodation - We recommend booking our hotel (same place as the venue) along with the registration with a preferential price. It is easier to get your proof of accommodation. For more information, check our <a href="https://bs2023.org/accommodation" target="_blank">accommodation</a> page.</li>
+                <li>Technical Tours - BS2023 has four technical tours, separately charged, with limited seats. For more information, check our <a href="https://bs2023.org/techtours" target="_blank">technical tours</a> page.</li>
+            </ul>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-2.png') }}" alt="Choose your conference program">
             <hr style="margin:30px;">
 
-            <p><strong style="color:black;">STEP-3</strong> Specify your payment details. Generally, we accept <strong>bank transfers</strong> and credit card payments via <strong>PayPal</strong>. If not possible, we offer a payment proxy service that accepts payment via <strong>Alipay</strong> or bank transfer in mainland China.</p>
-            <p>ConfTool has PayPal API wired in so you will get your registration status updated upon a  successful payment via PayPal. For other methods, please allow us 7 days to process your payment then update your status in ConfTool.</p>
-            <p>Also on this page, comment with any requirements, for example, the detailed information you want to include in the invoice.</p>
-            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-3.png') }}" alt="Your Submissions">
+            <p><strong style="color:black;">STEP-3</strong> Specify your payment details. Generally, we accept USD/CNY with the following methods: <strong>bank transfers</strong> and credit card payments via <strong>PayPal</strong>. If not possible, we offer a payment proxy service that accepts payment via <strong>Alipay</strong> or bank transfer in mainland China.</p>
+            <ul>
+                <li>Bank transfer (USD)</li>
+                <li>PayPal (USD) with credit/debit cards</li>
+                <li>Alipay (CNY)</li>
+                <li>Bank transfer (CNY) in mainland China</li>
+            </ul>
+            <p>ConfTool has PayPal API wired in so you will get your registration status updated upon a successful payment via PayPal. For other methods, please allow us 7 days to process your payment then update your status in ConfTool.</p>
+            <p>Also on this page, comment with any requirements, such as your accommodation needs or the detailed information you want to include in the invoice (如相关发票抬头信息).</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-3.png') }}" alt="Choose your payment method">
             <hr style="margin:30px;">
 
-            <p><strong style="color:black;">STEP-4</strong> Review your payment details and the registration terms, then proceed to payment information.</p>
-            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-4.png') }}" alt="Submission of a Contribution">
+            <p><strong style="color:black;">STEP-4</strong> Review your payment details and the registration terms, then confirm your registration.</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-4.png') }}" alt="Review details">
             <hr style="margin:30px;">
 
-            <p><strong style="color:black;">STEP-5</strong> Fulfill your personal information (if you like).</p>
-            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-5.png') }}" alt="Submission of a Contribution">
+            <p><strong style="color:black;">STEP-5</strong> Well done! The last step will collect some of your personal information for social networking.</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-5.png') }}" alt="Badge information">
+
+            <h4 id="append" class="pt-5">Append registration for accommodation or technical tours</h4>
+
+            <p>If you've registered, you can add more registration items (accommodation, technical tours or workshops) by clicking "Edit Your Participant Registration Details" on your ConfTool landing page. The payment record will update accordingly. Once confirmed, the record is not changeable. Contact us at secretariat@bs2023.org if you need cancellation.</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/accommodation-2.png') }}" alt="Edit Your Participant Registration Details" style="margin-bottom: 20px;">
+            <img width="100%" src="{{ url_for('static', filename='img/guide/accommodation-3.png') }}" alt="Append a booking record">
+
+
+            <h4 id="invoice" class="pt-5">Get your invoice</h4>
+            <p>Once you confirm the registration, ConfTool will generate your invoice automatically. You can claim it by clicking "Invoice and Registration Confirmation" in your dashboard. Your invoice will be updated accordingly if you change your participant registration details.</p>
+            <p>大陆增值税发票将在会后统一开具。如您需修改发票抬头信息，同样请点击系统主页的 "Edit Your Participant Registration Details" 选项，在 "
+            Remark of Participant" 内写明即可。</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-6.png') }}" alt="Get your invoice">
+
+            <h4 id="payment" class="pt-5">Update payment method</h4>
+            <p>If you find the selected payment method not available, you can click "Enter or Edit Your Payment Details" and switch to another one. If your registration status remains to be "No payments received yet" beyond 7 days, please come back to us at secretariat@bs2023.org with your payment details (account ID, order number, etc.)</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/reg-7.png') }}" alt="Update payment method">
+
+            <h4 id="refund" class="pt-5">Get refund upon cancellation</h4>
+            <p>Your registration will be cancelled automatically without any payment in 7 days. If you have paid, you need to contact secretariat@bs2023.org for your cancellation and refund. Here is our refund policy:</p>
+            <ul>
+                <li>Your payment is fully refundable before June 30th, 2023.</li>
+                <li>You get 80% (conference program fee) back upon cancellation before August 25th, 2023.</li>
+                <li>The refund of accommodation fee is subject to the policy of Radisson Blu Forest Manor Hotel.</li>
+            </ul>
+
         </div>
+
+        <div class="col-lg-4 menu">
+            <div class="sticky-top" style="top: 20px">
+                <div class="toc-box list-group" id="menuspied">
+                    <p>CONTENT</p>
+                    <ul class="list-unstyled">
+                        <li><a href="#registration"> Registration in general</a></li>
+                        <li><a href="#append"> Append registration items</a></li>
+                        <li><a href="#invoice"> Invoice information</a></li>
+                        <li><a href="#payment"> Update payment method</a></li>
+                        <li><a href="#refund"> Get refund</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="pop-button" id="toggle"><i class="far fas fa-bullseye fa-2x"></i></a>
+    <div id="pop-menu">
+        <div class="pop-box">
+            <ul class="list-unstyled">
+                <li><a href="#registration"> Registration in general</a></li>
+                <li><a href="#append"> Append registration items</a></li>
+                <li><a href="#invoice"> Invoice information</a></li>
+                <li><a href="#payment"> Update payment method</a></li>
+                <li><a href="#refund"> Get refund</a></li>
+            </ul>
+        </div>
+        <div style="height: 18px;"></div>
     </div>
     
 </div>
+{% endblock %}
+
+{% block scripts %}
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+
+<script>
+  var scroll = new SmoothScroll('a[href*="#"]');
+
+  $("#toggle").click(function() {
+    $(this).toggleClass("on");
+    $("#pop-menu").slideToggle("fast");
+  });
+</script>
+
+<script type="text/javascript">
+    $('body').scrollspy({ target: '#menuspied', offset: 50 });
+    /* data-offset is not working. have to set it up manually here. */
+    $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this).scrollspy('refresh')
+    });
+</script>
+
 {% endblock %}

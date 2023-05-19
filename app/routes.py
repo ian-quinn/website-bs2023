@@ -1,6 +1,7 @@
 import os, re, json
 import time
 from datetime import datetime
+import sys
 
 from flask import flash
 from flask import render_template, send_from_directory, current_app
@@ -76,6 +77,7 @@ def guide_accommodation():
 
         if len(reservations) > 0:
             roomtype = "King"
+            booking_id = reservations[0].id
             if reservations[0].room_type == 2:
                 roomtype = "Twin"
 
@@ -84,12 +86,18 @@ def guide_accommodation():
 
             msg = f'Here is your booking information: <br/>' + \
                 f'<strong>1</strong> Deluxe Room | Type: <strong>{roomtype}</strong> bed | <strong>{days:.0f}</strong> nights<br/>' + \
-                f'Check-in after: {datetime.strftime(reservations[0].date_checkin, "%Y-%m-%d")} 15:00. Check-out before {datetime.strftime(reservations[0].date_checkout, "%Y-%m-%d")} 12:00<br/>' + \
-                f'<div style="font-size: 11px; line-height:15px;">Radisson Blu Forest Manor Hotel, Shanghai Hongqiao<br/>' + \
+                f'Check-in after: <strong>{datetime.strftime(reservations[0].date_checkin, "%Y-%m-%d")} 15:00</strong>. Check-out before <strong>{datetime.strftime(reservations[0].date_checkout, "%Y-%m-%d")} 12:00</strong><br/>' + \
+                f'<div style="font-size: 11px; line-height:17px;">Radisson Blu Forest Manor Hotel, Shanghai Hongqiao<br/>' + \
                 f'<i class="far fa-map"></i> 839 Jin Feng Road, Shanghai, 201100, China. <i class="far fa-envelope"></i> secretariate@bs2023.org</div><br/>'
 
             if reservations[0].is_paid:
                 msg = msg + f'We have received your full payment. Thanks for your booking!'
+                if reservations[0].payment_info:
+                    msg = msg + f'<br/>Your payment info: <i>{reservations[0].payment_info}</i>'
+                if reservations[0].filename:
+                    msg = msg + f'<br/>Click here to download your <a href="{ url_for("accommodation_proof", booking_id=booking_id) }" target="_blank">Proof of Accommodation</a> (Hotel Itinerary Reservation).'
+                elif reservations[0].is_visa:
+                    msg = msg + '<br/>You may download the proof of accommodation here when it is ready. Please allow us 7 days to process your request.'
             else:
                 msg = msg + f'Accommodation fee: <strong>USD {130 * days:.0f}</strong> (CNY {780 * days:.0f}).<br/>' + \
                 f'Room held for 7 days before a successful payment. Please pay the fee in ConfTool by following steps.'
@@ -312,6 +320,14 @@ def download(file_id):
     file = File.query.get_or_404(file_id)
     path = os.path.join(current_app.root_path, app.config['FILE_PATH'])
     return send_from_directory(path, file.link, as_attachment=True, attachment_filename="%s" % file.name)
+
+@app.route('/guide/accommodation/<int:booking_id>', methods=['GET', 'POST'])
+def accommodation_proof(booking_id):
+    accommodation = Accommodation.query.get_or_404(booking_id)
+    path = os.path.join(current_app.root_path, app.config['FILE_PATH'])
+    print(accommodation.filename, file=sys.stdout)
+    print(path, file=sys.stdout)
+    return send_from_directory(path, accommodation.filename, as_attachment=True, attachment_filename="%s" % accommodation.filename)
 
 
 # -------------------------- ERROR ----------------------------- #

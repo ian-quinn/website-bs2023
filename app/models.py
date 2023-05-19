@@ -64,3 +64,5 @@ class Accommodation(db.Model):
     is_visa = db.Column(db.Boolean, default=False)
     is_paid = db.Column(db.Boolean, default=False)
     requirement = db.Column(db.Text)
+    payment_info = db.Column(db.String(128))
+    filename = db.Column(db.String(64))
