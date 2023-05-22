@@ -87,6 +87,18 @@ def guide_accommodation():
             delta = (reservations[0].date_checkout - reservations[0].date_checkin).total_seconds()
             days = round(delta / 86400, 0)
 
+            guestname_1 = f'{reservations[0].firstname} {reservations[0].lastname}'
+            guestname_2 = ''
+            if reservations[0].guest_firstname or reservations[0].guest_lastname:
+                guestname_2 = f'{reservations[0].guest_firstname} {reservations[0].guest_lastname}'
+            title = ''
+            if reservations[0].title == 1:
+                title = "Mrs."
+            elif reservations[0].title == 2:
+                title = "Ms."
+            else:
+                title = "Mr."
+
             msg = f'Here is your booking information: <br/>' + \
                 f'<strong>1</strong> Deluxe Room | Type: <strong>{roomtype}</strong> bed | <strong>{days:.0f}</strong> nights<br/>' + \
                 f'Check-in after: <strong>{datetime.strftime(reservations[0].date_checkin, "%Y-%m-%d")} 15:00</strong>. Check-out before <strong>{datetime.strftime(reservations[0].date_checkout, "%Y-%m-%d")} 12:00</strong><br/>' + \
@@ -98,11 +110,20 @@ def guide_accommodation():
                 resource_path = os.path.join(current_app.root_path, app.config['WKRESOURCE_PATH'])
                 output_path = os.path.join(app.config['BOOKING_PATH'], booking_name)
                 printpdf.print_reservation(
-                    f'{reservations[0].firstname} {reservations[0].lastname}',
-                    f'{reservations[0].guest_firstname} {reservations[0].guest_lastname}',
-                    'N/A', 'N/A', 'N/A', roomtype,
+                    title, 
+                    guestname_1,
+                    guestname_2,
+                    reservations[0].company, 
+                    reservations[0].no_fax, 
+                    reservations[0].no_phone, 
+                    reservations[0].room_type,
                     reservations[0].date_checkin.strftime("%d %b, %Y"), 
                     reservations[0].date_checkout.strftime("%d %b, %Y"), 
+                    reservations[0].flight_arrival, 
+                    reservations[0].flight_departure, 
+                    reservations[0].payment_method, 
+                    reservations[0].payment_info, 
+                    reservations[0].no_confirmation, 
                     app.config['WKHTMLTOPDF_PATH'], 
                     resource_path, 
                     output_path)
@@ -185,7 +206,13 @@ def accommodation():
             guest_lastname = form.guest_lastname.data,
             guest_firstname = form.guest_firstname.data,
             is_visa = form.is_visa.data, 
-            requirement=form.requirement.data)
+            requirement=form.requirement.data, 
+            company = form.company.data,
+            no_fax = form.no_fax.data,
+            no_phone = form.no_phone.data, 
+            flight_arrival = form.flight_arrival.data, 
+            flight_departure = form.flight_departure.data)
+
         db.session.add(accommodation)
         db.session.commit()
 

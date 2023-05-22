@@ -68,25 +68,25 @@
 			</tr>
 			<tr>
 				<td class="right gray" width="18%"><b>To</b><br/>至</td>
-				<td width="32%">{{ name }}</td>
+				<td width="32%">{{ title }} {{ name }}</td>
 				<td class="right gray" width="18%"><b>From</b><br/>自</td>
 				<td width="32%">Reservation Office<br/>Radisson Blu Forest Manor</td>
 			</tr>
 			<tr>
 				<td class="right gray"><b>Company</b><br/>公司名称</td>
-				<td>{{ company }}</td>
+				<td>{% if company %}{{ company }}{% else %} - {% endif %}</td>
 				<td class="right gray"><b>Fax No.</b><br/>传真号码</td>
 				<td>+86 21 5329 8889</td>
 			</tr>
 			<tr>
 				<td class="right gray"><b>Fax No.</b><br/>传真号码</td>
-				<td>{{ fax }}}</td>
+				<td>{% if fax %}{{ fax }}{% else %} - {% endif %}</td>
 				<td class="right gray"><b>Telephone No.</b><br/>电话号码</td>
 				<td>+86 21 5329 8888</td>
 			</tr>
 			<tr>
 				<td class="right gray"><b>Telephone No.</b><br/>电话号码</td>
-				<td></td>
+				<td>{% if phone %}{{ phone }}{% else %} - {% endif %}</td>
 				<td class="right gray"><b>Issue Date</b><br/>确认信发布日期</td>
 				<td>{{ date }}</td>
 			</tr>
@@ -106,35 +106,36 @@
 		<table class="maintable">
 			<tr>
 				<td class="right"><b>Guest Name(s)</b> 客人姓名</td>
-				<td colspan="3">{{ name }} {{ guest}}</td>
+				<td colspan="3">{{ name }}{% if guest %}, {{ guest }}{% endif %}</td>
 			</tr>
 			<tr>
 				<td class="right" width="30%"><b>Confirmation No.</b> 预定确认号</td>
-				<td width="20%">{{ confirmation_code }}</td>
-				<td class="right" width="30%"><b>Arrival Date</b> 到店日期</td>
-				<td width="20%">{{ date_arrival }}</td>
+				<td width="25%">{% if confirmation_code %}{{ confirmation_code }}{% else %} - {% endif %}</td>
+				<td class="right" width="27%"><b>Arrival Date</b> 到店日期</td>
+				<td width="18%">{{ date_arrival }}</td>
 			</tr>
 			<tr>
 				<td class="right"><b>RHG. NO.</b> 会员号</td>
-				<td></td>
+				<td> - </td>
 				<td class="right"><b>Arrival Flight</b> 抵达航班</td>
-				<td></td>
+				<td>{% if flight_arrival %}{{ flight_arrival }}{% else %} - {% endif %}</td>
 			</tr>
 			<tr>
 				<td class="right"><b>Room Type</b> 房间类型</td>
-				<td>{{ room_type }}</td>
+				<td>{% if room_type == 1 %}King Bed Room{% else %}Twin Bed Room{% endif %} (non-smoking)</td>
 				<td class="right"><b>Arrival Time</b> 到店时间</td>
-				<td></td>
+				<td> - </td>
 			</tr>
 			<tr>
 				<td class="right"><b>Daily Rate</b> 房间价格</td>
-				<td>USD 130 / CNY 680</td>
+				<td>
+					{% if payment_method %}{% if payment_method == 1 %}USD 130{% elif payment_method == 2 %}CNY 680{% endif %} per night {% else %} - {% endif %}</td>
 				<td class="right"><b>Arrival Transfer</b> 接车信息</td>
-				<td></td>
+				<td> - </td>
 			</tr>
 			<tr>
 				<td class="right"><b>Breakfast</b> 早餐</td>
-				<td></td>
+				<td>1-2 breakfast per day</td>
 				<td class="right"><b>Departure Date</b> 离店日期</td>
 				<td>{{ date_departure }}</td>
 			</tr>
@@ -142,7 +143,7 @@
 				<td class="right"><b>No. of Room(s)</b> 房间数量</td>
 				<td>1</td>
 				<td class="right"><b>Departure Flight</b> 起飞航班</td>
-				<td></td>
+				<td>{% if flight_departure %}{{ flight_departure }}{% else %} - {% endif %}</td>
 			</tr>
 			<tr>
 				<td class="right"><b>Number of Adult/Child</b> 客人数量</td>
@@ -150,17 +151,17 @@
 					{% if guest != '' %}2{% else %}1{% endif %}
 				</td>
 				<td class="right"><b>Departure Time</b> 离店时间</td>
-				<td></td>
+				<td> - </td>
 			</tr>
 			<tr>
 				<td class="right"><b>Status</b> 预定状态</td>
 				<td>Non-Guaranteed</td>
 				<td class="right"><b>Departure Transfer</b> 送车信息</td>
-				<td></td>
+				<td> - </td>
 			</tr>
 			<tr>
 				<td class="right"><b>Payment Method</b> 付款方式</td>
-				<td colspan="3">Pay by guest own account</td>
+				<td colspan="3">Pay by guest own account. {% if payment_info %}{{ payment_info }}{% endif %}</td>
 			</tr>
 			<tr>
 				<td colspan="4">Above rate include service charge & VAT. 以上价格包含服务费及增值税。<br/>
@@ -189,7 +190,7 @@
 		</table>
 	</div>
 
-	<div style="text-align: right; position:absolute; bottom: 0px; right: 0px; padding: 20px;">
+	<div style="text-align: right; position:absolute; bottom: 0px; right: 0px; padding: 20px; color: #858585;">
 		<p>
 			上海虹桥西郊庄园丽笙大酒店<br/>
 			Radisson Blu Forest Manor Shanghai Hongqiao <br/>

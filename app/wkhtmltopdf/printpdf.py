@@ -43,8 +43,11 @@ def print_certification(reviewer_name, reviewer_title, review_abstract, review_p
 
 
 
-def print_reservation(name, guest_name, company, fax, code, room_type, 
+def print_reservation(title, name, guest_name, 
+    company, fax, phone, room_type, 
     date_arrival, date_departure, 
+    flight_arrival, flight_departure, 
+    payment_method, payment_info, confirmation_code, 
     wkhtmltopdf_path, resource_path, output_path):
 
     today_date = datetime.today().strftime("%d %b, %Y")
@@ -53,15 +56,22 @@ def print_reservation(name, guest_name, company, fax, code, room_type,
         'res_logo': 'file:///' + os.path.join(resource_path, "radisson-logo.png").replace("\\","/"),
         'res_font': 'file:///' + os.path.join(resource_path, "NotoSans-Regular.ttf").replace("\\","/"),
         # 'res_font_cn': 'file:///' + os.path.join(resource_path, "Yahei.ttf").replace("\\","/"),
+        'title': title,
         'name': name, 
         'company': company, 
         'fax': fax, 
+        'phone': phone, 
         'date': today_date,
         'guest': guest_name,
-        'confirmation_code': code,
         'room_type': room_type,
         'date_arrival': date_arrival,
-        'date_departure': date_departure
+        'date_departure': date_departure, 
+        'flight_arrival': flight_arrival,
+        'flight_departure': flight_departure, 
+
+        'payment_info': payment_info,
+        'payment_method': payment_method,
+        'confirmation_code': confirmation_code
     }
     options = {
         'page-size': 'A4',

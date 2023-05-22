@@ -64,7 +64,17 @@ class Accommodation(db.Model):
     is_visa = db.Column(db.Boolean, default=False)
     is_paid = db.Column(db.Boolean, default=False)
     requirement = db.Column(db.Text)
+    
+    company = db.Column(db.String(64))
+    no_fax = db.Column(db.String(32))
+    no_phone = db.Column(db.String(32))
+    flight_arrival = db.Column(db.String(32))
+    flight_departure = db.Column(db.String(32))
+
+    payment_method = db.Column(db.Integer, default=0)
     payment_info = db.Column(db.String(128))
+    no_confirmation = db.Column(db.String(32))
+
     filename = db.Column(db.String(64))
 
 class Certificate(db.Model):

@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}Accommodation{% endblock %}
 
+{% block styles %}
+<style type="text/css">
+    .hidden-visa-options {
+        display: none;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
     <div class="container">
@@ -264,10 +272,54 @@
 
                         <div class="row">
                             <div class="form-group col">
-                                {{ form.is_visa() }}
+                                {{ form.is_visa(value="more-info") }}
                                 <label class="form-check-label" for="is_visa">
                                     I need a hotel reservation proof for visa application
                                 </label>
+                            </div>
+                        </div>
+
+                        <div class="hidden-visa-options more-info">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label class="form-label mb-1 text-2">Your company or organization/department (optional)</label>
+                                    {{ form.company(class="form-control text-3 h-auto") }}
+                                    {% for error in form.company.errors %}
+                                    <small style="color: #dc3545">{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="form-label mb-1 text-2">Phone number (optional)</label>
+                                    {{ form.no_phone(class="form-control text-3 h-auto") }}
+                                    {% for error in form.no_phone.errors %}
+                                    <small style="color: #dc3545">{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="form-label mb-1 text-2">Fax number (optional)</label>
+                                    {{ form.no_fax(class="form-control text-3 h-auto") }}
+                                    {% for error in form.no_fax.errors %}
+                                    <small style="color: #dc3545">{{ error }}</small>
+                                    {% endfor %} 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label class="form-label mb-1 text-2">Arrival Flight (optional)</label>
+                                    {{ form.flight_arrival(class="form-control text-3 h-auto") }}
+                                    {% for error in form.flight_arrival.errors %}
+                                    <small style="color: #dc3545">{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="form-label mb-1 text-2">Arrival Departure (optional)</label>
+                                    {{ form.flight_departure(class="form-control text-3 h-auto") }}
+                                    {% for error in form.flight_departure.errors %}
+                                    <small style="color: #dc3545">{{ error }}</small>
+                                    {% endfor %} 
+                                </div>
                             </div>
                         </div>
 
@@ -296,6 +348,7 @@
                 <li>Limited number of rooms available. Book now at a preferential price!</li>
                 <li>The cancellation policy is subject to the regulations of the hotel.</li>
                 <li>Room held up to 7 days before a successful payment. <a href="{{ url_for('guide_accommodation')}}">Payment instructions</a></li>
+                <li>You may retrieve your reservation confirmation by your booking email <a href="{{ url_for('guide_accommodation')}}">here</a>, once your payment has been confirmed.</li>
                 <li>Contact us at <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a> for any questions.</li>
             </ul>
         </div>
@@ -339,4 +392,15 @@
 
 
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('input[type="checkbox"]').click(function() {
+            var inputValue = $(this).attr("value");
+            $("." + inputValue).toggle();
+        });
+    });
+</script>
 {% endblock %}

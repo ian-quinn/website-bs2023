@@ -149,7 +149,7 @@ class AccommodationForm(FlaskForm):
 		DataRequired(message="This field is mandatory"), 
 		Length(1, 32, message="Length must be less than 32 characters")])
 
-	country = StringField('Country of Issue', validators=[DataRequired(message="The passport number is mandatory")])
+	country = StringField('Country of Issue', validators=[DataRequired(message="This field is mandatory")])
 	
 	date_checkin = DateField('Check-in date', format='%Y-%m-%d', validators=[DataRequired()])
 	date_checkout = DateField('Check-out date', format='%Y-%m-%d', validators=[DataRequired()])
@@ -160,12 +160,21 @@ class AccommodationForm(FlaskForm):
 	is_visa = BooleanField('Do you need hotel reservation document for visa?', default=False)
 	requirement = TextAreaField('State your specific needs', validators=[Length(0, 200)])
 
+	company = StringField('Your company or organization')
+	no_fax = StringField('Fax Number')
+	no_phone = StringField('Phone Number')
+	flight_arrival = StringField('Number of your flight on arrival')
+	flight_departure = StringField('Number of your flight on departure')
+
+	no_confirmation = StringField('Confirmation Number')
+
 	submit = SubmitField('Submit')
 
 	def validate_email(self, email):
 		accommodation = Accommodation.query.filter_by(email=email.data).first()
 		if accommodation is not None:
-			raise ValidationError('You have received your booking request.')
+			raise ValidationError('Your request has been processing. Please contact secretariat@bs2023.org for changes.')
+
 	def validate_date_checkout(self, date_checkout):
 		if date_checkout.data <= self.date_checkin.data:
 			raise ValidationError('Sorry, we do not have time travel service.')
