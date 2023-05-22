@@ -1,0 +1,152 @@
+<html>
+<head>
+	<style type="text/css">
+		@font-face {
+			font-family: 'Noto Sans';
+			src: url( {{ res_font }} );
+		}
+		body {
+		  	font-size: 15px;
+		  	font-family: 'Noto Sans';
+		}
+
+		.framework {
+			border-collapse:collapse;
+			border-spacing:0;
+			height: 100%;
+			width: 100%;
+			padding: 0px;
+			margin: 0px;
+		}
+
+		.background {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		.framework td {
+			border-style : hidden !important;
+			vertical-align: middle;
+			border-color:black;
+			border-style:solid;
+			border-width:0px;
+		    overflow:hidden;
+		    padding: 0px;
+		    word-break:normal;
+		}
+		.framework td div {
+			height: 100%;
+			width: 100%;
+		}
+
+		.timestamp {
+		    border-bottom: 2px solid transparent;
+		    border-image: linear-gradient(to right, rgba(255,255,255,0) 50%, #fff 51%);
+		    border-image-slice: 1;
+		}
+	</style>
+
+</head>
+<body style="margin: 1px;">
+	<table class="framework background" background="{{ res_background }}">
+		<tbody>
+			<tr>
+				<td style="width: 5%;"></td>
+				<td style="width: 22%; padding:0; Margin:0">
+					<table class="framework">
+						<tr style="height: 17.4%">
+							<td></td>
+						</tr>
+						<tr style="height: 5%">
+							<td style="font-weight: bold; color: #ffffff; text-align: center; font-size: 1.2em;">{{ amount }} Reviews</td>
+						</tr>
+						<tr style="height: 58.6%">
+							<td></td>
+						</tr>
+						<tr style="height: 5%">
+							<td style="color: #ffffff;">
+								<table class="framework" style="text-align: right;">
+									<tr>
+										<td style="width: 50%;"></td>
+										<td style="width: 50%; color: #ffffff; font-size: 0.8em;">
+											<div style="border-bottom: 1.5px solid #ffffff;">
+												&nbsp;<br>{{ date }}&nbsp;&nbsp;&nbsp;</td>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr style="height: 5%">
+							<td style="color: #ffffff; text-align: right; font-size: 0.8em;">DATE&nbsp;&nbsp;&nbsp;<br>&nbsp;</td>
+						</tr>
+						<tr style="height: auto">
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td style="width: 3.4%;"></td>
+				<td style="width: 64%;">
+					<table class="framework">
+						<tr style="height: 23%">
+							<td></td>
+						</tr>
+						<tr style="height: 16%">
+							<td style="font-size:2.5em; line-height: 1.2em;">Certificate of <br>Reviewer Recognition</td>
+						</tr>
+						<tr style="height: 6%">
+							<td>Awarded since December 2022 ({{ amount }} reviews)<br>presented to</td>
+						</tr>
+						<tr style="height: 13%">
+							<td style="font-size:2.2em;">{{reviewer_title}} <b>{{ reviewer_name }}</b></td>
+						</tr>
+						<tr style="height: 16%">
+							<td>In recognition of the review contributed to the <br>
+								18th International IBPSA Conference and Exhibition <br>
+								Building Simulation 2023 <br>
+								September 4-6, 2023 <br>
+								Shanghai, China
+							</td>
+						</tr>
+						<tr style="height: 12%">
+							<td>
+								<table class="framework">
+									<tr>
+										<td style="width: 60%;"></td>
+										<td style="width: 40%;">
+											<div style="width:100%; border-bottom: 2px solid #000000;">
+												<table class="framework">
+													<tr style="height: 20%;">
+														<td></td>
+													</tr>
+													<tr style="height: 80%; text-align: right;">
+														<td>
+															<img src="{{ res_signature }}" style="height: 60px;" />
+														</td>
+														<td style="width: 10%;"></td>
+													</tr>
+												</table>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr style="height: 5%">
+							<td style="text-align: right; font-size: 0.8em;">
+								Prof. Dr. <b>Yiqun PAN</b>, Tongji University, China<br>
+								Chair of Building Simulation 2023
+							</td>
+						</tr>
+						<tr style="height: auto">
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td style="width: 5.6%;"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

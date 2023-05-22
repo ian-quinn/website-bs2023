@@ -66,3 +66,14 @@ class Accommodation(db.Model):
     requirement = db.Column(db.Text)
     payment_info = db.Column(db.String(128))
     filename = db.Column(db.String(64))
+
+class Certificate(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    conftool = db.Column(db.Integer)
+    email = db.Column(db.String(128))
+    title = db.Column(db.String(16))
+    firstname = db.Column(db.String(32))
+    lastname = db.Column(db.String(32))
+    num_abs = db.Column(db.Integer)
+    num_paper = db.Column(db.Integer)
+    filename = db.Column(db.String(64))

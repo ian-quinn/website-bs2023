@@ -1,6 +1,9 @@
 /__pycache__/
 /app/__pycache__/
+/app/wkhtmltopdf/__pycache__/
 /venv/
 /app/uploads/*.pdf
+/app/static/booking/*.pdf
+/app/static/cert/*.pdf
 /migrations/
 app.db

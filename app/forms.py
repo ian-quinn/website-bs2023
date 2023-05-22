@@ -4,7 +4,7 @@ from flask import request
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import StringField, TextAreaField, BooleanField, SubmitField, SelectField, FileField, DateField, RadioField
 from wtforms.validators import DataRequired, Email, ValidationError, Length, EqualTo
-from app.models import Message, Reviewer, Invitation, Accommodation
+from app.models import Message, Reviewer, Invitation, Accommodation, Certificate
 
 ######################################################################################
 #------------------------------search engine forms -----------------------------------
@@ -88,6 +88,12 @@ class ReviewerForm(FlaskForm):
 		if code != "":
 			if get_check_num(code) != code[-1]:
 				raise ValidationError('Your ORCID may not be valid')
+
+class CertificateForm(FlaskForm):
+	email = StringField('Email address of your ConfTool account', validators=[
+		DataRequired(message="This field is mandatory"), 
+		Email(message="Please check the format of your email")])
+	submit = SubmitField('Submit')
 
 
 class InvitationForm(FlaskForm):

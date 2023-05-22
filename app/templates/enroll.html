@@ -26,6 +26,45 @@
             <p>BS2023 is looking for researchers interested in helping on our <strong>Scientific Committee</strong>, with the review process of abstracts/papers/reports. Your ability to be objective, fair, and insightful in the evaluation of manuscripts is most in-demand to shape BS2023 in its best form. We need your help to get more papers out of the field to share good practices and ideas.</p>
             <p>If you are interested, please read through the following terms and fill in the application form below. You will then be added to our <strong>reviewer database</strong>, and we will respond to your inquiry shortly. You do not have to register again if you have notified us of your interest, either by email or by IBPSA survey.</p>
 
+            <div class="card my-5" style="background-color: #f9f9f9">
+                <div class="card-body">
+
+                    {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                    <div>
+                        {% for category, message in messages %}
+                        {% if category == 'warning' %}
+                        <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            </button>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+
+                    <form class="contact-form" action="{{ url_for('get_cert') }}" method="POST" enctype="multipart/form-data">
+                        <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
+                        {{ form_cert.hidden_tag() }}
+
+                        <div class="row" style="margin-bottom: -15px;">
+                            <div class="form-group col-md-6">
+                                {{ form_cert.email(class="form-control text-3 h-auto", placeholder="Your ConfTool account email") }}
+                                {% for error in form_cert.email.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ form_cert.submit(type="submit", value="Get my certificate", class="btn btn-outline-danger w-100") }}
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
             <hr class="solid my-5">
 
             <div class="text-center">
@@ -45,38 +84,40 @@
                     {% if messages %}
                     <div>
                         {% for category, message in messages %}
+                        {% if category == 'success' %}
                         <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
                             {{ message }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                             </button>
                         </div>
+                        {% endif %}
                         {% endfor %}
                     </div>
                     {% endif %}
                     {% endwith %}
                     <form class="contact-form" action="{{ url_for('reviewer') }}" method="POST" enctype="multipart/form-data">
                         <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
-                        {{ form.hidden_tag() }}
+                        {{ form_apply.hidden_tag() }}
 
                         <div class="row">
                             <div class="form-group col-md-2">
                                 <label class="form-label mb-1 text-2">Title<span style="color: #cd563e;"> ✱</span></label>
-                                {{ form.title(class="form-select form-control h-auto") }}
-                                {% for error in form.title.errors %}
+                                {{ form_apply.title(class="form-select form-control h-auto") }}
+                                {% for error in form_apply.title.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
                                 {% endfor %}
                             </div>
                             <div class="form-group col-md-5">
                                 <label class="form-label mb-1 text-2">First & Middle Name<span style="color: #cd563e;"> ✱</span></label>
-                                {{ form.firstname(class="form-control text-3 h-auto") }}
-                                {% for error in form.firstname.errors %}
+                                {{ form_apply.firstname(class="form-control text-3 h-auto") }}
+                                {% for error in form_apply.firstname.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
                                 {% endfor %}
                             </div>
                             <div class="form-group col-md-5">
                                 <label class="form-label mb-1 text-2">Last Name<span style="color: #cd563e;"> ✱</span></label>
-                                {{ form.lastname(class="form-control text-3 h-auto") }}
-                                {% for error in form.lastname.errors %}
+                                {{ form_apply.lastname(class="form-control text-3 h-auto") }}
+                                {% for error in form_apply.lastname.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
                                 {% endfor %}
                             </div>
@@ -84,15 +125,15 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label class="form-label mb-1 text-2">Email<span style="color: #cd563e;"> ✱</span></label>
-                                {{ form.email(class="form-control text-3 h-auto") }}
-                                {% for error in form.email.errors %}
+                                {{ form_apply.email(class="form-control text-3 h-auto") }}
+                                {% for error in form_apply.email.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
                                 {% endfor %}
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="form-label mb-1 text-2">Confirm Email<span style="color: #cd563e;"> ✱</span></label>
-                                {{ form.email_repeat(class="form-control text-3 h-auto") }}
-                                {% for error in form.email_repeat.errors %}
+                                {{ form_apply.email_repeat(class="form-control text-3 h-auto") }}
+                                {% for error in form_apply.email_repeat.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
                                 {% endfor %}
                             </div>
@@ -100,9 +141,9 @@
                         <div class="row">
                             <div class="form-group col">
                                 <label class="form-label mb-1 text-2">Organization<span style="color: #cd563e;"> ✱</span></label>
-                                {{ form.organization(class="form-control text-3 h-auto", 
+                                {{ form_apply.organization(class="form-control text-3 h-auto", 
                                     placeholder="Your institution, e.g., Tongji Univeristy") }}
-                                {% for error in form.organization.errors %}
+                                {% for error in form_apply.organization.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
                                 {% endfor %}
                             </div>
@@ -110,9 +151,9 @@
                         <div class="row">
                             <div class="form-group col">
                                 <label class="form-label mb-1 text-2">ORCID</label>
-                                {{ form.orcid(class="form-control text-3 h-auto", 
+                                {{ form_apply.orcid(class="form-control text-3 h-auto", 
                                     placeholder="16-digit identifier, e.g., 0000-0002-1694-233X") }}
-                                {% for error in form.orcid.errors %}
+                                {% for error in form_apply.orcid.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
                                 {% endfor %}
                             </div>
@@ -120,9 +161,9 @@
                         <div class="row">
                             <div class="form-group col">
                                 <label class="form-label mb-1 text-2">Bio statement & remarks</label>
-                                {{ form.bio(type="text", maxlength="5000", class="form-control text-3 h-auto", rows="4", 
+                                {{ form_apply.bio(type="text", maxlength="5000", class="form-control text-3 h-auto", rows="4", 
                                     placeholder="A brief introduction, e.g., previous review experience, academic title, department and rank...") }}
-                                {% for error in form.bio.errors %}
+                                {% for error in form_apply.bio.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
                                 {% endfor %}
                             </div>
@@ -132,18 +173,18 @@
                                 <label class="form-label mb-1 text-2">Upload CV (< 2MB)</label>
                                 <div class="input-group">
                                     <label class="btn btn-outline-danger">Browse
-                                        {{ form.file(type="file", hidden="", id="customInput", class="custom-file-input", aria_describedby="customInput") }}
+                                        {{ form_apply.file(type="file", hidden="", id="customInput", class="custom-file-input", aria_describedby="customInput") }}
                                     </label>
                                     <label class="form-control custom-file-label" id="inputLabel" for="customInput" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">No PDF selected</label>
                                 </div>
 
-                                {% for error in form.file.errors %}
+                                {% for error in form_apply.file.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
                                 {% endfor %}
                             </div>
                             <div class="form-group col-md-6 mb-0">
                                 <label class="form-label mb-1 text-2"><span style="color: #cd563e;">✱</span> Denotes required field</label>
-                                {{ form.submit(type="submit", value="Register as reviewer for BS2023", class="btn btn-outline-danger w-100") }}
+                                {{ form_apply.submit(type="submit", value="Register as reviewer for BS2023", class="btn btn-outline-danger w-100") }}
                             </div>
                         </div>
                     </form>
@@ -156,7 +197,7 @@
             You may refer to this video about <a href="https://www.youtube.com/watch?v=jMMez2lpJiE" target="_blank">How to Review a Building Simulation Paper</a>
             </br>
             ConfTool guide for <a href="{{ url_for('guide_reviewer') }}" target="_blank">reviewers</a>.</br>
-            ConfTool guide for <a href="{{ url_for('guide_sessionchair') }}" target="_blank">session-chairs</a>.</p>
+            ConfTool guide for <a href="{{ url_for('guide_sessionchair') }}" target="_blank">session-chairs</a>.</p>            
 
         </div>
     </div>

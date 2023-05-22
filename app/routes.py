@@ -12,8 +12,11 @@ from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 
 from app import app, db
-from app.models import Message, File, Reviewer, Invitation, Accommodation
-from app.forms import MessageForm, EnrollForm, ReviewerForm, InvitationForm, AccommodationForm, RetrieveAccommodationForm
+from app.models import Message, File, Reviewer, Invitation, Accommodation, Certificate
+from app.forms import MessageForm, EnrollForm, InvitationForm, AccommodationForm, RetrieveAccommodationForm
+from app.forms import ReviewerForm, CertificateForm
+
+from app.wkhtmltopdf import printpdf
 
 
 @app.route('/')
@@ -90,14 +93,31 @@ def guide_accommodation():
                 f'<div style="font-size: 11px; line-height:17px;">Radisson Blu Forest Manor Hotel, Shanghai Hongqiao<br/>' + \
                 f'<i class="far fa-map"></i> 839 Jin Feng Road, Shanghai, 201100, China. <i class="far fa-envelope"></i> secretariate@bs2023.org</div><br/>'
 
+            if not reservations[0].filename:
+                booking_name = f'booking_{reservations[0].email}.pdf'
+                resource_path = os.path.join(current_app.root_path, app.config['WKRESOURCE_PATH'])
+                output_path = os.path.join(app.config['BOOKING_PATH'], booking_name)
+                printpdf.print_reservation(
+                    f'{reservations[0].firstname} {reservations[0].lastname}',
+                    f'{reservations[0].guest_firstname} {reservations[0].guest_lastname}',
+                    'N/A', 'N/A', 'N/A', roomtype,
+                    reservations[0].date_checkin.strftime("%d %b, %Y"), 
+                    reservations[0].date_checkout.strftime("%d %b, %Y"), 
+                    app.config['WKHTMLTOPDF_PATH'], 
+                    resource_path, 
+                    output_path)
+
+                reservations[0].filename = booking_name
+                db.session.commit()
+
             if reservations[0].is_paid:
                 msg = msg + f'We have received your full payment. Thanks for your booking!'
                 if reservations[0].payment_info:
                     msg = msg + f'<br/>Your payment info: <i>{reservations[0].payment_info}</i>'
                 if reservations[0].filename:
-                    msg = msg + f'<br/>Click here to download your <a href="{ url_for("accommodation_proof", booking_id=booking_id) }" target="_blank">Proof of Accommodation</a> (Hotel Itinerary Reservation).'
-                elif reservations[0].is_visa:
-                    msg = msg + '<br/>You may download the proof of accommodation here when it is ready. Please allow us 7 days to process your request.'
+                    msg = msg + f'<br/>Click here to download your <a href="{ url_for("download_reservation", booking_id=booking_id) }" target="_blank">Proof of Accommodation</a> (Hotel Itinerary Reservation).'
+                # elif reservations[0].is_visa:
+                #     msg = msg + '<br/>You may download the proof of accommodation here when it is ready. Please allow us 7 days to process your request.'
             else:
                 msg = msg + f'Accommodation fee: <strong>USD {130 * days:.0f}</strong> (CNY {780 * days:.0f}).<br/>' + \
                 f'Room held for 7 days before a successful payment. Please pay the fee in ConfTool by following steps.'
@@ -200,7 +220,7 @@ def visa():
             filename = email.lower() + '_' + datetime.now().strftime('%m%d%H%M') + '.pdf'
             if os.path.splitext(f.filename)[1] != '.pdf':
                 flash('Only support PDF', 'danger')
-                return redirect(url_for('reviewer'))
+                return redirect(url_for('visa'))
             f.save(os.path.join(app.config['UPLOAD_PATH'], filename))
         else:
             filename = 'null'
@@ -283,14 +303,17 @@ def contact():
         return redirect(url_for('contact', _anchor="messageBox"))
     return render_template('contact.html', form=form)
 
+
 @app.route('/reviewer', methods=['GET', 'POST'])
 def reviewer():
-    form = ReviewerForm()
-    if form.validate_on_submit():
-        firstname = form.firstname.data
-        lastname = form.lastname.data
-        if form.file.data:
-            f = form.file.data
+    form_apply = ReviewerForm()
+    form_cert = CertificateForm()
+
+    if form_apply.validate_on_submit():
+        firstname = form_apply.firstname.data
+        lastname = form_apply.lastname.data
+        if form_apply.file.data:
+            f = form_apply.file.data
             filename = firstname.lower() + "_" + lastname.lower() + '_' + datetime.now().strftime('%m%d%H%M') + '.pdf'
             if os.path.splitext(f.filename)[1] != '.pdf':
                 flash('Only support PDF', 'danger')
@@ -299,20 +322,52 @@ def reviewer():
         else:
             filename = 'null'
         reviewer = Reviewer(
-            title=form.title.data, 
+            title=form_apply.title.data, 
             firstname=firstname,
             lastname=lastname, 
-            email=form.email.data, 
-            organization=form.organization.data, 
-            orcid=form.orcid.data, 
-            bio=form.bio.data, 
+            email=form_apply.email.data, 
+            organization=form_apply.organization.data, 
+            orcid=form_apply.orcid.data, 
+            bio=form_apply.bio.data, 
             filename=filename, 
             signed=True)
         db.session.add(reviewer)
         db.session.commit()
-        flash('You have registered to the reviewer database. Thanks!', 'warning')
+        flash('You have registered to the reviewer database. Thanks!', 'success')
         return redirect(url_for('reviewer', _anchor="registerBox"))
-    return render_template('enroll.html', form=form)
+            
+    return render_template('enroll.html', form_apply=form_apply, form_cert=form_cert)
+
+
+@app.route('/reviewer/certificate', methods=['GET', 'POST'])
+def get_cert():
+    form_apply = ReviewerForm()
+    form_cert = CertificateForm()
+
+    if form_cert.validate_on_submit():
+        email = form_cert.email.data.lower()
+        certificates = Certificate.query.filter_by(email = email).all()
+        msg = f'We cannot find the record in the database. Please contact <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a> to claim your certificate if needed.'
+        
+        if len(certificates) > 0:
+            if not certificates[0].filename:
+                certificate_name = f'cert_{email}.pdf'
+                resource_path = os.path.join(current_app.root_path, app.config['WKRESOURCE_PATH'])
+                output_path = os.path.join(app.config['CERT_PATH'], certificate_name)
+                printpdf.print_certification(certificates[0].firstname + certificates[0].lastname, 
+                    certificates[0].title, certificates[0].num_abs, certificates[0].num_paper, 
+                    app.config['WKHTMLTOPDF_PATH'], resource_path, output_path)
+                # print(output_path, file=sys.stdout)
+                certificates[0].filename = certificate_name
+                db.session.commit()
+            msg = f'If the download has not started automatically, click \
+                <a href="{ url_for("download_certificate", cert_id=certificates[0].id) }" target="_blank">here</a>.'
+            return redirect(url_for('download_certificate', cert_id=certificates[0].id))
+        else:
+            msg = "No record found."
+        flash(msg, 'warning')
+
+    return render_template('enroll.html', form_apply=form_apply, form_cert=form_cert)
 
 
 @app.route('/download/<int:file_id>', methods=['GET', 'POST'])
@@ -321,13 +376,18 @@ def download(file_id):
     path = os.path.join(current_app.root_path, app.config['FILE_PATH'])
     return send_from_directory(path, file.link, as_attachment=True, attachment_filename="%s" % file.name)
 
-@app.route('/guide/accommodation/<int:booking_id>', methods=['GET', 'POST'])
-def accommodation_proof(booking_id):
+@app.route('/download/accommodation/<int:booking_id>', methods=['GET', 'POST'])
+def download_reservation(booking_id):
     accommodation = Accommodation.query.get_or_404(booking_id)
-    path = os.path.join(current_app.root_path, app.config['FILE_PATH'])
-    print(accommodation.filename, file=sys.stdout)
-    print(path, file=sys.stdout)
+    path = os.path.join(current_app.root_path, app.config['BOOKING_PATH'])
     return send_from_directory(path, accommodation.filename, as_attachment=True, attachment_filename="%s" % accommodation.filename)
+
+@app.route('/download/certificate/<int:cert_id>', methods=['GET', 'POST'])
+def download_certificate(cert_id):
+    certificate = Certificate.query.get_or_404(cert_id)
+    path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
+    return send_from_directory(path, certificate.filename, 
+        as_attachment=True, attachment_filename="%s" % certificate.filename)
 
 
 # -------------------------- ERROR ----------------------------- #
