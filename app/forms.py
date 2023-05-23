@@ -184,3 +184,8 @@ class RetrieveAccommodationForm(FlaskForm):
 		DataRequired(message="This field is mandatory"), 
 		Email(message="Please check the format of your email")])
 	submit = SubmitField('Submit')
+
+
+class LoginForm(FlaskForm):
+	email = StringField('Email', validators=[DataRequired()])
+	submit = SubmitField('Request Magic Link')

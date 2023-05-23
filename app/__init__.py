@@ -6,6 +6,8 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
 from flask_mail import Mail
 from flask_datepicker import datepicker
+from flask_login import LoginManager
+from flask_mail import Mail
 
 import os, sys
 
@@ -14,15 +16,15 @@ import os, sys
 app = Flask(__name__)
 app.config.from_object(Config)
 
-app.config.update(dict(
-    DEBUG = True,
-    MAIL_SERVER = 'smtp.163.com',
-    MAIL_PORT = 994,
-    MAIL_USE_TLS = False,
-    MAIL_USE_SSL = True,
-    MAIL_USERNAME = 'bsimtongji@163.com',
-    MAIL_PASSWORD = 'infwhrsynwpsu441',
-))
+# app.config.update(dict(
+#     DEBUG = True,
+#     MAIL_SERVER = '',
+#     MAIL_PORT = 465,
+#     MAIL_USE_TLS = False,
+#     MAIL_USE_SSL = True,
+#     MAIL_USERNAME = '',
+#     MAIL_PASSWORD = '',
+# ))
 
 
 db = SQLAlchemy(app)
@@ -30,6 +32,8 @@ migrate = Migrate(app, db, compare_type=True)
 mail = Mail(app)
 csrf = CSRFProtect(app)
 datepicker = datepicker(app)
+login = LoginManager(app)
+mail = Mail(app)
 
 # 	locale = request.cookies.get('locale')
 # 	if locale is not None:

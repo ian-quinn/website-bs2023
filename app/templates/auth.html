@@ -1,0 +1,7 @@
+<p>Dear user, welcome to the BS2023 poster gallery!</p>
+<p>
+    Here's your authentication
+    <a href="{{ url_for('auth', token=token, _external=True) }}">
+        link
+    </a> (Only available for {{ exp }} seconds)
+</p>

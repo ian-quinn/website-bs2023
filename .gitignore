@@ -7,3 +7,4 @@
 /app/static/cert/*.pdf
 /migrations/
 app.db
+.env

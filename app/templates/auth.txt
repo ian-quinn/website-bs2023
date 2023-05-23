@@ -1,0 +1,4 @@
+Dear user, welcome to the BS2023 poster gallery!
+
+Here's your authentication link: {{ url_for('auth', token=token, _external=True) }} 
+(Only available for {{ exp }} seconds)
