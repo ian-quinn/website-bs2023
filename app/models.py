@@ -144,12 +144,17 @@ def get_or_create(session, model, **kwargs):
 
 class Poster(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    subject = db.Column(db.String(256)) # abandoned
+    name = db.Column(db.String(32)) # abandoned
     email = db.Column(db.String(64))
     title = db.Column(db.String(256))
     author = db.Column(db.String(32))
     abstract = db.Column(db.Text)
     cateogry = db.Column(db.Integer)
     keywords = db.Column(db.String(128))
+    imgpath = db.Column(db.String(128)) # abandoned
+    wavpath = db.Column(db.String(128)) # abandoned
+    movpath = db.Column(db.String(128)) # abandoned
     path_img = db.Column(db.String(128))
     path_wav = db.Column(db.String(128))
     path_mp4 = db.Column(db.String(128))
