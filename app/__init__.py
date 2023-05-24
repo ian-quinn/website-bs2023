@@ -16,17 +16,6 @@ import os, sys
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# app.config.update(dict(
-#     DEBUG = True,
-#     MAIL_SERVER = '',
-#     MAIL_PORT = 465,
-#     MAIL_USE_TLS = False,
-#     MAIL_USE_SSL = True,
-#     MAIL_USERNAME = '',
-#     MAIL_PASSWORD = '',
-# ))
-
-
 db = SQLAlchemy(app)
 migrate = Migrate(app, db, compare_type=True)
 mail = Mail(app)

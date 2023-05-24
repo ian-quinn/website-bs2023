@@ -15,7 +15,7 @@ from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 
 from app import app, db
-from app.models import Message, File, Reviewer, Invitation, Accommodation, Certificate
+from app.models import Message, File, Reviewer, Invitation, Accommodation, Certificate, Poster
 from app.models import User, get_or_create
 from app.forms import MessageForm, EnrollForm, InvitationForm, AccommodationForm, RetrieveAccommodationForm
 from app.forms import ReviewerForm, CertificateForm, LoginForm
@@ -440,7 +440,7 @@ def internal_error(error):
 def poster():
     form = LoginForm()
     if current_user.is_authenticated:
-        return render_template('poster.html', form=form, name=current_user.name)
+        return render_template('gallery.html', form=form, name=current_user.name)
     if form.validate_on_submit():
         # creates a user if email is not in db, and returns user if it is
         user = get_or_create(db.session, User, email=form.email.data)
@@ -448,8 +448,44 @@ def poster():
         user.generate_auth_link(expiration=expiration)
         send_auth_link(user, expiration=expiration)  # send an email
         flash('Your login link has been sent to {}'.format(form.email.data))
-        return render_template('poster.html', form=form, name='')
-    return render_template('poster.html', form=form, name='')
+        return render_template('gallery.html', form=form, name='')
+    return render_template('gallery.html', form=form, name='')
+
+@app.route('/poster/<token>')
+def qr_poster(token):
+    poster = Poster.verify_auth_link(token)
+    if poster and poster.auth_link == token:
+        path_img = url_for('static', filename='poster/' + poster.path_img) if poster.path_img else ''
+        path_mp4 = url_for('static', filename='poster/' + poster.path_mp4) if poster.path_mp4 else ''
+        path_webm = url_for('static', filename='poster/' + poster.path_webm) if poster.path_webm else ''
+        path_cover = url_for('static', filename='poster/' + poster.path_cover) if poster.path_cover else ''
+        return render_template(
+            'poster.html', title=poster.title, author=poster.author, abstract=poster.abstract,
+            path_img=path_img, path_mp4=path_mp4, path_webm=path_webm, path_cover=path_cover, 
+            is_freepass=True 
+            )
+        
+
+@app.route('/poster/<int:poster_id>')
+def view_poster(poster_id):
+    poster = Poster.query.get_or_404(poster_id)
+    path_img = url_for('static', filename='poster/' + poster.path_img) if poster.path_img else ''
+    path_mp4 = url_for('static', filename='poster/' + poster.path_mp4) if poster.path_mp4 else ''
+    path_webm = url_for('static', filename='poster/' + poster.path_webm) if poster.path_webm else ''
+    path_cover = url_for('static', filename='poster/' + poster.path_cover) if poster.path_cover else ''
+    return render_template(
+        'poster.html', title=poster.title, author=poster.author, abstract=poster.abstract,
+        path_img=path_img, path_mp4=path_mp4, path_webm=path_webm, path_cover=path_cover, 
+        is_freepass=False 
+        )
+
+@login_required
+@app.route('/regenposterqrauthcode')
+def regenposterqrauthcode():
+    posters = Poster.query.all()
+    for poster in posters:
+        poster.generate_auth_link()
+    return redirect(url_for('poster'))
 
 # @login_required
 # @app.route('/stats')

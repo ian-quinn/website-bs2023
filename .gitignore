@@ -5,6 +5,10 @@
 /app/uploads/*.pdf
 /app/static/booking/*.pdf
 /app/static/cert/*.pdf
+/app/static/poster/*.mp4
+/app/static/poster/*.jpg 
+/app/static/poster/*.png 
+/app/static/poster/*.webm
 /migrations/
 app.db
-.env
+env.txt

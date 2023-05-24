@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% block title %}Poster Gallery{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark">Poster Gallery</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>Program</li>
+                    <li class="active">Poster</li>
+                </ul>
+            </div>
+        </div>
+        {% if current_user.is_authenticated %}
+        <div style="text-align: right;">
+            <p>Welcome, {{ name }}! <a style="padding-left: 10px;" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i></a></p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<div class="container pt-2 pb-4">
+
+    <div class="py-4">
+        {% if not current_user.is_authenticated %}
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+        <div>
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <div class="card" style="background-color: #f9f9f9">
+            <div class="card-body">
+                <form class="contact-form" action="{{ url_for('poster') }}" method="POST" enctype="multipart/form-data">
+                    <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
+                    {{ form.hidden_tag() }}
+                    <!-- <div class="row">
+                        <label class="form-check-label">Forget your </label>
+                    </div> -->
+
+                    <div class="row" style="margin-bottom: -15px;">
+                        <div class="form-group col-md-6">
+                            {{ form.email(class="form-control text-3 h-auto", placeholder="Your registration email for ConfTool") }}
+                            {% for error in form.email.errors %}
+                            <small style="color: #dc3545">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form.submit(type="submit", value="Get Login Link", class="btn btn-outline-danger w-100") }}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+    <div class="row py-4">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/poster-sample-1.png') }}" alt="Four Points">
+                    <div class="card-body">
+                        <h4 class="card-title mb-1 text-4 font-weight-bold">Poster sample 1</h4>
+                        <p class="card-text"><i class="fas fa-audio-description" style="padding-right: 5px;"></i><i class="fas fa-image" style="padding-right: 5px;"></i>by Albus Percival Dumbledore<br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/poster-sample-2.png') }}" alt="Hampton">
+                    <div class="card-body">
+                        <h4 class="card-title mb-1 text-4 font-weight-bold">Poster sample 2</h4>
+                        <p class="card-text"><i class="fas fa-video" style="padding-right: 5px;"></i><i class="fas fa-image" style="padding-right: 5px;"></i>by Rubeus Hagrid<br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    {% if current_user.is_authenticated %}
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/poster-sample-3.png') }}" alt="">
+                    {% else %}
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/placeholder-img-short.webp') }}" alt="">
+                    {% endif %}
+                    <div class="card-body">
+                        <h4 class="card-title mb-1 text-4 font-weight-bold">Sample poster 3</h4>
+                        {% if current_user.is_authenticated %}
+                        <p class="card-text"><i class="fas fa-image" style="padding-right: 5px;"></i>by Dudley Dursley <br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        {% else %}
+                        <p>**Content only available after login**</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row py-4">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    {% if current_user.is_authenticated %}
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/poster-sample-4.png') }}" alt="">
+                    {% else %}
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/placeholder-img-short.webp') }}" alt="">
+                    {% endif %}
+                    <div class="card-body">
+                        <h4 class="card-title mb-1 text-4 font-weight-bold">Sample poster 4</h4>
+                        {% if current_user.is_authenticated %}
+                        <p class="card-text"><i class="fas fa-image" style="padding-right: 5px;"></i>by Igor Karkaroff <br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        {% else %}
+                        <p>**Content only available after login**</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    {% if current_user.is_authenticated %}
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/poster-sample-5.png') }}" alt="">
+                    {% else %}
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/placeholder-img-short.webp') }}" alt="">
+                    {% endif %}
+                    <div class="card-body">
+                        <h4 class="card-title mb-1 text-4 font-weight-bold">Sample poster 5</h4>
+                        {% if current_user.is_authenticated %}
+                        <p class="card-text"><i class="fas fa-audio-description" style="padding-right: 5px;"></i><i class="fas fa-image" style="padding-right: 5px;"></i>by Peter Pettigrew <br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        {% else %}
+                        <p>**Content only available after login**</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    {% if current_user.is_authenticated %}
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/poster-sample-6.png') }}" alt="">
+                    {% else %}
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/placeholder-img-short.webp') }}" alt="">
+                    {% endif %}
+                    <div class="card-body">
+                        <h4 class="card-title mb-1 text-4 font-weight-bold">Sample poster 6</h4>
+                        {% if current_user.is_authenticated %}
+                        <p class="card-text"><i class="fas fa-audio-description" style="padding-right: 5px;"></i><i class="fas fa-image" style="padding-right: 5px;"></i>by Alastor Moody <br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        {% else %}
+                        <p>**Content only available after login**</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

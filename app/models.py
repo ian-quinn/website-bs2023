@@ -103,8 +103,11 @@ class User(UserMixin, db.Model):
 
     def generate_auth_link(self, expiration):
         # for generating token we use JSON Web Token library
-        self.auth_link = jwt.encode({'exp': datetime.utcnow() + 
-            timedelta(seconds=expiration), 'user_id': self.id}, 
+        self.auth_link = jwt.encode(
+            {
+            'exp': datetime.utcnow() + timedelta(seconds=expiration), 
+            'user_id': self.id
+            }, 
             app.config['SECRET_KEY'], algorithm='HS256')
         db.session.add(self)
         db.session.commit()
@@ -142,13 +145,35 @@ def get_or_create(session, model, **kwargs):
 class Poster(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64))
-    subject = db.Column(db.String(256))
-    name = db.Column(db.String(32))
+    title = db.Column(db.String(256))
+    author = db.Column(db.String(32))
     abstract = db.Column(db.Text)
-    email = db.Column(db.String(64))
     cateogry = db.Column(db.Integer)
     keywords = db.Column(db.String(128))
-    imgpath = db.Column(db.String(128))
-    wavpath = db.Column(db.String(128))
-    movpath = db.Column(db.String(128))
-    # add privacy boolean
+    path_img = db.Column(db.String(128))
+    path_wav = db.Column(db.String(128))
+    path_mp4 = db.Column(db.String(128))
+    path_webm = db.Column(db.String(128))
+    path_cover = db.Column(db.String(128))
+    is_private = db.Column(db.Boolean, default=False)
+    auth_link = db.Column(db.String(256))
+
+    def generate_auth_link(self):
+        self.auth_link = jwt.encode(
+            {
+                'poster_id': self.id
+            }, 
+            app.config['SECRET_KEY'], algorithm='HS256')
+        db.session.add(self)
+        db.session.commit()
+
+    @staticmethod
+    def verify_auth_link(auth_link):
+        try:
+            decoded_data = jwt.decode(auth_link, app.config['SECRET_KEY'], algorithms=['HS256'])
+            poster = Poster.query.get(decoded_data['poster_id'])
+            return poster
+        except jwt.exceptions.ExpiredSignatureError:
+            return None
+        except jwt.exceptions.InvalidTokenError:
+            return None

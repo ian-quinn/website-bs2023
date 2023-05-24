@@ -21,6 +21,7 @@ class Config(object):
         WKHTMLTOPDF_PATH = r'C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe'
     CERT_PATH = os.path.join(basedir, 'app/static/cert')
     BOOKING_PATH = os.path.join(basedir, 'app/static/booking')
+    POSTER_PATH = os.path.join(basedir, 'app/static/poster')
     
     LOCALES = ['en', 'zh']
     BABEL_DEFAULT_LOCALE = LOCALES[1]
@@ -31,5 +32,3 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = os.environ.get('ADMINS')
-
-    print(MAIL_SERVER, file=sys.stdout)
