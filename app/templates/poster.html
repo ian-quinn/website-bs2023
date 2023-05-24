@@ -34,7 +34,7 @@
             <p><strong>ABSTRACT</strong> {{ abstract }} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
             {% if is_freepass or current_user.is_authenticated %}
-            <div class="text-center py-4" style="position: fixed">
+            <div class="text-center py-4">
                 <video
                     id="my-video"
                     class="video-js"
@@ -45,10 +45,9 @@
                     poster="{{ path_cover }}"
                     data-setup="{}" 
                     autoplay loop muted playsinline
-                    style="background-color: #000000;"
                   >
-                    <source src="{{ path_mp4 }}" type="video/mp4" />
-                    <source src="{{ path_webm }}" type="video/webm" />
+                    <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+                    <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
                     <p class="vjs-no-js">
                       To view this video please enable JavaScript, and consider upgrading to a
                       web browser that
