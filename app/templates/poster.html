@@ -39,11 +39,12 @@
                     id="my-video"
                     class="video-js"
                     controls
-                    preload="auto"
+                    preload="yes"
                     width="100%"
                     height="auto"
                     poster="{{ path_cover }}"
-                    data-setup="{}"
+                    data-setup="{}" 
+                    autoplay loop playsinline
                   >
                     <source src="{{ path_mp4 }}" type="video/mp4" />
                     <source src="{{ path_webm }}" type="video/webm" />
