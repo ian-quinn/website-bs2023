@@ -34,17 +34,18 @@
             <p><strong>ABSTRACT</strong> {{ abstract }} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
             {% if is_freepass or current_user.is_authenticated %}
-            <div class="text-center py-4">
+            <div class="text-center py-4" style="position: fixed">
                 <video
                     id="my-video"
                     class="video-js"
                     controls
-                    preload="none"
+                    preload="auto"
                     width="100%"
                     height="auto"
                     poster="{{ path_cover }}"
                     data-setup="{}" 
-                    autoplay loop playsinline
+                    autoplay loop muted playsinline
+                    style="background-color: #000000;"
                   >
                     <source src="{{ path_mp4 }}" type="video/mp4" />
                     <source src="{{ path_webm }}" type="video/webm" />
