@@ -118,6 +118,7 @@ def guide_accommodation():
                     title, 
                     guestname_1,
                     guestname_2,
+                    reservations[0].is_child,
                     reservations[0].company, 
                     reservations[0].no_fax, 
                     reservations[0].no_phone, 

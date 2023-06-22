@@ -43,7 +43,7 @@ def print_certification(reviewer_name, reviewer_title, review_abstract, review_p
 
 
 
-def print_reservation(title, name, guest_name, 
+def print_reservation(title, name, guest_name, with_child, 
     company, fax, phone, room_type, 
     date_arrival, date_departure, 
     flight_arrival, flight_departure, 
@@ -63,6 +63,7 @@ def print_reservation(title, name, guest_name,
         'phone': phone, 
         'date': today_date,
         'guest': guest_name,
+        'child': with_child,
         'room_type': room_type,
         'date_arrival': date_arrival,
         'date_departure': date_departure, 

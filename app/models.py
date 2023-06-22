@@ -65,6 +65,7 @@ class Accommodation(db.Model):
     guest_lastname = db.Column(db.String(32))
     is_visa = db.Column(db.Boolean, default=False)
     is_paid = db.Column(db.Boolean, default=False)
+    is_child = db.Column(db.Boolean, default=False)
     requirement = db.Column(db.Text)
     
     company = db.Column(db.String(64))

@@ -148,7 +148,7 @@
 			<tr>
 				<td class="right"><b>Number of Adult/Child</b> 客人数量</td>
 				<td>
-					{% if guest != '' %}2{% else %}1{% endif %}
+					{% if guest != '' %}2{% else %}1{% endif %} adult{% if guest != '' %}s{% else %}{% endif %}{% if child %}, 1 child{% else %}{% endif %}
 				</td>
 				<td class="right"><b>Departure Time</b> 离店时间</td>
 				<td> - </td>
