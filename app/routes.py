@@ -387,7 +387,7 @@ def get_cert():
                 certificate_name = f'cert_{email}.pdf'
                 resource_path = os.path.join(current_app.root_path, app.config['WKRESOURCE_PATH'])
                 output_path = os.path.join(app.config['CERT_PATH'], certificate_name)
-                printpdf.print_certification(certificates[0].firstname + certificates[0].lastname, 
+                printpdf.print_certification(certificates[0].firstname + " " + certificates[0].lastname, 
                     certificates[0].title, certificates[0].num_abs, certificates[0].num_paper, 
                     app.config['WKHTMLTOPDF_PATH'], resource_path, output_path)
                 # print(output_path, file=sys.stdout)
