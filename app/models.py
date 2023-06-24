@@ -90,6 +90,11 @@ class Certificate(db.Model):
     num_abs = db.Column(db.Integer)
     num_paper = db.Column(db.Integer)
     filename = db.Column(db.String(64))
+    filename_letter = db.Column(db.String(64))
+    company = db.Column(db.String(64))
+    address = db.Column(db.String(64))
+    city = db.Column(db.String(64))
+    country = db.Column(db.String(64))
 
 
 # ----------------------- USER LOGIN ---------------- #

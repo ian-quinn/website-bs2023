@@ -28,7 +28,6 @@
             <p></p>
             <ul class="list-unstyled paragraph-item">
                 <li>Since March 15, 2023, China has resumed issuing all types of visas for foreigners. We recommend <strong>Tourist Visa</strong> (type <strong>L</strong>) for all registered participants, in which case the invitation letter is NOT needed. If you book a room on our website, you will get the hotel reservation document upon successful payment.</li>
-                <li>If you are going for another type of visa (type <strong>F</strong> for example) that requires an invitation letter, please fill out the form on this page and we will come back to you shortly.</li>
                 <li>Participants can apply for a visa at the Chinese embassy, consulates, or Visa Application Service Center in the region they live. Your passport must be valid for at least six months after the expiry date of your visa. All Visa applicants must submit the application documents in person and have their fingerprints collected. Please refer to the website of the fore-mentioned facilities for detailed requirements. <button type="button" id="visaJButton" onclick="displayJInfo()" style="text-decoration: underline; background: #ffffff; border: none;">visa L</button>/<button type="button" id="visaFButton" onclick="displayFInfo()" style="text-decoration: underline; background: #ffffff; border: none;">visa F</button></li>
                 <li id="visaJInfo" style="display: none;">
                     <div style="border: 1px solid black; border-radius: 5px; padding: 10px;">
@@ -58,6 +57,7 @@
 
             <h4 class="pt-4">Invitation Letters</h4>
             <p>If you are requesting time off, funding, or refurbishment from the department, or applying for other types of visa that need an invitation letter, we are more than willing to help. Please contact <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a>.</p> <!--fill out the form below, and the conference secretary will contact you shortly. </p>-->
+            <!-- <a href="{{ url_for('download', file_id=411, next=request.full_path) }}" target="_blank">form</a> -->
 
             <!-- <ul class="list-unstyled paragraph-item">
                 <li>Your name must be listed exactly as it appears on your passport. Any differences between the name on your passport and the name on your invitation letter or other documentation could lead to a delay or denial of your visa.</li>

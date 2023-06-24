@@ -15,7 +15,8 @@ def print_certification(reviewer_name, reviewer_title, review_abstract, review_p
         'res_font': 'file:///' + os.path.join(resource_path, "NotoSans-Regular.ttf").replace("\\","/"),
         'reviewer_name': reviewer_name, 
         'reviewer_title': reviewer_title, 
-        'amount': review_abstract, 
+        'num_abs': review_abstract, 
+        'num_paper': review_paper, 
         'date': today_date,
     }
     options = {
@@ -40,7 +41,42 @@ def print_certification(reviewer_name, reviewer_title, review_abstract, review_p
 
     pdfkit.from_string(output_text, output_path,  options=options, configuration=config)
 
+def print_bonafide(reviewer_name, reviewer_title, 
+    reviewer_company, reviewer_address, reviewer_city, reviewer_country, 
+    review_abstract, review_paper, 
+    wkhtmltopdf_path, resource_path, output_path):
+    today_date = datetime.today().strftime("%d %b, %Y")
 
+    context = {
+        'title': reviewer_title,
+        'name': reviewer_name, 
+        'company': reviewer_company,
+        'address': reviewer_address, 
+        'city': reviewer_city, 
+        'country': reviewer_country,
+        'date': today_date,
+        'num_abs': review_abstract, 
+        'num_paper': review_paper
+    }
+    options = {
+        'page-size': 'A4',
+        'orientation': 'Portrait',
+        'margin-top': '50mm',
+        'margin-right': '20mm',
+        'margin-bottom': '20mm',
+        'margin-left': '20mm',
+        'encoding': 'UTF-8',
+        "enable-local-file-access": ""
+    }
+
+    template_loader = jinja2.FileSystemLoader(resource_path)
+    template_env = jinja2.Environment(loader=template_loader)
+
+    template = template_env.get_template('bonafide.html')
+    output_text = template.render(context)
+
+    config = pdfkit.configuration(wkhtmltopdf=wkhtmltopdf_path)
+    pdfkit.from_string(output_text, output_path,  options=options, configuration=config)
 
 
 def print_reservation(title, name, guest_name, with_child, 

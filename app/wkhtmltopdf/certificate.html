@@ -59,7 +59,7 @@
 							<td></td>
 						</tr>
 						<tr style="height: 5%">
-							<td style="font-weight: bold; color: #ffffff; text-align: center; font-size: 1.2em;">{{ amount }} Reviews</td>
+							<td style="font-weight: bold; color: #ffffff; text-align: center; font-size: 1.2em;">{{ num_abs + num_paper }} Reviews</td>
 						</tr>
 						<tr style="height: 58.6%">
 							<td></td>
@@ -96,13 +96,14 @@
 							<td style="font-size:2.5em; line-height: 1.2em;">Certificate of <br>Reviewer Recognition</td>
 						</tr>
 						<tr style="height: 6%">
-							<td>Awarded since December 2022 ({{ amount }} reviews)<br>presented to</td>
+							<td>Awarded since December 2022 <br>presented to</td>
 						</tr>
 						<tr style="height: 13%">
 							<td style="font-size:2.2em;">{{reviewer_title}} <b>{{ reviewer_name }}</b></td>
 						</tr>
 						<tr style="height: 16%">
-							<td>In recognition of the review contributed to the <br>
+							<td>In recognition of the review ({% if num_abs %} {{ num_abs }} abstracts {% else %}{% endif %}{% if num_abs and num_paper%}, {% else %}{% endif %}{% if num_paper %}{{ num_paper }} papers{% else %}{% endif %})<br>
+								contributed to the <br>
 								18th International IBPSA Conference and Exhibition <br>
 								Building Simulation 2023 <br>
 								September 4-6, 2023 <br>

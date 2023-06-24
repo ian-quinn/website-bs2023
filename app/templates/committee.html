@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}Committee{% endblock %}
 
+{% block styles %}
+<style>
+.review-panel tr td {
+    width: 20%;
+}
+
+</style>
+{% endblock %}
+
 {% block content %}
 <section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
     <div class="container">
@@ -23,7 +32,7 @@
 
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4 mb-lg-0">
-            <div class="mt-1 mb-3">
+            <div class="mt-1 mb-3" style="padding: 25px;">
                 <img src="static/img/yiqunpan.webp" class="img-fluid" alt="Yiqun Pan">
             </div>
             <hr class="solid my-2">
@@ -72,7 +81,7 @@
         </div>
 
         <div class="col-md-4 order-md-2 mb-4 mb-lg-0">
-            <div class="mt-1 mb-3">
+            <div class="mt-1 mb-3" style="padding: 25px;">
                 <img src="static/img/dayan.webp" class="img-fluid" alt="Da Yan">
             </div>
             <hr class="solid my-2">
@@ -96,7 +105,7 @@
 
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4 mb-lg-0">
-            <div class="mt-1 mb-3">
+            <div class="mt-1 mb-3" style="padding: 25px;">
                 <img src="static/img/boronglin.webp" class="img-fluid" alt="Borong Lin">
             </div>
         </div>
@@ -354,15 +363,6 @@
         </div>
     </div>
 
-    <p class="text-color-dark text-5"><strong>Reviewer board</strong> 🎓 (updating)</p>
-    <p>We thank all reviewers contributing to this event! </p>
-
-    <div class="row">
-        <div class="col">
-            <hr class="solid my-5">
-        </div>
-    </div>
-
     <p class="text-color-dark text-5"><strong>Organizing committee</strong></p>
 
     <div class="row mt-4 pt-2">
@@ -479,6 +479,507 @@
 
             </table>
         </div> -->
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <hr class="solid my-5">
+        </div>
+    </div>
+
+    <p class="text-color-dark text-5" id="reviewer"><strong>Reviewer panel</strong> 🎓</p>
+    <p>We thank all reviewers contributing to this event! </p>
+
+    <div class="col-12"> 
+        <table class="review-panel" cellpadding="0" cellspacing="0" width="100%" border="0">
+            <tbody>
+                <tr>
+                  <td> Prof. Akashi, Yasunori</th>
+                  <td> Prof. Dervishi, Sokol</th>
+                  <td> Prof. Jian, Yiwen</th>
+                  <td> Prof. Manzan, Marco</th>
+                  <td> Prof. Schweiker, Marcel</th>
+                </tr>
+                <tr>
+                  <td> Prof. Altan, Hasim</td>
+                  <td> Prof. Ding, Yan</td>
+                  <td> Prof. Kabele, Karel</td>
+                  <td> Prof. McElroy, Lori Barbara</td>
+                  <td> Prof. Suh, Dongjun</td>
+                </tr>
+                <tr>
+                  <td> Prof. ANDRE, Philippe</td>
+                  <td> Prof. Evins, Ralph</td>
+                  <td> Prof. Lai, Dayi</td>
+                  <td> Prof. Meng, Qi</td>
+                  <td> Prof. Tan, Zijing</td>
+                </tr>
+                <tr>
+                  <td> Prof. Arteconi, Alessia</td>
+                  <td> Prof. Evola, Gianpiero</td>
+                  <td> Prof. Lebrun, Jean Joseph</td>
+                  <td> Prof. MIURA, KATSUHIRO</td>
+                  <td> Prof. Wang, Huilong</td>
+                </tr>
+                <tr>
+                  <td> Prof. Attia, Shady</td>
+                  <td> Prof. Feng, Chi</td>
+                  <td> Prof. Li, Xianting</td>
+                  <td> Prof. Monfet, Danielle</td>
+                  <td> Prof. Willmann, Anja</td>
+                </tr>
+                <tr>
+                  <td> Prof. Ballarini, Ilaria</td>
+                  <td> Prof. Gao, Naiping</td>
+                  <td> Prof. Li, Fei</td>
+                  <td> Prof. MOON, HYEUN JUN</td>
+                  <td> Prof. Xie, Jingchao</td>
+                </tr>
+                <tr>
+                  <td> Prof. Barbaresi, Alberto</td>
+                  <td> Prof. Gao, Jun</td>
+                  <td> Prof. Li, Qiong</td>
+                  <td> Prof. Nik, Vahid</td>
+                  <td> Prof. Yan, Da</td>
+                </tr>
+                <tr>
+                  <td> Prof. Beausoleil-Morrison, Ian</td>
+                  <td> Prof. Ginestet, Stephane</td>
+                  <td> Prof. Li, Zhengwei</td>
+                  <td> Prof. Nytsch-Geusen, Christoph</td>
+                  <td> Prof. Yang, Bin</td>
+                </tr>
+                <tr>
+                  <td> Prof. Berardi, Umberto</td>
+                  <td> Prof. Gupta, Rajat</td>
+                  <td> Prof. LIAO, Yundan</td>
+                  <td> Prof. Oropeza-Perez, Ivan</td>
+                  <td> Prof. Zavaleev, Ilya</td>
+                </tr>
+                <tr>
+                  <td> Prof. Bleil de Souza, Clarice</td>
+                  <td> Prof. Haase, Matthias</td>
+                  <td> Prof. Liu, Jianlin</td>
+                  <td> Prof. Pan, Yiqun</td>
+                  <td> Prof. Zemmouri, Noureddine</td>
+                </tr>
+                <tr>
+                  <td> Prof. Blocken, Bert</td>
+                  <td> Prof. Heim, Dariusz</td>
+                  <td> Prof. Liu, Jiying</td>
+                  <td> Prof. Pang, Zhihong</td>
+                  <td> Prof. Zhai, Yongchao</td>
+                </tr>
+                <tr>
+                  <td> Prof. Chao, Christopher</td>
+                  <td> Prof. Helsen, Lieve M</td>
+                  <td> Prof. Liu, Jing</td>
+                  <td> Prof. Park, Cheol-Soo</td>
+                  <td> Prof. ZHANG, Sheng</td>
+                </tr>
+                <tr>
+                  <td> Prof. Chen, Yixing</td>
+                  <td> Prof. Hensen, Jan</td>
+                  <td> Prof. Liu, Cong</td>
+                  <td> Prof. Peng, Jinqing</td>
+                  <td> Prof. Zhang, Rongpeng</td>
+                </tr>
+                <tr>
+                  <td> Prof. Chen, Yibo</td>
+                  <td> Prof. Hopfe, Christina</td>
+                  <td> Prof. Liu, Xiaohua</td>
+                  <td> Prof. peron, fabio</td>
+                  <td> Prof. Zhang, Lei</td>
+                </tr>
+                <tr>
+                  <td> Prof. Chen, Youming</td>
+                  <td> Prof. Hraška, Jozef</td>
+                  <td> Prof. Liu, Kuixing</td>
+                  <td> Prof. Rawal, Rajan</td>
+                  <td> Prof. Zhang, Xingxing</td>
+                </tr>
+                <tr>
+                  <td> Prof. Clarke, Joe</td>
+                  <td> Prof. Hwang, Youngjin</td>
+                  <td> Prof. Lucchi, Elena</td>
+                  <td> Prof. Riquelme, Santiago</td>
+                  <td> Prof. Zmeureanu, Radu</td>
+                </tr>
+                <tr>
+                  <td> Prof. de Wilde, Pieter</td>
+                  <td> Prof. Iyer-Raniga, Usha</td>
+                  <td> Prof. Magrini, Anna</td>
+                  <td> Prof. Roux, Jean-Jacques</td>
+                  <td> Prof. Zuo, Wangda</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col">
+                <hr class="dashed my-1">
+            </div>
+        </div>
+
+        <table class="review-panel" cellpadding="0" cellspacing="0" width="100%" border="0">
+        <tbody>
+          <tr>
+            <td> Dr. Alabsi, Akram</th>
+            <td> Dr. Du, Jia</th>
+            <td> Dr. Jones, Nathaniel L</th>
+            <td> Dr. Mostafavi, Saman</th>
+            <td> Dr. Tang, Haida</th>
+          </tr>
+          <tr>
+            <td> Dr. Alfata, Muhammad Nur Fajri</td>
+            <td> Dr. Duran, Ozlem</td>
+            <td> Dr. Jradi, Muhyiddine</td>
+            <td> Dr. Narowski, Piotr</td>
+            <td> Dr. Tian, Wei</td>
+          </tr>
+          <tr>
+            <td> Dr. Alongi, Andrea</td>
+            <td> Dr. Escobar-Del Pozo, Carlos</td>
+            <td> Dr. Kang, Daeho</td>
+            <td> Dr. Niu, Jide</td>
+            <td> Dr. TRAN LE, Anh Dung</td>
+          </tr>
+          <tr>
+            <td> Dr. An, Jingjing</td>
+            <td> Dr. Estevam Schmiedt, Jacob</td>
+            <td> Dr. Karasu, Arda</td>
+            <td> Dr. Nocente, Alessandro</td>
+            <td> Dr. Türkmenoğlu, Neslihan</td>
+          </tr>
+          <tr>
+            <td> Dr. Bartak, Martin</td>
+            <td> Dr. Fan, Cheng</td>
+            <td> Dr. Kider, Joseph</td>
+            <td> Dr. Ochs, Fabian</td>
+            <td> Dr. van Hooff, Twan</td>
+          </tr>
+          <tr>
+            <td> Dr. Becchio, Cristina</td>
+            <td> Dr. Farnham, Craig Edward</td>
+            <td> Dr. Koch, Andreas</td>
+            <td> Dr. O'Donnell, James Thomas</td>
+            <td> Dr. Wang, Chuang</td>
+          </tr>
+          <tr>
+            <td> Dr. Bhatnagar, Mayank</td>
+            <td> Dr. Fennell, Pamela Jane</td>
+            <td> Dr. Kokogiannakis, Georgios</td>
+            <td> Dr. Ouf, Mohamed</td>
+            <td> Dr. Wang, Haidong</td>
+          </tr>
+          <tr>
+            <td> Dr. Blum, David</td>
+            <td> Dr. Fernández, Eduardo</td>
+            <td> Dr. Krayem, Alaa</td>
+            <td> Dr. Palme, Massimo</td>
+            <td> Dr. Wang, Leon</td>
+          </tr>
+          <tr>
+            <td> Dr. Borkowski, Esther</td>
+            <td> Dr. Flett, Graeme</td>
+            <td> Dr. Labib, Rania</td>
+            <td> Dr. Panchabikesan, Karthik</td>
+            <td> Dr. Wang, Wei</td>
+          </tr>
+          <tr>
+            <td> Dr. Bouquerel, Mathias</td>
+            <td> Dr. Fratoni, Giulia</td>
+            <td> Dr. Lannon, Simon</td>
+            <td> Dr. Patidar, Sandhya</td>
+            <td> Dr. Wate, Parag</td>
+          </tr>
+          <tr>
+            <td> Dr. Brahme, Rohini</td>
+            <td> Dr. Gao, Qinglong</td>
+            <td> Dr. Laouadi, Abdelaziz</td>
+            <td> Dr. Phalak, Kaustubh</td>
+            <td> Dr. Wetter, Michael</td>
+          </tr>
+          <tr>
+            <td> Dr. Brembilla, Eleonora</td>
+            <td> Dr. Gomez Romero, Juan</td>
+            <td> Dr. Laughman, Christopher</td>
+            <td> Dr. Pierson, Clotilde</td>
+            <td> Dr. Willems, Sara</td>
+          </tr>
+          <tr>
+            <td> Dr. Brès, Aurélien</td>
+            <td> Dr. Gori, Virginia</td>
+            <td> Dr. Li, Guannan</td>
+            <td> Dr. Qian, Mingyang</td>
+            <td> Dr. XIONG, Jie</td>
+          </tr>
+          <tr>
+            <td> Dr. Brunetti, Gian Luca</td>
+            <td> Dr. Gu, Jiefan</td>
+            <td> Dr. Lilis, Georgios Nektarios</td>
+            <td> Dr. Ramallo, Alfonso</td>
+            <td> Dr. Xu, Baoping</td>
+          </tr>
+          <tr>
+            <td> Dr. Calcerano, Filippo</td>
+            <td> Dr. Guan, Jun</td>
+            <td> Dr. Liu, Chunde</td>
+            <td> Dr. Reynders, Glenn</td>
+            <td> Dr. Xu, Chengliang</td>
+          </tr>
+          <tr>
+            <td> Dr. Cao, Jianping</td>
+            <td> Dr. Guernouti, Sihem</td>
+            <td> Dr. Liu, Dalong</td>
+            <td> Dr. Ricci, Alessio</td>
+            <td> Dr. Xue, Peng</td>
+          </tr>
+          <tr>
+            <td> Dr. CAO, JINGYU</td>
+            <td> Dr. GUO, Siyue</td>
+            <td> Dr. Liu, Wei</td>
+            <td> Dr. Ries, Robert</td>
+            <td> Dr. Yamaguchi, Yohei</td>
+          </tr>
+          <tr>
+            <td> Dr. Cao, Weixue</td>
+            <td> Dr. He, Wei</td>
+            <td> Dr. Liu, Xue</td>
+            <td> Dr. Rouchier, Simon</td>
+            <td> Dr. Ye, Yunyang</td>
+          </tr>
+          <tr>
+            <td> Dr. Chen, Dong</td>
+            <td> Dr. Heidari Matin, Negar</td>
+            <td> Dr. Loomans, Marcel</td>
+            <td> Dr. Rovas, Dimitrios</td>
+            <td> Dr. Yin, Yingde</td>
+          </tr>
+          <tr>
+            <td> Dr. Chen, Shuqin</td>
+            <td> Dr. Hoes, Pieter-Jan</td>
+            <td> Dr. Loonen, Roel</td>
+            <td> Dr. Saberi, Ali</td>
+            <td> Dr. Yuan, Xiaolei</td>
+          </tr>
+          <tr>
+            <td> Dr. Chen, Yongbao</td>
+            <td> Dr. Hong, Tianzhen</td>
+            <td> Dr. Luo, Maohui</td>
+            <td> Dr. Salvati, Agnese</td>
+            <td> Dr. Zanetti, Ettore</td>
+          </tr>
+          <tr>
+            <td> Dr. Cheng, Yong</td>
+            <td> Dr. Hou, Danlin</td>
+            <td> Dr. Lydon, Gearoid</td>
+            <td> Dr. Scoccia, Rossano</td>
+            <td> Dr. Zeng, Lingjie</td>
+          </tr>
+          <tr>
+            <td> Dr. Chundeli, Faiz Ahmed</td>
+            <td> Dr. Huang, Gongsheng</td>
+            <td> Dr. Maalouf, Chadi</td>
+            <td> Dr. Sepulveda, Abel</td>
+            <td> Dr. Zhan, Sicheng</td>
+          </tr>
+          <tr>
+            <td> Dr. Cimillo, Marco</td>
+            <td> Dr. Huang, Yu</td>
+            <td> Dr. Maccarini, Alessandro</td>
+            <td> Dr. Shao, Xiaoliang</td>
+            <td> Dr. Zhang, Chengquan</td>
+          </tr>
+          <tr>
+            <td> Dr. Crawley, Drury</td>
+            <td> Dr. Inanici, Mehlika</td>
+            <td> Dr. Mahar, Waqas Ahmed</td>
+            <td> Dr. Shukla, Yashkumar</td>
+            <td> Dr. Zhang, Nan</td>
+          </tr>
+          <tr>
+            <td> Dr. Cui, Dongjin</td>
+            <td> Dr. Jakubiec, J. Alstan</td>
+            <td> Dr. Mangkuto, Rizki Armanto</td>
+            <td> Dr. Singh, Rana Veer Pratap</td>
+            <td> Dr. Zhang, Xiang</td>
+          </tr>
+          <tr>
+            <td> Dr. Curpek, Jakub</td>
+            <td> Dr. Jeong, Jae-Weon</td>
+            <td> Dr. Marincioni, Valentina</td>
+            <td> Dr. Strachan, Paul</td>
+            <td> Dr. Zhao, Wei</td>
+          </tr>
+          <tr>
+            <td> Dr. Dama, Alessandro</td>
+            <td> Dr. Ji, Ying</td>
+            <td> Dr. Maskarenj, Marshal</td>
+            <td> Dr. Su, Lingqi</td>
+            <td> Dr. Zhao, Yang</td>
+          </tr>
+          <tr>
+            <td> Dr. De Luca, Francesco</td>
+            <td> Dr. Jia, Hongyuan</td>
+            <td> Dr. McGill, Grainne</td>
+            <td> Dr. Sun, Hongli</td>
+            <td> Dr. Zheng, Gonghang</td>
+          </tr>
+          <tr>
+            <td> Dr. Debnath, Kumar Biswajit</td>
+            <td> Dr. Jia, Mengda</td>
+            <td> Dr. McGrath, James</td>
+            <td> Dr. Sun, Yongjun</td>
+            <td> Dr. Zhou, Xin</td>
+          </tr>
+          <tr>
+            <td> Dr. Dong, Bing</td>
+            <td> Dr. Jiménez, María José</td>
+            <td> Dr. Mendonça, Katia Cordeiro</td>
+            <td> Dr. Taheri, Mahnameh</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td> Dr. Du, Feng</td>
+            <td> Dr. Jo, Soo Jeong</td>
+            <td> Dr. Molina-Solana, Miguel</td>
+            <td> Dr. Talami, Riccardo</td>
+            <td></td>
+          </tr>
+        </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col">
+                <hr class="dashed my-1">
+            </div>
+        </div>
+
+        <table class="review-panel" cellpadding="0" cellspacing="0" width="100%" border="0">
+            <tbody>
+              <tr>
+                <td>Ms. Abazari, Tarlan</th>
+                <td>Mr. He, Lianjie</th>
+                <td>Ms. Martins Gnecco, Veronica</th>
+                <td>Mr. silva, miguel</th>
+                <td>Ms. Xiao, Yao</th>
+              </tr>
+              <tr>
+                <td>Mr. Arumägi, Endrik</td>
+                <td>Mr. Ivanov, Dmitry</td>
+                <td>Ms. Martins Pinto, Mônica</td>
+                <td>Ms. Surapaneni, Amulya</td>
+                <td>Ms. Xu, Luyi</td>
+              </tr>
+              <tr>
+                <td>Mr. Barbedienne, Romain</td>
+                <td>Mr. JAY, Arnaud</td>
+                <td>Mr. McDowell, Timothy</td>
+                <td>Mr. Swedberg, Nicholas</td>
+                <td>Mr. Xu, Wenlong</td>
+              </tr>
+              <tr>
+                <td>Mr. Barnaby, Charles S.</td>
+                <td>Mr. Jia, Wenqi</td>
+                <td>Ms. Mohammed Abelrahman, Yasmine Osman</td>
+                <td>Mr. Tian, Bowen</td>
+                <td>Mr. Xu, Yukun</td>
+              </tr>
+              <tr>
+                <td>Mr. Blanes Restoy, Luis Miguel</td>
+                <td>Mr. Kang, Xuyuan</td>
+                <td>Mr. Morovat, Navid</td>
+                <td>Mr. Tian, Shaochen</td>
+                <td>Ms. YANG, DI</td>
+              </tr>
+              <tr>
+                <td>Ms. Chen, Chen</td>
+                <td>Ms. Katia, Riwayat</td>
+                <td>Ms. Ness, Maria Coral</td>
+                <td>Ms. Wang, Qiaochu</td>
+                <td>Mr. Yang, Tao</td>
+              </tr>
+              <tr>
+                <td>Ms. Chen, Xia</td>
+                <td>Mr. Khare, Vaibhav Rai</td>
+                <td>Mr. Neymark, Joel Steven</td>
+                <td>Ms. Wang, Rufei</td>
+                <td>Ms. Yang, Tao</td>
+              </tr>
+              <tr>
+                <td>Mr. de Oliveira, Tayzer Damasceno</td>
+                <td>Ms. Kouhirostamkolaei, Mahtab</td>
+                <td>Mr. Norouziasas, Alireza</td>
+                <td>Mr. Wang, Shuwei</td>
+                <td>Mr. Yang, Yikun</td>
+              </tr>
+              <tr>
+                <td>Ms. Ding, Yaqian</td>
+                <td>Ms. Li, Cui</td>
+                <td>Mr. Ono, Eikichi</td>
+                <td>Mr. Wang, Zherui</td>
+                <td>Ms. Yu, Yanlei</td>
+              </tr>
+              <tr>
+                <td>Mr. Dou, Hongwen</td>
+                <td>Mr. Li, Guowen</td>
+                <td>Mr. Qin, Qiwei</td>
+                <td>Mr. Wei, Mingjun</td>
+                <td>Ms. Zhang, Qi</td>
+              </tr>
+              <tr>
+                <td>Ms. Dumitrascu, Luminita</td>
+                <td>Ms. Li, Shiyao</td>
+                <td>Mr. Rahif, Ramin</td>
+                <td>Mr. Wei, Xiaobin</td>
+                <td>Ms. Zhong, Hua</td>
+              </tr>
+              <tr>
+                <td>Mr. Ehlers, Nico</td>
+                <td>Mr. Liang, Yumin</td>
+                <td>Ms. Rathore, Isha</td>
+                <td>Ms. Wei, Yun</td>
+                <td>Ms. Zhuang, Xinwei</td>
+              </tr>
+              <tr>
+                <td>Mr. Feng, Fan</td>
+                <td>Mr. Liu, Zhaoru</td>
+                <td>Mr. Rehault, Nicolas</td>
+                <td>Mr. Wirnsberger, Markus</td>
+                <td>Ms. Zong, Chujun</td>
+              </tr>
+              <tr>
+                <td>Mr. Forouzandeh, Nima</td>
+                <td>Ms. Luo, Yimo</td>
+                <td>Mr. Sadevi, Kuladeep Kumar</td>
+                <td>Mr. wurtz, etienne</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Mr. Gergely, László Zsolt</td>
+                <td>Mr. Ma, Mingyao</td>
+                <td>Mr. Schildt, Maximilian</td>
+                <td>Ms. Xia, Lili</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Ms. Goiw, Tayseer Basheer</td>
+                <td>Ms. Mahmoud, Rana</td>
+                <td>Mr. Schumann, Mathieu</td>
+                <td>Mr. Xia, Yunfei</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Mr. Groesdonk, Philip</td>
+                <td>Mr. Malayao, Robert</td>
+                <td>Mr. Sievers, Felix Michael</td>
+                <td>Ms. Xiao, Tong</td>
+                <td></td>
+              </tr>
+            </tbody>
+        </table>
+
     </div>
 
     <div class="row">

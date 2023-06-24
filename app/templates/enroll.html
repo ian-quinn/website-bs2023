@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                <h1 class="text-dark">Call for <strong>Reviewers</strong>!</h1>
+                <h1 class="text-dark">Contribute as <strong>Reviewer</strong></h1>
             </div>
             <div class="col-md-4 order-1 order-md-2 align-self-center">
                 <ul class="breadcrumb d-block text-md-end">
@@ -22,28 +22,26 @@
 <div class="container pt-2 pb-4">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <p>BS2023 uses a <strong>double-blinded</strong> peer review process to ensure a high-quality academic discussion. Reviewers are expected to provide reviews in a timely, collegial, and constructive manner, to BS2023 chairs/editors about the merits of submissions in terms of quality and contribution to the field of building simulation. </p>
-            <p>BS2023 is looking for researchers interested in helping on our <strong>Scientific Committee</strong>, with the review process of abstracts/papers/reports. Your ability to be objective, fair, and insightful in the evaluation of manuscripts is most in-demand to shape BS2023 in its best form. We need your help to get more papers out of the field to share good practices and ideas.</p>
-            <p>If you are interested, please read through the following terms and fill in the application form below. You will then be added to our <strong>reviewer database</strong>, and we will respond to your inquiry shortly. You do not have to register again if you have notified us of your interest, either by email or by IBPSA survey.</p>
+            <p>We thank all reviewers for your objective, insightful evaluations. Your contribution is acknowledged on the <a href="{{ url_for('committee', _anchor='reviewer') }}">committee</a> page, as well as a certificate that can be retrieved by your ConfTool account email down below.</p>
+
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+            <div>
+                {% for category, message in messages %}
+                {% if category == 'warning' %}
+                <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
 
             <div class="card my-5" style="background-color: #f9f9f9">
                 <div class="card-body">
-
-                    {% with messages = get_flashed_messages(with_categories=True) %}
-                    {% if messages %}
-                    <div>
-                        {% for category, message in messages %}
-                        {% if category == 'warning' %}
-                        <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
-                            {{ message }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                            </button>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                    {% endwith %}
 
                     <form class="contact-form" action="{{ url_for('get_cert') }}" method="POST" enctype="multipart/form-data">
                         <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
@@ -64,6 +62,10 @@
 
                 </div>
             </div>
+
+            <p>Building Simulation Conference uses a <strong>double-blinded</strong> peer review process to ensure a high-quality academic discussion. Reviewers are expected to provide reviews in a timely, collegial, and constructive manner, to BS2023 chairs/editors about the merits of submissions in terms of quality and contribution to the field of building simulation. </p>
+            <p>In future editions, you are welcome to help on our <strong>Scientific Committee</strong>, with the review process of abstracts/papers/reports. Your ability to be objective, fair, and insightful in the evaluation of manuscripts is most in-demand to shape Building Simulation in its best form. We need your help to get more papers out of the field to share good practices and ideas.</p>
+            <p>If you are interested in reviewing for our next BS event, please read through the following terms and fill in the application form below. You will then be added to our <strong>reviewer database</strong>, and we will contact you when next event comes.</p>
 
             <hr class="solid my-5">
 
@@ -184,7 +186,7 @@
                             </div>
                             <div class="form-group col-md-6 mb-0">
                                 <label class="form-label mb-1 text-2"><span style="color: #cd563e;">✱</span> Denotes required field</label>
-                                {{ form_apply.submit(type="submit", value="Register as reviewer for BS2023", class="btn btn-outline-danger w-100") }}
+                                {{ form_apply.submit(type="submit", value="Register as reviewer", class="btn btn-outline-danger w-100") }}
                             </div>
                         </div>
                     </form>

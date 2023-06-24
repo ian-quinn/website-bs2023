@@ -393,9 +393,22 @@ def get_cert():
                 # print(output_path, file=sys.stdout)
                 certificates[0].filename = certificate_name
                 db.session.commit()
-            msg = f'If the download has not started automatically, click \
-                <a href="{ url_for("download_certificate", cert_id=certificates[0].id) }" target="_blank">here</a>.'
-            return redirect(url_for('download_certificate', cert_id=certificates[0].id))
+            if not certificates[0].filename_letter:
+                bonifide_name = f'letter_{email}.pdf'
+                resource_path = os.path.join(current_app.root_path, app.config['WKRESOURCE_PATH'])
+                output_path = os.path.join(app.config['CERT_PATH'], bonifide_name)
+                printpdf.print_bonafide(certificates[0].firstname + " " + certificates[0].lastname, 
+                    certificates[0].title, certificates[0].company, certificates[0].address, 
+                    certificates[0].city, certificates[0].country, certificates[0].num_abs, certificates[0].num_paper, 
+                    app.config['WKHTMLTOPDF_PATH'], resource_path, output_path)
+                # print(output_path, file=sys.stdout)
+                certificates[0].filename_letter = bonifide_name
+                db.session.commit()
+            msg = f'PDF printed. Click here to download your \
+                <a href="{ url_for("download_certificate", cert_id=certificates[0].id, type_id=1) }" target="_blank">certificate</a> \
+                / <a href="{ url_for("download_certificate", cert_id=certificates[0].id, type_id=0) }" target="_blank">bonifide letter</a>.'
+            flash(Markup(msg), 'warning')
+            return redirect(url_for('reviewer'))
         else:
             msg = "No record found."
         flash(msg, 'warning')
@@ -415,12 +428,16 @@ def download_reservation(booking_id):
     path = os.path.join(current_app.root_path, app.config['BOOKING_PATH'])
     return send_from_directory(path, accommodation.filename, as_attachment=True, attachment_filename="%s" % accommodation.filename)
 
-@app.route('/download/certificate/<int:cert_id>', methods=['GET', 'POST'])
-def download_certificate(cert_id):
+@app.route('/download/certificate/<int:cert_id><int:type_id>', methods=['GET', 'POST'])
+def download_certificate(cert_id, type_id):
     certificate = Certificate.query.get_or_404(cert_id)
     path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
-    return send_from_directory(path, certificate.filename, 
-        as_attachment=True, attachment_filename="%s" % certificate.filename)
+    if type_id == 1:
+        return send_from_directory(path, certificate.filename, 
+            as_attachment=True, attachment_filename="%s" % certificate.filename)
+    else:
+        return send_from_directory(path, certificate.filename_letter, 
+            as_attachment=True, attachment_filename="%s" % certificate.filename_letter)
 
 
 # -------------------------- ERROR ----------------------------- #
