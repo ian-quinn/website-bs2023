@@ -52,27 +52,38 @@
     <div class="row py-4">
         <div class="col-lg-6">
             <h4 class="mt-2 mb-1">Contact</h4>
-            <ul class="list list-icons list-icons-style-2 mt-2">
-                <li><i class="fas fa-map-marker-alt"></i>1239 Siping Road, Shanghai, China</li>
-                <li><i class="fas fa-envelope"></i>
-                    <a href="mailto:info@bs2023.org">info@bs2023.org</a> (general information)<br>
-                    <a href="mailto:sponsor@bs2023.org">sponsor@bs2023.org</a> (sponsorship affairs)<br>
-                    <a href="mailto:student@bs2023.org">student@bs2023.org</a> (student competition)
-                </li>
-                <li><i class="fab fa-facebook-f"></i><a href="https://www.facebook.com/Building-Simulation-2023-104965802024385" target="_blank">@bs2023</a></li>
-                <li><i class="fab fa-twitter"></i><a href="https://twitter.com/BS2023Shanghai" target="_blank">@BS2023Shanghai</a></li>
-                <li><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/company/77680241/" target="_blank">@bs2023</a></li>
-                <li><i class="fab fa-weixin"></i><a href="" id="button" aria-describedby="tooltip">@IBPSA_CHINA</a>
-                    <div id="tooltip" role="tooltip">
-                        <img src="static/img/code.jpg" style="width: 100px;">
-                        <div id="arrow" data-popper-arrow></div>
-                    </div>
-                </li>
-            </ul>
-            <h4 class="mt-4 mb-2">Working hours</h4>
-            <p class="mb-0 text-3">AM 2:00-5:00 GMT+8, workdays. Please whitelist info@bs2023.org to make sure our newsletter won't be blocked.😀</p>
-
+            <div class="row">
+                <div class="col-md-6"> 
+                    <ul class="list list-icons list-icons-style-2 mt-2">
+                        <li><i class="fas fa-map-marker-alt"></i>1239 Siping Road, Shanghai, China</li>
+                        <li><i class="fas fa-envelope"></i>
+                            <a href="mailto:info@bs2023.org">info@bs2023.org</a><br>
+                            <a href="mailto:sponsor@bs2023.org">sponsor@bs2023.org</a><br>
+                            <a href="mailto:student@bs2023.org">student@bs2023.org</a>
+                        </li>
+                        <li><i class="fab fa-facebook-f"></i><a href="https://www.facebook.com/Building-Simulation-2023-104965802024385" target="_blank">@bs2023</a></li>
+                        <li><i class="fab fa-twitter"></i><a href="https://twitter.com/BS2023Shanghai" target="_blank">@BS2023Shanghai</a></li>
+                        <li><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/company/77680241/" target="_blank">@bs2023</a></li>
+                        <li><i class="fab fa-weixin"></i><a href="" id="button" aria-describedby="tooltip">@IBPSA_CHINA</a>
+                            <div id="tooltip" role="tooltip">
+                                <img src="static/img/code.jpg" style="width: 100px;">
+                                <div id="arrow" data-popper-arrow></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6" style="text-align:center;">
+                    <p>Scan the QR code and join the conference WeChat group!</p>
+                    <img src="{{ url_for('static', filename='img/wechat_qr.jpg')}}" width="200px" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <h4 class="mt-4 mb-2">Working hours</h4>
+                <p class="mb-0 text-3">AM 2:00-5:00 GMT+8, workdays. Please whitelist info@bs2023.org to make sure our newsletter won't be blocked.😀</p>
+            </div>
         </div>
+
         <div id="messageBox" class="col-lg-6">
             <h4 class="mt-2 mb-1">Leave a message</h4>
             {% with messages = get_flashed_messages(with_categories=True) %}
