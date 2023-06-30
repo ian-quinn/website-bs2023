@@ -155,10 +155,10 @@
                             </div>
                         </article>
 
-                        <article class="timeline-box left active">
+                        <article class="timeline-box left">
                             <div class="timeline-box-arrow"></div>
                             <div class="p-2">
-                                <h2 class="font-weight-semibold text-5 text-muted mb-0"><a href="{{ url_for('registration') }}">Early registration open</a></h2>
+                                <h2 class="font-weight-semibold text-5 text-muted mb-0">Early registration open</h2>
                             </div>
                         </article>
 
@@ -200,7 +200,7 @@
                             </div>
                         </article>
 
-                        <article class="timeline-calendar left" id="now">
+                        <article class="timeline-calendar left">
                             <div class="p-2 text-end">
                                 <span><i class="far fa-calendar-alt"></i> June 15, 2023 </span><br>
                             </div>
@@ -213,12 +213,8 @@
                                 <span class="text-muted">Your work will be labeled as accept, minor revise or reject. You will have a week time to polish the paper and re-submit the camera-ready version.</span>
                             </div>
                         </article>
-
-                        <div class="timeline-current">
-                            <span>NOW</span>
-                        </div>
-
-                        <article class="timeline-box left">
+                        
+                        <article class="timeline-box left" id="now">
                             <div class="timeline-box-arrow"></div>
                             <div class="p-2">
                                 <h2 class="font-weight-semibold text-5 text-muted mb-0">Early-bird closed</h2>
@@ -232,10 +228,15 @@
                             </div>
                         </article>
 
+                        <div class="timeline-current">
+                            <span>NOW</span>
+                        </div>
+
+
                         <article class="timeline-box left">
                             <div class="timeline-box-arrow"></div>
                             <div class="p-2">
-                                <h2 class="font-weight-semibold text-5 text-muted mb-0">Online registration closed</h2>
+                                <h2 class="font-weight-semibold text-5 text-muted mb-0"><a href="{{ url_for('registration') }}">Online registration</a> closed</h2>
                             </div>
                         </article>
                         <article class="timeline-calendar right">
