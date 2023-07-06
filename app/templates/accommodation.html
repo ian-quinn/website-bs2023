@@ -281,6 +281,9 @@
 
                         <div class="hidden-visa-options more-info">
                             <div class="row">
+                                <label class="form-label mb-1 text-2">After full payment is received, you can download your reservation proof <a href="{{ url_for('guide_accommodation')}}" target="_blank"> here, for visa application. Contact <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a> if urgent.</label>
+                            </div>
+                            <div class="row">
                                 <div class="form-group col">
                                     <label class="form-label mb-1 text-2">Your company or organization/department (optional)</label>
                                     {{ form.company(class="form-control text-3 h-auto") }}
@@ -345,10 +348,10 @@
         <div class="col-lg-4 order-1 order-lg-2">
             <h4>Notice</h4>
             <ul>
-                <li>Limited number of rooms available. Book now at a preferential price!</li>
-                <li>The cancellation policy is subject to the regulations of the hotel.</li>
+                <li>Limited number of rooms available. Book now at a preferential price before July 10th!</li>
                 <li>Room held up to 7 days before a successful payment. <a href="{{ url_for('guide_accommodation')}}">Payment instructions</a></li>
                 <li>You may retrieve your reservation confirmation by your booking email <a href="{{ url_for('guide_accommodation')}}">here</a>, once your payment has been confirmed.</li>
+                <li>The cancellation policy is subject to the regulations of the hotel.</li>
                 <li>Contact us at <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a> for any questions.</li>
             </ul>
         </div>

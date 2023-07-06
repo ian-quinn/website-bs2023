@@ -33,11 +33,41 @@
             </section>
 
             <section class="toggle">
+                <a class="toggle-title">How can I get an official invitation letter?</a>
+                <div class="toggle-content">
+                    <p>To require an invitation letter to support your visa application, administrative or financial process, please contact <a href="mailto:secretariat@bs2023.org" target="_blank">secretariat@bs2023.org</a> with your specific needs. It is more convenient to apply for a tourist visa (visa-L) for your trip to China, which does not need the invitation letter but only the proof of your itinerary (hotel bookings, plane tickets).</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">Where can I get the hotel reservation proof?</a>
+                <div class="toggle-content">
+                    <p>After your full payment is confirmed (usually in 5 days), you may retrieve your hotel reservation by your booking email (or ConfTool account email) on our <a href="{{ url_for('guide_accommodation') }}" target="_blank">website</a>. Contact <a href="mailto:secretariat@bs2023.org" target="_blank">secretariat@bs2023.org</a> if there is any problem or further requirements.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">I am a reviewer for BS2023. How can my contribution be acknowledged?</a>
+                <div class="toggle-content">
+                    <p>Thanks for your contribution to BS2023! All reviewers are acknowledged on the <a href="{{ url_for('committee') }}" target="_blank">committee</a> page. Also, you can retrieve your reviewer certificate on the <a href="{{ url_for('reviewer') }}" target="_blank">reviewer</a> page.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
+                <a class="toggle-title">I forgot to append the transfer note during the payment. What should I do?</a>
+                <div class="toggle-content">
+                    <p>For payment via bank transfers or Alipay, it takes a few days for us to confirm your payment manually, and longer if there is no payment reference attached. Please send the receipt, transaction number, payment screenshots, or other confirmations via <a href="mailto:secretariat@bs2023.org" target="_blank">secretariat@bs2023.org</a> if your registration/reservation status has been idle for too long.</p>
+                </div>
+            </section>
+
+            <section class="toggle">
                 <a class="toggle-title">What is the quarantine policy in Shanghai?</a>
                 <div class="toggle-content">
                     <p>China has lifted all travel restrictions and quarantines since January 8th. Please refer to <a href="{{ url_for('visa') }}" target="_blank">Visa Policy</a> page or the <a href="http://www.china-embassy.org/eng/lsfw/sjc1/zytz_120351/202203/t20220307_10648507.htm" target="_blank">PRC Embassy</a> website for the updated information.</p>
                 </div>
             </section>
+
+            
 
             <section class="toggle">
                 <a class="toggle-title">...</a>
@@ -74,7 +104,7 @@
                 </div>
                 <div class="col-md-6" style="text-align:center;">
                     <p>Scan the QR code and join the conference WeChat group!</p>
-                    <img src="{{ url_for('static', filename='img/wechat_qr.png')}}" width="200px" />
+                    <img src="{{ url_for('static', filename='img/wechat_qrcode.png')}}" width="200px" />
                 </div>
             </div>
             
