@@ -48,6 +48,8 @@ def print_bonafide(reviewer_name, reviewer_title,
     today_date = datetime.today().strftime("%d %b, %Y")
 
     context = {
+        'res_signature': 'file:///' + os.path.join(resource_path, "cert_signature.png").replace("\\","/"),
+        'res_logo': 'file:///' + os.path.join(resource_path, "bs2023-logo.png").replace("\\","/"),
         'title': reviewer_title,
         'name': reviewer_name, 
         'company': reviewer_company,
