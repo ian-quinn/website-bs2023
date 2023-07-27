@@ -1115,3 +1115,9 @@ a[data-toggle="collapse"] {
     text-align:center;
     margin: 20px;
 }
+
+.brand-logo-color {
+    display: inline-block;
+    text-align:center;
+    margin: 20px;
+}
