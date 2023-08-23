@@ -22,13 +22,72 @@
 <div class="container pt-2 pb-4">
     <div class="mb-5">
         <div class="alert alert-success alert-dismissible" role="message">
-            Submission portal closed.</a>
+            Upload slides, poster, pre-recorded video for your presentation in <a href="https://www.conftool.pro/bs2023" target="_blank">ConfTool</a> before August 31.</a>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
             </button>
         </div>
     </div>
 
-    <section class="mb-2">
+    <section class="mt-5">
+        <h2>Presentation Types</h2>
+        <p>The author of the accepted research paper or project reports will be invited to present their work during BS2023. The designated types are ORAL and POSTER. If you attend the conference online, you can only choose oral presentation. All presenters need to finalize their slides, poster, videos and upload them to the <a href="https://www.conftool.pro/bs2023">ConfTool</a> system before August 31. (a step-by-step <a href="">guide</a></p>
+
+        <div class="row">
+            <div class="col-lg-6 mb-3 mb-lg-0">
+                <div class="card ">
+                    <div class="card-body">
+                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="color: #700f24;">Oral Presentation &nbsp; <i class="far fa-comment"></i></h4>
+                        <p class="card-text">
+                            Each academic session lasts 120 minutes, dedicated to a specific topic in the realm of building simulation. It allocates <b>15 minutes</b> for each oral presentation with slides, plus 2 minutes of Q&A organized flexibly by session chairs. There will be volunteers on site to help you with technical issues and cue you in about the remaining time.<p>
+                        <p class="card-text">
+                            You may follow your own style preparing the slides, by using the template down below as the front page. The slide size should be <b>16:9</b> for widescreen. Sans-serif fonts are recommended to increase readability. Please upload your slides beforehand to the ConfTool system via the "Upload Final" button. </p>
+                        <ul>
+                            <li>Public computer with an internet connection (Windows 11)</li>
+                            <li>MS PowerPoint by default. PDF and HTML accepted</li>
+                            <li>Upload compressed file pack if local resources are linked in slides</li>
+                            <li>Embed fonts in the .pptx file if rare fonts are used</li>
+                            <li>Laser pointer provided</li>
+                        </ul>
+                        <p class="card-text">
+                            <strong class="text-dark">Virtual attendees</strong> will join the online ZOOM conference room for virtual sessions. Same as the physical one, the virtual session allows <b>15 minutes pre-recorded video</b> for each presenter with 2 minutes of Q&A. To ensure a smooth program, please upload the video to the ConfTool system in advance. The ZOOM link will be available in the ConfTool conference agenda, and on the website.</p>
+                        <p class="card-text">
+                            Note that the virtual sessions are hosted each conference day during 7:00-9:00 and 20:00-22:00, open for all participants. Except for the plenary session (live-streaming), the sessions onsite are segregated from the virtual ones. Virtual attendees cannot join the discussion onsite, only can access the recordings published on the website.
+                        </p>
+                        <div class="d-grid">
+                            <a href="{{ url_for('download', file_id=401, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Slide template (.pptx)<span><i class="fas fa-arrow-down ms-1"></i></span></a>
+                        </div>
+                    </div>
+                    <img class="card-img-bottom" src="{{ url_for('static', filename='img/oral.jpg') }}" alt="">
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-3 mb-lg-0">
+                <div class="card ">
+                    <div class="card-body">
+                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="color: #700f24;">Poster Presentation &nbsp; <i class="far fa-image"></i></h4>
+                        <p class="card-text">Poster sessions are organized concurrently with coffee breaks. The attendees may visit the poster gallery and engage with the presenters while enjoying the refreshments. Choosing the poster presentation, you need to make an <b>A0-size</b> poster in color. A0 size equals 841 x 1189 mm or 33.1 x 46.8''. Follow the templates (in MS PowerPoint, Adobe Illustrator, or Photoshop) down below and lead your own creative design.</p>
+                        <p class="card-text">The poster will be displayed both onsite and online. You are allowed to upload a 5-minute video as a brief introduction or supplement material (demo/promo). We will paste a QR code to the poster redirecting visitors to the online resources, so they may "engage" in your absence. If you have more to share via this QR code, contact secretariat@bs2023.org</p>
+                        <p class="card-text">The poster (in JPG or source file) and the video need to be uploaded in the ConfTool system as the second and third final uploads. Other recommendations:</p>
+                        <ul>
+                            <li>A0 size, > 150 DPI, color printing on coated paper</li>
+                            <li>Free content design with header and footer in line with templates</li>
+                            <li>Two-column or four-column layout system is recommended</li>
+                            <li>Using Sans-serif fonts (<a href="https://fonts.google.com/specimen/Montserrat" target="_blank">Montserrat</a>/<a href="https://fonts.google.com/specimen/Open+Sans" target="_blank">Open-Sans</a> for example)</li>
+                            <li>Booth decoration allowed (sticky notes, tear-off flyer, etc.)</li>
+                        </ul>
+                        <p class="card-text">Bring your poster with you, or have it printed locally. Recognizing the inconveniences associated with transporting large posters, we offer options for having your poster printed at local companies. Contact secretariat@bs2023.org if you need it. Put up your poster on the registration day (Sept. 3rd). The poster wall is in a zigzag layout as depicted in the following mock-up.</p>
+                        <div class="d-grid">
+                            <a href="{{ url_for('download', file_id=402, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Poster template (.pptx/.ai/.psd)<span><i class="fas fa-arrow-down ms-1"></i></span></a>
+                        </div>
+                    </div>
+                    <img class="card-img-bottom" src="{{ url_for('static', filename='img/poster.jpg') }}" alt="">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="mt-5 mb-2">
         <h2>Contribution Types</h2>
         <p>As a platform promoting communications from both academy and industry world, BS2023 calls for research papers, project reports and workshop proposals, to best represent the latest breakthroughs in the realm of building simulation.<br>
         If you would like to purpose an event such as invited speech or panel discussion, please contact <a href="mailto:info@bs2023.org">info@bs2023.org</a>.</p>
@@ -41,13 +100,7 @@
                         <p class="card-text">The research paper is 8 pages long, aiming for the latest breakthroughs in the application of building simulations. All papers accepted and presented will be published in the Conference Proceedings, indexed by EI, and open-accessed on the IBPSA website.</p>
                         <div class="d-grid">
                             <a href="{{ url_for('download', file_id=231, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary btn-effect-4 mb-2">Paper template Word <span><i class="fas fa-arrow-down ms-1"></i></span></a>
-                            
                             <a href="{{ url_for('download', file_id=232, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Paper template LaTeX <span><i class="fas fa-arrow-down ms-1"></i></span></a>
-
-                            <a href="{{ url_for('download', file_id=401, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Slide template <span><i class="fas fa-arrow-down ms-1"></i></span></a>
-
-                            <a href="{{ url_for('download', file_id=402, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Poster template <span><i class="fas fa-arrow-down ms-1"></i></span></a>
-                        
                         </div>
                     </div>
                 </div>
@@ -59,12 +112,7 @@
                         <p class="card-text">The 4-page-long project report is case-focused, best demonstrating an effective application of the building simulation. This type of contribution only requires an extended abstract and will not be published in the conference proceedings. We are expecting 1~2 sessions for this kind of contribution.</p>
                         <div class="d-grid">
                             <a href="{{ url_for('download', file_id=221, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary btn-effect-4 mb-2">Report template Word <span><i class="fas fa-arrow-down ms-1"></i></span></a>
-                            
                             <a href="{{ url_for('download', file_id=222, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Report template LaTeX <span><i class="fas fa-arrow-down ms-1"></i></span></a>
-
-                            <a href="{{ url_for('download', file_id=401, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Slide template <span><i class="fas fa-arrow-down ms-1"></i></span></a>
-
-                            <a href="{{ url_for('download', file_id=402, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Poster template <span><i class="fas fa-arrow-down ms-1"></i></span></a>
                         </div>
                     </div>
                 </div>
@@ -165,14 +213,6 @@
                 </ul>
             </div>
         </div>
-    </section>
-
-    <section class="mt-5">
-        <h2>Presentation Types</h2>
-        <p>The author of the accepted research paper or project reports will be invited to present their work during BS2023. The designated types are ORAL and POSTER presentation. Please indicate your preference when submitting the manuscript.<br>
-        <b>ORAL</b> allows the speakers a 15-20 minutes time slot to present their work during the parallel sessions. It is the most traditional and welcomed way to introduce the research thoroughly. BS2023 continues to be hybrid, but we encourage you to participate in the physical one for a better experience since all travel restrictions to China have been lifted.<br>
-        <b>POSTER</b> provides a more interactive discussion. There will be poster sessions for you to dive into your research and social networking at the same time. To reach a wider audience, we will provide poster stands/kiosks on-site and on the website. All posters are expected to be attended during the poster session. It is not recommended for online attendees to choose this type of presentation. We will decide whether to use online poster sessions based on the overall preference of participants.</p>
-
     </section>
 
     <section class="mt-5" id="policy">
