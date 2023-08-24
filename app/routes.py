@@ -58,6 +58,10 @@ def registration():
 def publication():
     return render_template('publication.html')
 
+@app.route('/guide/finalupload')
+def guide_finalupload():
+    return render_template('guide_finalupload.html')
+
 @app.route('/guide/author')
 def guide_author():
     return render_template('guide_author.html')

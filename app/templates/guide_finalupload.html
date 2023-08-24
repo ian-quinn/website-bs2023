@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Submission guide{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark"><strong>ConfTool</strong> final uploads</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>ConfTool</li>
+                    <li class="active">Submit</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container pt-2 pb-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <p>Dear authors, welcome to the last step before your presentation at BS2023. Please login to the <strong>ConfTool</strong> system at <a href="https://www.conftool.pro/bs2023/" garget="_blank">https://www.conftool.pro/bs2023/</a> and complete the final uploads.</p>
+            <p>After login, click the "Your Submissions" button on the landing page.</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/final-1.png') }}" alt="Main dashboard">
+            <p></p>
+            <p>Then you will see "Final Upload" button appears in your accepted contributions. Click it.</p>
+            <img width="100%" src="{{ url_for('static', filename='img/guide/final-2.png') }}" alt="Your submissions">
+            <p></p>
+            <p>In the page of Final Upload, you will be asked to sign the copyright that authorizes BS2023 to use the recordings of your presentation for publication and distribution. In additional, by uploading the presentation video and poster, you allow them to be exhibited in the online poster gallery for all registered attendees of BS2023. At the bottom you may see three slots for your final uploads. All files must be uploaded before <b class="text-black">August 31, 23:59 CST</b>. Overwrite existing files if necessary. Here is the check list for the final uploads:</p>
+            
+            <p></p>
+            <ul>
+                <li><strong>All authors</strong> - Upload the camera-ready PDF version of your paper/report, in the 1<sup>st</sup> slot.</li>
+                <li><strong>Oral onsite</strong> - Upload the presentation slides, in the 2<sup>nd</sup> slot. Note that if local video or macro resources are linked in your slides, you should use relative paths and pack them in a folder and upload the ZIP file.</li>
+                <li><strong>Oral online</strong> - Upload the presentation video (≤ 15 minutes, ≤ 230 MB), in the 3<sup>rd</sup> slot. MP4 format is recommended. However, you can upload ZIP file as well.</li>
+                <li><strong>Poster</strong> - Upload the poster (in PDF, JPG or source file) in the 2<sup>nd</sup> slot, and the presentation video (≤ 5 minutes) in the 3<sup>rd</sup> slot. </li>
+            </ul>
+
+            <img width="100%" src="{{ url_for('static', filename='img/guide/final-3.png') }}" alt="Final uploads">
+            <p></p>
+            <p>That's it! Gook luck with your presentation!</p>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
