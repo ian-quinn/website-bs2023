@@ -155,7 +155,7 @@
 			</tr>
 			<tr>
 				<td class="right"><b>Status</b> 预定状态</td>
-				<td>Guaranteed</td>
+				<td>{% if payment_method %}Guaranteed{% else %}Non-Guaranteed{% endif %}</td>
 				<td class="right"><b>Departure Transfer</b> 送车信息</td>
 				<td> - </td>
 			</tr>
