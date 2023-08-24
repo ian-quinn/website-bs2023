@@ -105,8 +105,10 @@ def guide_accommodation():
                 title = "Mrs."
             elif reservations[0].title == 2:
                 title = "Ms."
-            else:
+            elif reservations[0].title == 3:
                 title = "Mr."
+            else:
+                title = ""
 
             msg = f'Here is your booking information: <br/>' + \
                 f'<strong>1</strong> Deluxe Room | Type: <strong>{roomtype}</strong> bed | <strong>{days:.0f}</strong> nights<br/>' + \
