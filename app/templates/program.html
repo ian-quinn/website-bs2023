@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% block title %}Program{% endblock %}
 
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/program-table.css') }}">
+{% endblock %}
+
 {% block content %}
 <section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
     <div class="container">
@@ -21,11 +26,154 @@
 
 <div class="container pt-2 pb-4">
     <div class="row justify-content-center">
-        <div class="col-lg-9 g-0">
-            <p>Preview detailed conference program in ConfTool: <a href="https://www.conftool.pro/bs2023/sessions.php" target="_blank">https://www.conftool.pro/bs2023/sessions.php</a>
-            <div>
-                <img src="{{ url_for('static', filename='img/program.jpg') }}" width="100%">
-            </div>
+        <div class="col-lg-8 g-0" style="padding: 5px;">
+            <p>Preview program book in ConfTool: <a href="https://www.conftool.pro/bs2023/sessions.php" target="_blank">https://www.conftool.pro/bs2023/sessions.php</a></p>
+
+            <section style="padding: 50px 0px;">
+
+                <h4 class="mb-5">Program at a glance (chronologically ordered)</h4>
+
+                <table class="tg">
+                    <thead>
+                      <tr style="height: 30px">
+                        <th class="tg-timestamp"><div>7:00</div></th>
+                        <th class="tg-xvon">Sept. 3</th>
+                        <th class="tg-xvon" colspan="2">Sept. 4</th>
+                        <th class="tg-xvon" colspan="2">Sept. 5</th>
+                        <th class="tg-xvon" colspan="2">Sept. 6</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="height: 96px">
+                        <td class="tg-timestamp" style="border:none;"><div>9:00</div></td>
+                        <td class="tg-void" rowspan="4" style="border: none;"></td>
+                        <td class="tg-void" colspan="2" style="border: none;"></td>
+                        <td class="tg-virtual" colspan="2">Virtual Sessions</td>
+                        <td class="tg-virtual" colspan="2">Virtual Sessions</td>
+                      </tr>
+                      <tr style="height: 24px">
+                        <td class="tg-timestamp" style="border:none;"><div>9:30</div></td>
+                        <td class="tg-plenary" colspan="2">Opening Ceremony</td>
+                        <td class="tg-plenary" colspan="2">IBPSA Award</td>
+                        <td class="tg-plenary" colspan="2" rowspan="2">Keynote Speech</td>
+                      </tr>
+                      <tr style="height: 12px">
+                        <td class="tg-timestamp" style="border:none;"><div>9:45</div></td>
+                        <td class="tg-plenary" colspan="2" rowspan="3">Keynote Speech</td>
+                        <td class="tg-leisure" colspan="2" rowspan="2">Break + Poster</td>
+                      </tr>
+                      <tr style="height: 12px">
+                        <td class="tg-timestamp" style="border:none;"><div>10:00</div></td>
+                        <td class="tg-leisure" colspan="2">Break</td>
+                      </tr>
+                      <tr style="height: 12px">
+                        <td class="tg-timestamp"><div>10:15</div></td>
+                        <td class="tg-c2ow" rowspan="15" width="10%">Registration</td>
+                        <td class="tg-c3ow" colspan="2" rowspan="3"><a>Invited Speech<br>Parallel Sessions</td>
+                        <td class="tg-c3vt" rowspan="3">Invited Speech<br>Parallel Sessions</td>
+                        <td class="tg-techtour" rowspan="3">Tongji<br>Student<br>Center</td>
+                      </tr>
+                      <tr style="height: 12px">
+                        <td class="tg-timestamp"><div>10:30</div></td>
+                        <td class="tg-leisure" colspan="2">Group Photo</td>
+                      </tr>
+                      <tr style="height: 84px">
+                        <td class="tg-timestamp"><div>12:15</div></td>
+                        <td class="tg-c3ow" colspan="2" rowspan="2">Invited Speech<br>Parallel Sessions</td>
+                      </tr>
+                      <tr style="height: 12px">
+                        <td class="tg-timestamp"><div>12:30</div></td>
+                        <td class="tg-leisure" colspan="2" rowspan="2">Lunch</td>
+                        <td class="tg-leisure" colspan="2" rowspan="2">Lunch</td>
+                      </tr>
+                      <tr style="height: 48px">
+                        <td class="tg-timestamp"><div>13:30</div></td>
+                        <td class="tg-leisure" colspan="2">Lunch</td>
+                      </tr>
+                      <tr style="height: 36px">
+                        <td class="tg-timestamp"><div>14:15</div></td>
+                        <td class="tg-plenary" colspan="2">Keynote Speech</td>
+                        <td class="tg-c3vt" rowspan="3">Invited Speech<br>Parallel Sessions</td>
+                        <td class="tg-techtour" rowspan="3">Shanghai<br>Tower</td>
+                        <td class="tg-c3ow" colspan="2" rowspan="3">Invited Speech<br>Parallel Sessions</td>
+                      </tr>
+                      <tr style="height: 12px">
+                        <td class="tg-timestamp"><div>14:30</div></td>
+                        <td class="tg-leisure" colspan="2">Break</td>
+                      </tr>
+                      <tr style="height: 48px">
+                        <td class="tg-timestamp"><div>15:30</div></td>
+                        <td class="tg-c3vt" rowspan="3">Invited Speech<br>Parallel Sessions</td>
+                        <td class="tg-void"></td>
+                      </tr>
+                      <tr style="height: 24px">
+                        <td class="tg-timestamp"><div>16:00</div></td>
+                        <td class="tg-techtour" rowspan="3">Disney<br>Energy<br>Center</td>
+                        <td class="tg-leisure" colspan="2">Break + Poster</td>
+                        <td class="tg-leisure" colspan="2">Break</td>
+                      </tr>
+                      <tr style="height: 24px">
+                        <td class="tg-timestamp"><div>16:30</div></td>
+                        <td class="tg-c3vt" rowspan="3">Invited Speech<br>Parallel Sessions</td>
+                        <td class="tg-techtour" rowspan="3">City<br>Walk</td>
+                        <td class="tg-plenary" colspan="2" rowspan="2">Closing Ceremony</td>
+                      </tr>
+                      <tr style="height: 24px">
+                        <td class="tg-timestamp"><div>17:00</div></td>
+                        <td class="tg-leisure">Break + Poster</td>
+                      </tr>
+                      <tr style="height: 48px">
+                        <td class="tg-timestamp"><div>18:00</div></td>
+                        <td class="tg-c3ow" colspan="2" rowspan="2">Invited Speech<br>Parallel Sessions</td>
+                        <td class="tg-void" colspan="2" rowspan="8" style="border: none;"></td>
+                      </tr>
+                      <tr style="height: 24px">
+                        <td class="tg-timestamp"><div>18:30</div></td>
+                        <td class="tg-leisure" colspan="2" rowspan="2">Shuttle<br>Venue - Huangpu River</td>
+                      </tr>
+                      <tr style="height: 48px">
+                        <td class="tg-timestamp"><div>19:30</div></td>
+                        <td class="tg-leisure" rowspan="3">Banquet</td>
+                        <td class="tg-void" rowspan="2"></td>
+                      </tr>
+                      <tr style="height: 24px">
+                        <td class="tg-timestamp"><div>20:00</div></td>
+                        <td class="tg-leisure" rowspan="3">River cruise</td>
+                        <td class="tg-void"></td>
+                      </tr>
+                      <tr style="height: 24px">
+                        <td class="tg-timestamp" style="border:none;"><div>20:30</div></td>
+                        <td class="tg-void" rowspan="4" style="border: none;"></td>
+                        <td class="tg-virtual" rowspan="3">Virtual<br>Sessions</td>
+                        <td class="tg-virtual" rowspan="3">Virtual<br>Sessions</td>
+                      </tr>
+                      <tr style="height: 48px">
+                        <td class="tg-timestamp" style="border:none;"><div>21:30</div></td>
+                        <td class="tg-void" rowspan="2" style="border:none;"></td>
+                      </tr>
+                      <tr style="height: 24px">
+                        <td class="tg-timestamp" style="border:none;"><div>22:00</div></td>
+                        <td class="tg-void" style="border:none;"></td>
+                      </tr>
+                      <tr style="height: 36px">
+                        <td class="tg-timestamp" style="border:none;"><div>22:45</div></td>
+                        <td class="tg-virtual" colspan="2">Virtual Keynote</td>
+                        <td class="tg-virtual" colspan="2">Virtual Keynote</td>
+                      </tr>
+                    </tbody>
+                </table>
+                
+            </section>
+
+
+            <section style="padding: 50px 0px;">
+                <h4>Program at a glance (expanded by venue)</h4>
+                <p><a href="{{ url_for('download', file_id=501, next=request.full_path) }}">Download the PDF version</a></p>
+                <div>
+                    <img src="{{ url_for('static', filename='img/program-venue.jpg') }}" width="100%">
+                </div>
+            </section>
+
         </div>
     </div>
     

@@ -1,0 +1,91 @@
+/* ----------------------------------------------------------------------- */
+/* program page - conference schedule - program table */
+
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-ynyl{background-color:#c2e6f0;border-color:inherit;text-align:center;vertical-align:middle;}
+.tg .tg-5byz{background-color:#c2e6f0;border-color:inherit;text-align:left;vertical-align:middle}
+.tg .tg-c3ow{background-color:#ffffff;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-llyw{background-color:#c0c0c0;border-color:inherit;text-align:left;vertical-align:middle}
+
+.tg .tg-xvon{background-color:#c74e40;border-color:inherit;color:#ffffff;font-weight:bold;text-align:center;vertical-align:middle}
+.tg .tg-plenary{background-color:#fbe3d6;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-leisure{background-color:#fff9e7;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-void{}
+
+.tg .tg-c2ow {
+    background-color:#ffffff;
+    writing-mode: vertical-lr;
+    -webkit-text-orientation: revert;
+    padding: 4px;
+}
+
+.tg .tg-c3vt {
+    background-color:#ffffff;
+}
+
+.tg .tg-virtual {
+    background-color: #ededed;
+}
+
+.tg .tg-techtour {
+    background-color: #e9f2f3;
+}
+
+.tg {
+    table-layout: fixed;
+    border-collapse:collapse;
+    border-spacing:0;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 500;
+    line-height: 1.2em;
+    width: 100%;
+    height: auto;
+    background-image: url("line.png");
+    background-repeat: repeat; 
+}
+
+.tg tr td {
+    padding: 0; margin: 0;
+    overflow: hidden;
+/*    text-overflow: ellipsis;*/
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .tg td {
+        font-size: 0.8em;
+        line-height: 1em;
+    }
+    .tg .tg-c3vt {
+        writing-mode: vertical-lr;
+        -webkit-text-orientation: revert;
+        padding: 4px;
+    }
+    .tg .tg-timestamp {
+        font-size: 0.8em;
+    }
+}
+
+.tg .tg-timestamp {
+    background-color: #ffffff;
+    width: 30px;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    font-size: 0.9em;
+    vertical-align: bottom;
+    text-align: right;
+    padding: 0px;
+    margin: 0px;
+}
+
+.tg .tg-timestamp div{
+    padding-right: 2px;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, #fff 75%, #000 76%);
+    border-image-slice: 1;
+}

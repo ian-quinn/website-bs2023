@@ -172,6 +172,10 @@ def theme():
 def keynote():
     return render_template('keynote.html')
 
+@app.route('/invited')
+def invited():
+    return render_template('invited.html')
+
 @app.route('/program')
 def program():
     return render_template('program.html')
