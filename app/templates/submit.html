@@ -35,6 +35,8 @@
         <div class="row">
             <div class="col-lg-6 mb-3 mb-lg-0">
                 <div class="card">
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/oral_.webp') }}" alt="">
+
                     <div class="card-body">
                         <h4 class="card-title mb-1 text-4 font-weight-bold" style="color: #000000;">Oral Presentation &nbsp; <i class="far fa-comment"></i></h4>
                         <p></p>
@@ -58,12 +60,14 @@
                             <a href="{{ url_for('download', file_id=401, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Slide template (.pptx)<span><i class="fas fa-arrow-down ms-1"></i></span></a>
                         </div>
                     </div>
-                    <img class="card-img-bottom" src="{{ url_for('static', filename='img/oral.jpg') }}" alt="">
+                    
                 </div>
             </div>
 
             <div class="col-lg-6 mb-3 mb-lg-0">
                 <div class="card ">
+                    <img class="card-img-bottom" src="{{ url_for('static', filename='img/poster_.webp') }}" alt="">
+
                     <div class="card-body">
                         <h4 class="card-title mb-1 text-4 font-weight-bold" style="color: #000000;">Poster Presentation &nbsp; <i class="far fa-image"></i></h4>
                         <p></p>
@@ -82,7 +86,7 @@
                             <a href="{{ url_for('download', file_id=402, next=request.full_path) }}" target="_blank" class="btn btn-outline btn-quaternary mb-2">Poster template (.pptx/.ai/.psd)<span><i class="fas fa-arrow-down ms-1"></i></span></a>
                         </div>
                     </div>
-                    <img class="card-img-bottom" src="{{ url_for('static', filename='img/poster.jpg') }}" alt="">
+                    
                 </div>
             </div>
         </div>
