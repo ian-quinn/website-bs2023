@@ -214,7 +214,7 @@
                             </div>
                         </article>
                         
-                        <article class="timeline-box left" id="now">
+                        <article class="timeline-box left">
                             <div class="timeline-box-arrow"></div>
                             <div class="p-2">
                                 <h2 class="font-weight-semibold text-5 text-muted mb-0">Early-bird closed</h2>
@@ -228,21 +228,35 @@
                             </div>
                         </article>
 
-                        <div class="timeline-current">
-                            <span>NOW</span>
-                        </div>
-
-
-                        <article class="timeline-box left">
+                        <article class="timeline-box left" id="now">
                             <div class="timeline-box-arrow"></div>
                             <div class="p-2">
-                                <h2 class="font-weight-semibold text-5 text-muted mb-0"><a href="{{ url_for('registration') }}">Online registration</a> closed</h2>
+                                <h2 class="font-weight-semibold text-5 text-muted mb-0">Online registration closed</h2>
                             </div>
                         </article>
                         <article class="timeline-calendar right">
                             <div class="p-2">
                                 <div class="post-meta">
                                     <span><i class="far fa-calendar-alt"></i> August 25, 2023 </span><br>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="timeline-current">
+                            <span>NOW</span>
+                        </div>
+
+                        <article class="timeline-box left active">
+                            <div class="timeline-box-arrow"></div>
+                            <div class="p-2">
+                                <h2 class="font-weight-semibold text-6 mb-0 ">Final uploads!</h2>
+                                <span class="text-muted">Upload your presentation files (slides/poster/video) in the ConfTool system. A step by step guide <a href="{{ url_for('guide_finalupload') }}">here</a>.</span>
+                            </div>
+                        </article>
+                        <article class="timeline-calendar right">
+                            <div class="p-2">
+                                <div class="post-meta">
+                                    <span><i class="far fa-calendar-alt"></i> August 31, 2023 </span><br>
                                 </div>
                             </div>
                         </article>
@@ -256,7 +270,8 @@
                         <article class="timeline-box right post post-medium">
                             <div class="timeline-box-arrow"></div>
                             <div class="p-2">
-                                <h2 class="font-weight-semibold text-5 text-muted line-height-4 mt-2 mb-2">IBPSA sub-committee meeting</h2>
+                                <h2 class="font-weight-semibold text-5 text-muted line-height-4 mt-2 mb-2">Onsite Registration</h2>
+                                <span class="text-muted">Front desk at <a href="{{ url_for('venue') }}">Radisson Hotel</a>, 10:00 - 20:00. Register, sign up, get you conference kit!</span>
                             </div>
                         </article>
 
