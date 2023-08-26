@@ -184,6 +184,10 @@ def program():
 def techtours():
     return render_template('techtours.html')
 
+@app.route('/rivercruise')
+def rivercruise():
+    return render_template('rivercruise.html')
+
 @app.route('/competition')
 def competition():
     return render_template('competition.html')
