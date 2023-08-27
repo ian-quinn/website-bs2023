@@ -1,0 +1,579 @@
+{% extends 'base.html' %}
+{% block title %}Workshop{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/skin-workshop.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark"><strong>Workshops</strong></h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>Program</li>
+                    <li class="active">Workshops</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-4">
+
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+
+            <div class="row" id="workshop-1">
+                <div class="col-lg-6">
+                    <div class="info-card" id="workshop-card-1">
+                        <div>
+                            <div class="info-title">
+                                <div class="watermark">1</div>
+                                <h5 class="text-4">HVAC automated design software tools</h5>
+                                <p><i class="fas fa-calendar-alt"></i> <a href="https://www.conftool.pro/bs2023/index.php?page=browseSessions&form_session=620" target="_blank">Spet. 4th, 10:30-12:30</a> | <a href="{{ url_for('venue')}}" target="_blank">ROOM F</a><br/>
+                                <i class="fas fa-microphone"></i> Ying Ji, Associate Professor</p>
+                            </div>
+                            <div>
+                                Heating, ventilation, and air conditioning (HVAC) systems of large commercial or office buildings are significantly complicated. The traditional design processes of HVAC systems are usually tedious and repetitive. And the engineers spend a lot of time in drawing the layouts of ducts and pipes, because they should change the design repeatedly in response to changes in upstream architecture design. 
+                                There have been many studies on automated architectural, engineering, and construction design processes that provide efficient and convenient technical methods for HVAC system design. On this basis, adding artificial intelligence technology can make the traditional design process more streamlined and reduce engineers’ repetitive work.
+                                This workshop aims to introduce a framework for HVAC system automated design and discuss the challenging points in research.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="info-table">
+                        
+                        <table class="table-workshop" id="workshop-table-1">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Automated design for HVAC system based on BIM</h5>
+                                            <small>Jiefan Gu, Dr. | Tongji University, China</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Mapping spaces to thermal zones based on BIM</h5>
+                                            <small>Yikun Yang, PhD candidate | Tongji University, China</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>GNNs based method for evaluating HVAC terminal piping layout solutions in office buildings</h5>
+                                            <small>Hongxin Wang, PhD candidate | Tongji University, China</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="m-5">
+                <hr style="border: 1px dashed #eeeeee;">
+            </div>
+            
+            <div class="row" id="workshop-2">
+                <div class="col-lg-6">
+                    <div class="info-card" id="workshop-card-2">
+                        <div>
+                            <div class="info-title">
+                                <div class="watermark">2</div>
+                                <h5 class="text-4">Advanced data analytics for the energy management of grid-interactive smart buildings</h5>
+                                <p><i class="fas fa-calendar-alt"></i> <a href="https://www.conftool.pro/bs2023/index.php?page=browseSessions&form_session=621" target="_blank">Spet. 4th, 14:30-16:30</a> | <a href="{{ url_for('venue')}}" target="_blank">ROOM E</a><br/>
+                                <i class="fas fa-microphone"></i> Prof. Cheng Fan | Prof. Alfonso Capozzoli</p>
+                            </div>
+                            <div>
+                                The widespread adoption of building automation and IoT technologies have enabled the collection of real-time measurements of large-scale building energy systems. It is promising to extract valuable knowledge and incorporate advanced metering, automated controls and demand side management in the interaction between buildings and users/grids. 
+                                In practice, the fully exploitation of building operational data can be challenging due to the intrinsic complexity in building operations, interaction with the energy grid and low-quality of measurement data. As a consequence, robust data-driven solutions are urgently needed to fully unleash the potentials of building data to deploy both energy information and automated system optimization services during operations.
+                                This workshop aims to present an overview of data-analytics applications in the energy and buildings field, covering typical applications of predictive data analytics for energy forecasts and fault diagnosis, descriptive data analytics for operating pattern and rule identifications, and novel machine learning solutions for heterogeneous data utilization and control optimizations at different scales.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="info-table" id="workshop-table-2">
+                        
+                        <table class="table-workshop">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5 style="color: #cccccc">- to be determined -</h5>
+                                            <small>Prof. Linda Fu Xiao | The Hong Kong Polytechnic University, Hong Kong, China</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Time series analytics for energy anomaly detection and diagnosis in buildings</h5>
+                                            <small>Dr. Marco Savino Piscitelli | Politecnico di Torino, Energy Department, BAEDA lab, Italy</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Generative pre-trained transformers (GPT)-based automated data mining for building energy management: Advantages, limitations and the future | Zhejiang University, China</h5>
+                                            <small>Prof. Yang Zhao</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Achieving effective mixed mode in the tropics with occupant centric controls</h5>
+                                            <small>Dr. Adrian Chong | National University of Singapore, Singapore</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Physics-informed neural networks for building thermal modeling and demand response control</h5>
+                                            <small>Dr. Yongbao Chen | University of Shanghai for Science and Technology, China</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5 style="color: #cccccc">- to be determined -</h5>
+                                            <small>Dr. Zoltan Nagy | The University of Texas at Austin, USA</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="m-5">
+                <hr style="border: 1px dashed #eeeeee;">
+            </div>
+
+
+            <div class="row" id="workshop-3">
+                <div class="col-lg-6">
+                    <div class="info-card" id="workshop-card-3">
+                        <div>
+                            <div class="info-title">
+                                <div class="watermark">3</div>
+                                <h5 class="text-4">SIM-VICUS – the Open-Source Building and District Simulation Software</h5>
+                                <p><i class="fas fa-calendar-alt"></i> <a href="https://www.conftool.pro/bs2023/index.php?page=browseSessions&form_session=622" target="_blank">Spet. 4th, 17:00-18:30</a> | <a href="{{ url_for('venue')}}" target="_blank">ROOM F</a><br/>
+                                <i class="fas fa-microphone"></i> John Grunewald | Dirk Weiß | Hauke Hirsch</p>
+                            </div>
+                            <div>
+                                <a href="https://www.sim-vicus.de/" target="_blank">SIM-VICUS</a> is a cutting-edge building and district simulation software, designed for dynamic evaluation of energy efficiency within buildings and districts. It is uniquely equipped to effectively manage complex calculations of large buildings and networks while efficiently handling vast data volumes. 
+                                With SIM-VICUS, users can directly create and modify the geometry of buildings and district heating networks using its intuitive 3D graphical interface. In addition, it supports the integration of BIM models and GIS data via IFC and geoJSON respectively. 
+                                All model parameters are easily editable, drawing from extensive databases. Moreover, these parameters are presented in an accessible manner through interactive false color views. SIM-VICUS's state-of-the-art variable time-step solver drastically reduces simulation times for detailed models and is compatible with the Functional Mock-up Interface (FMI). 
+                                SIM-VICUS is open-source, championing transparency and continuous innovation. Further enhancing its accessibility, the software is available for free download, inviting users globally to leverage its advanced capabilities. 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="info-table" id="workshop-table-3">
+                        
+                        <table class="table-workshop">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Introduction to SIM-VICUS and current capabilities</h5>
+                                            <small>M.Sc. Hauke Hirsch | TU Dresden, Germany</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Modelling of buildings: IFC import, creation and editing of geometry</h5>
+                                            <small>Dipl.-Ing. Dirk Weiß | TU Dresden, Germany</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Building parameter editing: constructions, zone templates, schedules</h5>
+                                            <small>Dipl.-Ing. Dirk Weiß | TU Dresden, Germany</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Building simulation and evaluation of results</h5>
+                                            <small>Dipl.-Ing. Dirk Weiß | TU Dresden, Germany</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Thermo-hydraulic network modelling: An overview</h5>
+                                            <small>M.Sc. Hauke Hirsch | TU Dresden, Germany</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Real-world demonstration examples, roadmap </h5>
+                                            <small>M.Sc. Hauke Hirsch | TU Dresden, Germany</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="m-5">
+                <hr style="border: 1px dashed #eeeeee;">
+            </div>
+
+
+            <div class="row" id="workshop-4">
+                <div class="col-lg-6">
+                    <div class="info-card" id="workshop-card-4">
+                        <div class="ribbon-2">Virtual</div>
+                        <div>
+                            <div class="info-title">
+                                <div class="watermark">4</div>
+                                <h5 class="text-4">Introduction to the BOPTEST framework for testing and benchmarking advanced controllers</h5>
+                                <p><i class="fas fa-calendar-alt"></i> <a href="https://www.conftool.pro/bs2023/index.php?page=browseSessions&form_session=623" target="_blank">Spet. 4th, 20:00-22:00</a> | <a href="https://zoom.us/j/96050848087" target="_blank">Virtual on ZOOM</a><br/>
+                                <i class="fab fa-github"></i> <a href="https://github.com/JavierArroyoBastida/project1-boptest/blob/issue552_bs2023/docs/workshops/BS23Workshop_20230904/Introduction_to_the_BOPTEST_framework_BS2023.ipynb" target="_blank">Workshop handbook</a><br/>
+                                <i class="fas fa-microphone"></i> Javier Arroyo | David Blum | Kyle Benne
+                                </p>
+                            </div>
+                            <div>
+                                The BOPTEST framework is used to evaluate the performance of HVAC control algorithms by enabling co-simulation. The framework provides a standard simulation environment and is organized into specific building test cases. The models are implemented in Modelica packaged as FMU for use in standardized simulation environment. An API for this environment allows users to advance the simulation of the detailed building model with input from their control algorithms, and report key performance indicators. The BOPTEST-Gym interface enables the implementation of Reinforcement Learning algorithms in BOPTEST emulators out of the box.
+                                The focus of the workshop is to provide a hands-on introduction to the BOPTEST framework and its Gym interface, which aims to enable benchmarking and facilitate the development of advanced control strategies for buildings. Key activities:
+                                <ul>
+                                    <li>an overview of the BOPTEST project goals and approach</li>
+                                    <li>a guided, hands-on experience with the software</li>
+                                    <li>an opportunity to use the software for their own research and development</li>
+                                    <li>an opportunity to provide feedback for project development</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="info-table" id="workshop-table-4">
+                        <table class="table-workshop">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>BOPTEST motivation, goals, and approach</h5>
+                                            <small>10 min</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Exercise: Lead participants through a hands-on tutorial of the software</h5>
+                                            <small>50 min</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Exercise: Learning BOPTEST-Gym: the OpenAI-Gym interface of BOPTEST</h5>
+                                            <small>25 min</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Wrap-Up and follow-up explanation </h5>
+                                            <small>5 min</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="m-5">
+                <hr style="border: 1px dashed #eeeeee;">
+            </div>
+
+
+            <div class="row" id="workshop-5">
+                <div class="col-lg-6">
+                    <div class="info-card" id="workshop-card-5">
+                        <div>
+                            <div class="info-title">
+                                <div class="watermark">5</div>
+                                <h5 class="text-4">Urban building energy and environment modeling</h5>
+                                <p><i class="fas fa-calendar-alt"></i> <a href="https://www.conftool.pro/bs2023/index.php?page=browseSessions&form_session=629" target="_blank">Spet. 5th, 13:30-15:30</a> | <a href="{{ url_for('venue')}}" target="_blank">ROOM E</a><br/>
+                                <i class="fas fa-microphone"></i> Prof. Yixing Chen</p>
+                            </div>
+                            <div>
+                                Cities consume more than two-thirds of the world’s primary energy and account for more than 70% of global greenhouse gas emissions. Urban building energy and environment modeling is an excellent method to explore opportunities and strategies to reduce building energy consumption and carbon emissions and improve indoor and outdoor living environments. Communities are not only the primary space to create true sustainability but also the starting point for the use of healthy and low-carbon ideas to address climate change and energy efficiency and promote a carbon-neutral society.
+                                This workshop will discuss the applications and challenges of applying urban-scale advanced modeling techniques (energy modeling, CFD analysis, etc.) to evaluate the indoor and outdoor environment, analyze energy conservation measures, support urban planning, mitigate urban heat island effects, etc.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="info-table" id="workshop-table-5">
+                        
+                        <table class="table-workshop">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Modeling and Assessing impact of anthropogenic heat from buildings on urban microclimate</h5>
+                                            <small>- To be determined -</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Fourier Neural Operator Approach for Efficient Simulation of Urban Wind</h5>
+                                            <small>Liangzhu Wang, Professor | Concordia University, Canada</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Modeling turbulent wind flow at pedestrian-level in the built environment</h5>
+                                            <small>Jianlin Liu, Professor | Donghua University, China</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Unmanned Aerial System (UAS) applications in sustainable built environment: Towards AI based automated inspection, modelling and information management</h5>
+                                            <small>Xi Chen, Assistant Processor | The Chinese University of Hong Kong, Hong Kong</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Urban building energy modeling to explore the energy performance of residential buildings under climate change</h5>
+                                            <small>Zhang Deng, Assistant Processor | Hunan University of Science and Technology, China</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="m-5">
+                <hr style="border: 1px dashed #eeeeee;">
+            </div>
+
+
+            <div class="row" id="workshop-6">
+                <div class="col-lg-6">
+                    <div class="info-card" id="workshop-card-6">
+                        <div>
+                            <div class="info-title">
+                                <div class="watermark">6</div>
+                                <h5 class="text-4">Revolutionizing Construction: Harnessing BIM-Centric BUilding Performance Simulation</h5>
+                                <p><i class="fas fa-calendar-alt"></i> <a href="https://www.conftool.pro/bs2023/index.php?page=browseSessions&form_session=647" target="_blank">Spet. 5th, 13:30-15:30</a> | ???</p>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="info-table" id="workshop-table-6">
+                        
+                        <table class="table-workshop">
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="m-5">
+                <hr style="border: 1px dashed #eeeeee;">
+            </div>
+
+
+            <div class="row" id="workshop-7">
+                <div class="col-lg-6">
+                    <div class="info-card" id="workshop-card-7">
+                        <div>
+                            <div class="info-title">
+                                <div class="watermark">7</div>
+                                <h5 class="text-4">Building Energy Simulation: From insights to reproducibility with data science and machine learning</h5>
+                                <p><i class="fas fa-calendar-alt"></i> <a href="https://www.conftool.pro/bs2023/index.php?page=browseSessions&form_session=631" target="_blank">Spet. 5th, 16:00-18:00</a> | <a href="{{ url_for('venue')}}" target="_blank">ROOM E</a><br/>
+                                <i class="fas fa-microphone"></i> Adrian Chong | National University of Singapore, Singapore</p>
+                            </div>
+                            <div>
+                                Building energy simulation (BES) plays an increasingly important role in evaluating and optimizing building energy performance as cities strive to be energy efficient and sustainable. By leveraging data science and machine learning in BES, stakeholders can gain valuable insights that aid decision-making and optimize energy performance. Computational reproducibility is also essential in open science to guarantee all results are transparent and can be independently verified and thus be built upon by others, reducing duplicated efforts and improving the quality of BES research.
+                                This seminar aims to explore the integration of data science and machine learning in BES from individual buildings to the urban scale. The seminar will focus on the following key aspects:
+                                <ul>
+                                    <li>Tools and techniques for the application of data science and machine learning to BES</li>
+                                    <li>Addressing challenges and considerations when applying data science and machine learning to large-scale urban building energy modeling (UBEM)</li>
+                                    <li>Best practices for enhancing reproducibility in BES research</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="info-table" id="workshop-table-7">
+                        
+                        <table class="table-workshop">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Deep learning and building performance evaluation metrics: modeling perspectives</h5>
+                                            <small>Ellie Jungmin Han, CGBC Fellow | Harvard Graduate School of Design, USA</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Rapid prototyping and data analytics for urban scale building energy modeling (UBEM)</h5>
+                                            <small>Yu Qian Ang, Dr. | National University of Singapore, Singapore</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Clustering, classification, and image recognition to integrate building information for urban building energy modeling</h5>
+                                            <small>Yixing Cheng, Professor | Hunan University, China</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5>Reproducible pipelines for large parametric building energy simulations</h5>
+                                            <small>Hongyuan Jia, Assistant Professor | Chongqing University of Science and Technology, China</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(function() {
+      $('#workshop-table-1').hover(function() {
+        $('#workshop-card-1').css('border-color', '#000000');
+        $('#workshop-card-1').css('box-shadow', '3px 3px 5px #888888');
+      }, function() {
+        $('#workshop-card-1').css('border-color', '#eeeeee');
+        $('#workshop-card-1').css('box-shadow', 'none');
+      });
+    });
+    $(function() {
+      $('#workshop-table-2').hover(function() {
+        $('#workshop-card-2').css('border-color', '#000000');
+        $('#workshop-card-2').css('box-shadow', '3px 3px 5px #888888');
+      }, function() {
+        $('#workshop-card-2').css('border-color', '#eeeeee');
+        $('#workshop-card-2').css('box-shadow', 'none');
+      });
+    });
+    $(function() {
+      $('#workshop-table-3').hover(function() {
+        $('#workshop-card-3').css('border-color', '#000000');
+        $('#workshop-card-3').css('box-shadow', '3px 3px 5px #888888');
+      }, function() {
+        $('#workshop-card-3').css('border-color', '#eeeeee');
+        $('#workshop-card-3').css('box-shadow', 'none');
+      });
+    });
+    $(function() {
+      $('#workshop-table-4').hover(function() {
+        $('#workshop-card-4').css('border-color', '#000000');
+        $('#workshop-card-4').css('box-shadow', '3px 3px 5px #888888');
+      }, function() {
+        $('#workshop-card-4').css('border-color', '#eeeeee');
+        $('#workshop-card-4').css('box-shadow', 'none');
+      });
+    });
+    $(function() {
+      $('#workshop-table-5').hover(function() {
+        $('#workshop-card-5').css('border-color', '#000000');
+        $('#workshop-card-5').css('box-shadow', '3px 3px 5px #888888');
+      }, function() {
+        $('#workshop-card-5').css('border-color', '#eeeeee');
+        $('#workshop-card-5').css('box-shadow', 'none');
+      });
+    });
+    $(function() {
+      $('#workshop-table-6').hover(function() {
+        $('#workshop-card-6').css('border-color', '#000000');
+        $('#workshop-card-6').css('box-shadow', '3px 3px 5px #888888');
+      }, function() {
+        $('#workshop-card-6').css('border-color', '#eeeeee');
+        $('#workshop-card-6').css('box-shadow', 'none');
+      });
+    });
+    $(function() {
+      $('#workshop-table-7').hover(function() {
+        $('#workshop-card-7').css('border-color', '#000000');
+        $('#workshop-card-7').css('box-shadow', '3px 3px 5px #888888');
+      }, function() {
+        $('#workshop-card-7').css('border-color', '#eeeeee');
+        $('#workshop-card-7').css('box-shadow', 'none');
+      });
+    });
+</script>
+{% endblock %}

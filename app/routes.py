@@ -180,8 +180,12 @@ def invited():
 def program():
     return render_template('program.html')
 
-@app.route('/techtours')
-def techtours():
+@app.route('/workshop')
+def workshop():
+    return render_template('workshops.html')
+
+@app.route('/techtour')
+def techtour():
     return render_template('techtours.html')
 
 @app.route('/rivercruise')
