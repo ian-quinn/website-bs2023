@@ -30,6 +30,14 @@
             <p>Preview program book in ConfTool: <a href="https://www.conftool.pro/bs2023/sessions.php" target="_blank">https://www.conftool.pro/bs2023/sessions.php</a></p>
 
             <section style="padding: 50px 0px;">
+                <h4>Program at a glance (expanded by venue)</h4>
+                <p>Download the program preview in <a href="{{ url_for('download', file_id=501, next=request.full_path) }}" target="_blank">PDF version</a></p>
+                <div>
+                    <img src="{{ url_for('static', filename='img/program.jpg') }}" width="100%">
+                </div>
+            </section>
+
+            <section style="padding: 50px 0px;">
 
                 <h4 class="mb-5">Program at a glance (chronologically ordered)</h4>
 
@@ -163,15 +171,6 @@
                     </tbody>
                 </table>
                 
-            </section>
-
-
-            <section style="padding: 50px 0px;">
-                <h4>Program at a glance (expanded by venue)</h4>
-                <p><a href="{{ url_for('download', file_id=501, next=request.full_path) }}" target="_blank">Download the PDF version</a></p>
-                <div>
-                    <img src="{{ url_for('static', filename='img/program-venue.jpg') }}" width="100%">
-                </div>
             </section>
 
         </div>
