@@ -10,6 +10,7 @@
 
 .table-workshop h5 {
     margin-bottom: 0px;
+    letter-spacing: 0px;
 }
 
 .table-workshop tr {
@@ -47,6 +48,11 @@
     line-height: 1;
     color: #eeeeee;
     z-index: 0;
+}
+
+.info-title i {
+    width: 20px;
+    padding-right: 10px;
 }
 
 .info-card {
@@ -88,4 +94,49 @@
   background: #BD1550;
   box-shadow: 0 calc(-1*var(--f)) 0 inset #0005;
   color: #ffffff;
+}
+
+.speaker {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.speaker:hover~.item-time {
+    color: #ec6066;
+}
+
+.item-avatar {
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+.item-title {
+    vertical-align: middle;
+}
+
+.item-title span {
+    letter-spacing: 0.2rem;
+    font-size: 1.5em;
+    color: #000000;
+    margin-bottom: 0px;
+}
+
+.item-avatar img{
+  object-fit: cover;
+  border-radius:50%;
+  border: 1px solid #888888;
+  width: auto;
+  height: 50px;
+  transition: all 1s ease;
+}
+
+.item-time {
+    text-align: center;
+    border-left: 1px solid #888888;
+}
+
+.item-time a {
+    line-height: 50px;
+    font-weight: 600;
 }

@@ -172,10 +172,6 @@ def theme():
 def keynote():
     return render_template('keynote.html')
 
-@app.route('/invited')
-def invited():
-    return render_template('invited.html')
-
 @app.route('/program')
 def program():
     return render_template('program.html')
@@ -183,6 +179,10 @@ def program():
 @app.route('/workshop')
 def workshop():
     return render_template('workshops.html')
+
+@app.route('/invited-speech')
+def invited():
+    return render_template('invited-speech.html')
 
 @app.route('/techtour')
 def techtour():

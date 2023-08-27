@@ -1,0 +1,492 @@
+{% extends 'base.html' %}
+{% block title %}Invited Speech{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/skin-workshop.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark"><strong>Invited</strong> Speech</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>Program</li>
+                    <li class="active">Invited Speech</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-4">
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="info-card">
+                        <div>
+                            <div class="info-title" style="text-align: center;">
+                                <h5 class="text-4">DAY 1</h5>
+                                <p>10:30-16:30</a> <br/> <a href="{{ url_for('venue')}}" target="_blank">ROOM A1+A2</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-10">
+                    <div class="info-table">
+                        
+                        <table class="table-workshop">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/xianting_li.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Ventilation rate and quantity and grade of cooling load in non-uniform indoor environment</h5>
+                                                    <small>Prof. Xianting Li | Tsinghua University, China</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Xianting Li&details=Ventilation rate and quantity and grade of cooling load in non-uniform indoor environment&dates=20230904T103000/20230904T110000&location=ROOM A1+A2" target="_blank">10:30</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/leon_wang.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Advances in Research on Urban Microclimate and Impacts on Built Environment</h5>
+                                                    <small>Dr. Leon Wang | Concordia University, Canada</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Leon Wang&details=Advances in Research on Urban Microclimate and Impacts on Built Environment&dates=20230904T110000/20230904T113000&location=ROOM A1+A2" target="_blank">11:00</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/borong_lin.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Exploring AI Driven Performance Simulation from Architectural Design to Real Operation</h5>
+                                                    <small>Prof. Borong Lin | Tsinghua University, China</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Borong Lin&details=Exploring AI Driven Performance Simulation from Architectural Design to Real Operation&dates=20230904T143000/20230904T150000&location=ROOM A1+A2" target="_blank">14:30</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/wangda_zuo.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Assignment Disabled Multi-scale Multi-domain Modeling with Modelica: From Sustainable Buildings to Smart Cities</h5>
+                                                    <small>Prof. Wangda Zuo | Pennsylvania State University, USA</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Wangda Zuo&details=Assignment Disabled Multi-scale Multi-domain Modeling with Modelica: From Sustainable Buildings to Smart Cities&dates=20230904T150000/20230904T153000&location=ROOM A1+A2" target="_blank">15:00</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="m-5">
+                <hr>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="info-card">
+                        <div>
+                            <div class="info-title" style="text-align: center;">
+                                <h5 class="text-4">Day 2</h5>
+                                <p>10:00-16:30</a> <br/> <a href="{{ url_for('venue')}}" target="_blank">ROOM A1</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-10">
+                    <div class="info-table">
+                        
+                        <table class="table-workshop">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/khee_poh_lam.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Contemplating the challenges and opportunities in BPS in a post COVID and climate crisis era</h5>
+                                                    <small>Prof. Khee Poh Lam | National University of Singapore, Singapore</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Khee Poh Lam&details=Contemplating the challenges and opportunities in BPS in a post COVID and climate crisis era&dates=20230905T100000/20230905T103000&location=ROOM A1" target="_blank">10:00</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/yoshiyuki_shimoda.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Building Simulation for Carbon Management</h5>
+                                                    <small>Prof. Yoshiyuki Shimoda | Osaka University, Japan</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Yoshiyuki Shimoda&details=Building Simulation for Carbon Management&dates=20230905T133000/20230905T134000&location=ROOM A1" target="_blank">13:30</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/yohei_yamaguchi.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Feasibility assessment of net zero-energy transformation of building stock using integrated synthetic population, building stock, and power distribution network framework</h5>
+                                                    <small>Prof. Yohei Yamaguchi | Osaka University, Japan</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Yohei Yamaguchi&details=Feasibility assessment of net zero-energy transformation of building stock using integrated synthetic population, building stock, and power distribution network framework&dates=20230905T134000/20230905T141000&location=ROOM A1" target="_blank">13:40</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/cheol_soo_park.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Lessons and challenges learned from ML applications for real-life cases</h5>
+                                                    <small>Prof. Cheol-Soo Park | Seoul National University, South Korea</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Cheol-Soo Park&details=Lessons and challenges learned from ML applications for real-life cases&dates=20230905T160000/20230905T163000&location=ROOM A1" target="_blank">16:00</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="m-5">
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="info-card">
+                        <div>
+                            <div class="info-title" style="text-align: center;">
+                                <h5 class="text-4">Day 2</h5>
+                                <p>10:00-16:30</a> <br/> <a href="{{ url_for('venue')}}" target="_blank">ROOM A2</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-10">
+                    <div class="info-table">
+                        
+                        <table class="table-workshop">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/shengwei_wang.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Optimization and energy saving of high-temperature data centers and high-tech cleanroom air-conditioning systems</h5>
+                                                    <small>Prof. Shengwei Wang | Hong Kong Polytechnic University, China</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Shengwei Wang&details=Optimization and energy saving of high-temperature data centers and high-tech cleanroom air-conditioning systems&dates=20230905T100000/20230905T103000&location=ROOM A2" target="_blank">10:00</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/xudong_yang.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Assignment Disabled The Role of Simulation in Improving Indoor Air Quality: From Laboratory to the Field</h5>
+                                                    <small>Prof. Xudong Yang | Tsinghua University, China</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Xudong Yang&details=Assignment Disabled The Role of Simulation in Improving Indoor Air Quality: From Laboratory to the Field&dates=20230905T133000/20230905T140000&location=ROOM A2" target="_blank">13:30</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/gang_tan.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Regulations of solar and LWIR for windows: material, simulation and application</h5>
+                                                    <small>Dr. Gang Tan | University of Wyoming, USA</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Gang Tan&details=Regulations of solar and LWIR for windows: material, simulation and application&dates=20230905T160000/20230905T163000&location=ROOM A2" target="_blank">16:00</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="m-5">
+                <hr>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="info-card">
+                        <div>
+                            <div class="info-title" style="text-align: center;">
+                                <h5 class="text-4">Day 3</h5>
+                                <p>10:00-15:30</a> <br/> <a href="{{ url_for('venue')}}" target="_blank">ROOM A1+A2</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-10">
+                    <div class="info-table">
+                        
+                        <table class="table-workshop">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/yingxin_zhu.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Rethinking the Method of Building Indoor Environment for Carbon Neutralization</h5>
+                                                    <small>Prof. Yingxin Zhu | Tsinghua University</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Yingxin Zhu&details=Rethinking the Method of Building Indoor Environment for Carbon Neutralization&dates=20230906T100000/20230905T103000&location=ROOM A1+A2" target="_blank">10:00</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/bing_dong.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>From Machine Learning to Quantum Computing: Future Smart Building Control and Optimization</h5>
+                                                    <small>Dr. Bing Dong | Syracuse University, USA</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Bing Dong&details=From Machine Learning to Quantum Computing: Future Smart Building Control and Optimization&dates=20230906T103000/20230905T110000&location=ROOM A1+A2" target="_blank">10:30</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/naiping_gao.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Simulation of outdoor thermal and wind environment with vegetation</h5>
+                                                    <small>Prof. Naiping Gao | Tongji University, China</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Naiping Gao&details=Simulation of outdoor thermal and wind environment with vegetation&dates=20230906T110000/20230905T113000&location=ROOM A1+A2" target="_blank">11:00</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/vincenzo_corrado.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Detailed Simulation vs Standardized Methods in Energy Performance Assessment of Buildings in a Legal Context</h5>
+                                                    <small>Prof. Vincenzo Corrado | Politecnico di Torino, Italy</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Vincenzo Corrado&details=Detailed Simulation vs Standardized Methods in Energy Performance Assessment of Buildings in a Legal Context&dates=20230906T113000/20230905T120000&location=ROOM A1+A2" target="_blank">11:30</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr height="10px"></tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/pieter_de_wilde.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Bridging the energy performance gap: progress and challenges</h5>
+                                                    <small>Prof. Pieter de Wilde | University of Strathclyde, UK</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Pieter de Wilde&details=Bridging the energy performance gap: progress and challenges&dates=20230906T133000/20230905T140000&location=ROOM A1+A2" target="_blank">13:30</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/jun_gao.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>A head-mounted air supply and its air movement acceptability</h5>
+                                                    <small>Prof. Jun Gao | Tongji University, China</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Jun Gao&details=A head-mounted air supply and its air movement acceptability&dates=20230906T140000/20230905T143000&location=ROOM A1+A2" target="_blank">14:00</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/gongsheng_huang.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Personalized radiant cooling technology: principle, development and application</h5>
+                                                    <small>Prof. Gongsheng Huang | City University of Hong Kong</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Gongsheng Huang&details=Personalized radiant cooling technology: principle, development and application&dates=20230906T143000/20230905T150000&location=ROOM A1+A2" target="_blank">14:30</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="speaker col-11">
+                                                <div class="item-avatar">
+                                                    <img src="{{ url_for('static', filename='img/speakers/adrian_chong.webp') }}">
+                                                </div>
+                                                <div class="item-title">
+                                                    <h5>Beyond Accuracy: Advancing the Calibration of Building Energy Models</h5>
+                                                    <small>Dr. Adrian Chong | National University of Singapore, Singapore</small>
+                                                </div>
+                                            </div>
+                                            <div class="item-time col-1">
+                                                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Invited Speech - Adrian Chong&details=Beyond Accuracy: Advancing the Calibration of Building Energy Models&dates=20230906T150000/20230905T153000&location=ROOM A1+A2" target="_blank">15:00</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+            
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

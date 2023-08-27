@@ -94,9 +94,10 @@
                             <div class="accordion-body">
                                 <ul class="list-unstyled">
                                     <a href="{{ url_for('theme') }}"><li class="accessible">Themes</li></a>
-                                    <a href="{{ url_for('keynote') }}"><li>Keynotes</li></a>
                                     <a href="{{ url_for('program') }}"><li>Program Book</li></a>
-                                    <a href="{{ url_for('workshop') }}"><li>Workshops</li></a>
+                                    <a href="{{ url_for('keynote') }}"><li>Keynotes</li></a>
+                                    <a href="{{ url_for('invited') }}"><li><b>Invited Speech</b></li></a>
+                                    <a href="{{ url_for('workshop') }}"><li><b>Workshops</b></li></a>
                                     <a href="{{ url_for('techtour') }}"><li>Technical Tours</li></a>
                                     <a href="{{ url_for('competition') }}"><li>Student Competition</li></a>
                                 </ul>
@@ -114,7 +115,7 @@
                                 <ul class="list-unstyled">
                                     <li>Reception (WIP)</li>
                                     <a href="{{ url_for('awards') }}"><li class="accessible">Awards</li></a>
-                                    <a href="{{ url_for('rivercruise') }}"><li>River Cruise (HDY Night)</li></a>
+                                    <a href="{{ url_for('rivercruise') }}"><li><b>River Cruise (HDY Night)</b></li></a>
                                 </ul>
                             </div>
                         </div>
@@ -206,9 +207,10 @@
                                                             <a class="dropdown-item dropdown-toggle" href="#">Program</a>
                                                             <ul class="dropdown-menu">
                                                                 <li><a class="dropdown-item" href="{{ url_for('theme') }}">Themes</a></li>
-                                                                <li><a class="dropdown-item" href="{{ url_for('keynote') }}">Keynotes</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('program') }}">Program Book</a></li>
-                                                                <li><a class="dropdown-item" href="{{ url_for('workshop') }}">Workshops</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('keynote') }}">Keynotes</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('invited') }}"><b>Invited Speech</b></a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('workshop') }}"><b>Workshops</b></a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('techtour') }}">Technical Tours</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('competition') }}">Student Competition</a></li>
                                                             </ul>
@@ -218,7 +220,7 @@
                                                             <ul class="dropdown-menu">
                                                                 <li><a class="dropdown-item">Reception (WIP)</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('awards') }}">Awards</a></li>
-                                                                <li><a class="dropdown-item" href="{{ url_for('rivercruise') }}">River Cruise (HDY Night)</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('rivercruise') }}"><b>River Cruise (HDY Night)</b></a></li>
                                                             </ul>
                                                         </li>
                                                         <li class="dropdown">
