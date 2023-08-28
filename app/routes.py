@@ -460,9 +460,9 @@ def download_certificate(cert_id, type_id):
 
 # -------------------------- ERROR ----------------------------- #
 
-@app.errorhandler(000)
-def unsubscribed(e):
-    return render_template('000.html'), 000
+@app.route('/unsubscribed', methods=['GET'])
+def unsubscribed():
+    return render_template('000.html')
 
 @app.errorhandler(404)
 def page_not_found(e):
