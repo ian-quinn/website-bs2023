@@ -514,7 +514,7 @@ def view_poster(poster_id):
     path_cover = url_for('static', filename='poster/' + poster.path_cover) if poster.path_cover else ''
     return render_template(
         'poster.html', title=poster.title, author=poster.author, abstract=poster.abstract,
-        path_img=path_img, path_mp4=path_mp4, path_webm=path_webm, path_cover=path_cover, 
+        path_img=path_img, path_mp4=path_mp4, path_webm=path_webm, path_cover=path_cover, paper_id=poster.id, 
         is_freepass=False 
         )
 
