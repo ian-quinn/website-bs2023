@@ -113,7 +113,7 @@
                         <div id="menu-events" class="accordion-collapse collapse" aria-labelledby="menu-events-head" data-bs-parent="#nav-sidebar">
                             <div class="accordion-body">
                                 <ul class="list-unstyled">
-                                    <li>Reception (WIP)</li>
+                                    <a href="{{ url_for('virtual') }}"><li>Virtual Session</li></a>
                                     <a href="{{ url_for('awards') }}"><li class="accessible">Awards</li></a>
                                     <a href="{{ url_for('rivercruise') }}"><li><b>River Cruise (HDY Night)</b></li></a>
                                 </ul>
@@ -218,7 +218,7 @@
                                                         <li class="dropdown">
                                                             <a class="dropdown-item dropdown-toggle" href="#">Events</a>
                                                             <ul class="dropdown-menu">
-                                                                <li><a class="dropdown-item">Reception (WIP)</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('virtual') }}">Virtual Session</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('awards') }}">Awards</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('rivercruise') }}"><b>River Cruise (HDY Night)</b></a></li>
                                                             </ul>

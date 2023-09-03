@@ -204,6 +204,10 @@ def competition():
 def awards():
     return render_template('awards.html')
 
+@app.route('/virtual')
+def virtual():
+    return render_template('virtual.html')
+
 
 # -------------------------- GUIDE ----------------------------- #
 
