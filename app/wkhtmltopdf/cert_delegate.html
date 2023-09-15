@@ -147,16 +147,16 @@ body {
 						<tr style="height: 9%; line-height: 1.2em;">
 							<td>has attended the conference on September 4-6, 2023 {% if mode_attendance == 2 %}(Virtual){% endif %}. <br>
 								{% if papers|length > 0 %}
-								and give presentation{% if papers|length > 1 %}s{% endif %} of the following accepted paper{% if papers|length > 1 %}s{% endif %}/report{% if papers|length > 1 %}s{% endif %}: <br>
+								and given presentation{% if papers|length > 1 %}s{% endif %} of the following accepted paper{% if papers|length > 1 %}s{% endif %}/report{% if papers|length > 1 %}s{% endif %}: <br>
 								{% endif %}
 							</td>
 						</tr>
 						{% for paper in papers %}
 						<tr style="height: 10%">
 							<td>
-								<div style="margin-top: 5px;">
-									<span style="font-size: 0.8em; font-weight: 100; line-height: 1.1em;">{% if "Poster" in paper.session_code %}Poster{% else %}Oral{% endif %} presentation in Session </span><b style="font-size: 0.8em; line-height: 1.1em;">{{ paper.session_code }}</b><span style="font-size: 0.8em; font-weight: 100; line-height: 1.1em;"> - {{ paper.session_name }}</span><br>
-									<b style="line-height: 1.2em;">{{ paper.title }}</b> {% if paper.mode_presentation == 0%}(Project Report){% else %}(Paper){% endif %}<br>
+								<div style="margin-top: 5px; padding-right: 30px;">
+									<span style="font-size: 0.8em; font-weight: 100; line-height: 1.1em;">{% if "Poster" in paper.session_code %}Poster{% else %}Oral{% endif %} presentation in Session </span><b style="font-size: 0.8em; line-height: 1.1em;">{{ paper.session_code }}</b><span style="font-size: 0.8em; font-weight: 100; line-height: 1.1em;">{% if paper.session_name %} - {% endif %}{{ paper.session_name }}</span><br>
+									<b style="line-height: 1.2em;">{{ paper.title }}</b> &nbsp; {% if paper.mode_presentation == 0%}(Project Report){% else %}(Research Paper){% endif %}<br>
 									<span style="font-weight: 100; font-size: 0.8em; line-height: 1.1em;">{{ paper.authors }}</span>
 								</div>
 							</td>

@@ -43,7 +43,7 @@
                         <a href="https://live.photoplus.cn/live/pc/51892214/#/live" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2" target="_blank">Sept. 6<sup>th</sup></a>
                     </div>
                 </div>
-                <div class="img-box dimmed" style="max-height: 100%;">
+                <div class="img-box {% if not current_user.is_authenticated %}dimmed{% endif %}" style="max-height: 100%;">
                     <img src="{{ url_for('static', filename='img/album.webp') }}" alt="">
                 </div>
                 <div class="panel-overlay" style="background-color: #a72e44;">
