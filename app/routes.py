@@ -490,6 +490,12 @@ def download_reservation(booking_id):
     path = os.path.join(current_app.root_path, app.config['BOOKING_PATH'])
     return send_from_directory(path, accommodation.filename, as_attachment=True, attachment_filename="%s" % accommodation.filename)
 
+@app.route('/download/<int:recording_id>', methods=['GET', 'POST'])
+def download_recording(recording_id):
+    recording = Recording.query.get_or_404(file_id)
+    path = os.path.join(current_app.root_path, app.config['RECORDING_PATH'])
+    return send_from_directory(path, recording.path_mp4, as_attachment=True, attachment_filename="%s" % recording.title)
+
 # certificate type_id == 1: reviewer certificate
 # certificate type_id == 2: reviewer bonafide letter
 # certificate type_id == 3: attendance certificate

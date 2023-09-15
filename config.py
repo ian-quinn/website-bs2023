@@ -22,6 +22,7 @@ class Config(object):
     CERT_PATH = os.path.join(basedir, 'app/static/cert')
     BOOKING_PATH = os.path.join(basedir, 'app/static/booking')
     POSTER_PATH = os.path.join(basedir, 'app/static/poster')
+    RECORDING_PATH = os.path.join(basedir, 'app/downloads/recordings')
     
     LOCALES = ['en', 'zh']
     BABEL_DEFAULT_LOCALE = LOCALES[1]

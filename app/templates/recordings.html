@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="item-time col-1 ">
                                         {% if recording.path_mp4 %}
-                                        <a href="{{ recording.path_mp4 }}" target="_blank" ><i class="fas fa-arrow-alt-circle-down" style="font-size: 2em; line-height: 2em; color: #b83f41;"></i></a>
+                                        <a href="{{ url_for('download_recording', recording_id=recording.id ) }}" target="_blank" ><i class="fas fa-arrow-alt-circle-down" style="font-size: 2em; line-height: 2em; color: #b83f41;"></i></a>
                                         {% elif recording.cateogry == 1 %}
                                         <i class="fas fa-circle-notch fa-spin" style="font-size: 2em; line-height: 2em; color: #cccccc"></i>
                                         {% else %}
