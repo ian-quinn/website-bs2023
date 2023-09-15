@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block title %}Recordings{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/skin-workshop-v1.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark">Recordings</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>Event</li>
+                    <li class="active">Gallery</li>
+                </ul>
+            </div>
+        </div>
+        {% if current_user.is_authenticated %}
+        <div style="text-align: right;">
+            <p>Welcome, {{ name }}! <a style="padding-left: 10px;" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i></a></p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<div class="container pt-2 pb-4">
+
+    <div class="row py-4 justify-content-center">
+        <div class="col-md-9">
+            
+            <div>
+                {% if current_user.is_authenticated %}
+                <table class="table-workshop">
+                    <tbody>
+                        {% for recording in recordings %}
+                        
+                        <tr class="
+                            {% if recording.timestamp.strftime('%Y%m%d') == '20230904' %}monday{% endif %}{% if recording.timestamp.strftime('%Y%m%d') == '20230905' %}tuesday{% endif %}{% if recording.timestamp.strftime('%Y%m%d') == '20230906' %}wednesday{% endif %}">
+                            <td>
+                                <div class="row {% if recording.path_mp4 %}record-active{% endif %}">
+                                    <div class="speaker col-11">
+                                        <div class="item-title">
+                                            <h5 style="margin:0px; line-height: 1em;">{{ recording.title }}</h5>
+                                            <small style="margin:0px; line-height: 1em;">{% if recording.cate != 0 %}Chair: {% endif %}{{ recording.chair }}{% if recording.cochair %} + {{ recording.cochair }}{% endif %}</small>
+                                        </div>
+                                    </div>
+                                    <div class="item-time col-1 ">
+                                        {% if recording.path_mp4 %}
+                                        <a href="{{ recording.path_mp4 }}" target="_blank" ><i class="fas fa-arrow-alt-circle-down" style="font-size: 2em; line-height: 2em; color: #b83f41;"></i></a>
+                                        {% elif recording.cateogry == 1 %}
+                                        <i class="fas fa-circle-notch fa-spin" style="font-size: 2em; line-height: 2em; color: #cccccc"></i>
+                                        {% else %}
+                                        <i class="far fa-times-circle" style="font-size: 2em; line-height: 2em; color: #cccccc"></i>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>** Content available after login **</p>
+                {% endif %}
+            </div>
+            
+
+        </div>
+
+        <div class="col-lg-3 menu">
+            <div class="sticky-top" style="top: 20px">
+                <div class="toc-box list-group" id="menuspied" style="border-left: none;">
+
+                    <ul class="list-unstyled">
+                        <li><a href="{{ url_for('replay') }}" type="button" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="width: 100%;">All</a></li>
+                        <li><a href="{{ url_for('replay_cate', cate_id=0) }}" type="button" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="width: 100%;">Keynote (1/5)</a></li>
+                        <li><a href="{{ url_for('replay_cate', cate_id=1) }}" type="button" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="width: 100%;">Physical (0/43)</a></li>
+                        <li><a href="{{ url_for('replay_cate', cate_id=2) }}" type="button" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="width: 100%;">Virtual (0/25)</a></li>
+                        <li><a href="{{ url_for('replay_cate', cate_id=3) }}" type="button" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="width: 100%;">Workshop (0/8)</a></li>
+                        <li><hr></li>
+                        <li><button id="monday" type="button" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="width: 100%;">September 4<sup>th</sup></button></li>
+                        <li><button id="tuesday" type="button" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="width: 100%;">September 5<sup>th</sup></button></li>
+                        <li><button id="wednesday" type="button" class="btn btn-outline-secondary btn-block btn-sm mb-2" style="width: 100%;">September 6<sup>th</sup></button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    $("#monday").click(function() {
+        $(".monday").show();
+        $(".tuesday").hide();
+        $(".wednesday").hide();
+    });
+
+    $("#tuesday").click(function() {
+        $(".monday").hide();
+        $(".tuesday").show();
+        $(".wednesday").hide();
+    });
+
+    $("#wednesday").click(function() {
+        $(".monday").hide();
+        $(".tuesday").hide();
+        $(".wednesday").show();
+    });
+
+</script>
+
+
+{% endblock %}

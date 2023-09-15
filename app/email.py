@@ -34,8 +34,8 @@ def send_email(subject, sender, recipients, text_body, html_body):
     Thread(target=send_async_email, args=(app, msg)).start()
 
 def send_auth_link(user, expiration):
-    text = render_template('auth.txt', token=user.auth_link, exp=expiration)
-    html = render_template('auth.html', token=user.auth_link, exp=expiration)
+    text = render_template('auth.txt', token=user.auth_link, exp=expiration, name=user.name)
+    html = render_template('auth.html', token=user.auth_link, exp=expiration, name=user.name)
     print(html, file=sys.stdout)
     send_email('Authorization link',
                sender=app.config['ADMINS'][0],

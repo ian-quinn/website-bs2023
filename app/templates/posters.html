@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block title %}Posters{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+
+.grid .grid-item,
+.grid .grid-sizer {
+  width: 20%;
+}
+@media screen and (max-width: 768px) {
+  .grid .grid-item,
+  .grid .grid-sizer {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1399px) {
+  .grid .grid-item,
+  .grid .grid-sizer {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1400px) and (max-width: 1899px) {
+  .grid .grid-item,
+  .grid .grid-sizer {
+    width: 33%;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .grid .grid-item,
+  .grid .grid-sizer {
+    width: 33%;
+  }
+}
+
+.grid .grid-item,
+.grid .grid-sizer {
+    padding: 10px;
+  height: auto;
+  float: left;
+}
+
+.card-poster {
+    background-color: #ffffff;
+/*    opacity: 0.6;*/
+    transition: all ease 0.4s;
+}
+
+.card-poster:hover {
+/*    opacity: 1;*/
+    border: 1px solid #000000;
+    box-shadow: 0px 0px 10px #888888;
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark">Posters</h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>Event</li>
+                    <li class="active">Gallery</li>
+                </ul>
+            </div>
+        </div>
+        {% if current_user.is_authenticated %}
+        <div style="text-align: right;">
+            <p>Welcome, {{ current_user.name }}! <a style="padding-left: 10px;" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i></a></p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<div style="background-color: #f7f7f7;">
+<div class="container pt-2 pb-4">
+    
+    <div class="grid">
+        <div class="grid-sizer"></div>
+
+        {% for poster in posters %}
+        {% if poster.cateogry == cate_id %}
+        <div class="grid-item">
+            <div class="card card-poster">
+                <a href="{{ url_for('view_poster', poster_id=poster.id ) }}" >
+                    <div class="img-box" {% if poster.cateogry == 1 %}style="max-height: 400px;"{% endif %}>
+                        {% if current_user.is_authenticated and poster.path_img %}
+                        <img class="card-img-top" src="{{ url_for('static', filename='poster/' + poster.path_img ) }}" alt="" style="">
+                        {% else %}
+                        <img class="card-img-top" src="{{ url_for('static', filename='img/placeholder-img-short.webp') }}" alt="">
+                        {% endif %}
+                    </div>
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title mb-2 text-4" style="line-height: 1.3em;">{{ poster.title }}</h4>
+                    {% if current_user.is_authenticated %}
+                    <p class="card-text" style="line-height: 1.2em; ">{% if poster.path_mp4 %}<i class="fas fa-video" style="padding-right: 5px;">{% endif %}</i>by <b>{{ poster.author }}</b></p>
+                    {% else %}
+                    <p>** Content available after login **</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+    </div>
+    
+</div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='vendor/masonry.pkgd.min.js') }}"></script>
+<script>
+$(window).on("load", function() {
+    $('.grid').masonry({
+    "columnWidth": ".grid-sizer",
+    "itemSelector": ".grid-item",
+    transitionDuration: 0, 
+    "percentPosition": true
+  });
+});
+
+</script>
+{% endblock %}

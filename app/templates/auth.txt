@@ -1,4 +1,4 @@
-Dear user, welcome to the BS2023 poster gallery!
+Dear {{ name }}, here is your authorization link for bs2023.org
 
 Here's your authentication link: {{ url_for('auth', token=token, _external=True) }} 
 (Only available for {{ exp }} seconds)

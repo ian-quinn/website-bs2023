@@ -1,167 +1,163 @@
 {% extends 'base.html' %}
-{% block title %}Poster Gallery{% endblock %}
+{% block title %}Gallery{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/skin-gallery.css') }}">
+{% endblock %}
 
 {% block content %}
 <section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
     <div class="container">
         <div class="row">
             <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                <h1 class="text-dark">Poster Gallery</h1>
+                <h1 class="text-dark">Gallery</h1>
             </div>
             <div class="col-md-4 order-1 order-md-2 align-self-center">
                 <ul class="breadcrumb d-block text-md-end">
                     <li>Home</li>
-                    <li>Program</li>
-                    <li class="active">Poster</li>
+                    <li>Event</li>
+                    <li class="active">Gallery</li>
                 </ul>
             </div>
         </div>
         {% if current_user.is_authenticated %}
         <div style="text-align: right;">
-            <p>Welcome, {{ name }}! <a style="padding-left: 10px;" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i></a></p>
+            <p>Welcome, {{ current_user.name }}! <a style="padding-left: 10px;" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i></a></p>
         </div>
         {% endif %}
     </div>
 </section>
-
 <div class="container pt-2 pb-4">
 
-    <div class="py-4">
-        {% if not current_user.is_authenticated %}
-
-        {% with messages = get_flashed_messages(with_categories=True) %}
-        {% if messages %}
-        <div>
-            {% for category, message in messages %}
-            <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                </button>
+    <div class="row py-4 justify-content-center">
+        <div class="col-md-9">
+            
+            <div class="mb-5 panel-album" style="border: 1px solid #888888; height: 200px;">
+                <div class="panel-text p-4">
+                    <h2 style="font-weight: bold; color: #ffffff; letter-spacing: 0px;">Album</h2>
+                    <p style="color: #ffffff"><b>5504/5504</b> uploaded</p>
+                    <div style="text-align: right; display: flex; justify-content: right;">
+                        <a href="https://live.photoplus.cn/live/pc/55680432/#/live" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2" target="_blank">Sept. 3<sup>rd</sup></a>
+                        <a href="https://live.photoplus.cn/live/pc/7396431/#/live" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2" target="_blank">Sept. 4<sup>th</sup></a>
+                        <a href="https://live.photoplus.cn/live/pc/51193549/#/live" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2" target="_blank">Sept. 5<sup>th</sup></a>
+                        <a href="https://live.photoplus.cn/live/pc/51892214/#/live" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2" target="_blank">Sept. 6<sup>th</sup></a>
+                    </div>
+                </div>
+                <div class="img-box dimmed" style="max-height: 100%;">
+                    <img src="{{ url_for('static', filename='img/album.webp') }}" alt="">
+                </div>
+                <div class="panel-overlay" style="background-color: #a72e44;">
+                </div>
             </div>
-            {% endfor %}
+
+            <div class="mb-5 panel-album" style="border: 1px solid #888888; height: 200px;">
+                {% if current_user.is_authenticated %}<a href="{{ url_for('replay') }}" style="text-decoration: none;">{% endif %}
+                    <div class="panel-text p-4">
+                        <h2 style="font-weight: bold; color: #ffffff; letter-spacing: 0px;">Recordings</h2>
+                        <p style="color: #ffffff"><b>1/81</b> uploaded</p>
+                        <div style="text-align: right; display: flex; justify-content: right;">
+                            <a href="{{ url_for('replay_cate', cate_id=0) }}" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2 {% if not current_user.is_authenticated %}disabled{% endif %}" target="_blank">Keynote</a>
+                            <a href="{{ url_for('replay_cate', cate_id=1) }}" class="disabled btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2" target="_blank">Onsite</a>
+                            <a href="{{ url_for('replay_cate', cate_id=2) }}" class="disabled btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2" target="_blank">Online</a>
+                            <a href="{{ url_for('replay_cate', cate_id=3) }}" class="disabled btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2" target="_blank">Workshop</a>
+                        </div>
+                    </div>
+                {% if current_user.is_authenticated %}</a>{% endif %}
+                <div class="img-box {% if not current_user.is_authenticated %}dimmed{% endif %}" style="max-height: 100%;">
+                    <img src="{{ url_for('static', filename='img/speech.webp') }}" alt="">
+                </div>
+                <div class="panel-overlay" style="background-color: #7e1241;">
+                </div>
+            </div>
+
+            <div class="mb-5 panel-album" style="border: 1px solid #888888; height: 200px;">
+                {% if current_user.is_authenticated %}<a href="{{ url_for('poster') }}" style="text-decoration: none;">>{% endif %}
+                    <div class="panel-text p-4">
+                        <h2 style="font-weight: bold; color: #ffffff; letter-spacing: 0px;">Posters</h2>
+                        <p style="color: #ffffff"><b>39/45</b> uploaded</p>
+                        <div style="text-align: right; display: flex; justify-content: right;">
+                            <a href="{{ url_for('poster_cate', cate_id=1) }}" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2 {% if not current_user.is_authenticated %}disabled{% endif %}" target="_blank">Academic Paper</a>
+                            <a href="{{ url_for('poster_cate', cate_id=2) }}" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2 {% if not current_user.is_authenticated %}disabled{% endif %}" target="_blank">Student Competition</a>
+                        </div>
+                    </div>
+                {% if current_user.is_authenticated %}</a>{% endif %}
+                <div class="img-box {% if not current_user.is_authenticated %}dimmed{% endif %}" style="max-height: 100%;">
+                    <img src="{{ url_for('static', filename='img/poster.webp') }}" alt="">
+                </div>
+                <div class="panel-overlay" style="background-color: #53003b;">
+                </div>
+            </div>
+
+            <div class="mb-5 panel-album" style="border: 1px solid #888888; height: 200px;">
+                <div class="panel-text p-4">
+                    <h2 style="font-weight: bold; color: #ffffff; letter-spacing: 0px;">Conference Proceedings</h2>
+                    <p style="color: #ffffff">In progress. The manuscripts for preview have  been delivered to physical attendees by USD-drive. The pre-print version will be accessible on <a href="https://publications.ibpsa.org/building-simulation-conference-proceedings/">IBPSA publications</a> (usually in 6 months). See <a href="{{ url_for('publication') }}">timeline</a> of the publication process.</p>
+                </div>
+                <div class="img-box dimmed" style="max-height: 100%;">
+                    <img src="{{ url_for('static', filename='img/papers.webp') }}" alt="">
+                </div>
+                <div class="panel-overlay" style="background-color: #200021;">
+                </div>
+            </div>
+
         </div>
-        {% endif %}
-        {% endwith %}
 
-        <div class="card" style="background-color: #f9f9f9">
-            <div class="card-body">
-                <form class="contact-form" action="{{ url_for('poster') }}" method="POST" enctype="multipart/form-data">
-                    <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
-                    {{ form.hidden_tag() }}
-                    <!-- <div class="row">
-                        <label class="form-check-label">Forget your </label>
-                    </div> -->
-
-                    <div class="row" style="margin-bottom: -15px;">
-                        <div class="form-group col-md-6">
-                            {{ form.email(class="form-control text-3 h-auto", placeholder="Your registration email for ConfTool") }}
-                            {% for error in form.email.errors %}
-                            <small style="color: #dc3545">{{ error }}</small>
+        <div class="col-lg-3 menu">
+            <div class="sticky-top" style="top: 20px;">
+                <div class="toc-box list-group" id="menuspied" style="border-left: none; padding-left: 0px;">
+                    {% if not current_user.is_authenticated %}
+                    <div class="mb-4">
+                        {% with messages = get_flashed_messages(with_categories=True) %}
+                        {% if messages %}
+                        <div>
+                            {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                </button>
+                            </div>
                             {% endfor %}
                         </div>
-                        <div class="form-group col-md-6">
-                            {{ form.submit(type="submit", value="Get Login Link", class="btn btn-outline-danger w-100") }}
+                        {% endif %}
+                        {% endwith %}
+
+                        <div class="card" style="background-color: #f9f9f9">
+                            <div class="card-body">
+                                <form class="contact-form" action="{{ url_for('gallery') }}" method="POST" enctype="multipart/form-data">
+                                    <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
+                                    {{ form.hidden_tag() }}
+                                    <!-- <div class="row">
+                                        <label class="form-check-label">Forget your </label>
+                                    </div> -->
+
+                                    <div class="form-group">
+                                        {{ form.email(class="form-control text-2 h-auto", placeholder="ConfTool registered email") }}
+                                        {% for error in form.email.errors %}
+                                        <small style="color: #dc3545">{{ error }}</small>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="form-group" style="margin: 0;">
+                                        {{ form.submit(type="submit", value="Get Login Link", class="btn text-2 btn-outline-danger w-100") }}
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </form>
+                    {% else %}
+                    <p>
+                        You have logged in successfully.
+                    </p>
+                    {% endif %}
+                    <p>Only participants can access the replay/poster gallery. Please enter your registered ConfTool email and receive the authentication link for login from bs2023bot@gmail.com. Check the SPAM folder if the email has not been delivered.</p>
+                    <p>The gallery is in progress. There will be camera recordings for plenary sessions (room A1 + A2), and screen recordings for parallel sessions.</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    {% endif %}
 
-    <div class="row py-4">
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{{ url_for('static', filename='img/poster-sample-1.png') }}" alt="Four Points">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold">Poster sample 1</h4>
-                        <p class="card-text"><i class="fas fa-audio-description" style="padding-right: 5px;"></i><i class="fas fa-image" style="padding-right: 5px;"></i>by Albus Percival Dumbledore<br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    <img class="card-img-top" src="{{ url_for('static', filename='img/poster-sample-2.png') }}" alt="Hampton">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold">Poster sample 2</h4>
-                        <p class="card-text"><i class="fas fa-video" style="padding-right: 5px;"></i><i class="fas fa-image" style="padding-right: 5px;"></i>by Rubeus Hagrid<br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    {% if current_user.is_authenticated %}
-                    <img class="card-img-top" src="{{ url_for('static', filename='img/poster-sample-3.png') }}" alt="">
-                    {% else %}
-                    <img class="card-img-top" src="{{ url_for('static', filename='img/placeholder-img-short.webp') }}" alt="">
-                    {% endif %}
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold">Sample poster 3</h4>
-                        {% if current_user.is_authenticated %}
-                        <p class="card-text"><i class="fas fa-image" style="padding-right: 5px;"></i>by Dudley Dursley <br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        {% else %}
-                        <p>**Content only available after login**</p>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row py-4">
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    {% if current_user.is_authenticated %}
-                    <img class="card-img-top" src="{{ url_for('static', filename='img/poster-sample-4.png') }}" alt="">
-                    {% else %}
-                    <img class="card-img-top" src="{{ url_for('static', filename='img/placeholder-img-short.webp') }}" alt="">
-                    {% endif %}
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold">Sample poster 4</h4>
-                        {% if current_user.is_authenticated %}
-                        <p class="card-text"><i class="fas fa-image" style="padding-right: 5px;"></i>by Igor Karkaroff <br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        {% else %}
-                        <p>**Content only available after login**</p>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    {% if current_user.is_authenticated %}
-                    <img class="card-img-top" src="{{ url_for('static', filename='img/poster-sample-5.png') }}" alt="">
-                    {% else %}
-                    <img class="card-img-top" src="{{ url_for('static', filename='img/placeholder-img-short.webp') }}" alt="">
-                    {% endif %}
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold">Sample poster 5</h4>
-                        {% if current_user.is_authenticated %}
-                        <p class="card-text"><i class="fas fa-audio-description" style="padding-right: 5px;"></i><i class="fas fa-image" style="padding-right: 5px;"></i>by Peter Pettigrew <br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        {% else %}
-                        <p>**Content only available after login**</p>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    {% if current_user.is_authenticated %}
-                    <img class="card-img-top" src="{{ url_for('static', filename='img/poster-sample-6.png') }}" alt="">
-                    {% else %}
-                    <img class="card-img-top" src="{{ url_for('static', filename='img/placeholder-img-short.webp') }}" alt="">
-                    {% endif %}
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold">Sample poster 6</h4>
-                        {% if current_user.is_authenticated %}
-                        <p class="card-text"><i class="fas fa-audio-description" style="padding-right: 5px;"></i><i class="fas fa-image" style="padding-right: 5px;"></i>by Alastor Moody <br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        {% else %}
-                        <p>**Content only available after login**</p>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
     
 </div>
+
 {% endblock %}

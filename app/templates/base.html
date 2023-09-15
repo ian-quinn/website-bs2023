@@ -30,13 +30,13 @@
 
         <!-- Theme CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/theme-v1.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/theme-elements-v1.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/theme-elements-v2.css') }}">
 
         <!-- Skin CSS -->
         <link id="skinCSS" rel="stylesheet" href="{{ url_for('static', filename='css/skin-default-v1.css') }}">
 
         <!-- Theme Custom CSS -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/custom-v5.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/custom-v6.css') }}">
 
         <!-- Current Page CSS -->
         {% block styles %}{% endblock %}
@@ -113,8 +113,8 @@
                         <div id="menu-events" class="accordion-collapse collapse" aria-labelledby="menu-events-head" data-bs-parent="#nav-sidebar">
                             <div class="accordion-body">
                                 <ul class="list-unstyled">
-                                    <a href="{{ url_for('virtual') }}"><li>Virtual Session</li></a>
-                                    <a href="{{ url_for('awards') }}"><li class="accessible">Awards</li></a>
+                                    <a href="{{ url_for('awards') }}"><li>Awards</li></a>
+                                    <a href="{{ url_for('gallery') }}"><li>Gallery</li></a>
                                     <a href="{{ url_for('rivercruise') }}"><li><b>River Cruise (HDY Night)</b></li></a>
                                 </ul>
                             </div>
@@ -165,6 +165,7 @@
                                     <a href="{{ url_for('ibpsa') }}"><li class="accessible">IBPSA</li></a>
                                     <a href="{{ url_for('committee') }}"><li class="accessible">Committee</li></a>
                                     <a href="{{ url_for('reviewer') }}"><li class="accessible">Reviewers</li></a>
+                                    <a href="{{ url_for('certificate') }}"><li class="accessible">Certificate</li></a>
                                     <a href="{{ url_for('newsletter', news_id=20220407) }}"><li class="accessible">Newsletter</li></a>
                                     <a href="{{ url_for('contact') }}"><li class="accessible">Contact / FAQ</li></a>
                                 </ul>
@@ -198,7 +199,7 @@
                                                             <a class="dropdown-item dropdown-toggle" href="#">Sign-up</a>
                                                             <ul class="dropdown-menu">
                                                                 <li><a class="dropdown-item" href="{{ url_for('timeline') }}">Timeline</a></li>
-                                                                <li><a class="dropdown-item" href="{{ url_for('submit') }}"><strong>Submission</strong></a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('submit') }}">Submission</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('registration') }}">Registration</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('publication') }}">Publication</a></li>
                                                             </ul>
@@ -209,8 +210,8 @@
                                                                 <li><a class="dropdown-item" href="{{ url_for('theme') }}">Themes</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('program') }}">Program Book</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('keynote') }}">Keynotes</a></li>
-                                                                <li><a class="dropdown-item" href="{{ url_for('invited') }}"><b>Invited Speech</b></a></li>
-                                                                <li><a class="dropdown-item" href="{{ url_for('workshop') }}"><b>Workshops</b></a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('invited') }}">Invited Speech</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('workshop') }}">Workshops</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('techtour') }}">Technical Tours</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('competition') }}">Student Competition</a></li>
                                                             </ul>
@@ -218,18 +219,16 @@
                                                         <li class="dropdown">
                                                             <a class="dropdown-item dropdown-toggle" href="#">Events</a>
                                                             <ul class="dropdown-menu">
-                                                                <li><a class="dropdown-item" href="{{ url_for('virtual') }}">Virtual Session</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('awards') }}">Awards</a></li>
-                                                                <li><a class="dropdown-item" href="{{ url_for('rivercruise') }}"><b>River Cruise (HDY Night)</b></a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('gallery') }}">Gallery</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('rivercruise') }}">River Cruise (HDY Night)</a></li>
                                                             </ul>
                                                         </li>
                                                         <li class="dropdown">
                                                             <a class="dropdown-item dropdown-toggle" href="#">Guide</a>
                                                             <ul class="dropdown-menu">
-                                                                <li><a class="dropdown-item">Meet Shanghai! (WIP)</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('venue') }}">Venue</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('accommodation') }}">Accommodation</a></li>
-                                                                <li><a class="dropdown-item">Traveling (WIP)</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('visa') }}">VISA Policy</a></li>
                                                             </ul>
                                                         </li>
@@ -246,6 +245,7 @@
                                                                 <li><a class="dropdown-item" href="{{ url_for('ibpsa') }}">IBPSA</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('committee') }}">Committee</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('reviewer') }}">Reviewers</a></li>
+                                                                <li><a class="dropdown-item" href="{{ url_for('certificate') }}">Certificate</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('newsletter', news_id=20220407) }}">Newsletter</a></li>
                                                                 <li><a class="dropdown-item" href="{{ url_for('contact') }}">Contact / FAQ</a></li>
                                                             </ul>
@@ -269,7 +269,9 @@
 
                 <div role="main" class="main">
 
-                {% block content %}{% endblock %} 
+                {% block content %}{% endblock %}
+
+                </div>
 
                 <footer id="footer">
                     <div class="footer-copyright">

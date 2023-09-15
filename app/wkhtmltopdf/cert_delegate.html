@@ -1,0 +1,272 @@
+<html>
+<head>
+<style type="text/css">
+@font-face {
+	font-family: 'Noto Sans';
+	src: url('{{ res_font_1 }}');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  src: url('{{ res_font_2 }}');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  src: url('{{ res_font_3 }}');
+  font-weight: 100;
+  font-style: normal;
+}
+
+body {
+  	font-size: 15px;
+  	font-family: 'Noto Sans';
+}
+
+.framework {
+	border-collapse:collapse;
+	border-spacing:0;
+	height: 100%;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+.cell-border {
+	border-spacing:0;
+	height: 100%;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+.cell-border tr:first-child {
+	border-bottom: 1px solid #666666; 
+}
+
+.background {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.framework td {
+	border-style : hidden !important;
+	vertical-align: middle;
+	border-color:black;
+	border-style:solid;
+	border-width:0px;
+    overflow:hidden;
+    padding: 0px;
+    word-break:normal;
+}
+.framework td div {
+	height: 100%;
+	width: 100%;
+}
+
+.timestamp {
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, rgba(255,255,255,0) 50%, #fff 51%);
+    border-image-slice: 1;
+}
+</style>
+
+<meta charset="utf-8">
+
+</head>
+<body style="margin: 1px;">
+	<table class="framework background" background="{{ res_background }}">
+		<tbody>
+			<tr>
+				<td style="width: 7%;"></td>
+				<td style="width: 19.4%; padding:0; Margin:0">
+					<table class="cell-border">
+						<tr style="height: 11%">
+							<td></td>
+						</tr>
+						<tr style="height: 6.2%; text-align: right;">
+							<td></td>
+							<td>
+								<img src="{{ res_logo }}" style="width:175px;">
+							</td>
+						</tr>
+						<tr style="height:58.5%">
+							<td></td>
+						</tr>
+						<tr style="height: 6%">
+							<td style="width:25%;"></td>
+							<td style="width:auto;">
+								<table class="cell-border" style="text-align: right;">
+									<tr style="height: 50%;">
+										<td style="font-weight: normal; text-align: right; font-size: 0.8em;">
+											CERTIFICATE NO. BS{% if mode_attendance == 1 %}P{% endif %}{% if mode_attendance == 2 %}V{% endif %}{{ user_id }}
+										</td>
+									</tr>
+									<tr style="height: auto; border-bottom: 3px solid #666666;">
+										<td style="text-align: right; font-size: 0.8em;">
+											<div style="border-top: 1px solid #000000">{{ date }}</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr style="height: auto">
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td style="width: 3.5%;"></td>
+				<td style="width: 63.1%;">
+					<table class="framework">
+						<tr style="height: 11%">
+							<td></td>
+						</tr>
+						<tr style="height: 4%">
+							<td>The 18<sup>th</sup> International IBPSA Conference and Exhibition<br/>
+								<b>Building Simulation 2023</b> | September 4-6, 2023 | Shanghai, China
+							</td>
+						</tr>
+						<tr style="height: 2%">
+							<td>
+							</td>
+						</tr>
+						<tr style="{% if papers|length == 0 %}height: 20%{% endif %}{% if papers|length == 1 %}height: 15%{% endif %}{% if papers|length == 2 %}height: 10%{% endif %}{% if papers|length == 3 %}height: 5%{% endif %}">
+							<td style="font-size:3.2em; line-height: 1.2em; font-weight: bold;">Certificate of Attendance</td>
+						</tr>
+						<tr style="height: 5%">
+							<td>This certificates that</td>
+						</tr>
+						<tr style="height: 4%">
+							<td style="font-size:2.2em;">{{ delegate_title }} <b>{{ delegate_name }}</b></td>
+						</tr>
+						<tr style="height: 9%; line-height: 1.2em;">
+							<td>has attended the conference on September 4-6, 2023 {% if mode_attendance == 2 %}(Virtual){% endif %}. <br>
+								{% if papers|length > 0 %}
+								and give presentation{% if papers|length > 1 %}s{% endif %} of the following accepted paper{% if papers|length > 1 %}s{% endif %}/report{% if papers|length > 1 %}s{% endif %}: <br>
+								{% endif %}
+							</td>
+						</tr>
+						{% for paper in papers %}
+						<tr style="height: 10%">
+							<td>
+								<div style="margin-top: 5px;">
+									<span style="font-size: 0.8em; font-weight: 100; line-height: 1.1em;">{% if "Poster" in paper.session_code %}Poster{% else %}Oral{% endif %} presentation in Session </span><b style="font-size: 0.8em; line-height: 1.1em;">{{ paper.session_code }}</b><span style="font-size: 0.8em; font-weight: 100; line-height: 1.1em;"> - {{ paper.session_name }}</span><br>
+									<b style="line-height: 1.2em;">{{ paper.title }}</b> {% if paper.mode_presentation == 0%}(Project Report){% else %}(Paper){% endif %}<br>
+									<span style="font-weight: 100; font-size: 0.8em; line-height: 1.1em;">{{ paper.authors }}</span>
+								</div>
+							</td>
+						</tr>
+						{% endfor %}
+
+						{% if papers|length == 0 %}
+						<tr style="height: 12%">
+							<td>
+							</td>
+						</tr>
+						{% endif %}
+
+						{% if papers|length != 0 %}
+							{% if papers|length != 3 and papers[0].mode_presentation != 0 %}
+							<tr style="height: 6%; line-height: 1.2em;">
+								<td>The paper will be published in the <br>
+									Building Simulation Conference Proceedings Vol.18 (ISSN: 2522-2708)
+								</td>
+							</tr>
+							{% endif %}
+						{% endif %}
+
+						<!-- <tr style="height: 12%">
+							<td>
+								<table class="framework">
+									<tr>
+										<td style="width: 40%;"></td>
+										<td style="width: 30%;">
+											<div style="width:100%;">
+												<table class="cell-border">
+													<tr style="height: 52px; text-align: right;">
+														<td>
+															<div style="max-height: 70px; overflow: visible; z-index: 100;">
+																<img src="{{ res_signature_1 }}" style="height: 70px; margin-left: 20px;" />
+															</div>
+														</td>
+													</tr>
+													<tr style="height: auto">
+														<td style="text-align: right; font-size: 0.8em; line-height: 1.2em;">
+															<div style="border-top: 2px solid #666666;">
+																Prof. Dr. <b>Yiqun PAN</b><br>Tongji University, China<br>
+																Conference Chair
+															</div>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</td>
+										<td style="width: 5%;"></td>
+										<td style="width: 25%;">
+											<div style="width:100%;">
+												<table class="cell-border">
+													<tr style="height: 52px; text-align: right;">
+														<td>
+															<div style="max-height: 70px; overflow: visible; z-index: 100;">
+																<img src="{{ res_signature_2 }}" style="height: 100px; margin-left: 30px;" />
+															</div>
+														</td>
+													</tr>
+													<tr style="height: auto">
+														<td style="text-align: right; font-size: 0.8em; line-height: 1.2em;">
+															<div style="border-top: 2px solid #666666;">
+																Prof. Dr. <b>Da YAN</b><br>Tsinghua University, China<br>
+																Conference Co-chair
+															</div>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr> -->
+						<tr style="height: auto;">
+							<td></td>
+						</tr>
+					</table>
+				</td>
+				<td style="width: 7.5%;"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div style="text-align: right; position: absolute; bottom: 120px; right: 310px;">
+		<img src="{{ res_signature_1 }}" style="height: 70px;" />
+	</div>
+	<div style="text-align: right; position: absolute; bottom: 100px; right: 95px;">
+		<img src="{{ res_signature_2 }}" style="height: 100px;"/>
+	</div>
+
+	<div style="text-align: right; position: absolute; bottom: 95px; right: 100px; display: flex;">
+		<div style="text-align: right; font-size: 0.8em; line-height: 1.2em; display: inline-block; margin-right: 50px; width: 230px;">
+			<div style="border-top: 1px solid #000000;">
+				Prof. Dr. <b>Yiqun PAN</b><br>Tongji University, China<br>
+				Conference Chair
+			</div>
+		</div>
+		<div style="text-align: right; font-size: 0.8em; line-height: 1.2em; display: inline-block; width: 170px;">
+			<div style="border-top: 1px solid #000000;">
+				Prof. Dr. <b>Da YAN</b><br>Tsinghua University, China<br>
+				Conference Co-chair
+			</div>
+		</div>
+	</div>
+
+	<div style="text-align: right; position: absolute; bottom: 38px; right: 146px; font-size: 0.8em; color: #555555; line-height: 1.2em;">
+		validated on <u>bs2023.org/certificate</u>
+	</div>
+
+</body>
+</html>

@@ -15,7 +15,7 @@ from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 
 from app import app, db
-from app.models import Message, File, Reviewer, Invitation, Accommodation, Certificate, Poster
+from app.models import Message, File, Reviewer, Invitation, Accommodation, Certificate, Poster, Recording, Delegate, Paper
 from app.models import User, get_or_create
 from app.forms import MessageForm, EnrollForm, InvitationForm, AccommodationForm, RetrieveAccommodationForm
 from app.forms import ReviewerForm, CertificateForm, LoginForm
@@ -438,6 +438,46 @@ def get_cert():
     return render_template('enroll.html', form_apply=form_apply, form_cert=form_cert)
 
 
+@app.route('/certificate', methods=['GET', 'POST'])
+def certificate():
+    form_cert = CertificateForm()
+
+    if form_cert.validate_on_submit():
+        email = form_cert.email.data.lower()
+        delegates = Delegate.query.filter_by(email = email).all()
+        
+        msg = f'We cannot find the record in the database. Please contact <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a> to claim your certificate if needed.'
+        
+        if len(delegates) > 0:
+            if not delegates[0].certpath_attendance:
+                cert_attendance_name = f'cert_{email}.pdf'
+                resource_path = os.path.join(current_app.root_path, app.config['WKRESOURCE_PATH'])
+                output_path = os.path.join(app.config['CERT_PATH'], cert_attendance_name)
+                # check if there is any paper
+                papers = []
+                if delegates[0].papers != "":
+                    paper_ids = delegates[0].papers.split(",")
+                    print(paper_ids, file=sys.stdout)
+                    for paper_id in paper_ids:
+                        papers.append(Paper.query.filter_by(conftool = int(paper_id)).first())
+
+                printpdf.print_attendance(delegates[0].firstname + " " + delegates[0].lastname, delegates[0].title, delegates[0].conftool, 
+                    papers, delegates[0].mode_attendance, 
+                    app.config['WKHTMLTOPDF_PATH'], resource_path, output_path)
+                # print(output_path, file=sys.stdout)
+                delegates[0].certpath_attendance = cert_attendance_name
+                db.session.commit()
+            msg = f'PDF printed. Click here to download your \
+                <a href="{ url_for("download_certificate", cert_id=delegates[0].id, type_id=3) }" target="_blank">certificate</a>'
+            flash(Markup(msg), 'warning')
+            return redirect(url_for('certificate'))
+        else:
+            msg = "No record found."
+        flash(msg, 'warning')
+
+    return render_template('certificate.html', form_cert=form_cert)
+
+
 @app.route('/download/<int:file_id>', methods=['GET', 'POST'])
 def download(file_id):
     file = File.query.get_or_404(file_id)
@@ -450,16 +490,29 @@ def download_reservation(booking_id):
     path = os.path.join(current_app.root_path, app.config['BOOKING_PATH'])
     return send_from_directory(path, accommodation.filename, as_attachment=True, attachment_filename="%s" % accommodation.filename)
 
-@app.route('/download/certificate/<int:cert_id><int:type_id>', methods=['GET', 'POST'])
+# certificate type_id == 1: reviewer certificate
+# certificate type_id == 2: reviewer bonafide letter
+# certificate type_id == 3: attendance certificate
+# certificate type_id == 4: 
+# certificate type_id == 5: 
+
+@app.route('/download/certificate/<int:cert_id>#<int:type_id>', methods=['GET', 'POST'])
 def download_certificate(cert_id, type_id):
-    certificate = Certificate.query.get_or_404(cert_id)
-    path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
     if type_id == 1:
+        certificate = Certificate.query.get_or_404(cert_id)
+        path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
         return send_from_directory(path, certificate.filename, 
             as_attachment=True, attachment_filename="%s" % certificate.filename)
-    else:
+    elif type_id == 2:
+        certificate = Certificate.query.get_or_404(cert_id)
+        path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
         return send_from_directory(path, certificate.filename_letter, 
             as_attachment=True, attachment_filename="%s" % certificate.filename_letter)
+    elif type_id == 3:
+        delegate = Delegate.query.get_or_404(cert_id)
+        path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
+        return send_from_directory(path, delegate.certpath_attendance, 
+            as_attachment=True, attachment_filename="%s" % delegate.certpath_attendance)
 
 
 # -------------------------- ERROR ----------------------------- #
@@ -478,9 +531,8 @@ def internal_error(error):
 
 
 # --------------- POSTER GALLERY & USER MANAGEMENT ---------------#
-
-@app.route('/poster', methods=['GET', 'POST'])
-def poster():
+@app.route('/gallery', methods=['GET', 'POST'])
+def gallery():
     form = LoginForm()
     if current_user.is_authenticated:
         return render_template('gallery.html', form=form, name=current_user.name)
@@ -491,8 +543,22 @@ def poster():
         user.generate_auth_link(expiration=expiration)
         send_auth_link(user, expiration=expiration)  # send an email
         flash('Your login link has been sent to {}'.format(form.email.data))
-        return render_template('gallery.html', form=form, name='')
-    return render_template('gallery.html', form=form, name='')
+        return render_template('gallery.html', form=form)
+    return render_template('gallery.html', form=form)
+
+@app.route('/poster')
+def poster():
+    posters = Poster.query.order_by(Poster.id.asc()).all()
+    if current_user.is_authenticated:
+        return render_template('posters.html', name=current_user.name, posters=posters)
+    return render_template('posters.html', posters=posters)
+
+@app.route('/poster#<int:cate_id>')
+def poster_cate(cate_id):
+    posters = Poster.query.order_by(Poster.id.asc()).all()
+    if current_user.is_authenticated:
+        return render_template('posters.html', name=current_user.name, posters=posters, cate_id=cate_id)
+    return render_template('posters.html', posters=posters, cate_id=cate_id)
 
 @app.route('/poster/<token>')
 def qr_poster(token):
@@ -512,6 +578,15 @@ def qr_poster(token):
 @app.route('/poster/<int:poster_id>')
 def view_poster(poster_id):
     poster = Poster.query.get_or_404(poster_id)
+
+    posters = Poster.query.order_by(Poster.id.asc()).all()
+    ids = []
+    for i in range(len(posters)):
+        ids.append(posters[i].id)
+    id_loc = ids.index(poster_id)
+    next_loc = id_loc + 1 if id_loc < len(ids) - 1 else id_loc - len(ids) + 1
+    prev_loc = id_loc - 1
+
     path_img = url_for('static', filename='poster/' + poster.path_img) if poster.path_img else ''
     path_mp4 = url_for('static', filename='poster/' + poster.path_mp4) if poster.path_mp4 else ''
     path_webm = url_for('static', filename='poster/' + poster.path_webm) if poster.path_webm else ''
@@ -519,7 +594,7 @@ def view_poster(poster_id):
     return render_template(
         'poster.html', title=poster.title, author=poster.author, abstract=poster.abstract,
         path_img=path_img, path_mp4=path_mp4, path_webm=path_webm, path_cover=path_cover, paper_id=poster.id, 
-        is_freepass=False 
+        is_freepass=False, next_id=ids[next_loc], prev_id=ids[prev_loc], id_loc=id_loc, id_total=len(ids)
         )
 
 @login_required
@@ -539,6 +614,28 @@ def regenposterqrauthcode():
 #     return render_template('stats.html', user=user)
 
 
+# --------------- POSTER GALLERY & USER MANAGEMENT ---------------#
+
+@app.route('/replay')
+def replay():
+    recordings = Recording.query.order_by(Recording.timestamp.asc()).all()
+    if current_user.is_authenticated:
+        return render_template('recordings.html', name=current_user.name, recordings=recordings)
+    return render_template('recordings.html', recordings=recordings)
+
+@app.route('/replay#<int:cate_id>')
+def replay_cate(cate_id):
+    recordings = Recording.query.order_by(Recording.timestamp.asc()).all()
+    for item in recordings[::-1]:
+        if item.cate != cate_id:
+            recordings.remove(item)
+
+    if current_user.is_authenticated:
+        return render_template('recordings.html', name=current_user.name, recordings=recordings, cate_id=cate_id)
+    return render_template('recordings.html', recordings=recordings, cate_id=cate_id)
+
+
+
 @app.route('/auth/<token>', methods=['GET'])
 def auth(token):
     user = User.verify_auth_link(token)
@@ -548,15 +645,15 @@ def auth(token):
         user.counter += 1
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('poster'))
+        return redirect(url_for('gallery'))
     elif current_user.is_authenticated:
-        return redirect(url_for('poster'))
+        return redirect(url_for('gallery'))
     else:
         flash('Wrong or expired token. Please request another link by your registered email.')
-        return redirect(url_for('poster'))
+        return redirect(url_for('gallery'))
 
 
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('poster'))
+    return redirect(url_for('gallery'))

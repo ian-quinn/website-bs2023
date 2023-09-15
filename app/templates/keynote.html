@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}Keynotes{% endblock %}
 
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/skin-workshop-v1.css') }}">
+{% endblock %}
+
 {% block content %}
 <section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
     <div class="container">
@@ -22,193 +26,123 @@
 <div class="container py-4">
 
     <div class="row justify-content-center">
-        <div class="col-lg-10">
-            <div class="row">
-                <div class="col-md-3 order-md-2 mb-4 mb-lg-0">
-                    <div class="mt-1 mb-3">
-                        <img src="static/img/zhiqiangwu.webp" class="img-fluid" alt="Zhiqiang Wu">
-                    </div>
-                </div>
+        <div class="col-lg-11">
 
-                <div class="col-md-1 order-md-2 mb-4 mb-lg-0">
-                </div>
-
-                <div class="col-md-8 order-2">
-                    <div class="overflow-hidden">
-                        <h2 class="text-color-dark font-weight-semibold text-5 mb-0">Prof. Zhiqiang Wu</h2>
+            <div class="card card-keynote my-5">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="img-box">
+                            <img src="static/img/zhiqiangwu.webp" class="rounded-start" alt="Zhiqiang Wu">
+                        </div>
                     </div>
-                    <p class="overflow-hidden">
-                        <span>Tongji University, China<br/>Academician of Chinese Academy of Engineering, German Academy of Engineering and Royal Swedish Academy of Engineering</span>
-                    </p>
-                    <p>Prof. Wu has been sticking to the research and practice of urban development theories, sustainable urban design, and urban planning methodology, focusing on big-data supported intelligent planning. He is the <strong>chief planner of Shanghai World Expo 2010</strong> and the chief planner of Beijing Deputy Urban Center.</p>
+
+                    <div class="col-md-9 ">
+                        <div class="card-body ms-lg-5">
+                            <h2 class="text-color-dark font-weight-semibold text-5 mb-0" style="letter-spacing: 0; line-height: 1.2em;">From Cities to Buildings: Digital Tracking for Carbon Neutrality</h2>
+                            <hr class="my-4">
+                            <h2 class="text-color-dark font-weight-semibold text-4 mb-0" style="letter-spacing: 0; line-height: 1.2em;">Prof. Zhiqiang Wu</h2>
+                            <p style="font-size:1em; line-height:1.3em;">Prof. Wu has been sticking to the research and practice of urban development theories, sustainable urban design, and urban planning methodology, focusing on big-data supported intelligent planning. He is the chief planner of Shanghai World Expo 2010 and the chief planner of Beijing Deputy Urban Center.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <hr class="solid my-5">
+            <div class="my-5">
+                .
+            </div>
+
+            <div class="card card-keynote my-5">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="img-box">
+                            <img src="static/img/qingyanchen.webp" class="rounded-start" alt="Qingyan Chen">
+                        </div>
+                    </div>
+
+                    <div class="col-md-9 ">
+                        <div class="card-body ms-lg-5">
+                            <h2 class="text-color-dark font-weight-semibold text-5 mb-0" style="letter-spacing: 0; line-height: 1.2em;">Simulations of Airborne Disease Transmissions in Enclosed Environments</h2>
+                            <hr class="my-4">
+                            <h2 class="text-color-dark font-weight-semibold text-4 mb-0" style="letter-spacing: 0; line-height: 1.2em;">Prof. Qingyan Chen</h2>
+                            <p style="font-size:1em; line-height:1.3em;">Director of PolyU Academy for Interdisciplinary Research, Chair Professor of Building Thermal Science. He also serves as the Editor-in-Chief of Building and Environment since 2008. Chen's current research topics include indoor environment, aircraft cabin environment, and energy-efficient, healthy, and sustainable building design and analysis. Chen received Distinguished Achievement Award from IBPSA in 2013.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-3 order-md-2 mb-4 mb-lg-0">
-                    <div class="mt-1 mb-3">
-                        <img src="static/img/qingyanchen.webp" class="img-fluid" alt="vavant">
-                    </div>
-                </div>
+            <div class="my-5">
+                .
+            </div>
 
-                <div class="col-md-1 order-md-2 mb-4 mb-lg-0">
-                </div>
 
-                <div class="col-md-8 order-2">
-                    <div class="overflow-hidden">
-                        <h2 class="text-color-dark font-weight-semibold text-5 mb-0">Prof. Qingyan Chen</h2>
+            <div class="card card-keynote my-5">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="img-box">
+                            <img src="static/img/tianzhenhong.webp" class="rounded-start" alt="Tianzhen Hong">
+                        </div>
                     </div>
-                    <p class="overflow-hidden">
-                        <span>The Hong Kong Polytechnic University</span>
-                    </p>
-                    <p>Director of PolyU Academy for Interdisciplinary Research, Chair Professor of Building Thermal Science. He also serves as the Editor-in-Chief of Building and Environment since 2008. Chen's current research topics include indoor environment, aircraft cabin environment, and energy-efficient, healthy, and sustainable building design and analysis. Chen received Distinguished Achievement Award from IBPSA in 2013.</p>
+
+                    <div class="col-md-9 ">
+                        <div class="ribbon-1"><small><a href="#" style="color:#ffffff">REPLAY</a></small></div>
+                        <div class="card-body ms-lg-5">
+                            <h2 class="text-color-dark font-weight-semibold text-5 mb-0" style="letter-spacing: 0; line-height: 1.2em;">Nexus of building decarbonization: sufficiency, energy efficiency, demand flexibility and climate resiliency</h2>
+                            <hr class="my-4">
+                            <h2 class="text-color-dark font-weight-semibold text-4 mb-0" style="letter-spacing: 0; line-height: 1.2em;">Dr. Tianzhen Hong</h2>
+                            <p style="font-size:1em; line-height:1.3em;">Dr. Hong is a senior scientist with the Building Technology and Urban Systems Division of LBNL. His research employs interdisciplinary approaches to explore technologies and human factors supporting the planning, design, and operation of energy-efficient, demand-flexible, and climate-resilient buildings across scales.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <hr class="solid my-5">
+
+            <div class="my-5">
+                .
+            </div>
+
+            <div class="card card-keynote my-5">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="img-box">
+                            <img src="static/img/lori.webp" class="rounded-start" alt="Lori McElroy">
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+                        <div class="ribbon-1"><small><a href="#" style="color:#ffffff">REPLAY</a> | <a style="color:#ffffff">SlIDES</a></small></div>
+                        <div class="card-body ms-lg-5">
+                            <h2 class="text-color-dark font-weight-semibold text-5 mb-0" style="letter-spacing: 0; line-height: 1.2em;">Building Performance Simulation: Challenges and Opportunities in a Changing World</h2>
+                            <hr class="my-4">
+                            <h2 class="text-color-dark font-weight-semibold text-4 mb-0" style="letter-spacing: 0; line-height: 1.2em;">Prof. Lori McElroy</h2>
+                            <p style="font-size:1em; line-height:1.3em;">Lori McElroy (MBE, PhD, Hon FRIAS, FIBPSA, MCIBSE) is Professor of Smart, Resilient Cities in the Department of Architecture at the University of Strathclyde. Lori is an engineer with an international reputationin the application of integrated performance appraisal for the betterment of architecture and sustainable design. Lori is the Immediate Past President of IBPSA.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-3 order-md-2 mb-4 mb-lg-0">
-                    <div class="mt-1 mb-3">
-                        <img src="static/img/tianzhenhong.webp" class="img-fluid" alt="Tianzhen Hong">
-                    </div>
-                </div>
 
-                <div class="col-md-1 order-md-2 mb-4 mb-lg-0">
-                </div>
-
-                <div class="col-md-8 order-2">
-                    <div class="overflow-hidden">
-                        <h2 class="text-color-dark font-weight-semibold text-5 mb-0">Dr. Tianzhen Hong</h2>
-                    </div>
-                    <p class="overflow-hidden">
-                        <span>Lawrence Berkeley National Lab, USA<br/>IBPSA Fellow, ASHRAE Fellow</span>
-                    </p>
-                    <p>Dr. Hong is a senior scientist with the Building Technology and Urban Systems Division of LBNL. His research employs interdisciplinary approaches to explore technologies and human factors supporting the planning, design, and operation of energy-efficient, demand-flexible, and climate-resilient buildings across scales.</p>
-                </div>
+            <div class="my-5">
+                .
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <hr class="solid my-5">
+            <div class="card card-keynote my-5">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="img-box">
+                            <img src="static/img/mattheos.webp" class="rounded-start" alt="Mattheos Santamouris">
+                        </div>
+                    </div>
+
+                    <div class="col-md-9 ">
+                        <div class="card-body ms-lg-5">
+                            <h2 class="text-color-dark font-weight-semibold text-5 mb-0" style="letter-spacing: 0; line-height: 1.2em;">Regional and Global Overheating and its Impact on Human Beings</h2>
+                            <hr class="my-4">
+                            <h2 class="text-color-dark font-weight-semibold text-4 mb-0" style="letter-spacing: 0; line-height: 1.2em;">Prof. Mattheos Santamouris</h2>
+                            <p style="font-size:1em; line-height:1.3em;">Editor in Chief of the Energy and Buildings Journal. Editor and author of 20 international books published by Elsevier, Earthscan, Springer, etc. Ranked as the top world cited researcher in the field of Building and Construction by the Stanford University ranking system, for 2019-2022. Highly Cited Researcher in the Clarivate ranking for 4 continuous years.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-3 order-md-2 mb-4 mb-lg-0">
-                    <div class="mt-1 mb-3">
-                        <img src="static/img/lori.webp" class="img-fluid" alt="Lori McElroy">
-                    </div>
-                </div>
-
-                <div class="col-md-1 order-md-2 mb-4 mb-lg-0">
-                </div>
-
-                <div class="col-md-8 order-2">
-                    <div class="overflow-hidden">
-                        <h2 class="text-color-dark font-weight-semibold text-5 mb-0">Prof. Lori McElroy</h2>
-                    </div>
-                    <p class="overflow-hidden">
-                        <span>University of Strathclyde</span>
-                    </p>
-                    <p>Lori McElroy (MBE, PhD, Hon FRIAS, FIBPSA, MCIBSE) is Professor of Smart, Resilient Cities in the Department of Architecture at the University of Strathclyde. Lori is an engineer with an international reputationin the application of integrated performance appraisal for the betterment of architecture and sustainable design. Lori is the Immediate Past President of IBPSA.</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <hr class="solid my-5">
-                </div>
-            </div>
-
-            
-            <div class="row">
-                <div class="col-md-3 order-md-2 mb-4 mb-lg-0">
-                    <div class="mt-1 mb-3">
-                        <img src="static/img/mattheos.webp" class="img-fluid" alt="vavant">
-                    </div>
-                </div>
-
-                <div class="col-md-1 order-md-2 mb-4 mb-lg-0">
-                </div>
-
-                <div class="col-md-8 order-2">
-                    <div class="overflow-hidden">
-                        <h2 class="text-color-dark font-weight-semibold text-5 mb-0">Prof. Mattheos Santamouris</h2>
-                    </div>
-                    <p class="overflow-hidden">
-                        <span>University of New South Wales, Australia</span>
-                    </p>
-                    <p>Editor in Chief of the Energy and Buildings Journal. Editor and author of 20 international books published by Elsevier, Earthscan, Springer, etc. Ranked as the top world cited researcher in the field of Building and Construction by the Stanford University ranking system, for 2019-2022. Highly Cited Researcher in the Clarivate ranking for 4 continuous years.</p>
-                </div>
-            </div>
-
-            <!-- <div class="row">
-                <div class="col">
-                    <hr class="solid my-5">
-                </div>
-            </div> -->
-
-            <!-- <div>
-                <p style="text-align:center;">More speakers pending confirmation...</p>
-            </div> -->
-
-            <!-- 
-            <div class="row">
-                <div class="col-md-3 order-md-2 mb-4 mb-lg-0">
-                    <div class="mt-1 mb-3">
-                        <img src="static/img/placeholder-img-user.webp" class="img-fluid" alt="vavant">
-                    </div>
-                </div>
-
-                <div class="col-md-1 order-md-2 mb-4 mb-lg-0">
-                </div>
-
-                <div class="col-md-8 order-2">
-                    <div class="overflow-hidden">
-                        <h2 class="text-color-dark font-weight-semibold text-5 mb-0"></h2>
-                    </div>
-                    <p class="overflow-hidden">
-                    </p>
-                    <p>About the speaker</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <hr class="solid my-5">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-3 order-md-2 mb-4 mb-lg-0">
-                    <div class="mt-1 mb-3">
-                        <img src="static/img/placeholder-img-user.webp" class="img-fluid" alt="vavant">
-                    </div>
-                </div>
-
-                <div class="col-md-1 order-md-2 mb-4 mb-lg-0">
-                </div>
-
-                <div class="col-md-8 order-2">
-                    <div class="overflow-hidden">
-                        <h2 class="text-color-dark font-weight-semibold text-5 mb-0"></h2>
-                    </div>
-                    <p class="overflow-hidden">
-                    </p>
-                    <p>About the speaker</p>
-                </div>
-            </div> -->
 
         </div>
     </div>

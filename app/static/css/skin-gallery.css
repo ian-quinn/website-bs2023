@@ -1,0 +1,46 @@
+.panel-album {
+/*	background-image: url('../img/album.png');*/
+	position: relative;
+	border-radius: 5px;
+}
+
+.panel-album .img-box {
+	border-radius: 5px;
+}
+
+.panel-album img {
+	filter: brightness(75%);
+}
+
+.panel-album .dimmed img {
+	filter: saturate(0%);
+}
+
+.panel-overlay {
+	border-radius: 5px;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.4;
+    transition: .5s ease;
+}
+
+.panel-text {
+	color: #ffffff;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+}
+
+.panel-album:hover .panel-overlay {
+  opacity: 0.9;
+}

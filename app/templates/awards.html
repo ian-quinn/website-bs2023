@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}Awards{% endblock %}
 
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/skin-workshop-v1.css') }}">
+{% endblock %}
+
 {% block content %}
 <section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
     <div class="container">
@@ -20,270 +24,452 @@
 </section>
 
 <div class="container pt-2 pb-4">
-    <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8">
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-lg-3 col-md-4 img-box" style="max-height: 300px;">
-                        <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid rounded-start" alt="nominee">
-                    </div>
-                    <div class="col-lg-9 col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title">🎖️ Distinguished Achievement Award</h4>
-                            <h5 class="card-subtitle mb-2 text-muted">Nominations awaiting</h5>
-                            <p class="card-text">This award, formerly named the IBPSA Award for Distinguished Service to Building Simulation, recognizes an individual who has a distinguished record of contributions to the field of building performance simulation, over a long period.</p>
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+
+            <div class="row" style="display: inline-flex;">
+                <div class="col-md-4 pe-4 my-4">
+                    <div class="card" style="z-index: 20;">
+                        <div class="img-box">
+                            <img src="{{ url_for('static', filename='img/awards/lori.webp') }}" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body text-center" style="background-color: rgba(255, 255, 255, 0.9);">
+                            <p class="card-title" style="letter-spacing: 0px; font-weight: bold; font-size: 1.5em; color: #000000;">Lori McElroy</p>
+                            <h5 class="card-subtitle mb-3"><i class="fas fa-medal"></i></h5>
+                            <h5 class="card-subtitle">IBPSA Distinguished Achievement Award</h5>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-lg-3 col-md-4 img-box" style="max-height: 300px;">
-                        <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid rounded-start" alt="nominee">
-                    </div>
-                    <div class="col-lg-9 col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title">🎖️ Outstanding Young Contributor Award</h4>
-                            <h5 class="card-subtitle mb-2 text-muted">Nominations awaiting</h5>
-                            <p class="card-text">This award recognizes an individual at the beginning of their career who has demonstrated potential for significant contributions to the field of building performance simulation.</p>
+                
+                <div class="col-md-4 px-4 my-4">
+                    <div class="card">
+                        <div class="img-box">
+                            <img src="{{ url_for('static', filename='img/awards/sen.webp') }}" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-title" style="letter-spacing: 0px; font-weight: bold; font-size: 1.5em; color: #000000;">Sen Huang</p>
+                            <h5 class="card-subtitle mb-3"><i class="fas fa-medal"></i></h5>
+                            <h5 class="card-subtitle">IBPSA Outstanding Young Contributor Award</h5>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-lg-3 col-md-4 img-box" style="max-height: 300px;">
-                        <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid rounded-start" alt="nominee">
-                    </div>
-                    <div class="col-lg-9 col-md-8">
-                        <div class="card-body">
-                            <h4 class="card-title">🎖️ Innovative Application Award</h4>
-                            <h5 class="card-subtitle mb-2 text-muted">Nominations awaiting</h5>
-                            <p class="card-text">This award, formerly named the IBPSA Award for Distinguished Practice, recognizes an individual, recognizes an individual, group or firm, who has made a significant contribution to the effective application and/or advancement of building performance simulation in practice.</p>
+                
+                <div class="col-md-4 ps-4 my-4">
+                    <div class="card">
+                        <div class="img-box">
+                            <img src="{{ url_for('static', filename='img/awards/rebecca.webp') }}" class="card-img-top" alt="...">
                         </div>
-                    </div>
+                        <div class="card-body text-center">
+                            <p class="card-title" style="letter-spacing: 0px; font-weight: bold; font-size: 1.5em; color: #000000;">Rebecca Ward</p>
+                            <h5 class="card-subtitle mb-3" style="letter-spacing: 0px;"><i class="fas fa-medal"></i></h5>
+                            <h5 class="card-subtitle" style="letter-spacing: 0px;">Godfried Augenbroe<br/>Award</h5>
+                        </div>
+                    </div>  
                 </div>
+                
             </div>
 
-            <h2 class="mt-5">Students</h2>
+            
+            <section style="position: relative;">
+                <img src="{{ url_for('static', filename='img/olive_branch.png') }}" style="position: absolute; margin-left: -175px; margin-top: -175px; z-index: 0; height: 350px;">
+                <h2 class="mt-5">IBPSA-Fellow</h2>
+                <p>The grade of IBPSA fellow is awarded to members who have attained distinction in the field of building performance simulation (or in the allied arts or sciences), by either the teaching of major courses in said arts and sciences, or by way of research, simulation code development, original work, or the application of building simulation on projects of a significant scope. The individual must have been active in the field for at least ten years.</p>
+                <p>Check <a href="http://www.ibpsa.org/?page_id=310" target="_blank">here</a> for the nominations of the upcoming biennial awarding.</p>
+
+                <div class="row portfolio-list mt-4 pt-2">
+                    <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/awards/adrian.webp') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Adrian<br/>Chong</span>
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/awards/bing.webp') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Bing<br/>Dong</span>
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/awards/jing.webp') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Jing<br/>Liu</span>
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/awards/michael.webp') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Michaël<br/>Kummert</span>
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/awards/zoltan.webp') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Zoltan<br/>Nagy</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/awards/sukumar.webp') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Sukumar<br/>Natarajan</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/awards/masaya.webp') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Masaya<br/>Okumiya</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/awards/yoshiyuki.webp') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Yoshiyuki<br/>Shimoda</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/awards/liangzhu.webp') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Liangzhu<br/>Wang</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/awards/monika.webp') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Monika<br/>Woloszyn</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/awards/fu.webp') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Fu<br/>Xiao</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-sm-3 col-md-3 col-lg-2">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-centered-info border-radius-0">
+                                <span class="thumb-info-wrapper border-radius-0">
+                                    <img src="{{ url_for('static', filename='img/awards/yanping.webp') }}" class="img-fluid border-radius-0" alt="">
+                                    <span class="thumb-info-title">
+                                        <span class="thumb-info-inner text-4">Yanping<br/>Yuan</span>
+
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+
+            <h2 class="mt-5">Students Travel Awards</h2>
             <p>BS 2023 will continue to award students with excellent work in building simulation. Nominations still awaiting for the Travel Award, please check the official <a href="http://www.ibpsa.org/?page_id=62#student" target="_blank">website</a> of IBPSA for further information. The details of the student modeling competition and the best paper award will come soon.</p>
-
-            <div class="card-group">
-                <div class="card">
-                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">Travel Award</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">Competition Winner</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">Best Paper</h4>
-                    </div>
-                </div>
-            </div>
-
-
-            <h2 class="mt-5">IBPSA-Fellow</h2>
-            <p>The grade of IBPSA fellow is awarded to members who have attained distinction in the field of building performance simulation (or in the allied arts or sciences), by either the teaching of major courses in said arts and sciences, or by way of research, simulation code development, original work, or the application of building simulation on projects of a significant scope. The individual must have been active in the field for at least ten years.</p>
-            <p>Check <a href="http://www.ibpsa.org/?page_id=310" target="_blank">here</a> for the nominations of the upcoming biennial awarding.</p>
 
             <div class="row portfolio-list mt-4 pt-2">
                 <div class="col-6 col-sm-3 col-md-3 col-lg-2">
                     <div class="portfolio-item">
-                        <a href="#">
-                            <span class="thumb-info thumb-info-centered-info border-radius-0">
-                                <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
-                                    <span class="thumb-info-title">
-                                        <span class="thumb-info-inner text-4">Nominee</span>
-                                    </span>
+                        <span class="thumb-info thumb-info-centered-info border-radius-0">
+                            <span class="thumb-info-wrapper border-radius-0">
+                                <img src="{{ url_for('static', filename='img/awards/blair.webp') }}" class="img-fluid border-radius-0" alt="">
+                                <span class="thumb-info-title">
+                                    <span class="thumb-info-inner text-4">Blair<br/>Birdsell</span>
                                 </span>
                             </span>
-                        </a>
+                        </span>
                     </div>
                 </div>
 
                 <div class="col-6 col-sm-3 col-md-3 col-lg-2">
                     <div class="portfolio-item">
-                        <a href="#">
-                            <span class="thumb-info thumb-info-centered-info border-radius-0">
-                                <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
-                                    <span class="thumb-info-title">
-                                        <span class="thumb-info-inner text-4">Nominee</span>
-                                    </span>
+                        <span class="thumb-info thumb-info-centered-info border-radius-0">
+                            <span class="thumb-info-wrapper border-radius-0">
+                                <img src="{{ url_for('static', filename='img/awards/amr.webp') }}" class="img-fluid border-radius-0" alt="">
+                                <span class="thumb-info-title">
+                                    <span class="thumb-info-inner text-4">Amr Auf<br/>Hamada</span>
                                 </span>
                             </span>
-                        </a>
+                        </span>
                     </div>
                 </div>
 
                 <div class="col-6 col-sm-3 col-md-3 col-lg-2">
                     <div class="portfolio-item">
-                        <a href="#">
-                            <span class="thumb-info thumb-info-centered-info border-radius-0">
-                                <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
-                                    <span class="thumb-info-title">
-                                        <span class="thumb-info-inner text-4">Nominee</span>
-                                    </span>
+                        <span class="thumb-info thumb-info-centered-info border-radius-0">
+                            <span class="thumb-info-wrapper border-radius-0">
+                                <img src="{{ url_for('static', filename='img/awards/maria.webp') }}" class="img-fluid border-radius-0" alt="">
+                                <span class="thumb-info-title">
+                                    <span class="thumb-info-inner text-4">Maria Coral<br/>Ness</span>
                                 </span>
                             </span>
-                        </a>
+                        </span>
                     </div>
                 </div>
 
                 <div class="col-6 col-sm-3 col-md-3 col-lg-2">
                     <div class="portfolio-item">
-                        <a href="#">
-                            <span class="thumb-info thumb-info-centered-info border-radius-0">
-                                <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
-                                    <span class="thumb-info-title">
-                                        <span class="thumb-info-inner text-4">Nominee</span>
-                                    </span>
+                        <span class="thumb-info thumb-info-centered-info border-radius-0">
+                            <span class="thumb-info-wrapper border-radius-0">
+                                <img src="{{ url_for('static', filename='img/awards/chengnan.webp') }}" class="img-fluid border-radius-0" alt="">
+                                <span class="thumb-info-title">
+                                    <span class="thumb-info-inner text-4">Chengnan<br>Shi</span>
+
                                 </span>
                             </span>
-                        </a>
+                        </span>
                     </div>
                 </div>
 
                 <div class="col-6 col-sm-3 col-md-3 col-lg-2">
                     <div class="portfolio-item">
-                        <a href="#">
-                            <span class="thumb-info thumb-info-centered-info border-radius-0">
-                                <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
-                                    <span class="thumb-info-title">
-                                        <span class="thumb-info-inner text-4">Nominee</span>
-
-                                    </span>
+                        <span class="thumb-info thumb-info-centered-info border-radius-0">
+                            <span class="thumb-info-wrapper border-radius-0">
+                                <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
+                                <span class="thumb-info-title">
+                                    <span class="thumb-info-inner text-4">Yu Li</span>
                                 </span>
                             </span>
-                        </a>
+                        </span>
                     </div>
                 </div>
 
-                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <span class="thumb-info thumb-info-centered-info border-radius-0">
-                                <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
-                                    <span class="thumb-info-title">
-                                        <span class="thumb-info-inner text-4">Nominee</span>
-
-                                    </span>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <span class="thumb-info thumb-info-centered-info border-radius-0">
-                                <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
-                                    <span class="thumb-info-title">
-                                        <span class="thumb-info-inner text-4">Nominee</span>
-
-                                    </span>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <span class="thumb-info thumb-info-centered-info border-radius-0">
-                                <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
-                                    <span class="thumb-info-title">
-                                        <span class="thumb-info-inner text-4">Nominee</span>
-
-                                    </span>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <span class="thumb-info thumb-info-centered-info border-radius-0">
-                                <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
-                                    <span class="thumb-info-title">
-                                        <span class="thumb-info-inner text-4">Nominee</span>
-
-                                    </span>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <span class="thumb-info thumb-info-centered-info border-radius-0">
-                                <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
-                                    <span class="thumb-info-title">
-                                        <span class="thumb-info-inner text-4">Nominee</span>
-
-                                    </span>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <span class="thumb-info thumb-info-centered-info border-radius-0">
-                                <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
-                                    <span class="thumb-info-title">
-                                        <span class="thumb-info-inner text-4">Nominee</span>
-
-                                    </span>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-6 col-sm-3 col-md-3 col-lg-2">
-                    <div class="portfolio-item">
-                        <a href="#">
-                            <span class="thumb-info thumb-info-centered-info border-radius-0">
-                                <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ url_for('static', filename='img/placeholder-img-user.webp') }}" class="img-fluid border-radius-0" alt="">
-                                    <span class="thumb-info-title">
-                                        <span class="thumb-info-inner text-4">Nominee</span>
-
-                                    </span>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
             </div>
+
+            <h2 class="mt-5">Students Modeling Competition</h2>
+            <p>BS 2023 will continue to award students with excellent work in building simulation. Nominations still awaiting for the Travel Award, please check the official <a href="http://www.ibpsa.org/?page_id=62#student" target="_blank">website</a> of IBPSA for further information. The details of the student modeling competition and the best paper award will come soon.</p>
+
+            <div class="toggle toggle-secondary m-0" data-plugin-toggle>
+                <section class="toggle">
+                    <a class="toggle-title">Winner - Team CEPT</a>
+                    <div class="toggle-content">
+                        <div class="row" style="padding: 10px 0px 10px 0px;">
+                            <div class="col-md-6">
+                                <img src="{{ url_for('static', filename='img/awards/cept_.webp') }}" style="max-height: 100%; max-width: 100%;" class="img-fluid border-radius-0">
+                            </div>
+                            <div class="col-md-6" style="display: flex; justify-content: center; align-items: center;">
+                                <div style="text-align: center;">
+                                    <h5>TEAM CEPT</h5>
+                                    <p><b>Arjita Gupta</b><br/>Debanjana Das<br/><b>Mohammed Umar</b><br/><b>Mohi Saxena</b></p>
+                                    <p style="font-size: 0.8em; line-height: 1.2em;">Centre for Environmental Planning and Technology (CEPT) University, INDIA<br/>
+                                        <a href="{{ url_for('view_poster', poster_id=1) }}" target="_blank">see poster</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="toggle">
+                    <a class="toggle-title">Highly Commended - Team DTU+PolyU</a>
+                    <div class="toggle-content">
+                        <div class="row" style="padding: 10px 0px 10px 0px;">
+                            <div class="col-md-6">
+                                <img src="{{ url_for('static', filename='img/awards/dtu_polyu.webp') }}" style="max-height: 100%; max-width: 100%;" class="img-fluid border-radius-0">
+                            </div>
+                            <div class="col-md-6" style="display: flex; justify-content: center; align-items: center;">
+                                <div style="text-align:center;">
+                                    <h5>DTU + PolyU Joint TEAM</h5>
+                                    <p><b>Reza Mokhtari</b> (DTU)<br/>Hanbei Zhang (PolyU)<br/><b>Wei Liao</b> (PolyU)<br/>Rongling Li (DTU)</p>
+                                    <p style="font-size: 0.8em; line-height: 1.2em;">Technical University of Denmark<br/>
+                                    The Hong Kong Polytechnic University<br/>
+                                    <a href="{{ url_for('view_poster', poster_id=2) }}" target="_blank">see poster</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="toggle deactivate">
+                    <a class="toggle-title">Highly Commended Individual - Juan Manuel Gavieiro</a>
+                    <div class="toggle-content">
+                        <div class="row" style="padding: 10px 0px 10px 0px;">
+                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-6" style="display: flex; justify-content: center; align-items: center;">
+                                <div style="text-align:center;">
+                                    <p><b>Juan Manuel Gavieiro</b></p>
+                                    <p style="font-size: 0.8em; line-height: 1.2em;">University of Buenos Aires, Argentina<br/>
+                                    <a href="{{ url_for('view_poster', poster_id=3) }}" target="_blank">see poster</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+            <h2 style="margin-top: 100px;">JBPS Best Paper Award (2022-2023)</h2>
+            <table class="table-workshop">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="row">
+                                <div class="speaker col-11">
+                                    <div class="item-avatar">
+                                        <img src="{{ url_for('static', filename='img/awards/clotilde.webp') }}">
+                                    </div>
+                                    <div class="item-title">
+                                        <h5>Validation of spectral simulation tools in the context of ipRGC-influenced light responses of building occupants</h5>
+                                        <small>Clotilde Pierson | Marielle P.J. Aarts | Marilyne Andersen</small>
+                                    </div>
+                                </div>
+                                <div class="item-time col-1">
+                                    <a href="https://www.tandfonline.com/doi/full/10.1080/19401493.2022.2125582" target="_blank"><i class="fas fa-share-square"></i></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <h2 style="margin-top: 100px;">Best Poster</h2>
+            <table class="table-workshop">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="row">
+                                <div class="speaker col-11">
+                                    <div class="item-avatar">
+                                        <img src="{{ url_for('static', filename='img/awards/pandey.webp') }}">
+                                    </div>
+                                    <div class="item-avatar">
+                                        <img src="{{ url_for('static', filename='img/awards/sharifi.webp') }}">
+                                    </div>
+                                    <div class="item-avatar">
+                                        <img src="{{ url_for('static', filename='img/awards/bing.webp') }}">
+                                    </div>
+                                    <div class="item-title">
+                                        <h5>Predicting air infiltration and window state in residential dorms using deep neural networks coupled with energyplus</h5>
+                                        <small>Pandey, Pratik Raj | Sharifi, Nina | Dong, Bing</small>
+                                    </div>
+                                </div>
+                                <div class="item-time col-1">
+                                    <a href="{{ url_for('view_poster', poster_id=1401) }}" target="_blank"><i class="fas fa-share-square"></i></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 style="margin-top: 100px;">Best Student Paper</h2>
+            <table class="table-workshop">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="row">
+                                <div class="speaker col-12">
+                                    <div class="item-avatar">
+                                        <img src="{{ url_for('static', filename='img/awards/yi.webp') }}">
+                                    </div>
+                                    <div class="item-title">
+                                        <h5>Pricing scheme design for vehicle-to-grid considering customers risk-aversive behaviors</h5>
+                                        <small>Yi Ju | University of California, Berkeley, USA</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="row">
+                                <div class="speaker col-12">
+                                    <div class="item-avatar">
+                                        <img src="{{ url_for('static', filename='img/awards/ruoxi.webp') }}">
+                                    </div>
+                                    <div class="item-title">
+                                        <h5>Occupancy based optimization of energy-saving control method for indoor heating equipment in exhibition hall buildings</h5>
+                                        <small>Ruoxi Liu | Southeast University, China</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
         </div>
     </div>

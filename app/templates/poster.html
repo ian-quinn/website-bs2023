@@ -10,32 +10,67 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                <h1 class="text-dark">Poster Gallery</h1>
+                <h1 class="text-dark">Posters</h1>
             </div>
             <div class="col-md-4 order-1 order-md-2 align-self-center">
                 <ul class="breadcrumb d-block text-md-end">
                     <li>Home</li>
                     <li>Event</li>
-                    <li class="active">Poster Hall</li>
+                    <li class="active">Gallery</li>
                 </ul>
             </div>
         </div>
+        {% if current_user.is_authenticated %}
+        <div style="text-align: right;">
+            <p>Welcome, {{ current_user.name }}! <a style="padding-left: 10px;" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i></a></p>
+        </div>
+        {% endif %}
     </div>
 </section>
 
 <div class="container pt-2 pb-4">
-    
+
     <div class="row justify-content-center">
         <div class="col-lg-8">
-
             <div class="my-4">
-                <h4 class="font-weight-normal text-7">{{ title }}</h4>
+                <h4 class="font-weight-normal text-7" style="letter-spacing: 0px;">{{ title }}</h4>
             </div>
 
-            <p>CONTRIBUTION ID - {{ paper_id }}</p>
+            <div style="display:flex; justify-content:space-between;">
+                <span>Contribution ID - {{ paper_id }}</span>
+                <span>No. {{ id_loc + 1 }}/{{ id_total }}</span>
+            </div>
+        </div>
+    </div>
+    
+    {% if current_user.is_authenticated %}
+    <div class="row">
+        <div class="col-lg-2" style="display: flex; justify-content: center; align-items: center;">
+            <div style="font-size:5em;">
+                <a href="{{ url_for('view_poster', poster_id=prev_id) }}"><i class="fas fa-chevron-left"></i></a>
+            </div>
+        </div>
 
-            {% if is_freepass or current_user.is_authenticated %}
-            <div class="text-center py-4">
+        <div class="col-lg-8">
+            <div class="py-4">
+                <div style="border: 1px solid #921f42; border-radius: 5px;">
+                    <img width="100%" height="auto" src="{{ path_img }}" alt="{{ title }}">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2" style="display: flex; justify-content: center; align-items: center;">
+            <div style="font-size:5em;">
+                <a href="{{ url_for('view_poster', poster_id=next_id) }}"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="my-4">
+                {% if path_mp4 %}
                 <video
                     id="my-video"
                     class="video-js"
@@ -56,28 +91,18 @@
                         <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
                     </p>
                 </video>
+                {% endif %}
 
-                <hr class="my-4">
+                <div class="my-4">. </div>
 
                 <p><strong>ABSTRACT</strong> {{ abstract }} </p>
-
-                <hr class="my-4">
-                <div style="border: 1px solid #921f42; border-radius: 5px;">
-                    <img width="100%" height="auto" src="{{ path_img }}" alt="{{ title }}">
-                </div>
             </div>
-
-            {% else %}
-            <div class="img-box py-4">
-                <img width="100%" height="200" src="{{ url_for('static', filename='img/placeholder-img-short.webp') }}" alt="">
-            </div>
-            <p>-> Poster/Video available after <a href="{{ url_for('poster') }}">login</a> <-</p>
-            {% endif %}
-            
-            
-
         </div>
     </div>
+    {% else %}
+    <p>** Content available after login **</p>
+    {% endif %}
+
     
 </div>
 {% endblock %}

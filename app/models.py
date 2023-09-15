@@ -188,3 +188,57 @@ class Poster(db.Model):
             return None
         except jwt.exceptions.InvalidTokenError:
             return None
+
+
+# ----------------------- RECORDINGS GALLERY --------------------- #
+
+class Recording(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    title = db.Column(db.String(256))
+    chair = db.Column(db.String(32))
+    cochair = db.Column(db.String(32))
+    presenter = db.Column(db.String(128))
+    cateogry = db.Column(db.Integer) # abandoned
+    cate = db.Column(db.Integer)
+    path_mp4 = db.Column(db.String(128))
+    path_pdf = db.Column(db.String(128))
+    path_cover = db.Column(db.String(128))
+    is_private = db.Column(db.Boolean, default=False)
+
+
+
+# ----------------------- RECORDINGS GALLERY --------------------- #
+
+class Delegate(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    conftool = db.Column(db.Integer)
+    email = db.Column(db.String(128))
+    title = db.Column(db.String(16))
+    firstname = db.Column(db.String(32))
+    lastname = db.Column(db.String(32))
+    company = db.Column(db.String(64))
+    address = db.Column(db.String(64))
+    city = db.Column(db.String(64))
+    country = db.Column(db.String(64))
+
+    mode_presentation = db.Column(db.Integer)
+    mode_attendance = db.Column(db.Integer)
+    papers = db.Column(db.String(32)) # a string to be split for integer index of paper
+
+    chair_codes = db.Column(db.String(256))
+    chair_names = db.Column(db.String(256))
+
+    certpath_attendance = db.Column(db.String(64))
+    certpath_papers = db.Column(db.String(256))
+    certpath_sessionchair = db.Column(db.String(64))
+    
+class Paper(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(128))
+    conftool = db.Column(db.Integer)
+    session_code = db.Column(db.String(16))
+    session_name = db.Column(db.String(32))
+    mode_presentation = db.Column(db.Integer) # research paper = 1 / project report = 0
+    title = db.Column(db.String(256))
+    authors = db.Column(db.String(256))

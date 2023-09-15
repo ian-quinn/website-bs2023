@@ -1,7 +1,9 @@
-<p>Dear user, welcome to the BS2023 poster gallery!</p>
+<p>Dear {{ name }}, here is your authorization link for bs2023.org</p>
 <p>
-    Here's your authentication
-    <a href="{{ url_for('auth', token=token, _external=True) }}">
-        link
-    </a> (Only available for {{ exp }} seconds)
+    Here's your authentication <a href="{{ url_for('auth', token=token, _external=True) }}">link</a><br/>
+    (Only available for {{ exp }} seconds)
+</p>
+<p>
+    If it does not work, paste the following address to your browser:<br/>
+    {{ url_for('auth', token=token, _external=True) }}
 </p>
