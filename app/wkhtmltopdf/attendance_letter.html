@@ -52,9 +52,9 @@
 	<div style="text-align: left; margin-top: 60px;">
 		<p style="margin-bottom: 40px;"><b>Certificate of attendance</b></p>
 		<p>Dear {{ title }} {{ name }},</p>
-		<p>Thank you for your support and contribution to the Conference Building Simulation 2023, held in Shanghai, China, September 4-6, 2023.</p>
-		<p>Hereby we confirm that <b>{{ title }} {{ name }}</b> has attended the conference {% if mode_attendance == 1 %}in person{% else %}virtually{% endif %}. {% if mode_attendance == 1 %}The conference program includes 3-day plenary/parallel sessions, technical tours and social activities.{% else %}The conference program includes online presentations and discussions run parallel to physical sessions.{% endif %} Your presence made it a success and our shared, memorable experience.</p>
-		<p style="margin-top: 20px;">{% if papers|length > 0 %}<b>{{ title }} {{ name }}</b> gave presentation{% if papers|length > 1 %}s{% endif %} for the following accepted paper{% if papers|length > 1 %}s{% endif %}/project{% if papers|length > 1 %}s{% endif %} during the conference:{% endif %}</p>
+		<p>Thank you for your support and contribution to the conference Building Simulation 2023, held in Shanghai, China, September 4-6, 2023.</p>
+		<p>Hereby we confirm that {{ title }} <b>{{ name }}</b> has attended the conference {% if mode_attendance == 1 %}in person{% else %}virtually{% endif %}. {% if mode_attendance == 1 %}The conference program includes 3-day plenary/parallel sessions, technical tours and social activities.{% else %}The conference program (virtual) includes oral presentations and discussions that run parallel to physical sessions.{% endif %} Your presence made it a success and our shared, memorable experience.</p>
+		<p style="margin-top: 20px;">{% if papers|length > 0 %}{{ title }} <b>{{ name }}</b> gave {% if papers|length == 1 %}a {% endif %}presentation{% if papers|length > 1 %}s{% endif %} for the following accepted paper{% if papers|length > 1 %}s{% endif %}/project{% if papers|length > 1 %}s{% endif %} during the conference:{% endif %}</p>
 
 		{% for paper in papers %}
 		<p style="margin-top: 5px;">

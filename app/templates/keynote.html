@@ -84,7 +84,7 @@
                     </div>
 
                     <div class="col-md-9 ">
-                        <div class="ribbon-1"><small><a href="#" style="color:#ffffff">REPLAY</a></small></div>
+                        <div class="ribbon-1"><small><a href="{{ url_for('replay_cate', cate_id=0) }}" style="color:#ffffff">REPLAY</a></small></div>
                         <div class="card-body ms-lg-5">
                             <h2 class="text-color-dark font-weight-semibold text-5 mb-0" style="letter-spacing: 0; line-height: 1.2em;">Nexus of building decarbonization: sufficiency, energy efficiency, demand flexibility and climate resiliency</h2>
                             <hr class="my-4">
@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="col-md-9">
-                        <div class="ribbon-1"><small><a href="#" style="color:#ffffff">REPLAY</a> | <a style="color:#ffffff">SlIDES</a></small></div>
+                        <div class="ribbon-1"><small><a href="{{ url_for('replay_cate', cate_id=0) }}" style="color:#ffffff">REPLAY</a> | <a href="{{ url_for('download', file_id=104, next=request.full_path) }}" target="_blank" style="color:#ffffff">SLIDES</a></small></div>
                         <div class="card-body ms-lg-5">
                             <h2 class="text-color-dark font-weight-semibold text-5 mb-0" style="letter-spacing: 0; line-height: 1.2em;">Building Performance Simulation: Challenges and Opportunities in a Changing World</h2>
                             <hr class="my-4">
