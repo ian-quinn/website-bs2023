@@ -156,7 +156,7 @@ body {
 							<td>
 								<div style="margin-top: 5px; padding-right: 30px;">
 									<span style="font-size: 0.8em; font-weight: 100; line-height: 1.1em;">{% if "Poster" in paper.session_code %}Poster{% else %}Oral{% endif %} presentation {% if paper.session_code %}in Session </span><b style="font-size: 0.8em; line-height: 1.1em;">{{ paper.session_code }}</b><span style="font-size: 0.8em; font-weight: 100; line-height: 1.1em;">{% if paper.session_name %} - {% endif %}{{ paper.session_name }}{% endif %}</span><br>
-									<b style="line-height: 1.2em;">{{ paper.title }}</b> &nbsp; {% if paper.mode_presentation == 0%}(Report){% else %}(Paper){% endif %}<br>
+									<b style="line-height: 1.2em;">{{ paper.title }}</b>&nbsp;{% if paper.mode_presentation == 0%}(Report){% else %}(Paper){% endif %}<br>
 									<span style="font-weight: 100; font-size: 0.8em; line-height: 1.1em;">{{ paper.authors }}</span>
 								</div>
 							</td>

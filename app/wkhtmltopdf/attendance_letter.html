@@ -4,16 +4,9 @@
 		<style type="text/css">
 		@font-face {
 			font-family: 'Noto Sans';
-			src: url('{{ res_font_1 }}');
+			src: url('{{ res_font }}');
 			font-weight: normal;
 			font-style: normal;
-		}
-
-		@font-face {
-		  font-family: "Noto Sans";
-		  src: url('{{ res_font_2 }}');
-		  font-weight: bold;
-		  font-style: normal;
 		}
 
 		body {
@@ -57,16 +50,16 @@
 	</div>
 
 	<div style="text-align: left; margin-top: 60px;">
-		<p style="margin-bottom: 40px;"><strong>Certificate of attendance</strong></p>
+		<p style="margin-bottom: 40px;"><b>Certificate of attendance</b></p>
 		<p>Dear {{ title }} {{ name }},</p>
 		<p>Thank you for your support and contribution to the Conference Building Simulation 2023, held in Shanghai, China, September 4-6, 2023.</p>
-		<p>Hereby we confirm that {{ title }} {{ name }} has attended the conference {% if mode_attendance == 1 %}in person{% else %}virtually{% endif %}. {% if mode_attendance == 1 %}The conference program includes 3-day plenary/parallel sessions, technical tours and social activities.{% else %}The conference program includes online presentations and discussions run parallel to physical sessions.{% endif %} Your presence made it a success and our shared, memorable experience.</p>
-		<p>{% if papers|length > 0 %}{{ title }} {{ name }} gave presentation{% if papers|length > 1 %}s{% endif %} for the following accepted paper{% if papers|length > 1 %}s{% endif %}/project{% if papers|length > 1 %}s{% endif %} during the conference:{% endif %}</p>
+		<p>Hereby we confirm that <b>{{ title }} {{ name }}</b> has attended the conference {% if mode_attendance == 1 %}in person{% else %}virtually{% endif %}. {% if mode_attendance == 1 %}The conference program includes 3-day plenary/parallel sessions, technical tours and social activities.{% else %}The conference program includes online presentations and discussions run parallel to physical sessions.{% endif %} Your presence made it a success and our shared, memorable experience.</p>
+		<p style="margin-top: 10px;">{% if papers|length > 0 %}<b>{{ title }} {{ name }}</b> gave presentation{% if papers|length > 1 %}s{% endif %} for the following accepted paper{% if papers|length > 1 %}s{% endif %}/project{% if papers|length > 1 %}s{% endif %} during the conference:{% endif %}</p>
 
 		{% for paper in papers %}
 		<p style="margin-top: 5px; padding-right: 30px;">
-			<span style="font-size: 0.8em; line-height: 1.1em;">{% if "Poster" in paper.session_code %}Poster{% else %}Oral{% endif %} presentation{% if paper.session_code %} in Session </span><b style="font-size: 0.8em; line-height: 1.1em;">{{ paper.session_code }}</b><span style="font-size: 0.8em; line-height: 1.1em;">{% if paper.session_name %} - {% endif %}{{ paper.session_name }}{% endif %}</span><br>
-			<b style="line-height: 1.2em;">{{ paper.title }}</b> &nbsp; {% if paper.mode_presentation == 0%}(Project Report){% else %}(Research Paper){% endif %}<br>
+			<span style="font-size: 0.8em; line-height: 1.1em;">{% if "Poster" in paper.session_code %}Poster{% else %}Oral{% endif %} presentation{% if paper.session_code %} in Session </span>{{ paper.session_code }}<span style="font-size: 0.8em; line-height: 1.1em;">{% if paper.session_name %} - {% endif %}{{ paper.session_name }}{% endif %}</span><br>
+			<b style="line-height: 1.2em;">{{ paper.title }}</b>&nbsp;{% if paper.mode_presentation == 0%}(Project Report){% else %}(Research Paper){% endif %}<br>
 			<span style="font-size: 0.8em; line-height: 1.1em;">{{ paper.authors }}</span>
 		</p>
 		{% endfor %}
