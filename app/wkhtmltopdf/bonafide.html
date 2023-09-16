@@ -4,7 +4,7 @@
 		<style type="text/css">
 		@font-face {
 			font-family: 'Noto Sans';
-			src: url('file:///D:/BS2023/wkhtmltopdf/NotoSans-Regular.ttf');
+			src: url('{{ res_font }}');
 		}
 
 		body {
@@ -50,17 +50,32 @@
 	<div style="text-align: left; margin-top: 60px;">
 		<p style="margin-bottom: 40px;"><strong>Official Acknowledgement</strong></p>
 		<p>Dear {{ title }} {{ name }},</p>
-		<p>We would like to thank you for your commitment to support the Conference Building SImulation 2023, held in Shanghai, China, September 4-6, 2023.</p>
+		<p>We would like to thank you for your commitment to support the Conference Building Simulation 2023, held in Shanghai, China, September 4-6, 2023.</p>
 		<p>Hereby we confirm that {{ title }} {{ name }} was a reviewer of the above event.</p>
 		<p>By submitting {%if num_abs %}{{ num_abs }} reviews on abstracts{% else %}{% endif %}{% if num_abs and num_paper %} and {% else %}{% endif %}{% if num_paper %}{{ num_paper }} reviews on papers{% else %}{% endif %}, {{ title }} {{ name }} contributed to a high scientific level of presented submissions.</p>
 
-		<p style="margin-top: 140px;">Thank you and best regards,</p>
-		<p>
-			<span style="margin-top: 20px;"> Yiqun Pan </span><br/>
-			<img src="{{ res_signature }}" style="width: 200px; padding-top: 10px; padding-bottom: 20px;"><br/>
-			Conference Chair<br/>
-			Building Simulation 2023
-		</p>
+		<div>
+			<p style="margin-top: 140px;">Thank you and best regards,</p>
+		</div>
+		<div style="display: flex;">
+			<div style="display: inline-block;">
+				<p>
+					<span style="margin-top: 20px;"> Yiqun Pan </span><br/>
+					<img src="{{ res_signature1 }}" style="width: 200px; padding-top: 10px; padding-bottom: 20px;"><br/>
+					Tongji University, China<br/>
+					Conference Chair
+				</p>
+			</div>
+			<div>
+				<p>
+					<span style="margin-top: 20px;"> Da Yan </span><br/>
+					<img src="{{ res_signature2 }}" style="width: 200px; padding-top: 10px; padding-bottom: 20px;"><br/>
+					Tsinghua University, China<br/>
+					Conference Co-chair
+				</p>
+			</div>
+		</div>
+		
 	</div>
 </body>
 </html>

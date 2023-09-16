@@ -6,13 +6,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                <h1 class="text-dark">Accommodation</h1>
+                <h1 class="text-dark">Publication</h1>
             </div>
             <div class="col-md-4 order-1 order-md-2 align-self-center">
                 <ul class="breadcrumb d-block text-md-end">
                     <li>Home</li>
-                    <li>Guide</li>
-                    <li class="active">Accommodation</li>
+                    <li>Sign-Up</li>
+                    <li class="active">Publication</li>
                 </ul>
             </div>
         </div>
@@ -24,7 +24,13 @@
         <div class="col-md-6 mb-5 mb-md-0">
             <p>All research papers will be <b>double-blinded</b> peer-reviewed and published in the conference proceedings, indexed by <b>Scopus</b> and <b>EI</b>, regardless the presentation form (oral or poster). </p>
             <p>Some papers with high-quality will be selected for submitting an extended version to Special Issues of high-indexed journals, such as Journal of Building Performance Simulation and Building Simulation.</p>
-            <p>Any updates will be released through newsletter.</p>
+
+            <ul class="py-4">
+                <li><b>September 3<sup>rd</sup> 2023</b> - Manuscripts preview via onsite USB-drive</li>
+                <li><b>September 17<sup>th</sup> 2023</b> - Final upload for camera-ready version</li>
+                <li><b>Around April 2024</b> - Pre-print preview on <a href="https://publications.ibpsa.org/building-simulation-conference-proceedings/">IBPSA publications</a></li>
+                <li><b>Around September 2024</b> - Publication with indexation and DOI</li>
+            </ul>
         </div>
 
         <div class="col-md-6 text-center text-md-start">
@@ -41,6 +47,18 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="row py-5 my-5">
+        <p>Papers in edition, which are planned to be published in the Building Simulation Conference Proceedings Vol.18 (ISSN: 2522-2708)<br>
+        This is only for editorial process, not the final acceptance/publication proof. </p>
+        <ol>
+            {% for paper in papers %}
+            {% if paper.mode_presentation %}
+            <li>{{ paper.title }}</li>
+            {% endif %}
+            {% endfor %}
+        </ol>
     </div>
 </div>
 {% endblock %}

@@ -56,7 +56,8 @@ def registration():
 
 @app.route('/publication')
 def publication():
-    return render_template('publication.html')
+    papers = Paper.query.order_by(Paper.id.asc()).all()
+    return render_template('publication.html', papers=papers)
 
 @app.route('/guide/finalupload')
 def guide_finalupload():
@@ -467,8 +468,28 @@ def certificate():
                 # print(output_path, file=sys.stdout)
                 delegates[0].certpath_attendance = cert_attendance_name
                 db.session.commit()
-            msg = f'PDF printed. Click here to download your \
-                <a href="{ url_for("download_certificate", cert_id=delegates[0].id, type_id=3) }" target="_blank">certificate</a>'
+            if not delegates[0].certpath_attendance_letter:
+                letter_attendance_name = f'letter_{email}.pdf'
+                resource_path = os.path.join(current_app.root_path, app.config['WKRESOURCE_PATH'])
+                output_path = os.path.join(app.config['CERT_PATH'], letter_attendance_name)
+                # check if there is any paper
+                papers = []
+                if delegates[0].papers != "":
+                    paper_ids = delegates[0].papers.split(",")
+                    print(paper_ids, file=sys.stdout)
+                    for paper_id in paper_ids:
+                        papers.append(Paper.query.filter_by(conftool = int(paper_id)).first())
+
+                printpdf.print_attendance_letter(delegates[0].firstname + " " + delegates[0].lastname, delegates[0].title, 
+                    delegates[0].company, delegates[0].address, delegates[0].city, delegates[0].country,  
+                    papers, delegates[0].mode_attendance, 
+                    app.config['WKHTMLTOPDF_PATH'], resource_path, output_path)
+                delegates[0].certpath_attendance_letter = letter_attendance_name
+                db.session.commit()
+
+            msg = f'PDF printed. Click here to download your attendance \
+                <a href="{ url_for("download_certificate", cert_id=delegates[0].id, type_id=3) }" target="_blank">certificate</a> \
+                / <a href="{ url_for("download_certificate", cert_id=delegates[0].id, type_id=4) }" target="_blank">letter</a>.'
             flash(Markup(msg), 'warning')
             return redirect(url_for('certificate'))
         else:
@@ -520,6 +541,11 @@ def download_certificate(cert_id, type_id):
         path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
         return send_from_directory(path, delegate.certpath_attendance, 
             as_attachment=True, attachment_filename="%s" % delegate.certpath_attendance)
+    elif type_id == 4:
+        delegate = Delegate.query.get_or_404(cert_id)
+        path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
+        return send_from_directory(path, delegate.certpath_attendance_letter, 
+            as_attachment=True, attachment_filename="%s" % delegate.certpath_attendance_letter)
 
 
 # -------------------------- ERROR ----------------------------- #

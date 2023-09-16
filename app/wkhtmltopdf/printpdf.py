@@ -85,6 +85,48 @@ def print_attendance(delegate_name, delegate_title, delegate_id,
 
     pdfkit.from_string(output_text, output_path,  options=options, configuration=config)
 
+def print_attendance_letter(delegate_name, delegate_title, 
+    reviewer_company, reviewer_address, reviewer_city, reviewer_country, 
+    papers, mode_attendance, 
+    wkhtmltopdf_path, resource_path, output_path):
+    today_date = datetime.today().strftime("%d %b, %Y")
+
+    context = {
+        'res_signature_1': 'file:///' + os.path.join(resource_path, "cert_signature.png").replace("\\","/"),
+        'res_signature_2': 'file:///' + os.path.join(resource_path, "cert_signature_da.png").replace("\\","/"),
+        'res_logo': 'file:///' + os.path.join(resource_path, "bs2023-logo.png").replace("\\","/"),
+        'res_font_1': 'file:///' + os.path.join(resource_path, "NotoSans-Regular.ttf").replace("\\","/"),
+        'res_font_2': 'file:///' + os.path.join(resource_path, "NotoSans-Bold.ttf").replace("\\","/"),
+        'title': delegate_title,
+        'name': delegate_name, 
+        'company': reviewer_company,
+        'address': reviewer_address, 
+        'city': reviewer_city, 
+        'country': reviewer_country,
+        'mode_attendance': mode_attendance,
+        'papers': papers,
+        'date': today_date,
+    }
+    options = {
+        'page-size': 'A4',
+        'orientation': 'Portrait',
+        'margin-top': '20mm',
+        'margin-right': '20mm',
+        'margin-bottom': '20mm',
+        'margin-left': '20mm',
+        'encoding': 'UTF-8',
+        "enable-local-file-access": ""
+    }
+
+    template_loader = jinja2.FileSystemLoader(resource_path)
+    template_env = jinja2.Environment(loader=template_loader)
+
+    template = template_env.get_template('attendance_letter.html')
+    output_text = template.render(context)
+
+    config = pdfkit.configuration(wkhtmltopdf=wkhtmltopdf_path)
+    pdfkit.from_string(output_text, output_path,  options=options, configuration=config)
+
 def print_bonafide(reviewer_name, reviewer_title, 
     reviewer_company, reviewer_address, reviewer_city, reviewer_country, 
     review_abstract, review_paper, 
@@ -92,8 +134,10 @@ def print_bonafide(reviewer_name, reviewer_title,
     today_date = datetime.today().strftime("%d %b, %Y")
 
     context = {
-        'res_signature': 'file:///' + os.path.join(resource_path, "cert_signature.png").replace("\\","/"),
+        'res_signature_1': 'file:///' + os.path.join(resource_path, "cert_signature.png").replace("\\","/"),
+        'res_signature_2': 'file:///' + os.path.join(resource_path, "cert_signature_da.png").replace("\\","/"),
         'res_logo': 'file:///' + os.path.join(resource_path, "bs2023-logo.png").replace("\\","/"),
+        'res_font': 'file:///' + os.path.join(resource_path, "NotoSans-Regular.ttf").replace("\\","/"),
         'title': reviewer_title,
         'name': reviewer_name, 
         'company': reviewer_company,

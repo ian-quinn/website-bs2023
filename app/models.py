@@ -230,6 +230,7 @@ class Delegate(db.Model):
     chair_names = db.Column(db.String(256))
 
     certpath_attendance = db.Column(db.String(64))
+    certpath_attendance_letter = db.Column(db.String(64))
     certpath_papers = db.Column(db.String(256))
     certpath_sessionchair = db.Column(db.String(64))
     
