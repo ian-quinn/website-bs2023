@@ -474,7 +474,7 @@ def certificate():
                 output_path = os.path.join(app.config['CERT_PATH'], letter_attendance_name)
                 # check if there is any paper
                 papers = []
-                if delegates[0].papers != "":
+                if delegates[0].papers != "" and delegates[0].papers is not None:
                     paper_ids = delegates[0].papers.split(",")
                     print(paper_ids, file=sys.stdout)
                     for paper_id in paper_ids:
