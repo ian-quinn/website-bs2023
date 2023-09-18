@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% block title %}Survey{% endblock %}
+
+{% block content %}
+<section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                <h1 class="text-dark">Event <strong>Survey</strong></h1>
+            </div>
+            <div class="col-md-4 order-1 order-md-2 align-self-center">
+                <ul class="breadcrumb d-block text-md-end">
+                    <li>Home</li>
+                    <li>About</li>
+                    <li class="active">Survey</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+<div class="container pt-2 pb-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <p>We thank all reviewers for your objective, insightful evaluations. Your contribution is acknowledged on the <a href="{{ url_for('committee', _anchor='reviewer') }}">committee</a> page, as well as a certificate that can be retrieved by your ConfTool account email down below.</p>
+
+            <div class="card my-5" style="background-color: #f9f9f9">
+                <div class="card-body">
+                    {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                    <div>
+                        {% for category, message in messages %}
+                        {% if category == 'success' %}
+                        <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            </button>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    <form class="contact-form" action="{{ url_for('survey') }}" method="POST" enctype="multipart/form-data">
+                        <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
+                        {{ form_survey.hidden_tag() }}
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label mb-1 text-2">Participant Identity<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form_survey.qA(class="form-select form-control h-auto") }}
+                                {% for error in form_survey.qA.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="form-label mb-1 text-2">Attendance mode<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form_survey.qB(class="form-select form-control h-auto") }}
+                                {% for error in form_survey.qB.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="form-group">
+                            <label class="form-label mb-1 text-2">q01<span style="color: #cd563e;"> ✱</span></label>
+                            <div>
+                                {% for subfield in form_survey.q01 %}
+                                <tr>
+                                    <td>{{ subfield }}</td>
+                                    <td>{{ subfield.label }}</td>
+                                </tr>
+                                {% endfor %}
+                            </div>
+                            {% for error in form_survey.q01.errors %}
+                            <small style="color: #dc3545">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label mb-1 text-2">q02<span style="color: #cd563e;"> ✱</span></label>
+                            <div>
+                                {% for subfield in form_survey.q01 %}
+                                <tr>
+                                    <td>{{ subfield }}</td>
+                                    <td>{{ subfield.label }}</td>
+                                </tr>
+                                {% endfor %}
+                            </div>
+                            {% for error in form_survey.q01.errors %}
+                            <small style="color: #dc3545">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label mb-1 text-2">q03<span style="color: #cd563e;"> ✱</span></label>
+                            <div>
+                                {% for subfield in form_survey.q01 %}
+                                <tr>
+                                    <td>{{ subfield }}</td>
+                                    <td>{{ subfield.label }}</td>
+                                </tr>
+                                {% endfor %}
+                            </div>
+                            {% for error in form_survey.q01.errors %}
+                            <small style="color: #dc3545">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label mb-1 text-2">q04<span style="color: #cd563e;"> ✱</span></label>
+                            <div>
+                                {% for subfield in form_survey.q01 %}
+                                <tr>
+                                    <td>{{ subfield }}</td>
+                                    <td>{{ subfield.label }}</td>
+                                </tr>
+                                {% endfor %}
+                            </div>
+                            {% for error in form_survey.q01.errors %}
+                            <small style="color: #dc3545">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label mb-1 text-2">q05<span style="color: #cd563e;"> ✱</span></label>
+                            <div>
+                                {% for subfield in form_survey.q01 %}
+                                <tr>
+                                    <td>{{ subfield }}</td>
+                                    <td>{{ subfield.label }}</td>
+                                </tr>
+                                {% endfor %}
+                            </div>
+                            {% for error in form_survey.q01.errors %}
+                            <small style="color: #dc3545">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label mb-1 text-2">q06<span style="color: #cd563e;"> ✱</span></label>
+                            <div>
+                                {% for subfield in form_survey.q01 %}
+                                <tr>
+                                    <td>{{ subfield }}</td>
+                                    <td>{{ subfield.label }}</td>
+                                </tr>
+                                {% endfor %}
+                            </div>
+                            {% for error in form_survey.q01.errors %}
+                            <small style="color: #dc3545">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label mb-1 text-2">q07<span style="color: #cd563e;"> ✱</span></label>
+                            <div>
+                                {% for subfield in form_survey.q01 %}
+                                <tr>
+                                    <td>{{ subfield }}</td>
+                                    <td>{{ subfield.label }}</td>
+                                </tr>
+                                {% endfor %}
+                            </div>
+                            {% for error in form_survey.q01.errors %}
+                            <small style="color: #dc3545">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label mb-1 text-2">q08<span style="color: #cd563e;"> ✱</span></label>
+                            <div>
+                                {% for subfield in form_survey.q01 %}
+                                <tr>
+                                    <td>{{ subfield }}</td>
+                                    <td>{{ subfield.label }}</td>
+                                </tr>
+                                {% endfor %}
+                            </div>
+                            {% for error in form_survey.q01.errors %}
+                            <small style="color: #dc3545">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>        
+
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+</script>
+{% endblock %}

@@ -15,10 +15,10 @@ from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 
 from app import app, db
-from app.models import Message, File, Reviewer, Invitation, Accommodation, Certificate, Poster, Recording, Delegate, Paper
+from app.models import Message, File, Reviewer, Invitation, Accommodation, Certificate, Poster, Recording, Delegate, Paper, Survey
 from app.models import User, get_or_create
 from app.forms import MessageForm, EnrollForm, InvitationForm, AccommodationForm, RetrieveAccommodationForm
-from app.forms import ReviewerForm, CertificateForm, LoginForm
+from app.forms import ReviewerForm, CertificateForm, LoginForm, SurveyForm
 from app.email import send_auth_link
 
 from app.wkhtmltopdf import printpdf
@@ -690,3 +690,36 @@ def auth(token):
 def logout():
     logout_user()
     return redirect(url_for('gallery'))
+
+@app.route('/survey')
+def survey():
+    form_survey = SurveyForm()
+
+    if form_survey.validate_on_submit():
+        firstname = form_apply.firstname.data
+        lastname = form_apply.lastname.data
+        if form_apply.file.data:
+            f = form_apply.file.data
+            filename = firstname.lower() + "_" + lastname.lower() + '_' + datetime.now().strftime('%m%d%H%M') + '.pdf'
+            if os.path.splitext(f.filename)[1] != '.pdf':
+                flash('Only support PDF', 'danger')
+                return redirect(url_for('reviewer'))
+            f.save(os.path.join(app.config['UPLOAD_PATH'], filename))
+        else:
+            filename = 'null'
+        survey = Survey(
+            title=form_apply.title.data, 
+            firstname=firstname,
+            lastname=lastname, 
+            email=form_apply.email.data, 
+            organization=form_apply.organization.data, 
+            orcid=form_apply.orcid.data, 
+            bio=form_apply.bio.data, 
+            filename=filename, 
+            signed=True)
+        db.session.add(reviewer)
+        db.session.commit()
+        flash('You have registered to the reviewer database. Thanks!', 'success')
+        return redirect(url_for('survey'))
+            
+    return render_template('survey.html', form_survey=form_survey)

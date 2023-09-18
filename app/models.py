@@ -243,3 +243,48 @@ class Paper(db.Model):
     mode_presentation = db.Column(db.Integer) # research paper = 1 / project report = 0
     title = db.Column(db.String(256))
     authors = db.Column(db.String(256))
+
+
+class Survey(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    cookie = db.Column(db.String(256))
+    qA = db.Column(db.Integer) # what is your identity of participation? A. Presenter/author B. Reviewer C. Invited speaker D. Exhibitor
+    qB = db.Column(db.Integer) # attendance mode A. Physical B. Virtual
+
+    q01 = db.Column(db.Integer) # How useful did you find the conference overall
+    q02 = db.Column(db.Integer) # PRESENTER/AUTHOR ONLY How did you find the review process
+    q03 = db.Column(db.Integer) # REVIEWER ONLY how did you find the review process
+    q04 = db.Column(db.Integer) # Usefulness of website
+    q05 = db.Column(db.Integer) # How do you rate the conference fees, was good value for money?
+    p06 = db.Column(db.Integer) # How useful did you find the keynote speeches
+    p07 = db.Column(db.Integer) # Rate the technical papers overal quality?
+    p08 = db.Column(db.Integer) # How did you find the length of the conference / number of days
+    q09 = db.Column(db.Integer) # How did you hear about the building simulation conference
+    q10 = db.Column(db.Integer) # what type of institution do you work for 
+    q11 = db.Column(db.Integer) # what is the nature of your work
+    q12 = db.Column(db.Integer) # will you attend the next building simulation conference in Brisbane, Australia?
+    q13 = db.Column(db.Integer) # did you attend the last building simulation conference, BS2021
+    q14 = db.Column(db.Text) # additional comments
+
+    #--------------------------------------------------------------------------------
+    
+    p01 = db.Column(db.Integer) # How did you find the meeting facilities and location
+    p02 = db.Column(db.Integer) # how did you find the pick up / shuttle bus service?
+    p03 = db.Column(db.Integer) # Was there sufficient time to network and socialize
+    p04 = db.Column(db.Integer) # how did you find the exhibition in general
+    p05 = db.Column(db.Integer) # what did you think of the scientific quality of the poster session
+    p06 = db.Column(db.Integer) # how would you rate the social program (reception cocktail, banquet, river cruise)?
+    p07 = db.Column(db.Integer) # the venue and catering were suitable for the conference?
+    p08 = db.Column(db.Integer) # how did you find the conference guide system (guide book, signs, map)
+
+    #--------------------------------------------------------------------------------
+    v01 = db.Column(db.Integer) # how was the quality of the audio
+    v02 = db.Column(db.Integer) # how was the quality of the video
+    v03 = db.Column(db.Integer) # what did you think of the online sessions
+    v04 = db.Column(db.Text) # textbox for why
+    v05 = db.Column(db.Integer) # did you get a chance to ask questions
+    v06 = db.Column(db.Text) # textbox for why
+    v07 = db.Column(db.Integer) # PRESENTER/AUTHOR ONLY: were the guidelines/templates for producing the video clear and adequate
+    v08 = db.Column(db.Integer) # Rate the live-streaming and video replay
+    v09 = db.Column(db.Integer) # Moving to a hybrid conference with a more immersive experience is expensive...

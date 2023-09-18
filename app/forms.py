@@ -189,3 +189,43 @@ class RetrieveAccommodationForm(FlaskForm):
 class LoginForm(FlaskForm):
 	email = StringField('Email', validators=[DataRequired()])
 	submit = SubmitField('Request Magic Link')
+
+
+class SurveyForm(FlaskForm):
+	qA = SelectField('Participation Identity', 
+		choices=[(1,'Presenter/Author'), (2,'Reviewer'), (3, 'Exhibitor'), (4, 'Others')], coerce=int)
+	qB = SelectField('Participation Mode', choices=[(1, 'Physical attendance'), (2, 'Virtual attendance')], coerce=int)
+	#--------------------------------------------------------------
+	q01 = RadioField('Usefulness of the conference', choices=[(1, 'very useful'), (2, 'somewhat useful'), (3, 'not useful')], coerce=int) 
+	q02 = RadioField('As presenter/author, how did you find the review process')
+	q03 = RadioField('As reviewer, how did you find the review process')
+	q04 = RadioField('Usefulness of the keynote speech')
+	q05 = RadioField('Rate the technical papers overall quality')
+	q06 = RadioField('The length of the conference/number of days/number of sessions')
+	q07 = RadioField('Usefulness of the website')
+	q08 = RadioField('Conference fees')
+	q09 = RadioField('How did you hear about the BS conference')
+	q10 = RadioField('What type of institution do you work')
+	q11 = RadioField('What is the nature of your work')
+	q12 = RadioField('Will you attend BS2025')
+	q13 = RadioField('Did you attend BS2021')
+	q14 = TextAreaField('Comments')
+	#-------------------------------------------------------
+	p01 = RadioField('Rate the meeting facilities and location')
+	p02 = RadioField('Rate the pick-up/shuttle bus service')
+	p03 = RadioField('Was there sufficient time to network and socialize')
+	p04 = RadioField('how did you find the exhibition in general')
+	p05 = RadioField('Rate the scientific quality of the poster session')
+	p06 = RadioField('Rate the social program (reception, banquet, river cruise)')
+	p07 = RadioField('Rate the venue and catering, suitable for the conference')
+	p08 = RadioField('Rate the conference guide system')
+	#-------------------------------------------------------
+	v01 = RadioField('Rate the quality of the audio')
+	v02 = RadioField('Rate the quality of the video')
+	v03 = RadioField('What did you think of the online sessions')
+	v04 = TextAreaField('why')
+	v05 = RadioField('Did you get a chance to ask questions')
+	v06 = TextAreaField('why')
+	v07 = RadioField('Clear guidelines/templates for producing the video?')
+	v08 = RadioField('Rate the live-streaming and video replay')
+	v09 = RadioField('Willing to pay more for online sessions?')
