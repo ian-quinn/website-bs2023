@@ -20,7 +20,7 @@
 </section>
 
 <div class="container pt-2 pb-4">
-    <div class="row py-5 my-5">
+    <div class="row my-5">
         <div class="col-md-6 mb-5 mb-md-0">
             <p>All research papers will be <b>double-blinded</b> peer-reviewed and published in the conference proceedings, indexed by <b>Scopus</b> and <b>EI</b>, regardless the presentation form (oral or poster). </p>
             <p>Some papers with high-quality will be selected for submitting an extended version to Special Issues of high-indexed journals, such as Journal of Building Performance Simulation and Building Simulation.</p>
@@ -49,16 +49,71 @@
         </div>
     </div>
 
-    <div class="row py-5 my-5">
-        <p>Papers in edition, which are planned to be published in the Building Simulation Conference Proceedings Vol.18 (ISSN: 2522-2708)<br>
-        This is only for editorial process, not the final acceptance/publication proof. </p>
-        <ol>
-            {% for paper in papers %}
-            {% if paper.mode_presentation %}
-            <li>{{ paper.title }}</li>
-            {% endif %}
-            {% endfor %}
-        </ol>
+    <div class="row my-5" id="certificate">
+        
+        <div class="row">
+            <div class="col-8">
+                <div>
+                    <p>You may retrieve the Certificate of Acceptance by your contribution ID. It only certifies that your manuscript has been accepted and will be published in the Building Simulation Conference Proceedings Vol.18 (ISSN: 2522-2708). We cannot offer the front cover, pre-print PDF, page number, indexation or DOI prior to the softcopy of the conference proceedings. </p>
+                </div>
+
+                <div class="my-5">
+                    {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                    <div>
+                        {% for category, message in messages %}
+                        {% if category == 'warning' %}
+                        <div class="alert alert-{{ category }} alert-dismissible" role="alert" id="faded">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            </button>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+
+                    <div class="card" style="background-color: #f9f9f9">
+                        <div class="card-body">
+
+                            <form class="contact-form" action="{{ url_for('publication') }}" method="POST" enctype="multipart/form-data">
+                                <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
+                                {{ form_cert.hidden_tag() }}
+
+                                <div class="row" style="margin-bottom: -15px;">
+                                    <div class="form-group col-md-6">
+                                        {{ form_cert.index(class="form-control text-3", placeholder="Your contribution ID") }}
+                                        {% for error in form_cert.index.errors %}
+                                        <small style="color: #dc3545">{{ error }}</small>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        {{ form_cert.submit(type="submit", value="Get certificate", class="btn btn-outline-danger w-100") }}
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <p>Only the accepted and presented paper with the full registration payment will be included. If you find your paper missing in the following list, please contact us at secretariat@bs2023.org.</p>
+
+            </div>
+        </div>
+
+        
+        <div class="my-5">
+            <ul class="list-unstyled">
+                {% for paper in papers %}
+                {% if paper.mode_presentation and paper.is_paid %}
+                <li><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1" style="width: 35px; ">{{ paper.conftool }}</span>&nbsp;&nbsp;{{ paper.title }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        
     </div>
 </div>
 {% endblock %}

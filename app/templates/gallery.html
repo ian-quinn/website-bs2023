@@ -54,7 +54,7 @@
                 {% if current_user.is_authenticated %}<a href="{{ url_for('replay') }}" style="text-decoration: none;">{% endif %}
                     <div class="panel-text p-4">
                         <h2 style="font-weight: bold; color: #ffffff; letter-spacing: 0px;">Recordings</h2>
-                        <p style="color: #ffffff"><b>10/81</b> uploaded</p>
+                        <p style="color: #ffffff"><b>18/84</b> uploaded</p>
                         <div style="text-align: right; display: flex; justify-content: right;">
                             <a href="{{ url_for('replay_cate', cate_id=0) }}" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2 {% if not current_user.is_authenticated %}disabled{% endif %}" target="_blank">Keynote</a>
                             <a href="{{ url_for('replay_cate', cate_id=1) }}" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2 {% if not current_user.is_authenticated %}disabled{% endif %}" target="_blank">Onsite</a>

@@ -243,14 +243,21 @@ class Paper(db.Model):
     mode_presentation = db.Column(db.Integer) # research paper = 1 / project report = 0
     title = db.Column(db.String(256))
     authors = db.Column(db.String(256))
+    is_paid = db.Column(db.Boolean, default=True)
+    path_cert = db.Column(db.String(64))
+    path_letter = db.Column(db.String(64))
+    text_auhtors = db.Column(db.Text)
+    text_organization = db.Column(db.Text)
 
 
 class Survey(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
     cookie = db.Column(db.String(256))
-    qA = db.Column(db.Integer) # what is your identity of participation? A. Presenter/author B. Reviewer C. Invited speaker D. Exhibitor
-    qB = db.Column(db.Integer) # attendance mode A. Physical B. Virtual
+    identity = db.Column(db.Integer) # what is your identity of participation? A. Presenter/author B. Reviewer C. Invited speaker D. Exhibitor
+    qA = db.Column(db.Integer) # attendance mode A. Physical B. Virtual
+    qB = db.Column(db.Integer) # what type of institution do you work for 
+    qC = db.Column(db.Integer) # what is the nature of your work
 
     q01 = db.Column(db.Integer) # How useful did you find the conference overall
     q02 = db.Column(db.Integer) # PRESENTER/AUTHOR ONLY How did you find the review process
@@ -258,14 +265,12 @@ class Survey(db.Model):
     q04 = db.Column(db.Integer) # Usefulness of website
     q05 = db.Column(db.Integer) # How do you rate the conference fees, was good value for money?
     p06 = db.Column(db.Integer) # How useful did you find the keynote speeches
-    p07 = db.Column(db.Integer) # Rate the technical papers overal quality?
+    p07 = db.Column(db.Integer) # Rate the technical papers overall quality?
     p08 = db.Column(db.Integer) # How did you find the length of the conference / number of days
     q09 = db.Column(db.Integer) # How did you hear about the building simulation conference
-    q10 = db.Column(db.Integer) # what type of institution do you work for 
-    q11 = db.Column(db.Integer) # what is the nature of your work
-    q12 = db.Column(db.Integer) # will you attend the next building simulation conference in Brisbane, Australia?
-    q13 = db.Column(db.Integer) # did you attend the last building simulation conference, BS2021
-    q14 = db.Column(db.Text) # additional comments
+    q10 = db.Column(db.Integer) # will you attend the next building simulation conference in Brisbane, Australia?
+    q11 = db.Column(db.Integer) # did you attend the last building simulation conference, BS2021
+    q12 = db.Column(db.Text) # additional comments
 
     #--------------------------------------------------------------------------------
     

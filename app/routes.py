@@ -18,7 +18,7 @@ from app import app, db
 from app.models import Message, File, Reviewer, Invitation, Accommodation, Certificate, Poster, Recording, Delegate, Paper, Survey
 from app.models import User, get_or_create
 from app.forms import MessageForm, EnrollForm, InvitationForm, AccommodationForm, RetrieveAccommodationForm
-from app.forms import ReviewerForm, CertificateForm, LoginForm, SurveyForm
+from app.forms import ReviewerForm, CertificateForm, LoginForm, SurveyForm, PaperAcceptanceForm
 from app.email import send_auth_link
 
 from app.wkhtmltopdf import printpdf
@@ -54,10 +54,44 @@ def submit():
 def registration():
     return render_template('registration.html')
 
-@app.route('/publication')
+@app.route('/publication', methods=['GET', 'POST'])
 def publication():
     papers = Paper.query.order_by(Paper.id.asc()).all()
-    return render_template('publication.html', papers=papers)
+    form_cert = PaperAcceptanceForm()
+
+    if form_cert.validate_on_submit():
+        contribution_id = form_cert.index.data
+        paper = Paper.query.filter_by(conftool = contribution_id).first()
+        msg = f'We cannot find the record in the database. Please contact <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a> to claim your certificate if needed.'
+        
+        resource_path = os.path.join(current_app.root_path, app.config['WKRESOURCE_PATH'])
+    
+        if paper:
+            if paper.is_paid:
+                if not paper.path_cert:
+                    cert_name = f'cert_{contribution_id}.pdf'
+                    output_path = os.path.join(app.config['CERT_PATH'], cert_name)
+                    # format authors
+                    authors_html_string = paper.text_auhtors.replace(" (", "<sup>").replace(")", "</sup>")
+                    # authors = authors_html_string.splitlines()
+                    organizations = paper.text_organization.split("\n")
+
+                    printpdf.print_acceptance(paper.title, authors_html_string, '<br>'.join(organizations), paper.conftool, 
+                        app.config['WKHTMLTOPDF_PATH'], resource_path, output_path)
+                    paper.path_cert = cert_name
+                    db.session.commit()
+                msg = f'PDF printed. Click to download your \
+                    <a href="{ url_for("download_certificate", cert_id=paper.id, type_id=5) }" target="_blank">certificate</a>.'
+                flash(Markup(msg), 'warning')
+            else:
+                msg = f'Your full payment of conference registration has not been received. Please contact secretariat@bs2023.org to update your payment record.'
+                flash(Markup(msg), 'warning')
+            return redirect(url_for('publication'))
+        else:
+            msg = "No record found."
+        flash(msg, 'warning')
+
+    return render_template('publication.html', papers=papers, form_cert=form_cert)
 
 @app.route('/guide/finalupload')
 def guide_finalupload():
@@ -526,26 +560,46 @@ def download_recording(recording_id):
 
 @app.route('/download/certificate/<int:cert_id>#<int:type_id>', methods=['GET', 'POST'])
 def download_certificate(cert_id, type_id):
+    # reviewer certificate
     if type_id == 1:
         certificate = Certificate.query.get_or_404(cert_id)
         path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
         return send_from_directory(path, certificate.filename, 
             as_attachment=True, attachment_filename="%s" % certificate.filename)
+    # reviewer letter
     elif type_id == 2:
         certificate = Certificate.query.get_or_404(cert_id)
         path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
         return send_from_directory(path, certificate.filename_letter, 
             as_attachment=True, attachment_filename="%s" % certificate.filename_letter)
+
+    # attendee certificate
     elif type_id == 3:
         delegate = Delegate.query.get_or_404(cert_id)
         path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
         return send_from_directory(path, delegate.certpath_attendance, 
             as_attachment=True, attachment_filename="%s" % delegate.certpath_attendance)
+
+    # reviewer letter
     elif type_id == 4:
         delegate = Delegate.query.get_or_404(cert_id)
         path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
         return send_from_directory(path, delegate.certpath_attendance_letter, 
             as_attachment=True, attachment_filename="%s" % delegate.certpath_attendance_letter)
+
+    # acceptance certificate
+    elif type_id == 5:
+        paper = Paper.query.get_or_404(cert_id)
+        path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
+        return send_from_directory(path, paper.path_cert, 
+            as_attachment=True, attachment_filename="%s" % paper.path_cert)
+
+    # acceptance letter
+    elif type_id == 6:
+        paper = Paper.query.get_or_404(cert_id)
+        path = os.path.join(current_app.root_path, app.config['CERT_PATH'])
+        return send_from_directory(path, paper.path_letter, 
+            as_attachment=True, attachment_filename="%s" % paper.path_letter)
 
 
 # -------------------------- ERROR ----------------------------- #

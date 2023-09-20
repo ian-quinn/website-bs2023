@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from datetime import datetime
 from flask import request
 from flask_wtf.file import FileField, FileRequired, FileAllowed
-from wtforms import StringField, TextAreaField, BooleanField, SubmitField, SelectField, FileField, DateField, RadioField
+from wtforms import StringField, TextAreaField, BooleanField, SubmitField, SelectField, FileField, DateField, RadioField, IntegerField
 from wtforms.validators import DataRequired, Email, ValidationError, Length, EqualTo, InputRequired, NumberRange
 from app.models import Message, Reviewer, Invitation, Accommodation, Certificate
 
@@ -93,6 +93,11 @@ class CertificateForm(FlaskForm):
 	email = StringField('Email address of your ConfTool account', validators=[
 		DataRequired(message="This field is mandatory"), 
 		Email(message="Please check the format of your email")])
+	submit = SubmitField('Submit')
+
+class PaperAcceptanceForm(FlaskForm):
+	index = IntegerField('Your contribution ID', validators=[NumberRange(min=0, max=3000), 
+		DataRequired(message="This field is mandatory")])
 	submit = SubmitField('Submit')
 
 
@@ -197,17 +202,15 @@ class SurveyForm(FlaskForm):
 	is_exhibitor = BooleanField('Exhibitor', default=False)
 	is_other = BooleanField('Other', default=False)
 
-	qA = SelectField('Participation Identity', 
-		choices=[(1,'Presenter/Author'), (2,'Reviewer'), (3, 'Exhibitor'), (4, 'None above')], coerce=int)
-	qB = SelectField('Participation Mode', 
+	qA = SelectField('Participation Mode', 
 		choices=[(0, '-- select an option --'), (1, 'Physical attendance'), (2, 'Virtual attendance')], 
 		coerce=int, validators=[NumberRange(min=1, max=10, message='Pick an option')], default=0)
 
-	q10 = SelectField('What type of institution do you work', 
+	qB = SelectField('What type of institution do you work', 
 		choices=[(0, '-- select an option --'), (1, 'university'), (2, 'large research institute + gvt'), (3, 'consulting engineering firm'), 
 		(4, 'other private company'), (5, 'architectural practice'), (6, 'energy utility'), (7, 'other')], 
 		coerce=int, validators=[NumberRange(min=1, max=10, message='Pick an option')], default=0)
-	q11 = SelectField('What is the nature of your work', 
+	qC = SelectField('What is the nature of your work', 
 		choices=[(0, '-- select an option --'), (1, 'researcher'), (2, 'student'), (3, 'teacher'), (4, 'software developer'), 
 		(5, 'design engineer'), (6, 'energy consultant'), (7, 'other')], 
 		coerce=int, validators=[NumberRange(min=1, max=10, message='Pick an option')], default=0)
@@ -233,7 +236,7 @@ class SurveyForm(FlaskForm):
 	
 	q12 = RadioField('Will you attend BS2025', choices=[(1, "yes"), (2, 'no')])
 	q13 = RadioField('Did you attend BS2021', choices=[(1, "yes"), (2, 'no')])
-	q14 = TextAreaField('Comments')
+	q14 = TextAreaField()
 	#-------------------------------------------------------
 	p01 = RadioField('Rate the meeting facilities and location', 
 		choices=[(1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')])
@@ -253,9 +256,9 @@ class SurveyForm(FlaskForm):
 	v01 = RadioField('Rate the quality of the audio', choices=[(1, 'good'), (2, 'acceptable'), (3, 'poor')])
 	v02 = RadioField('Rate the quality of the video', choices=[(1, 'good'), (2, 'acceptable'), (3, 'poor')])
 	v03 = RadioField('What did you think of the online sessions', choices=[(1, 'good'), (2, 'acceptable'), (3, 'poor')])
-	v04 = TextAreaField('why')
+	v04 = TextAreaField(validators=[Length(0, 200)])
 	v05 = RadioField('Did you get a chance to ask questions', choices=[(1, "yes"), (2, 'no')])
-	v06 = TextAreaField('why')
+	v06 = TextAreaField(validators=[Length(0, 200)])
 	v07 = RadioField('Clear guidelines/templates for producing the video?', choices=[(1, "yes"), (2, 'no')])
 	v08 = RadioField('Rate the live-streaming and video replay', 
 		choices=[(1, 'very useful'), (2, 'somewhat useful'), (3, 'neutral'), (4, 'not useful'), (5, 'did not view')])
@@ -263,3 +266,7 @@ class SurveyForm(FlaskForm):
 		choices=[(1, 'to pay significantly higher fees (comparable to physical attendance fees) to join such a hybrid conference remotely'), 
 				 (2, 'or prefer lower fees for just viewing streaming of sessions'), 
 				 (3, 'or only interested in physically attending a Building Simulation conference in future')])
+
+	#------------------------------------------------------------
+
+	submit = SubmitField('Submit')
