@@ -3,7 +3,7 @@ from datetime import datetime
 from flask import request
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import StringField, TextAreaField, BooleanField, SubmitField, SelectField, FileField, DateField, RadioField
-from wtforms.validators import DataRequired, Email, ValidationError, Length, EqualTo
+from wtforms.validators import DataRequired, Email, ValidationError, Length, EqualTo, InputRequired, NumberRange
 from app.models import Message, Reviewer, Invitation, Accommodation, Certificate
 
 ######################################################################################
@@ -192,40 +192,74 @@ class LoginForm(FlaskForm):
 
 
 class SurveyForm(FlaskForm):
+	is_author = BooleanField('Presenter/Author', default=False)
+	is_reviewer = BooleanField('Reviewer', default=False)
+	is_exhibitor = BooleanField('Exhibitor', default=False)
+	is_other = BooleanField('Other', default=False)
+
 	qA = SelectField('Participation Identity', 
-		choices=[(1,'Presenter/Author'), (2,'Reviewer'), (3, 'Exhibitor'), (4, 'Others')], coerce=int)
-	qB = SelectField('Participation Mode', choices=[(1, 'Physical attendance'), (2, 'Virtual attendance')], coerce=int)
+		choices=[(1,'Presenter/Author'), (2,'Reviewer'), (3, 'Exhibitor'), (4, 'None above')], coerce=int)
+	qB = SelectField('Participation Mode', 
+		choices=[(0, '-- select an option --'), (1, 'Physical attendance'), (2, 'Virtual attendance')], 
+		coerce=int, validators=[NumberRange(min=1, max=10, message='Pick an option')], default=0)
+
+	q10 = SelectField('What type of institution do you work', 
+		choices=[(0, '-- select an option --'), (1, 'university'), (2, 'large research institute + gvt'), (3, 'consulting engineering firm'), 
+		(4, 'other private company'), (5, 'architectural practice'), (6, 'energy utility'), (7, 'other')], 
+		coerce=int, validators=[NumberRange(min=1, max=10, message='Pick an option')], default=0)
+	q11 = SelectField('What is the nature of your work', 
+		choices=[(0, '-- select an option --'), (1, 'researcher'), (2, 'student'), (3, 'teacher'), (4, 'software developer'), 
+		(5, 'design engineer'), (6, 'energy consultant'), (7, 'other')], 
+		coerce=int, validators=[NumberRange(min=1, max=10, message='Pick an option')], default=0)
+
 	#--------------------------------------------------------------
 	q01 = RadioField('Usefulness of the conference', choices=[(1, 'very useful'), (2, 'somewhat useful'), (3, 'not useful')], coerce=int) 
-	q02 = RadioField('As presenter/author, how did you find the review process')
-	q03 = RadioField('As reviewer, how did you find the review process')
-	q04 = RadioField('Usefulness of the keynote speech')
-	q05 = RadioField('Rate the technical papers overall quality')
-	q06 = RadioField('The length of the conference/number of days/number of sessions')
-	q07 = RadioField('Usefulness of the website')
-	q08 = RadioField('Conference fees')
-	q09 = RadioField('How did you hear about the BS conference')
-	q10 = RadioField('What type of institution do you work')
-	q11 = RadioField('What is the nature of your work')
-	q12 = RadioField('Will you attend BS2025')
-	q13 = RadioField('Did you attend BS2021')
+	q02 = RadioField('As presenter/author, how did you find the review process', 
+		choices=[(1, 'too lenient'), (2, 'appropriate'), (3, 'rigorous'), (4, 'overly rigorous'), (5, 'no opinion')])
+	q03 = RadioField('As reviewer, how did you find the review process', 
+		choices=[(1, 'Appropriate'), (2, 'too much work'), (3, 'willing to do more reviews')])
+	q04 = RadioField('Usefulness of the website', 
+		choices=[(1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')])
+	q05 = RadioField('Conference fees', 
+		choices=[(1, 'reasonable'), (2, 'too expensive'), (3, 'willing to pay more')])
+	q06 = RadioField('Usefulness of the keynote speech', 
+		choices=[(1, 'very useful'), (2, 'somewhat useful'), (3, 'neutral'), (4, 'not useful'), (5, 'did not attend')])
+	q07 = RadioField('Rate the technical papers overall quality', 
+		choices=[(1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')])
+	q08 = RadioField('The length of the conference/number of days/number of sessions', 
+		choices=[(1, 'just right'), (2, 'too long'), (3, 'too short')])
+	q09 = RadioField('How did you hear about the BS conference', 
+		choices=[(1, 'e-mail announcement'), (2, 'word-of-mouth'), (3, 'website of other institution'), (4, 'printed announcement'), (5, 'previous IBPSA event'), (6, 'other')])
+	
+	q12 = RadioField('Will you attend BS2025', choices=[(1, "yes"), (2, 'no')])
+	q13 = RadioField('Did you attend BS2021', choices=[(1, "yes"), (2, 'no')])
 	q14 = TextAreaField('Comments')
 	#-------------------------------------------------------
-	p01 = RadioField('Rate the meeting facilities and location')
-	p02 = RadioField('Rate the pick-up/shuttle bus service')
-	p03 = RadioField('Was there sufficient time to network and socialize')
-	p04 = RadioField('how did you find the exhibition in general')
-	p05 = RadioField('Rate the scientific quality of the poster session')
-	p06 = RadioField('Rate the social program (reception, banquet, river cruise)')
-	p07 = RadioField('Rate the venue and catering, suitable for the conference')
-	p08 = RadioField('Rate the conference guide system')
+	p01 = RadioField('Rate the meeting facilities and location', 
+		choices=[(1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')])
+	p02 = RadioField('Rate the pick-up/shuttle bus service', 
+		choices=[(1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')])
+	p03 = RadioField('Was there sufficient time to network and socialize', choices=[(1, "yes"), (2, 'no')])
+	p04 = RadioField('how did you find the exhibition in general', choices=[(1, 'very useful'), (2, 'somewhat useful'), (3, 'not useful')])
+	p05 = RadioField('Rate the scientific quality of the poster session', 
+		choices=[(1, 'very useful'), (2, 'somewhat useful'), (3, 'neutral'), (4, 'not useful'), (5, 'did not view')])
+	p06 = RadioField('Rate the social program (reception, banquet, river cruise)', 
+		choices=[(1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')])
+	p07 = RadioField('Rate the venue and catering, suitable for the conference', 
+		choices=[(1, 'agree'), (2, 'neutral'), (3, 'disagree')])
+	p08 = RadioField('Rate the conference guide system', 
+		choices=[(1, 'clear and easy to find'), (2, 'neutral'), (3, 'get lost in the venue')])
 	#-------------------------------------------------------
-	v01 = RadioField('Rate the quality of the audio')
-	v02 = RadioField('Rate the quality of the video')
-	v03 = RadioField('What did you think of the online sessions')
+	v01 = RadioField('Rate the quality of the audio', choices=[(1, 'good'), (2, 'acceptable'), (3, 'poor')])
+	v02 = RadioField('Rate the quality of the video', choices=[(1, 'good'), (2, 'acceptable'), (3, 'poor')])
+	v03 = RadioField('What did you think of the online sessions', choices=[(1, 'good'), (2, 'acceptable'), (3, 'poor')])
 	v04 = TextAreaField('why')
-	v05 = RadioField('Did you get a chance to ask questions')
+	v05 = RadioField('Did you get a chance to ask questions', choices=[(1, "yes"), (2, 'no')])
 	v06 = TextAreaField('why')
-	v07 = RadioField('Clear guidelines/templates for producing the video?')
-	v08 = RadioField('Rate the live-streaming and video replay')
-	v09 = RadioField('Willing to pay more for online sessions?')
+	v07 = RadioField('Clear guidelines/templates for producing the video?', choices=[(1, "yes"), (2, 'no')])
+	v08 = RadioField('Rate the live-streaming and video replay', 
+		choices=[(1, 'very useful'), (2, 'somewhat useful'), (3, 'neutral'), (4, 'not useful'), (5, 'did not view')])
+	v09 = RadioField('Willing to pay more for online sessions?', 
+		choices=[(1, 'to pay significantly higher fees (comparable to physical attendance fees) to join such a hybrid conference remotely'), 
+				 (2, 'or prefer lower fees for just viewing streaming of sessions'), 
+				 (3, 'or only interested in physically attending a Building Simulation conference in future')])

@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}Survey{% endblock %}
 
+{% block styles %}
+<style type="text/css">
+    .q-hidden {
+        display: none;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
     <div class="container">
@@ -45,6 +53,27 @@
                         <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
                         {{ form_survey.hidden_tag() }}
 
+                        <label class="form-label mb-1 font-weight-bold">Choose your participant identity:</label>
+
+                        <div class="row">
+                            <div class="col-md-3 form-group">
+                                {{ form_survey.is_author(value="q-author", class="id-disable") }}
+                                {{ form_survey.is_author.label(class="form-check-label") }}
+                            </div>
+                            <div class="col-md-3 form-group">
+                                {{ form_survey.is_reviewer(value="q-reviewer", class="id-disable") }}
+                                {{ form_survey.is_reviewer.label(class="form-check-label") }}
+                            </div>
+                            <div class="col-md-3 form-group">
+                                {{ form_survey.is_exhibitor(value="q-exhibitor", class="id-disable") }}
+                                {{ form_survey.is_exhibitor.label(class="form-check-label") }}
+                            </div>
+                            <div class="col-md-3 form-group">
+                                {{ form_survey.is_other(value="q-other", class="id-other") }}
+                                {{ form_survey.is_other.label(class="form-check-label") }}
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label class="form-label mb-1 text-2">Participant Identity<span style="color: #cd563e;"> ✱</span></label>
@@ -56,8 +85,26 @@
 
                             <div class="form-group col-md-6">
                                 <label class="form-label mb-1 text-2">Attendance mode<span style="color: #cd563e;"> ✱</span></label>
-                                {{ form_survey.qB(class="form-select form-control h-auto") }}
+                                {{ form_survey.qB(class="form-select form-control h-auto", id="attendance-mode") }}
                                 {% for error in form_survey.qB.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label mb-1 text-2">What type of institution do you work for?<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form_survey.q10(class="form-select form-control h-auto") }}
+                                {% for error in form_survey.q10.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="form-label mb-1 text-2">What is the nature of your work?<span style="color: #cd563e;"> ✱</span></label>
+                                {{ form_survey.q11(class="form-select form-control h-auto") }}
+                                {% for error in form_survey.q11.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
                                 {% endfor %}
                             </div>
@@ -65,14 +112,18 @@
 
                         <hr>
 
-                        <div class="form-group">
-                            <label class="form-label mb-1 text-2">q01<span style="color: #cd563e;"> ✱</span></label>
+                        <!-- questions for all attendees -->
+
+                        <div style="margin-bottom: 50px;">
+                            <label class="form-label mb-1 font-weight-bold">1. How useful did you find the conference overall?</label>
                             <div>
                                 {% for subfield in form_survey.q01 %}
-                                <tr>
-                                    <td>{{ subfield }}</td>
-                                    <td>{{ subfield.label }}</td>
-                                </tr>
+                                <div class="form-check form-check-inline">
+                                    <tr>
+                                        <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                        <td>{{ subfield.label(class="form-check-label") }}</td>
+                                    </tr>
+                                </div>
                                 {% endfor %}
                             </div>
                             {% for error in form_survey.q01.errors %}
@@ -80,111 +131,442 @@
                             {% endfor %}
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label mb-1 text-2">q02<span style="color: #cd563e;"> ✱</span></label>
+                        <div style="margin-bottom: 50px;" class="q-hidden q-author">
+                            <label class="form-label mb-1 font-weight-bold">2. As a presenter/author, how did you find the review process?</label>
                             <div>
-                                {% for subfield in form_survey.q01 %}
-                                <tr>
-                                    <td>{{ subfield }}</td>
-                                    <td>{{ subfield.label }}</td>
-                                </tr>
+                                {% for subfield in form_survey.q02 %}
+                                <div class="form-check form-check-inline">
+                                    <tr>
+                                        <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                        <td>{{ subfield.label(class="form-check-label") }}</td>
+                                    </tr>
+                                </div>
                                 {% endfor %}
                             </div>
-                            {% for error in form_survey.q01.errors %}
+                            {% for error in form_survey.q02.errors %}
                             <small style="color: #dc3545">{{ error }}</small>
                             {% endfor %}
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label mb-1 text-2">q03<span style="color: #cd563e;"> ✱</span></label>
+                        <div style="margin-bottom: 50px;" class="q-hidden q-reviewer">
+                            <label class="form-label mb-1 font-weight-bold">3. As a reviewer, how did you find the review process?</label>
                             <div>
-                                {% for subfield in form_survey.q01 %}
-                                <tr>
-                                    <td>{{ subfield }}</td>
-                                    <td>{{ subfield.label }}</td>
-                                </tr>
+                                {% for subfield in form_survey.q03 %}
+                                <div class="form-check form-check-inline">
+                                    <tr>
+                                        <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                        <td>{{ subfield.label(class="form-check-label") }}</td>
+                                    </tr>
+                                </div>
                                 {% endfor %}
                             </div>
-                            {% for error in form_survey.q01.errors %}
+                            {% for error in form_survey.q03.errors %}
                             <small style="color: #dc3545">{{ error }}</small>
                             {% endfor %}
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label mb-1 text-2">q04<span style="color: #cd563e;"> ✱</span></label>
+                        <div style="margin-bottom: 50px;">
+                            <label class="form-label mb-1 font-weight-bold">4. How useful is the website?</label>
                             <div>
-                                {% for subfield in form_survey.q01 %}
-                                <tr>
-                                    <td>{{ subfield }}</td>
-                                    <td>{{ subfield.label }}</td>
-                                </tr>
+                                {% for subfield in form_survey.q04 %}
+                                <div class="form-check form-check-inline">
+                                    <tr>
+                                        <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                        <td>{{ subfield.label(class="form-check-label") }}</td>
+                                    </tr>
+                                </div>
                                 {% endfor %}
                             </div>
-                            {% for error in form_survey.q01.errors %}
+                            {% for error in form_survey.q04.errors %}
                             <small style="color: #dc3545">{{ error }}</small>
                             {% endfor %}
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label mb-1 text-2">q05<span style="color: #cd563e;"> ✱</span></label>
+                        <div style="margin-bottom: 50px;">
+                            <label class="form-label mb-1 font-weight-bold">5. How do you rate the conference fees?</label>
                             <div>
-                                {% for subfield in form_survey.q01 %}
-                                <tr>
-                                    <td>{{ subfield }}</td>
-                                    <td>{{ subfield.label }}</td>
-                                </tr>
+                                {% for subfield in form_survey.q05 %}
+                                <div class="form-check form-check-inline">
+                                    <tr>
+                                        <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                        <td>{{ subfield.label(class="form-check-label") }}</td>
+                                    </tr>
+                                </div>
                                 {% endfor %}
                             </div>
-                            {% for error in form_survey.q01.errors %}
+                            {% for error in form_survey.q05.errors %}
                             <small style="color: #dc3545">{{ error }}</small>
                             {% endfor %}
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label mb-1 text-2">q06<span style="color: #cd563e;"> ✱</span></label>
+                        <div style="margin-bottom: 50px;">
+                            <label class="form-label mb-1 font-weight-bold">6. How useful did you find the keynote speech?</label>
                             <div>
-                                {% for subfield in form_survey.q01 %}
-                                <tr>
-                                    <td>{{ subfield }}</td>
-                                    <td>{{ subfield.label }}</td>
-                                </tr>
+                                {% for subfield in form_survey.q06 %}
+                                <div class="form-check form-check-inline">
+                                    <tr>
+                                        <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                        <td>{{ subfield.label(class="form-check-label") }}</td>
+                                    </tr>
+                                </div>
                                 {% endfor %}
                             </div>
-                            {% for error in form_survey.q01.errors %}
+                            {% for error in form_survey.q06.errors %}
                             <small style="color: #dc3545">{{ error }}</small>
                             {% endfor %}
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label mb-1 text-2">q07<span style="color: #cd563e;"> ✱</span></label>
+                        <div style="margin-bottom: 50px;">
+                            <label class="form-label mb-1 font-weight-bold">7. How do you rate the overall quality of technical papers?</label>
                             <div>
-                                {% for subfield in form_survey.q01 %}
-                                <tr>
-                                    <td>{{ subfield }}</td>
-                                    <td>{{ subfield.label }}</td>
-                                </tr>
+                                {% for subfield in form_survey.q07 %}
+                                <div class="form-check form-check-inline">
+                                    <tr>
+                                        <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                        <td>{{ subfield.label(class="form-check-label") }}</td>
+                                    </tr>
+                                </div>
                                 {% endfor %}
                             </div>
-                            {% for error in form_survey.q01.errors %}
+                            {% for error in form_survey.q07.errors %}
                             <small style="color: #dc3545">{{ error }}</small>
                             {% endfor %}
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label mb-1 text-2">q08<span style="color: #cd563e;"> ✱</span></label>
+                        <div style="margin-bottom: 50px;">
+                            <label class="form-label mb-1 font-weight-bold">8. How did you find the length of the conference / number of days?</label>
                             <div>
-                                {% for subfield in form_survey.q01 %}
-                                <tr>
-                                    <td>{{ subfield }}</td>
-                                    <td>{{ subfield.label }}</td>
-                                </tr>
+                                {% for subfield in form_survey.q08 %}
+                                <div class="form-check form-check-inline">
+                                    <tr>
+                                        <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                        <td>{{ subfield.label(class="form-check-label") }}</td>
+                                    </tr>
+                                </div>
                                 {% endfor %}
                             </div>
-                            {% for error in form_survey.q01.errors %}
+                            {% for error in form_survey.q08.errors %}
                             <small style="color: #dc3545">{{ error }}</small>
                             {% endfor %}
                         </div>
 
+
+                        <div style="margin-bottom: 50px;">
+                            <label class="form-label mb-1 font-weight-bold">9. How did you hear about the building simulation conference?</label>
+                            <div>
+                                {% for subfield in form_survey.q09 %}
+                                <div class="form-check">
+                                    <tr>
+                                        <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                        <td>{{ subfield.label(class="form-check-label") }}</td>
+                                    </tr>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% for error in form_survey.q09.errors %}
+                            <small style="color: #dc3545">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+
+                        <div style="margin-bottom: 50px;">
+                            <label class="form-label mb-1 font-weight-bold">10. Will you attend the next building simulation conference in Brisbane, Australia?</label>
+                            <div>
+                                {% for subfield in form_survey.q12 %}
+                                <div class="form-check form-check-inline">
+                                    <tr>
+                                        <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                        <td>{{ subfield.label(class="form-check-label") }}</td>
+                                    </tr>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% for error in form_survey.q12.errors %}
+                            <small style="color: #dc3545">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+
+                        <div style="margin-bottom: 50px;">
+                            <label class="form-label mb-1 font-weight-bold">11. Did you attend the last building simulation conference BS2021</label>
+                            <div>
+                                {% for subfield in form_survey.q13 %}
+                                <div class="form-check form-check-inline">
+                                    <tr>
+                                        <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                        <td>{{ subfield.label(class="form-check-label") }}</td>
+                                    </tr>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% for error in form_survey.q13.errors %}
+                            <small style="color: #dc3545">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+
+                        <hr style="margin-bottom: 50px;">
+
+                        <!-- questions for physical attendees -->
+
+                        <div id="physicalqueries">
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">12. How did you find the meeting facilities and location</label>
+                                <div>
+                                    {% for subfield in form_survey.p01 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.p01.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">13. How did you find the pick-up/shuttle bus service?</label>
+                                <div>
+                                    {% for subfield in form_survey.p02 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.p02.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">14. Was there sufficient time to network and socialize?</label>
+                                <div>
+                                    {% for subfield in form_survey.p03 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.p03.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">15. How did you find the exhibition in general?</label>
+                                <div>
+                                    {% for subfield in form_survey.p04 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.p04.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">16. What did you think of the scientific quality of the poster session?</label>
+                                <div>
+                                    {% for subfield in form_survey.p05 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.p05.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">17. How would you rate the social program (reception, banquet, river cruise)?</label>
+                                <div>
+                                    {% for subfield in form_survey.p06 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.p06.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">18. The venue and catering were suitable for the conference?</label>
+                                <div>
+                                    {% for subfield in form_survey.p07 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.p07.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">19. How did you find the conference guide system (guide book, signs, map, inquiry)?</label>
+                                <div>
+                                    {% for subfield in form_survey.p08 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.p08.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <!-- questions for virtual attendees  -->
+
+                        <div id="virtualqueries">
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">12. How was the quality of the audio?</label>
+                                <div>
+                                    {% for subfield in form_survey.v01 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.v01.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">13. How was the quality of the video?</label>
+                                <div>
+                                    {% for subfield in form_survey.v02 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.v02.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">14. What did you think of the online sessions?</label>
+                                <div>
+                                    {% for subfield in form_survey.v03 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.v03.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">15. Did you get a chance to ask questions?</label>
+                                <div>
+                                    {% for subfield in form_survey.v05 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.v05.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;" class="q-hidden q-author">
+                                <label class="form-label mb-1 font-weight-bold">16. As a presenter/author, were the guidelines/templates for producing the video clear and adequate?</label>
+                                <div>
+                                    {% for subfield in form_survey.v07 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.v07.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">17. What do you think of the live-streaming and video replay?</label>
+                                <div>
+                                    {% for subfield in form_survey.v08 %}
+                                    <div class="form-check form-check-inline">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.v08.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                            <div style="margin-bottom: 50px;">
+                                <label class="form-label mb-1 font-weight-bold">18. Moving to a hybrid conference with a more immersive experience is expensive. We would like your views on whether you would be willing:</label>
+                                <div>
+                                    {% for subfield in form_survey.v09 %}
+                                    <div class="form-check">
+                                        <tr>
+                                            <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
+                                            <td>{{ subfield.label(class="form-check-label") }}</td>
+                                        </tr>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% for error in form_survey.v09.errors %}
+                                <small style="color: #dc3545">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+
+                        </div>
 
                     </form>
                 </div>
@@ -197,6 +579,38 @@
 {% endblock %}
 
 {% block scripts %}
-<script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".id-other").click(function() {
+        var checkBoxes = $(".id-disable");
+        checkBoxes.prop("checked", false);
+    });                 
+});
+
+$(document).ready(function() {
+    $('input[type="checkbox"]').click(function() {
+        var inputValue = $(this).attr("value");
+        $("." + inputValue).toggle();
+    });
+});
+
+$(document).ready(function(){
+    $('#attendance-mode').on('change', function() {  
+        var name=this.value;
+      if ( name == 1 )
+      {
+        $("#physicalqueries").show();
+        $("#virtualqueries").hide();
+      }
+      else
+      {
+        $("#physicalqueries").hide();
+        $("#virtualqueries").show();
+      }
+    });
+});
+
+
+
 </script>
 {% endblock %}
