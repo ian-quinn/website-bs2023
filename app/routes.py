@@ -84,7 +84,7 @@ def publication():
                     <a href="{ url_for("download_certificate", cert_id=paper.id, type_id=5) }" target="_blank">certificate</a>.'
                 flash(Markup(msg), 'warning')
             else:
-                msg = f'Your full payment of conference registration has not been received. Please contact secretariat@bs2023.org to update your payment record.'
+                msg = f'We have not received your registration fee in full. Please contact secretariat@bs2023.org to update your payment record.'
                 flash(Markup(msg), 'warning')
             return redirect(url_for('publication'))
         else:
