@@ -29,7 +29,33 @@
                 <li><b>September 3<sup>rd</sup> 2023</b> - Manuscripts preview via onsite USB-drive</li>
                 <li><b>September 17<sup>th</sup> 2023</b> - Final upload for camera-ready version</li>
                 <li><b>Around April 2024</b> - Pre-print preview on <a href="https://publications.ibpsa.org/building-simulation-conference-proceedings/">IBPSA publications</a></li>
-                <li><b>Around September 2024</b> - Publication with indexation and DOI</li>
+                <li><b>Around September 2024</b> - Publication with <a href="" id="button" aria-describedby="tooltip">indexation</a> and DOI
+                    <div id="tooltip" role="tooltip">
+                        <div style="font-size: 0.8em; line-height: 1.2em; font-weight: normal;">
+                            @inproceedings{<br>
+                            &#160 bs2023_XXXXX,<br>
+                            &#160 doi = {https://doi.org/?},<br>
+                            &#160 url = {https://publications.ibpsa.org/conference/paper/?id=bs2023_XXXXX},<br>
+                            &#160 year = {2023},<br>
+                            &#160 month = {September},<br>
+                            &#160 publisher = {IBPSA},<br>
+                            &#160 author = {XXXXX},<br>
+                            &#160 title  = {XXXXX},<br>
+                            &#160 booktitle = {Proceedings of Building Simulation 2023: 18th Conference of IBPSA},<br>
+                            &#160 volume  = {?},<br>
+                            &#160 isbn = {?},<br>
+                            &#160 address  = {Shanghai, China},<br>
+                            &#160 series  = {Building Simulation},<br>
+                            &#160 pages = {?},<br>
+                            &#160 abstract = {XXXXX},<br>
+                            &#160 issn = {2522-2708},<br>
+                            &#160 Organisation = {IBPSA},<br>
+                            &#160 Editors = {?}<br>
+                            }
+                        </div>
+                        <div id="arrow" data-popper-arrow></div>
+                    </div>
+                </li>
             </ul>
         </div>
 
@@ -52,7 +78,7 @@
     <div class="row my-5" id="certificate">
         
         <div class="row">
-            <div class="col-8">
+            <div class="col-lg-8">
                 <div>
                     <p>You may retrieve the Certificate of Acceptance by your contribution ID. It only certifies that your manuscript has been accepted and will be published in the Building Simulation Conference Proceedings Vol.18 (ISSN: 2522-2708). We cannot offer the front cover, pre-print PDF, page number, indexation or DOI prior to the softcopy of the conference proceedings. </p>
                 </div>
@@ -116,4 +142,66 @@
         
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<!-- <script src="{{ url_for('static', filename='vendor/jquery.gmap/jquery.gmap.min.js') }}"></script> -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script>
+  const button = document.querySelector('#button');
+  const tooltip = document.querySelector('#tooltip');
+
+  const popperInstance = Popper.createPopper(button, tooltip, {
+    modifiers: [
+      {
+        name: 'offset',
+        options: {
+          offset: [0, 8],
+        },
+      },
+    ],
+  });
+
+  function show() {
+    // Make the tooltip visible
+    tooltip.setAttribute('data-show', '');
+
+    // Enable the event listeners
+    popperInstance.setOptions((options) => ({
+      ...options,
+      modifiers: [
+        ...options.modifiers,
+        { name: 'eventListeners', enabled: true },
+      ],
+    }));
+
+    // Update its position
+    popperInstance.update();
+  }
+
+  function hide() {
+    // Hide the tooltip
+    tooltip.removeAttribute('data-show');
+
+    // Disable the event listeners
+    popperInstance.setOptions((options) => ({
+      ...options,
+      modifiers: [
+        ...options.modifiers,
+        { name: 'eventListeners', enabled: false },
+      ],
+    }));
+  }
+
+  const showEvents = ['mouseenter', 'focus'];
+  const hideEvents = ['mouseleave', 'blur'];
+
+  showEvents.forEach((event) => {
+    button.addEventListener(event, show);
+  });
+
+  hideEvents.forEach((event) => {
+    button.addEventListener(event, hide);
+  });
+</script>
 {% endblock %}

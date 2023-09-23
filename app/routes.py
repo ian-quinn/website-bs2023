@@ -62,7 +62,7 @@ def publication():
     if form_cert.validate_on_submit():
         contribution_id = form_cert.index.data
         paper = Paper.query.filter_by(conftool = contribution_id).first()
-        msg = f'We cannot find the record in the database. Please contact <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a> to claim your certificate if needed.'
+        msg = f'We are editing/finalizing the publication list. Please contact <a href="mailto:secretariat@bs2023.org">secretariat@bs2023.org</a> if you cannot find the record.'
         
         resource_path = os.path.join(current_app.root_path, app.config['WKRESOURCE_PATH'])
     
@@ -84,11 +84,11 @@ def publication():
                     <a href="{ url_for("download_certificate", cert_id=paper.id, type_id=5) }" target="_blank">certificate</a>.'
                 flash(Markup(msg), 'warning')
             else:
-                msg = f'We have not received your registration fee in full. Please contact secretariat@bs2023.org to update your payment record.'
+                msg = f'Record not found. Please contact secretariat@bs2023.org. Possible causes: outstanding registration fee, wrong database reference, missing presenting author, paper not presented, project report, plagiarism.'
                 flash(Markup(msg), 'warning')
             return redirect(url_for('publication'))
         else:
-            msg = "No record found."
+            msg = "Record not valid. Please contact secretariat@bs2023.org."
         flash(msg, 'warning')
 
     return render_template('publication.html', papers=papers, form_cert=form_cert)
