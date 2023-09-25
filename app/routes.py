@@ -750,7 +750,17 @@ def survey():
     form_survey = SurveyForm()
 
     if form_survey.validate_on_submit():
+        ids = []
+        if (form_survey.is_author.data): ids.append('1')
+        if (form_survey.is_reviewer.data): ids.append('2')
+        if (form_survey.is_exhibitor.data): ids.append('3')
+        if (form_survey.is_other.data): ids.append('4')
+
+        identity = int(''.join(ids))
+
         survey = Survey(
+            identity = identity,
+
             qA = form_survey.qA.data,
             qB = form_survey.qB.data,
             qC = form_survey.qC.data,
