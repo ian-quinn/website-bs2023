@@ -745,35 +745,52 @@ def logout():
     logout_user()
     return redirect(url_for('gallery'))
 
-@app.route('/survey')
+@app.route('/survey', methods=["GET", "POST"])
 def survey():
     form_survey = SurveyForm()
 
     if form_survey.validate_on_submit():
-        firstname = form_apply.firstname.data
-        lastname = form_apply.lastname.data
-        if form_apply.file.data:
-            f = form_apply.file.data
-            filename = firstname.lower() + "_" + lastname.lower() + '_' + datetime.now().strftime('%m%d%H%M') + '.pdf'
-            if os.path.splitext(f.filename)[1] != '.pdf':
-                flash('Only support PDF', 'danger')
-                return redirect(url_for('reviewer'))
-            f.save(os.path.join(app.config['UPLOAD_PATH'], filename))
-        else:
-            filename = 'null'
         survey = Survey(
-            title=form_apply.title.data, 
-            firstname=firstname,
-            lastname=lastname, 
-            email=form_apply.email.data, 
-            organization=form_apply.organization.data, 
-            orcid=form_apply.orcid.data, 
-            bio=form_apply.bio.data, 
-            filename=filename, 
-            signed=True)
-        db.session.add(reviewer)
+            qA = form_survey.qA.data,
+            qB = form_survey.qB.data,
+            qC = form_survey.qC.data,
+
+            q01 = form_survey.q01.data,
+            q02 = form_survey.q02.data,
+            q03 = form_survey.q03.data,
+            q04 = form_survey.q04.data,
+            q05 = form_survey.q05.data,
+            q06 = form_survey.q06.data,
+            q07 = form_survey.q07.data,
+            q08 = form_survey.q08.data,
+            q09 = form_survey.q09.data,
+            q10 = form_survey.q10.data,
+            q11 = form_survey.q11.data,
+            q12 = form_survey.q12.data,
+            #--------------------------------------------------------------------------------
+            p01 = form_survey.p01.data if form_survey.p01.data else 1,
+            p02 = form_survey.p02.data if form_survey.p02.data else 1,
+            p03 = form_survey.p03.data if form_survey.p03.data else 1,
+            p04 = form_survey.p04.data if form_survey.p04.data else 1,
+            p05 = form_survey.p05.data if form_survey.p05.data else 1,
+            p06 = form_survey.p06.data if form_survey.p06.data else 1,
+            p07 = form_survey.p07.data if form_survey.p07.data else 1,
+            p08 = form_survey.p08.data if form_survey.p08.data else 1,
+            #--------------------------------------------------------------------------------
+            v01 = form_survey.v01.data if form_survey.v01.data else 1,
+            v02 = form_survey.v02.data if form_survey.v02.data else 1,
+            v03 = form_survey.v03.data if form_survey.v03.data else 1,
+            v04 = form_survey.v04.data if form_survey.v04.data else 1,
+            v05 = form_survey.v05.data if form_survey.v05.data else 1,
+            v06 = form_survey.v06.data if form_survey.v06.data else 1,
+            v07 = form_survey.v07.data if form_survey.v07.data else 1,
+            v08 = form_survey.v08.data if form_survey.v08.data else 1,
+            v09 = form_survey.v09.data if form_survey.v09.data else 1,
+            )
+        db.session.add(survey)
         db.session.commit()
-        flash('You have registered to the reviewer database. Thanks!', 'success')
+        print("_______________________________________", file=sys.stdout)
+        flash('Thanks for your feedback!', 'success')
         return redirect(url_for('survey'))
             
     return render_template('survey.html', form_survey=form_survey)

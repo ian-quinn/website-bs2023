@@ -207,12 +207,12 @@ class SurveyForm(FlaskForm):
 		coerce=int, validators=[NumberRange(min=1, max=10, message='Pick an option')], default=0)
 
 	qB = SelectField('What type of institution do you work', 
-		choices=[(0, '-- select an option --'), (1, 'university'), (2, 'large research institute + gvt'), (3, 'consulting engineering firm'), 
-		(4, 'other private company'), (5, 'architectural practice'), (6, 'energy utility'), (7, 'other')], 
+		choices=[(0, '-- select an option --'), (1, 'University'), (2, 'Large research institute / Government'), (3, 'Consulting / Engineering firm'), 
+		(4, 'Other private company'), (5, 'Architectural practice'), (6, 'Energy utility'), (7, 'Other')], 
 		coerce=int, validators=[NumberRange(min=1, max=10, message='Pick an option')], default=0)
 	qC = SelectField('What is the nature of your work', 
-		choices=[(0, '-- select an option --'), (1, 'researcher'), (2, 'student'), (3, 'teacher'), (4, 'software developer'), 
-		(5, 'design engineer'), (6, 'energy consultant'), (7, 'other')], 
+		choices=[(0, '-- select an option --'), (1, 'Researcher'), (2, 'Student'), (3, 'Teacher'), (4, 'Software developer'), 
+		(5, 'Design engineer'), (6, 'Energy consultant'), (7, 'Other')], 
 		coerce=int, validators=[NumberRange(min=1, max=10, message='Pick an option')], default=0)
 
 	#--------------------------------------------------------------
@@ -234,38 +234,38 @@ class SurveyForm(FlaskForm):
 	q09 = RadioField('How did you hear about the BS conference', 
 		choices=[(1, 'e-mail announcement'), (2, 'word-of-mouth'), (3, 'website of other institution'), (4, 'printed announcement'), (5, 'previous IBPSA event'), (6, 'other')])
 	
-	q12 = RadioField('Will you attend BS2025', choices=[(1, "yes"), (2, 'no')])
-	q13 = RadioField('Did you attend BS2021', choices=[(1, "yes"), (2, 'no')])
-	q14 = TextAreaField()
+	q10 = RadioField('Will you attend BS2025', choices=[(1, "yes"), (2, 'no')])
+	q11 = RadioField('Did you attend BS2021', choices=[(1, "yes"), (2, 'no')])
+	q12 = TextAreaField()
 	#-------------------------------------------------------
 	p01 = RadioField('Rate the meeting facilities and location', 
-		choices=[(1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')])
+		choices=[(0, ''), (1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')], default=0)
 	p02 = RadioField('Rate the pick-up/shuttle bus service', 
-		choices=[(1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')])
-	p03 = RadioField('Was there sufficient time to network and socialize', choices=[(1, "yes"), (2, 'no')])
-	p04 = RadioField('how did you find the exhibition in general', choices=[(1, 'very useful'), (2, 'somewhat useful'), (3, 'not useful')])
+		choices=[(0, ''), (1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')], default=0)
+	p03 = RadioField('Was there sufficient time to network and socialize', choices=[(0, ''), (1, "yes"), (2, 'no')], default=0)
+	p04 = RadioField('how did you find the exhibition in general', choices=[(0, ''), (1, 'very useful'), (2, 'somewhat useful'), (3, 'not useful')], default=0)
 	p05 = RadioField('Rate the scientific quality of the poster session', 
-		choices=[(1, 'very useful'), (2, 'somewhat useful'), (3, 'neutral'), (4, 'not useful'), (5, 'did not view')])
+		choices=[(0, ''), (1, 'very useful'), (2, 'somewhat useful'), (3, 'neutral'), (4, 'not useful'), (5, 'did not view')], default=0)
 	p06 = RadioField('Rate the social program (reception, banquet, river cruise)', 
-		choices=[(1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')])
+		choices=[(0, ''), (1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')], default=0)
 	p07 = RadioField('Rate the venue and catering, suitable for the conference', 
-		choices=[(1, 'agree'), (2, 'neutral'), (3, 'disagree')])
+		choices=[(0, ''), (1, 'agree'), (2, 'neutral'), (3, 'disagree')], default=0)
 	p08 = RadioField('Rate the conference guide system', 
-		choices=[(1, 'clear and easy to find'), (2, 'neutral'), (3, 'get lost in the venue')])
+		choices=[(0, ''), (1, 'clear and easy to find'), (2, 'neutral'), (3, 'get lost in the venue')], default=0)
 	#-------------------------------------------------------
-	v01 = RadioField('Rate the quality of the audio', choices=[(1, 'good'), (2, 'acceptable'), (3, 'poor')])
-	v02 = RadioField('Rate the quality of the video', choices=[(1, 'good'), (2, 'acceptable'), (3, 'poor')])
-	v03 = RadioField('What did you think of the online sessions', choices=[(1, 'good'), (2, 'acceptable'), (3, 'poor')])
-	v04 = TextAreaField(validators=[Length(0, 200)])
-	v05 = RadioField('Did you get a chance to ask questions', choices=[(1, "yes"), (2, 'no')])
-	v06 = TextAreaField(validators=[Length(0, 200)])
-	v07 = RadioField('Clear guidelines/templates for producing the video?', choices=[(1, "yes"), (2, 'no')])
+	v01 = RadioField('Rate the quality of the audio', choices=[(0, ''), (1, 'good'), (2, 'acceptable'), (3, 'poor')], default=0)
+	v02 = RadioField('Rate the quality of the video', choices=[(0, ''), (1, 'good'), (2, 'acceptable'), (3, 'poor')], default=0)
+	v03 = RadioField('What did you think of the online sessions', choices=[(0, ''), (1, 'good'), (2, 'acceptable'), (3, 'poor')], default=0)
+	v04 = TextAreaField(validators=[Length(0, 200)], default='')
+	v05 = RadioField('Did you get a chance to ask questions', choices=[(0, ''), (1, "yes"), (2, 'no')], default=0)
+	v06 = TextAreaField(validators=[Length(0, 200)], default='')
+	v07 = RadioField('Clear guidelines/templates for producing the video?', choices=[(0, ''), (1, "yes"), (2, 'no')], default=0)
 	v08 = RadioField('Rate the live-streaming and video replay', 
-		choices=[(1, 'very useful'), (2, 'somewhat useful'), (3, 'neutral'), (4, 'not useful'), (5, 'did not view')])
+		choices=[(0, ''), (1, 'very useful'), (2, 'somewhat useful'), (3, 'neutral'), (4, 'not useful'), (5, 'did not view')], default=0)
 	v09 = RadioField('Willing to pay more for online sessions?', 
-		choices=[(1, 'to pay significantly higher fees (comparable to physical attendance fees) to join such a hybrid conference remotely'), 
+		choices=[(0, ''), (1, 'to pay significantly higher fees (comparable to physical attendance fees) to join such a hybrid conference remotely'), 
 				 (2, 'or prefer lower fees for just viewing streaming of sessions'), 
-				 (3, 'or only interested in physically attending a Building Simulation conference in future')])
+				 (3, 'or only interested in physically attending a Building Simulation conference in future')], default=0)
 
 	#------------------------------------------------------------
 

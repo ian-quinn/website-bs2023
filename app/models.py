@@ -264,9 +264,9 @@ class Survey(db.Model):
     q03 = db.Column(db.Integer) # REVIEWER ONLY how did you find the review process
     q04 = db.Column(db.Integer) # Usefulness of website
     q05 = db.Column(db.Integer) # How do you rate the conference fees, was good value for money?
-    p06 = db.Column(db.Integer) # How useful did you find the keynote speeches
-    p07 = db.Column(db.Integer) # Rate the technical papers overall quality?
-    p08 = db.Column(db.Integer) # How did you find the length of the conference / number of days
+    q06 = db.Column(db.Integer) # How useful did you find the keynote speeches
+    q07 = db.Column(db.Integer) # Rate the technical papers overall quality?
+    q08 = db.Column(db.Integer) # How did you find the length of the conference / number of days
     q09 = db.Column(db.Integer) # How did you hear about the building simulation conference
     q10 = db.Column(db.Integer) # will you attend the next building simulation conference in Brisbane, Australia?
     q11 = db.Column(db.Integer) # did you attend the last building simulation conference, BS2021

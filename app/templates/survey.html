@@ -30,8 +30,6 @@
 <div class="container pt-2 pb-4">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <p>We thank all reviewers for your objective, insightful evaluations. Your contribution is acknowledged on the <a href="{{ url_for('committee', _anchor='reviewer') }}">committee</a> page, as well as a certificate that can be retrieved by your ConfTool account email down below.</p>
-
             <div class="card my-5" style="background-color: #f9f9f9">
                 <div class="card-body">
                     {% with messages = get_flashed_messages(with_categories=True) %}
@@ -53,7 +51,7 @@
                         <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> -->
                         {{ form_survey.hidden_tag() }}
 
-                        <label class="form-label mb-1 font-weight-bold">Choose your participant identity:</label>
+                        <label class="form-label mb-1 font-weight-bold">Choose your identity:</label>
 
                         <div class="row">
                             <div class="col-md-3 form-group">
@@ -76,7 +74,7 @@
 
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label class="form-label mb-1 text-2">Attendance mode<span style="color: #cd563e;"> ✱</span></label>
+                                <label class="form-label mb-1 text-2">Attendance mode</label>
                                 {{ form_survey.qA(class="form-select form-control h-auto", id="attendance-mode") }}
                                 {% for error in form_survey.qA.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
@@ -86,7 +84,7 @@
 
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label class="form-label mb-1 text-2">What type of institution do you work for?<span style="color: #cd563e;"> ✱</span></label>
+                                <label class="form-label mb-1 text-2">What type of institution do you work for?</label>
                                 {{ form_survey.qB(class="form-select form-control h-auto") }}
                                 {% for error in form_survey.qB.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
@@ -94,7 +92,7 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label class="form-label mb-1 text-2">What is the nature of your work?<span style="color: #cd563e;"> ✱</span></label>
+                                <label class="form-label mb-1 text-2">What is the nature of your work?</label>
                                 {{ form_survey.qC(class="form-select form-control h-auto") }}
                                 {% for error in form_survey.qC.errors %}
                                 <small style="color: #dc3545">{{ error }}</small>
@@ -261,9 +259,9 @@
                         </div>
 
                         <div style="margin-bottom: 50px;">
-                            <label class="form-label mb-1 font-weight-bold">10. Will you attend the next building simulation conference in Brisbane, Australia?</label>
+                            <label class="form-label mb-1 font-weight-bold">10. Will you attend the next Building Simulation Conference <a href="https://bs2025.org" target="_blank">BS2023</a> in Brisbane, Australia?</label>
                             <div>
-                                {% for subfield in form_survey.q12 %}
+                                {% for subfield in form_survey.q10 %}
                                 <div class="form-check form-check-inline">
                                     <tr>
                                         <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
@@ -272,15 +270,15 @@
                                 </div>
                                 {% endfor %}
                             </div>
-                            {% for error in form_survey.q12.errors %}
+                            {% for error in form_survey.q10.errors %}
                             <small style="color: #dc3545">{{ error }}</small>
                             {% endfor %}
                         </div>
 
                         <div style="margin-bottom: 50px;">
-                            <label class="form-label mb-1 font-weight-bold">11. Did you attend the last building simulation conference BS2021</label>
+                            <label class="form-label mb-1 font-weight-bold">11. Did you attend the last Building Simulation Conference BS2021 in Brussels, Belgium?</label>
                             <div>
-                                {% for subfield in form_survey.q13 %}
+                                {% for subfield in form_survey.q11 %}
                                 <div class="form-check form-check-inline">
                                     <tr>
                                         <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
@@ -289,7 +287,7 @@
                                 </div>
                                 {% endfor %}
                             </div>
-                            {% for error in form_survey.q13.errors %}
+                            {% for error in form_survey.q11.errors %}
                             <small style="color: #dc3545">{{ error }}</small>
                             {% endfor %}
                         </div>
@@ -300,15 +298,17 @@
 
                         <div id="physicalqueries">
                             <div style="margin-bottom: 50px;">
-                                <label class="form-label mb-1 font-weight-bold">12. How did you find the meeting facilities and location</label>
+                                <label class="form-label mb-1 font-weight-bold">12. How did you find the meeting facilities and location?</label>
                                 <div>
                                     {% for subfield in form_survey.p01 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.p01.errors %}
@@ -320,12 +320,14 @@
                                 <label class="form-label mb-1 font-weight-bold">13. How did you find the pick-up/shuttle bus service?</label>
                                 <div>
                                     {% for subfield in form_survey.p02 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.p02.errors %}
@@ -337,12 +339,14 @@
                                 <label class="form-label mb-1 font-weight-bold">14. Was there sufficient time to network and socialize?</label>
                                 <div>
                                     {% for subfield in form_survey.p03 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.p03.errors %}
@@ -354,12 +358,14 @@
                                 <label class="form-label mb-1 font-weight-bold">15. How did you find the exhibition in general?</label>
                                 <div>
                                     {% for subfield in form_survey.p04 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.p04.errors %}
@@ -368,15 +374,17 @@
                             </div>
 
                             <div style="margin-bottom: 50px;">
-                                <label class="form-label mb-1 font-weight-bold">16. What did you think of the scientific quality of the poster session?</label>
+                                <label class="form-label mb-1 font-weight-bold">16. What did you think of the scientific quality of the <a href="https://bs2023.org/gallery" target="_blank" style="color: #777777; text-decoration: underline;">poster session</a>?</label>
                                 <div>
                                     {% for subfield in form_survey.p05 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.p05.errors %}
@@ -388,12 +396,14 @@
                                 <label class="form-label mb-1 font-weight-bold">17. How would you rate the social program (reception, banquet, river cruise)?</label>
                                 <div>
                                     {% for subfield in form_survey.p06 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.p06.errors %}
@@ -405,12 +415,14 @@
                                 <label class="form-label mb-1 font-weight-bold">18. The venue and catering were suitable for the conference?</label>
                                 <div>
                                     {% for subfield in form_survey.p07 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.p07.errors %}
@@ -419,15 +431,17 @@
                             </div>
 
                             <div style="margin-bottom: 50px;">
-                                <label class="form-label mb-1 font-weight-bold">19. How did you find the conference guide system (guide book, signs, map, inquiry)?</label>
+                                <label class="form-label mb-1 font-weight-bold">19. How did you rate the signage/guide system (guidebook, inquiry, sign)?<span style="color: #cd563e;"> +</span></label>
                                 <div>
                                     {% for subfield in form_survey.p08 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.p08.errors %}
@@ -443,12 +457,14 @@
                                 <label class="form-label mb-1 font-weight-bold">12. How was the quality of the audio?</label>
                                 <div>
                                     {% for subfield in form_survey.v01 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.v01.errors %}
@@ -460,12 +476,14 @@
                                 <label class="form-label mb-1 font-weight-bold">13. How was the quality of the video?</label>
                                 <div>
                                     {% for subfield in form_survey.v02 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.v02.errors %}
@@ -477,12 +495,14 @@
                                 <label class="form-label mb-1 font-weight-bold">14. What did you think of the online sessions?</label>
                                 <div>
                                     {% for subfield in form_survey.v03 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.v03.errors %}
@@ -504,12 +524,14 @@
                                 <label class="form-label mb-1 font-weight-bold">15. Did you get a chance to ask questions?</label>
                                 <div>
                                     {% for subfield in form_survey.v05 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.v05.errors %}
@@ -531,12 +553,14 @@
                                 <label class="form-label mb-1 font-weight-bold">16. As a presenter/author, were the guidelines/templates for producing the video clear and adequate?</label>
                                 <div>
                                     {% for subfield in form_survey.v07 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.v07.errors %}
@@ -545,15 +569,17 @@
                             </div>
 
                             <div style="margin-bottom: 50px;">
-                                <label class="form-label mb-1 font-weight-bold">17. What do you think of the live-streaming and video replay?</label>
+                                <label class="form-label mb-1 font-weight-bold">17. What do you think of the live-streaming and <a href="https://bs2023.org/gallery" target="_blank" style="color: #777777; text-decoration: underline;">video replay</a>?<span style="color: #cd563e;"> +</span></label>
                                 <div>
                                     {% for subfield in form_survey.v08 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check form-check-inline">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.v08.errors %}
@@ -565,12 +591,14 @@
                                 <label class="form-label mb-1 font-weight-bold">18. Moving to a hybrid conference with a more immersive experience is expensive. We would like your views on whether you would be willing:</label>
                                 <div>
                                     {% for subfield in form_survey.v09 %}
+                                    {% if loop.index != 1 %}
                                     <div class="form-check">
                                         <tr>
                                             <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                             <td>{{ subfield.label(class="form-check-label") }}</td>
                                         </tr>
                                     </div>
+                                    {% endif %}
                                     {% endfor %}
                                 </div>
                                 {% for error in form_survey.v09.errors %}
@@ -584,8 +612,8 @@
 
                         <div class="form-group" id="box-for-v03" style="margin-bottom: 30px;">
                             <label class="form-label mb-1 text-2">Additional comments:</label>
-                            {{ form_survey.q14(type="text", maxlength="500", class="form-control text-3 h-auto", rows="3", placeholder="") }}
-                            {% for error in form_survey.q14.errors %}
+                            {{ form_survey.q12(type="text", maxlength="500", class="form-control text-3 h-auto", rows="3", placeholder="") }}
+                            {% for error in form_survey.q12.errors %}
                             <small style="color: #dc3545">{{ error }}</small>
                             {% endfor %}
                         </div>
@@ -613,7 +641,11 @@ $(document).ready(function() {
     $(".id-other").click(function() {
         var checkBoxes = $(".id-disable");
         checkBoxes.prop("checked", false);
-    });                 
+    });
+    $(".id-disable").click(function() {
+        var checkBoxes = $(".id-other");
+        checkBoxes.prop("checked", false);
+    });
 });
 
 $(document).ready(function() {
@@ -630,11 +662,15 @@ $(document).ready(function(){
       {
         $("#physicalqueries").show();
         $("#virtualqueries").hide();
+        // disable all input radio
+        $("#virtualqueries > input").attr("disabled","disabled");
       }
       else
       {
         $("#physicalqueries").hide();
         $("#virtualqueries").show();
+        // disable all input radio
+        $("#virtualqueries > input").attr("disabled","disabled");
       }
     });
 });
