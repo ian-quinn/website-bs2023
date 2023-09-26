@@ -6,6 +6,14 @@
     .q-hidden {
         display: none;
     }
+
+    #virtualqueries {
+        display: none;
+    }
+
+    #physicalqueries {
+        display: none;
+    }
 </style>
 {% endblock %}
 
@@ -656,36 +664,42 @@ $(document).ready(function() {
 });
 
 $(document).ready(function(){
+    var e = document.getElementById("attendance-mode");
+    var check = e.value;
+    if ( check == 1 )
+    {
+        $("#physicalqueries").show();
+    }
+    else if ( check == 2)
+    {
+        $("#virtualqueries").show();
+    }
     $('#attendance-mode').on('change', function() {  
         var name=this.value;
-      if ( name == 1 )
-      {
-        $("#physicalqueries").show();
-        $("#virtualqueries").hide();
-        // disable all input radio
-        $("#virtualqueries > input").attr("disabled","disabled");
-      }
-      else
-      {
-        $("#physicalqueries").hide();
-        $("#virtualqueries").show();
-        // disable all input radio
-        $("#virtualqueries > input").attr("disabled","disabled");
-      }
+        if ( name == 1 )
+        {
+            $("#physicalqueries").show();
+            $("#virtualqueries").hide();
+        }
+        else if (name == 2)
+        {
+            $("#physicalqueries").hide();
+            $("#virtualqueries").show();
+        }
     });
 });
 
 $(document).ready(function(){
 
     $("input[name='v03']").on('click', function() {
-        if ($("#v03-2").is(":checked")) {
+        if ($("#v03-3").is(":checked")) {
             $("#box-for-v03").show();
         } else {
             $("#box-for-v03").hide();
         }
     });
     $("input[name='v05']").on('click', function() {
-        if ($("#v05-1").is(":checked")) {
+        if ($("#v05-2").is(":checked")) {
             $("#box-for-v05").show();
         } else {
             $("#box-for-v05").hide();
