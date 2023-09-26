@@ -649,6 +649,19 @@ $(document).ready(function() {
     $(".id-other").click(function() {
         var checkBoxes = $(".id-disable");
         checkBoxes.prop("checked", false);
+        if ($('#is_author').checked) {
+            $('.q-author').show();
+        }
+        else {
+            $('.q-author').hide();
+        }
+        if ($('#is_reviewer').checked) {
+            $('.q-reviewer').show();
+        }
+        else
+        {
+            $('.q-reviewer').hide();
+        }
     });
     $(".id-disable").click(function() {
         var checkBoxes = $(".id-other");
@@ -662,6 +675,7 @@ $(document).ready(function() {
         $("." + inputValue).toggle();
     });
 });
+
 
 $(document).ready(function(){
     var e = document.getElementById("attendance-mode");
