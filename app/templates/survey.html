@@ -133,12 +133,14 @@
                             <label class="form-label mb-1 font-weight-bold">2. As a presenter/author, how did you find the review process?</label>
                             <div>
                                 {% for subfield in form_survey.q02 %}
+                                {% if loop.index != 1 %}
                                 <div class="form-check form-check-inline">
                                     <tr>
                                         <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                         <td>{{ subfield.label(class="form-check-label") }}</td>
                                     </tr>
                                 </div>
+                                {% endif %}
                                 {% endfor %}
                             </div>
                             {% for error in form_survey.q02.errors %}
@@ -150,12 +152,14 @@
                             <label class="form-label mb-1 font-weight-bold">3. As a reviewer, how did you find the review process?</label>
                             <div>
                                 {% for subfield in form_survey.q03 %}
+                                {% if loop.index != 1 %}
                                 <div class="form-check form-check-inline">
                                     <tr>
                                         <td>{{ subfield(class="form-check-input", style="margin-top: 6px;") }}</td>
                                         <td>{{ subfield.label(class="form-check-label") }}</td>
                                     </tr>
                                 </div>
+                                {% endif %}
                                 {% endfor %}
                             </div>
                             {% for error in form_survey.q03.errors %}
@@ -325,7 +329,7 @@
                             </div>
 
                             <div style="margin-bottom: 50px;">
-                                <label class="form-label mb-1 font-weight-bold">13. How did you find the pick-up/shuttle bus service?<span style="color: #cd563e;"> +</span></label>
+                                <label class="form-label mb-1 font-weight-bold">13. How did you find the pick-up/shuttle bus service?</label>
                                 <div>
                                     {% for subfield in form_survey.p02 %}
                                     {% if loop.index != 1 %}
@@ -439,7 +443,7 @@
                             </div>
 
                             <div style="margin-bottom: 50px;">
-                                <label class="form-label mb-1 font-weight-bold">19. How did you rate the signage/guide system (guidebook, inquiry, sign)?<span style="color: #cd563e;"> +</span></label>
+                                <label class="form-label mb-1 font-weight-bold">19. How did you rate the signage/guide system (guidebook, inquiry, sign)?</label>
                                 <div>
                                     {% for subfield in form_survey.p08 %}
                                     {% if loop.index != 1 %}
@@ -519,7 +523,7 @@
 
                                 <div class="form-group" id="box-for-v03" style="display: none">
                                     <label class="form-label mb-1 text-2">Your suggestions to the virtual session:</label>
-                                    {{ form_survey.v04(type="text", maxlength="500", class="form-control text-3 h-auto", rows="2", placeholder="") }}
+                                    {{ form_survey.v04(type="text", maxlength="500", class="form-control text-3 h-auto", rows="2", placeholder=" ") }}
                                     {% for error in form_survey.v04.errors %}
                                     <small style="color: #dc3545">{{ error }}</small>
                                     {% endfor %}
@@ -548,7 +552,7 @@
 
                                 <div class="form-group" id="box-for-v05" style="display: none">
                                     <label class="form-label mb-1 text-2">Please detail the reason why:</label>
-                                    {{ form_survey.v06(type="text", maxlength="500", class="form-control text-3 h-auto", rows="2", placeholder="") }}
+                                    {{ form_survey.v06(type="text", maxlength="500", class="form-control text-3 h-auto", rows="2", placeholder=" ") }}
                                     {% for error in form_survey.v06.errors %}
                                     <small style="color: #dc3545">{{ error }}</small>
                                     {% endfor %}
@@ -577,7 +581,7 @@
                             </div>
 
                             <div style="margin-bottom: 50px;">
-                                <label class="form-label mb-1 font-weight-bold">17. What do you think of the live-streaming and <a href="https://bs2023.org/gallery" target="_blank" style="color: #777777; text-decoration: underline;">video replay</a>?<span style="color: #cd563e;"> +</span></label>
+                                <label class="form-label mb-1 font-weight-bold">17. What do you think of the live-streaming and <a href="https://bs2023.org/gallery" target="_blank" style="color: #777777; text-decoration: underline;">video replay</a>?</label>
                                 <div>
                                     {% for subfield in form_survey.v08 %}
                                     {% if loop.index != 1 %}
@@ -646,6 +650,12 @@
 {% block scripts %}
 <script type="text/javascript">
 $(document).ready(function() {
+    if ($('#is_author').checked) {
+        $('.q-author').show();
+    }
+    if ($('#is_reviewer').checked) {
+        $('.q-reviewer').show();
+    }
     $(".id-other").click(function() {
         var checkBoxes = $(".id-disable");
         checkBoxes.prop("checked", false);
@@ -704,7 +714,16 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-
+    if ($("#v03-3").is(":checked")) {
+        $("#box-for-v03").show();
+    } else {
+        $("#box-for-v03").hide();
+    }
+    if ($("#v05-2").is(":checked")) {
+        $("#box-for-v05").show();
+    } else {
+        $("#box-for-v05").hide();
+    }
     $("input[name='v03']").on('click', function() {
         if ($("#v03-3").is(":checked")) {
             $("#box-for-v03").show();

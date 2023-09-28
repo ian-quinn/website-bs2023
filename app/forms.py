@@ -218,9 +218,9 @@ class SurveyForm(FlaskForm):
 	#--------------------------------------------------------------
 	q01 = RadioField('Usefulness of the conference', choices=[(1, 'very useful'), (2, 'somewhat useful'), (3, 'not useful')], coerce=int) 
 	q02 = RadioField('As presenter/author, how did you find the review process', 
-		choices=[(1, 'too lenient'), (2, 'appropriate'), (3, 'rigorous'), (4, 'overly rigorous'), (5, 'no opinion')])
+		choices=[(0, 'not applicable'), (1, 'too lenient'), (2, 'appropriate'), (3, 'rigorous'), (4, 'overly rigorous'), (5, 'no opinion')], default=0)
 	q03 = RadioField('As reviewer, how did you find the review process', 
-		choices=[(1, 'Appropriate'), (2, 'too much work'), (3, 'willing to do more reviews')])
+		choices=[(0, 'not applicable'), (1, 'Appropriate'), (2, 'too much work'), (3, 'willing to do more reviews')], default=0)
 	q04 = RadioField('Usefulness of the website', 
 		choices=[(1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')])
 	q05 = RadioField('Conference fees', 
@@ -236,7 +236,7 @@ class SurveyForm(FlaskForm):
 	
 	q10 = RadioField('Will you attend BS2025', choices=[(1, "yes"), (2, 'no')])
 	q11 = RadioField('Did you attend BS2021', choices=[(1, "yes"), (2, 'no')])
-	q12 = TextAreaField()
+	q12 = TextAreaField('General comments', validators=[Length(max=500)], default='')
 	#-------------------------------------------------------
 	p01 = RadioField('Rate the meeting facilities and location', 
 		choices=[(0, ''), (1, 'excellent'), (2, 'very good'), (3, 'good'), (4, 'acceptable'), (5, 'poor')], default=0)
@@ -256,9 +256,9 @@ class SurveyForm(FlaskForm):
 	v01 = RadioField('Rate the quality of the audio', choices=[(0, ''), (1, 'good'), (2, 'acceptable'), (3, 'poor')], default=0)
 	v02 = RadioField('Rate the quality of the video', choices=[(0, ''), (1, 'good'), (2, 'acceptable'), (3, 'poor')], default=0)
 	v03 = RadioField('What did you think of the online sessions', choices=[(0, ''), (1, 'good'), (2, 'acceptable'), (3, 'poor')], default=0)
-	v04 = TextAreaField(validators=[Length(0, 200)], default='')
+	v04 = TextAreaField('Suggestions for online sessions', validators=[Length(max=500)], default='')
 	v05 = RadioField('Did you get a chance to ask questions', choices=[(0, ''), (1, "yes"), (2, 'no')], default=0)
-	v06 = TextAreaField(validators=[Length(0, 200)], default='')
+	v06 = TextAreaField('Reason why', validators=[Length(max=500)], default='')
 	v07 = RadioField('Clear guidelines/templates for producing the video?', choices=[(0, ''), (1, "yes"), (2, 'no')], default=0)
 	v08 = RadioField('Rate the live-streaming and video replay', 
 		choices=[(0, ''), (1, 'very useful'), (2, 'somewhat useful'), (3, 'neutral'), (4, 'not useful'), (5, 'did not view')], default=0)

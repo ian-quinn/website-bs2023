@@ -23,6 +23,17 @@ from app.email import send_auth_link
 
 from app.wkhtmltopdf import printpdf
 
+def get_country(ip_address):
+    try:
+        response = requests.get("http://ip-api.com/json/{}".format(ip_address))
+        js = response.json()
+        country = js['countryCode']
+        return country
+    except Exception as e:
+        return "Unknown"
+
+# ------------------------------------------------------------------------------
+
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -755,10 +766,16 @@ def survey():
         if (form_survey.is_reviewer.data): ids.append('2')
         if (form_survey.is_exhibitor.data): ids.append('3')
         if (form_survey.is_other.data): ids.append('4')
+        if len(ids) > 0:
+            identity = int(''.join(ids))
+        else:
+            identity = 0
 
-        identity = int(''.join(ids))
+        ip_address = request.remote_addr
+        country = get_country(ip_address)
 
         survey = Survey(
+            cookie = country,
             identity = identity,
 
             qA = form_survey.qA.data,
@@ -776,7 +793,7 @@ def survey():
             q09 = form_survey.q09.data,
             q10 = form_survey.q10.data,
             q11 = form_survey.q11.data,
-            q12 = form_survey.q12.data,
+            q12 = form_survey.q12.data if form_survey.q12.data else "none",
             #--------------------------------------------------------------------------------
             p01 = form_survey.p01.data if form_survey.p01.data else 1,
             p02 = form_survey.p02.data if form_survey.p02.data else 1,
@@ -790,9 +807,9 @@ def survey():
             v01 = form_survey.v01.data if form_survey.v01.data else 1,
             v02 = form_survey.v02.data if form_survey.v02.data else 1,
             v03 = form_survey.v03.data if form_survey.v03.data else 1,
-            v04 = form_survey.v04.data if form_survey.v04.data else 1,
+            v04 = form_survey.v04.data if form_survey.v04.data else "none",
             v05 = form_survey.v05.data if form_survey.v05.data else 1,
-            v06 = form_survey.v06.data if form_survey.v06.data else 1,
+            v06 = form_survey.v06.data if form_survey.v06.data else "none",
             v07 = form_survey.v07.data if form_survey.v07.data else 1,
             v08 = form_survey.v08.data if form_survey.v08.data else 1,
             v09 = form_survey.v09.data if form_survey.v09.data else 1,
