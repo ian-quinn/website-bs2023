@@ -35,7 +35,7 @@
             <div class="mb-5 panel-album" style="border: 1px solid #888888; height: 200px;">
                 <div class="panel-text p-4">
                     <h2 style="font-weight: bold; color: #ffffff; letter-spacing: 0px;">Album</h2>
-                    <p style="color: #ffffff"><b>5504/5504</b> uploaded</p>
+                    <p style="color: #ffffff"><b>5504</b> uploaded</p>
                     <div style="text-align: right; display: flex; justify-content: right;">
                         <a href="https://live.photoplus.cn/live/pc/55680432/#/live" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2" target="_blank">Sept. 3<sup>rd</sup></a>
                         <a href="https://live.photoplus.cn/live/pc/7396431/#/live" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2" target="_blank">Sept. 4<sup>th</sup></a>
@@ -74,7 +74,7 @@
                 {% if current_user.is_authenticated %}<a href="{{ url_for('poster') }}" style="text-decoration: none;">{% endif %}
                     <div class="panel-text p-4">
                         <h2 style="font-weight: bold; color: #ffffff; letter-spacing: 0px;">Posters</h2>
-                        <p style="color: #ffffff"><b>44/45</b> uploaded</p>
+                        <p style="color: #ffffff"><b>45</b> uploaded</p>
                         <div style="text-align: right; display: flex; justify-content: right;">
                             <a href="{{ url_for('poster_cate', cate_id=1) }}" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2 {% if not current_user.is_authenticated %}disabled{% endif %}" target="_blank">Academic Paper</a>
                             <a href="{{ url_for('poster_cate', cate_id=2) }}" class="btn btn-outline-light btn-xs font-weight-semi-bold btn-py-2 px-4 text-1 ms-2 {% if not current_user.is_authenticated %}disabled{% endif %}" target="_blank">Student Competition</a>
