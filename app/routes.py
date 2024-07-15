@@ -78,7 +78,7 @@ def publication():
         resource_path = os.path.join(current_app.root_path, app.config['WKRESOURCE_PATH'])
     
         if paper:
-            if paper.is_paid:
+            if paper.is_paid and paper.mode_presentation: # mode_presentation == 1 stands for research paper
                 if not paper.path_cert:
                     cert_name = f'cert_{contribution_id}.pdf'
                     output_path = os.path.join(app.config['CERT_PATH'], cert_name)
